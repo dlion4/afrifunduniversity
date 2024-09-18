@@ -222,3 +222,4 @@ class AfriFundLoadYoutubeVideoLinkView(View):
             "https://www.youtube.com/embed/rySJ2Cm5xwc?list=RDGMEMYH9CUrFO7CfLJpaD7UR85w" 
             ]
         return JsonResponse(links, safe=False)
+

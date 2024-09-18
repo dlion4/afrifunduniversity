@@ -12,3 +12,9 @@ class Review(models.Model):
 
     def __str__(self):
         return f"{self.review_title} by {self.display_name}"
+
+class Subscription(models.Model):
+    email = models.EmailField(max_length=100)
+
+    def __str__(self):
+        return self.email

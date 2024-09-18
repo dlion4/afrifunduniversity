@@ -1,0 +1,80 @@
+{% load static %}
+
+<div class="sign-up-form sign-up__hide background-color__light-teal" data-modal="sign-up-form" data-section-name="Sign up" data-sign-up-form="form-container">
+  <div class="section-container">
+    <button class="sign-up-form__close-button" data-sign-up-banner="close" title="close" type="button">
+      <svg width="20" height="20" viewbox="0 0 20 20" style="color: #002769">
+        <use href="{% static 'assets/images/icons/global/x_close.svg' %}#x_close"></use>
+      </svg>
+    </button>
+    <div class="sign-up-form__outer-container">
+      <div class="sign-up-form__container">
+        <div class="sign-up-form__left-column">
+          <div class="sign-up-form__icon background-color__teal">
+            <svg viewbox="0 0 35 34">
+              <use href="{% static 'assets/images/icons/global/lightbulb.svg' %}#lightbulb"></use>
+            </svg>
+          </div>
+          <div class="sign-up-form__headline">
+            <h4 class="h4">Sign up</h4>
+          </div>
+        </div>
+        <div class="sign-up-form__right-column">
+          <div class="sign-up-form__form-container">
+            <form data-form-id="blog-subscription" data-form-type="subscribeForm" data-form-status="pending" data-data-extension="College Corner Subscribers" data-subscribe-keys="16507,16511" data-triggered-email-key="16336" data-acq-source="College Corner" data-account-type="transaction">
+              <div class="form-field form-field__text-input" data-form-field="email">
+                <label class="form-field__label-container">
+                  <p class="form-field__label">Enter your email</p>
+                  <div class="form-field__text-input-container">
+                    <input name="email" type="email" placeholder="" maxlength="" class="form-field__input">
+                    <img src="{% static 'assets/images/icons/input-error.svg' %}" alt="error" class="form-field__icon form-field__icon--error">
+                    <img src="{% static 'assets/images/icons/input-success.svg' %}" alt="success" class="form-field__icon form-field__icon--success">
+                  </div>
+                </label>
+              </div>
+              <button type="button" aria-label="Subscribe" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-203 button__mobile-full-width">
+                <svg class="loading-animation" viewbox="0 0 50 50">
+                  <circle cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                </svg>
+                <span class="button__submit-button-content">
+                  Subscribe
+                </span>
+                <span class="button__submit-button-success">Success</span>
+              </button>
+            </form>
+          </div>
+          <div class="sign-up-form__extra-text-container">
+            <p class="p-xsmall">By providing your email address, you agree to our
+              <a href='/privacy/'>Privacy Policy</a>
+              and you give College Ave permission to contact you. College Ave respects your inbox and will only send periodic emails.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="sign-up-banner" data-section-name="Sign Up Banner">
+  <div class="sign-up-banner__full-width-bg background-color__light-teal">
+    <div class="section-container">
+      <div class="sign-up-banner__container">
+        <div class="sign-up-banner__icon">
+          <img src="{% static 'assets/temp/banner-lightbulb-icon.svg' %}" alt="icon for lightbulb">
+        </div>
+        <div class="sign-up-banner__content">
+          <button type="button" data-sign-up-banner="trigger" class="arrow-link">Sign up for monthly college resources, financial news,
+            <span class="arrow-link__anchor">& advice
+              <svg width="16" height="14" viewbox="0 0 16 14" style="color: #002769">
+                <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
+              </svg>
+            </span>
+          </button>
+        </div>
+        <button title="close" type="button" class="sign-up-banner__close-button" data-sign-up-banner="close">
+          <svg width="20" height="20" viewbox="0 0 20 20" style="color: #002769">
+            <use href="{% static 'assets/images/icons/global/x_close.svg' %}#x_close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -49,15 +49,30 @@ class ArticleSerializer(serializers.ModelSerializer):
         category_data = validated_data.pop("category")
         category=Category.objects.using(
             "afrifundpress").get(label=category_data.get("label"))
+        title_field = validated_data.pop("title")
         return Article.objects.using(
             "afrifundpress").create(
-                category=category,title=validated_data.pop("title"),slug=slugify(validated_data.pop("title")),
+                category=category,
+                title = title_field,
+                slug=slugify(title_field),
                 **validated_data,
             )
 
     def update(self, instance, validated_data):
-        obj = Article.objects.using("afrifundpress").get(pk=instance.pk)
-        return super().update(obj, validated_data)
+        # Handle nested category update
+        category_data = validated_data.pop("category", None)
+        if category_data:
+            category = Category.objects.using(
+                "afrifundpress").get(label=category_data.get("label"))
+            instance.category = category
+
+        # Update other fields
+        instance.title = validated_data.get("title", instance.title)
+        instance.content = validated_data.get("content", instance.content)
+        instance.author = validated_data.get("author", instance.author)
+
+        instance.save(using="afrifundpress")
+        return instance
 
 
 

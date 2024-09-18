@@ -96,6 +96,8 @@ LOCAL_APPS = [
     "apps.schools.school",
     # For the press and related nes
     "apps.press",
+    # for the environment variables
+    "afrifunduniversity.environments",
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
