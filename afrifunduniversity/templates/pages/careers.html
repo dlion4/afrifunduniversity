@@ -1,3 +1,383 @@
 {% extends "layout.html" %}
 {% load static humanize %}
-{% block content %}{% endblock content %}
+{% block content %}
+
+  <section class="hero text-image-hero-section background-color__light-orange text-image-hero-section__wider-text" data-site-animation-breakpoint="992" data-section-name="A-Spot > Careers">
+    <div class="site-breadcrumbs site-breadcrumbs__hero">
+      <div class="site-breadcrumbs__container">
+
+        <nav class="site-breadcrumbs__mobile">
+          <p class="p-small">
+            < <a data-link-name="Breadcrumb > Home" href="{% url 'home' %}">Home</a>
+          </p>
+        </nav>
+      </div>
+    </div>
+
+    <div class="section-container">
+      <div class="text-image-hero-section__container">
+        <div class="text-image-hero-section__column-content">
+          <div class="text-image-hero-section__text-content">
+            <h1 class="h1 h1__mobile-small" data-site-animation-order="0">Careers</h1>
+            <p class="p-large" data-site-animation-order="1">At Afri Fund University, we’ve brought together a top-notch team of selfless problem solvers, each dedicated to doing the right thing for our customers. We’re looking for honesty and integrity; adaptability and a strong work ethic; a sense of humor and an entrepreneurial spirit.</p>
+          </div>
+          <div class="text-image-hero-section__buttons-container" data-site-animation-order="2">
+
+            <a href="#open-positions" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-247" data-link-name="View Open Positions">
+              View Open Positions
+            </a>
+          </div>
+        </div>
+        <div class="text-image-hero-section__column-image" data-site-animation-order="4">
+
+          <picture>
+            <source media="(min-width: 992px)" srcset="{% static 'assets/images/careers-hero.png' %}">
+            <img width="1036" height="848" src="{% static 'assets/images/careers-hero.png' %}" class="attachment-full size-full" alt="people" decoding="async"/>
+          </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="careers-about-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Work at Afri Fund University">
+    <div class="section-container">
+      <div class="careers-about-section__outer-container background-color__light-green">
+        <div class="careers-about-section__container">
+          <div class="careers-about-section__content-column">
+
+            <div class="careers-about-section__content-top-container">
+              <h2 class="h2" data-site-animation-order="1">Work at Afri Fund University</h2>
+              <div class="careers-about-section__paragraphs" data-site-animation-order="1">
+                <p class="p-large">Based in Wilmington, Delaware, Afri Fund University Student Loans specializes in helping students and families pay for higher education. We pride ourselves on giving our customers the best experience and aim to do the same for our employees.</p>
+                <p class="p-large">At Afri Fund University, we've brought together a top-notch team of selfless problem solvers, each dedicated to doing the right thing for our customers. Our financial services experience runs deep, but our love of corporate red-tape does not, so we've created an environment that is comfortable, performance driven, and extremely collaborative. While we don't take ourselves too seriously, we understand the commitment our customers are making and always give the professional dedication they deserve.</p>
+              </div>
+            </div>
+
+            <div class="careers-about-section__content-bottom-container" data-site-animation-order="1">
+
+              <a href="#open-positions" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-247" data-link-name="View All Positions">
+                View All Positions
+              </a>
+              <p class="p-xsmall">*For information about Afri Fund University's Data Collection and Privacy Policy,
+                <a data-link-name="click here" href="/privacy/">click here</a>
+              </p>
+            </div>
+          </div>
+          <div class="careers-about-section__details-column">
+            <h4 class="h4" data-site-animation-order="2">Company Facts</h4>
+            <div class="careers-about-section__details-container">
+              <div class="careers-about-section__detail-block" data-site-animation-order="3">
+                <p class="careers-about-section__detail-block-title">Headquarters</p>
+                <p class="careers-about-section__detail-block-callout">Wilmington, DE</p>
+              </div>
+              <div class="careers-about-section__detail-block" data-site-animation-order="4">
+                <p class="careers-about-section__detail-block-title">Founding Year</p>
+                <p class="careers-about-section__detail-block-callout">2014</p>
+              </div>
+              <div class="careers-about-section__detail-block" data-site-animation-order="5">
+                <p class="careers-about-section__detail-block-title">Team Size</p>
+                <p class="careers-about-section__detail-block-callout">89 Employees</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="three-column-icon-grid-section background-color__gray" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Our Culture & Benefits">
+    <div class="section-container">
+      <div class="three-column-icon-grid-section__container">
+        <div class="three-column-icon-grid-section__header-container">
+          <h2 class="h2" data-site-animation-order="0">Our Culture & Benefits</h2>
+          <div class="three-column-icon-grid-section__paragraphs" data-site-animation-order="1">
+            <p class="p-large">Afri Fund University offers competitive compensation plans and several benefits to ensure our team is maximizing their potential - in and out of the office. We proudly offer our full-time employees the following benefits:</p>
+          </div>
+        </div>
+        <div class="three-column-icon-grid-section__grid" data-site-animation-order="2">
+          <div class="three-column-icon-grid-section__grid-item">
+            <div class="three-column-icon-grid-section__grid-item--teal_circle">
+              <img width="96" height="96" src="{% static 'assets/images/health-badge-icon.png' %}" class="attachment-thumbnail size-thumbnail" alt="" decoding="async"/>
+            </div>
+            <div class="three-column-icon-grid-section__grid-item-title">
+              <h4 class="h4">Health, Vision & Dental Insurance</h4>
+            </div>
+          </div>
+          <div class="three-column-icon-grid-section__grid-item">
+            <div class="three-column-icon-grid-section__grid-item--teal_circle">
+              <img width="96" height="96" src="{% static 'assets/images/sun-ocean-icon.png' %}" class="attachment-thumbnail size-thumbnail" alt="" decoding="async"/>
+            </div>
+            <div class="three-column-icon-grid-section__grid-item-title">
+              <h4 class="h4">Paid Time Off, Holidays & Paid Parental Leave</h4>
+            </div>
+          </div>
+          <div class="three-column-icon-grid-section__grid-item">
+            <div class="three-column-icon-grid-section__grid-item--teal_circle">
+              <img width="96" height="96" src="{% static 'assets/images/piggy-bank-icon.png' %}" class="attachment-thumbnail size-thumbnail" alt="" decoding="async"/>
+            </div>
+            <div class="three-column-icon-grid-section__grid-item-title">
+              <h4 class="h4">401(k) Retirement Savings Plan</h4>
+            </div>
+          </div>
+          <div class="three-column-icon-grid-section__grid-item">
+            <div class="three-column-icon-grid-section__grid-item--teal_circle">
+              <img width="96" height="96" src="{% static 'assets/images/clock-tea-icon.png' %}" class="attachment-thumbnail size-thumbnail" alt="" decoding="async"/>
+            </div>
+            <div class="three-column-icon-grid-section__grid-item-title">
+              <h4 class="h4">Hybrid Work Schedule</h4>
+            </div>
+          </div>
+          <div class="three-column-icon-grid-section__grid-item">
+            <div class="three-column-icon-grid-section__grid-item--teal_circle">
+              <img width="96" height="96" src="{% static 'assets/images/high-five-icon.png' %}" class="attachment-thumbnail size-thumbnail" alt="" decoding="async"/>
+            </div>
+            <div class="three-column-icon-grid-section__grid-item-title">
+              <h4 class="h4">Team Building & Offsites</h4>
+            </div>
+          </div>
+          <div class="three-column-icon-grid-section__grid-item">
+            <div class="three-column-icon-grid-section__grid-item--teal_circle">
+              <img width="96" height="96" src="{% static 'assets/images/seed-icon.png' %}" class="attachment-thumbnail size-thumbnail" alt="" decoding="async"/>
+            </div>
+            <div class="three-column-icon-grid-section__grid-item-title">
+              <h4 class="h4">Community Engagement</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="team-member-spotlight" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Team Member Spotlight">
+    <div class="section-container">
+      <div class="team-member-spotlight__container">
+        <div class="team-member-spotlight__header">
+          <h2 class="h2" data-site-animation-order="1">Team Member Spotlight</h2>
+        </div>
+
+        <div class="team-member-spotlight-carousel" data-site-animation-order="2">
+          <div class="team-member-spotlight-carousel__container keen-slider" data-slider="team-member-cards">
+            <div class="team-member-spotlight-carousel__card keen-slider__slide">
+              <div class="team-member-spotlight-card background-color__light-teal">
+                <div class="team-member-spotlight-card__container">
+                  <div class="team-member-spotlight-card__image-column">
+                    <div class="team-member-spotlight-card__background-image">
+                      <img src="{% static 'assets/images/icons/team-member-spotlight.svg' %}" class="attachment-full size-full" alt="" decoding="async"/>
+                    </div>
+                    <div class="team-member-spotlight-card__image-frame">
+                      <div class="team-member-spotlight-card__image-container">
+                        <img width="502" height="524" src="{% static 'assets/images/EmployeeSpotlight.png' %}" class="attachment-full size-full" alt="Katie Jacobs" decoding="async"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="team-member-spotlight-card__content-column">
+                    <div class="team-member-spotlight-card__content-container">
+                      <img class="team-member-spotlight-card__quote-icon hidden-md hidden-sm hidden-xs" src="{% static 'assets/images/icons/quote.svg' %}" alt="quotation mark">
+                      <div class="team-member-spotlight-card__text">
+                        <div class="team-member-spotlight-card__person-info">
+                          <h4 class="h4">Katie Jacobs</h4>
+                          <p class="p-small">Marketing</p>
+                        </div>
+                        <p class="p-large team-member-spotlight-card__quote">"I'm always amazed by the depth and diversity of talent within Afri Fund University. Working at a small company, you get the benefits of constant exposure to a variety of projects while also having the ability to become a subject matter expert in a particular area. But above all, I love the sense of accomplishment you feel each day seeing that the work you're doing directly impacts the success of the team, our goals, and the company."</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="team-member-spotlight-card__position-container background-color__white">
+                    <p clas="p-small team-member-spotlight-card__position">
+                      <strong>1 of 5</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-member-spotlight-carousel__card keen-slider__slide">
+              <div class="team-member-spotlight-card background-color__light-teal">
+                <div class="team-member-spotlight-card__container">
+                  <div class="team-member-spotlight-card__image-column">
+                    <div class="team-member-spotlight-card__background-image">
+                      <img src="{% static 'assets/images/icons/team-member-spotlight.svg' %}" class="attachment-full size-full" alt="" decoding="async"/>
+                    </div>
+                    <div class="team-member-spotlight-card__image-frame">
+                      <div class="team-member-spotlight-card__image-container">
+                        <img width="578" height="598" src="{% static 'assets/images/EmployeeSpotlight-AS.png' %}" class="attachment-full size-full" alt="Amir Sardarizadeh" decoding="async"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="team-member-spotlight-card__content-column">
+                    <div class="team-member-spotlight-card__content-container">
+                      <img class="team-member-spotlight-card__quote-icon hidden-md hidden-sm hidden-xs" src="{% static 'assets/images/icons/quote.svg' %}" alt="quotation mark">
+                      <div class="team-member-spotlight-card__text">
+                        <div class="team-member-spotlight-card__person-info">
+                          <h4 class="h4">Amir Sardarizadeh</h4>
+                          <p class="p-small">Information Security</p>
+                        </div>
+                        <p class="p-large team-member-spotlight-card__quote">"Afri Fund University has enabled me to achieve my career objectives. I enjoy working in an environment that brings daily challenges and where I am constantly learning. I'm empowered to make important decisions and take pride in contributing to a team that champions excellence and drives innovation."</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="team-member-spotlight-card__position-container background-color__white">
+                    <p clas="p-small team-member-spotlight-card__position">
+                      <strong>2 of 5</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-member-spotlight-carousel__card keen-slider__slide">
+              <div class="team-member-spotlight-card background-color__light-teal">
+                <div class="team-member-spotlight-card__container">
+                  <div class="team-member-spotlight-card__image-column">
+                    <div class="team-member-spotlight-card__background-image">
+                      <img src="{% static 'assets/images/icons/team-member-spotlight.svg' %}" class="attachment-full size-full" alt="" decoding="async"/>
+                    </div>
+                    <div class="team-member-spotlight-card__image-frame">
+                      <div class="team-member-spotlight-card__image-container">
+                        <img width="744" height="774" src="{% static 'assets/images/EmployeeSpotlight_GR.png' %}" class="attachment-full size-full" alt="Greg Robinson" decoding="async"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="team-member-spotlight-card__content-column">
+                    <div class="team-member-spotlight-card__content-container">
+                      <img class="team-member-spotlight-card__quote-icon hidden-md hidden-sm hidden-xs" src="{% static 'assets/images/icons/quote.svg' %}" alt="quotation mark">
+                      <div class="team-member-spotlight-card__text">
+                        <div class="team-member-spotlight-card__person-info">
+                          <h4 class="h4">Greg Robinson</h4>
+                          <p class="p-small">Finance</p>
+                        </div>
+                        <p class="p-large team-member-spotlight-card__quote">"Afri Fund University is a great place to work if you have a curious mind, a desire to be challenged, and a motivation to do meaningful work. The company is unified by a common set of goals with an appropriate balance of personal accountability and teamwork. The expectations are high but so too is the reward of achieving something bigger than yourself with a great group of people."</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="team-member-spotlight-card__position-container background-color__white">
+                    <p clas="p-small team-member-spotlight-card__position">
+                      <strong>3 of 5</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-member-spotlight-carousel__card keen-slider__slide">
+              <div class="team-member-spotlight-card background-color__light-teal">
+                <div class="team-member-spotlight-card__container">
+                  <div class="team-member-spotlight-card__image-column">
+                    <div class="team-member-spotlight-card__background-image">
+                      <img src="{% static 'assets/images/icons/team-member-spotlight.svg' %}" class="attachment-full size-full" alt="" decoding="async"/>
+                    </div>
+                    <div class="team-member-spotlight-card__image-frame">
+                      <div class="team-member-spotlight-card__image-container">
+                        <img width="485" height="507" src="{% static 'assets/images/EmployeeSpotlight-EH.png' %}" class="attachment-full size-full" alt="Elizabeth Husfelt" decoding="async"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="team-member-spotlight-card__content-column">
+                    <div class="team-member-spotlight-card__content-container">
+                      <img class="team-member-spotlight-card__quote-icon hidden-md hidden-sm hidden-xs" src="{% static 'assets/images/icons/quote.svg' %}" alt="quotation mark">
+                      <div class="team-member-spotlight-card__text">
+                        <div class="team-member-spotlight-card__person-info">
+                          <h4 class="h4">Elizabeth Husfelt</h4>
+                          <p class="p-small">Operations</p>
+                        </div>
+                        <p class="p-large team-member-spotlight-card__quote">"Afri Fund University's core values are not just words on a wall, but deeply embedded in the fabric of our daily operations. Integrity, accountability, and transparency are at the forefront of everything we do, shaping our behaviors, decisions, and interactions with one another. I'm incredibly fortunate to work for a company whose values so strongly align with my own."</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="team-member-spotlight-card__position-container background-color__white">
+                    <p clas="p-small team-member-spotlight-card__position">
+                      <strong>4 of 5</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-member-spotlight-carousel__card keen-slider__slide">
+              <div class="team-member-spotlight-card background-color__light-teal">
+                <div class="team-member-spotlight-card__container">
+                  <div class="team-member-spotlight-card__image-column">
+                    <div class="team-member-spotlight-card__background-image">
+                      <img src="{% static 'assets/images/icons/team-member-spotlight.svg' %}" class="attachment-full size-full" alt="" decoding="async"/>
+                    </div>
+                    <div class="team-member-spotlight-card__image-frame">
+                      <div class="team-member-spotlight-card__image-container">
+                        <img width="744" height="774" src="{% static 'assets/images/EmployeeSpotlight_KG_2x.png' %}" class="attachment-full size-full" alt="Karthik Gurukumar" decoding="async"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="team-member-spotlight-card__content-column">
+                    <div class="team-member-spotlight-card__content-container">
+                      <img class="team-member-spotlight-card__quote-icon hidden-md hidden-sm hidden-xs" src="{% static 'assets/images/icons/quote.svg' %}" alt="quotation mark">
+                      <div class="team-member-spotlight-card__text">
+                        <div class="team-member-spotlight-card__person-info">
+                          <h4 class="h4">Karthik Gurukumar</h4>
+                          <p class="p-small">Credit</p>
+                        </div>
+                        <p class="p-large team-member-spotlight-card__quote">"At Afri Fund University, inclusion is not a matter of simply being in the room, but of being truly valued for unique perspectives and supported to make critical decisions. I truly feel supported to grow my career and be a part of Afri Fund University's success story."</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="team-member-spotlight-card__position-container background-color__white">
+                    <p clas="p-small team-member-spotlight-card__position">
+                      <strong>5 of 5</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="open-positions-section background-color__gray" data-site-animation="container" data-site-animation-breakpoint="992" data-scroll-id="open-positions" data-section-name="Open Positions">
+    <div class="section-container">
+      <div class="open-positions-section__container" data-show-more="section" data-show-more-number="3">
+        <h2 class="h2 open-positions-section__headline" data-site-animation-order="1">Open Positions</h2>
+        <div class="open-positions-section__cards-container" data-site-animation-order="2">
+          <div class="open-positions-none background-color__white">
+            <div class="open-positions-none__container">
+              <div class="open-positions-none__headlines">
+                <h4 class="h4">We don't have any open positions at this time.</h4>
+                <h4 class="h4">Please check back with us again later.</h4>
+              </div>
+              <div class="open-positions-none__image">
+                <img width="868" height="480" src="{% static 'assets/images/no-open-positions-2x.png' %}" class="attachment-full size-full" alt="" decoding="async" srcset="{% static 'assets/images/no-open-positions-2x.png' %} 868w, {% static 'assets/images/no-open-positions-2x-300x166.png' %} 300w, {% static 'assets/images/no-open-positions-2x-768x425.png' %} 768w" sizes="(max-width: 868px) 100vw, 868px"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="open-positions-section__show-more-container"></div>
+      </div>
+    </div>
+  </section>
+  <section class="careers-bottom-section background-color__gray" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Don't See the Right Position?">
+    <div class="careers-bottom-section__background background-color__white"></div>
+    <div class="section-container">
+      <div class="careers-bottom-section__container">
+        <div class="careers-bottom-section__container-with-background  background-color__light-orange">
+          <div class="careers-bottom-section__inner-container" data-site-animation-order="1">
+            <h3 class="h3">Don't See the Right Position?</h3>
+            <div class="careers-bottom-section__content">
+              <p class="p-large">We're interested in hiring and retaining the best talent available. If you don't see a position available, contact us and let's see what we can work out.</p>
+              <p class="p-large">We endeavor to make this site accessible to any and all users. If you would like to contact us regarding the accessibility of our website or need assistance completing the application process, please contact us at
+                <a href="/cdn-cgi/l/email-protection#6903060b1a290a0605050c0e0c081f0c470a0604">
+                  <span class="__cf_email__" data-cfemail="97fdf8f5e4d7f4f8fbfbf2f0f2f6e1f2b9f4f8fa">
+                    jobs@afrifunduniversity.com
+                  </span>
+                </a>
+              </p>
+
+              <a href="/cdn-cgi/l/email-protection#fe94919c8dbe9d9192929b999b9f889bd09d9193" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-210" data-link-name="Get In Touch">
+                Get In Touch
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="careers-bottom-section__bottom">
+          <p class="p-xsmall">Transparency in Coverage Rule</p>
+          <p class="p-xsmall">This link leads to the machine-readable files that are made available in response to the federal Transparency in Coverage Rule and includes negotiated service rates and out-of-network allowed amounts between health plans and healthcare providers. The machine readable files are formatted to allow researchers, regulators, and application developers to more easily access and analyze data.</p>
+          <p class="p-xsmall">
+            <a style="word-break: break-all;" href="https://www.cigna.com/legal/compliance/machine-readable-files" target="_blank">https://www.cigna.com/legal/compliance/machine-readable-files</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}
