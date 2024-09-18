@@ -18,3 +18,6 @@ class AfriFundUniversityReviewsPageView(TemplateView):
 
 class AfriFundUniversityCareersPageView(TemplateView):
     template_name="pages/careers.html"
+
+class AfriFundUniversityResourcesPageView(TemplateView):
+    template_name = "pages/resources.html"

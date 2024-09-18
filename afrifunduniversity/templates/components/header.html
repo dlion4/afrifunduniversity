@@ -3,10 +3,24 @@
 <nav class="main-navigation-bar collapsed" data-nav="target" data-section-name="Top Navigation">
   <div class="main-navigation-bar__container">
     <div class="main-navigation-bar__left-container">
-      <a href="/" class="main-navigation-bar__logo" data-link-name="logo" aria-label="home page">
-        <img src="{% static 'assets/logos/college-ave-logo--color.svg' %}" alt="College Ave Logo">
+      <a href="{% url 'home' %}" class="main-navigation-bar__logo" data-link-name="logo" aria-label="home page">
+        <img src="{% static 'images/logo.svg' %}" class="logo" alt="Afrifund Logo">
       </a>
     </div>
+    <style>
+      .logo {
+        height: 120px;
+        width: 300px;
+        max-width: 100%;
+        object-fit: contain;
+        transform: translateY(-37px);
+      }
+
+      .main-navigation-bar__left-container {
+        display: flex;
+        align-items: center;
+      }
+    </style>
     <div class="main-navigation-bar__center-container">
       <ul class="main-navigation-bar__main-links">
         <li class="main-nav-link-item" data-nav-hover="target">
@@ -167,7 +181,7 @@
           </a>
         </li>
         <li class="main-nav-link-item" data-nav-hover="target">
-          <a href="/resources/" class="main-nav-link" data-link-name="Resources & Tools">
+          <a href="{% url 'resources' %}" class="main-nav-link" data-link-name="Resources & Tools">
             <span class="main-nav-link__text">
               Resources & Tools
             </span>
@@ -182,7 +196,7 @@
                 <div class="sub-navigation-desktop__layout-outer">
                   <div class="sub-navigation-desktop__layout-column-one">
                     <div class="sub-navigation-desktop__layout-column-one__row">
-                      <a href="/resources/" class="sub-nav-arrow-link" data-link-name="Resources & Tools">
+                      <a href="{% url 'resources' %}" class="sub-nav-arrow-link" data-link-name="Resources & Tools">
                         Resources & Tools
                         <span class="sub-nav-arrow-link__arrow">
                           <svg viewbox="0 0 25 15" style="color: #002769">
@@ -192,7 +206,7 @@
                       </a>
                       <div class="sub-navigation-desktop__layout-column-one__grid-two">
 
-                        <a href="/articles/" class="sub-nav-link" data-link-name="Guides & Articles">
+                        <a href="{% url 'press:article_list_view' %}" class="sub-nav-link" data-link-name="Guides & Articles">
                           <div class="sub-nav-link__icon">
                             <img src="{% static 'assets/images/icons/guides.svg' %}" alt="guides icon">
                           </div>
@@ -210,7 +224,7 @@
                             <p class="sub-nav-link__subtitle">Calculate and plan for your financial future.</p>
                           </div>
                         </a>
-                        <a href="https://help.collegeavestudentloans.com/hc/en-us/" class="sub-nav-link" data-link-name="FAQs">
+                        <a href="" class="sub-nav-link" data-link-name="FAQs">
                           <div class="sub-nav-link__icon">
                             <img src="{% static 'assets/images/icons/faqs.svg' %}" alt="faqs icon">
                           </div>
@@ -234,7 +248,7 @@
                   <div class="sub-navigation-desktop__layout-column-two">
                     <a href="/promotions/monthly-scholarship-award/" class="sub-nav-card sub-nav-card__background-light-green" data-link-name="$1000 Monthly Scholarship">
                       <div class="sub-nav-card__top">
-                        <div class="sub-nav-card__image-container"><img src="{% static 'assets/temp/test-image-2.png' %}# alt=" "></div>
+                        <div class="sub-nav-card__image-container"><img src="{% static 'assets/temp/test-image-2.png' %}#" alt=""></div>
                         <div class=" sub-nav-card__arrow-container">
                           <svg viewbox="0 0 25 15" style="color: #002769">
                             <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>

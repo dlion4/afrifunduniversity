@@ -33,5 +33,6 @@
         "viewset",
         "viewsets",
         "xpack"
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }

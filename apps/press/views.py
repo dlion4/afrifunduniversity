@@ -32,3 +32,9 @@ class AfriFundPressReleaseDetailView(TemplateView):
         context["release"] = self.get_object(**kwargs)
         context["release_get_shareable_url"] = self.get_object(**kwargs)
         return context
+
+class AfriFundArticleListView(TemplateView):
+    template_name = "press/articles/index.html"
+
+class AfriFundArticleDetailView(TemplateView):
+    template_name = "press/articles/detail.html"

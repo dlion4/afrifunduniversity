@@ -1,0 +1,230 @@
+{% extends "layout.html" %}
+
+{% load static humanize %}
+
+{% block headerScript %}{% endblock headerScript %}
+
+{% block content %}
+
+  <section class="hero hero-centered-text background-color__light-green" data-site-animation-breakpoint="992" data-section-name="A-Spot > Guides & Articles">
+    <div class="site-breadcrumbs site-breadcrumbs__hero">
+      <div class="site-breadcrumbs__container">
+        <nav class="site-breadcrumbs__mobile">
+          <p class="p-small">
+            < <a data-link-name="Breadcrumb > Home" href="{% url 'home' %}">Home</a>
+          </p>
+        </nav>
+      </div>
+    </div>
+    <div class="section-container">
+
+      <div class="responsive-background-image">
+
+        <picture>
+          <source media="(min-width: 992px)" srcset="{% static 'assets/images/guides-archive-hero.png' %}">
+          <source media="(min-width: 768px)" srcset="{% static 'assets/images/guides-articles-hero-t.png' %}">
+          <source media="(min-width: 1px)" srcset="{% static 'assets/images/guides-archive-hero-m.png' %}">
+          <img width="2880" height="624" src="{% static 'assets/images/guides-archive-hero.png' %}" class="attachment-full size-full" alt="" decoding="async" fetchpriority="high"/>
+        </picture>
+      </div>
+      <div class="hero-centered-text__container">
+        <div class="hero-centered-text__content">
+          <div class="hero-centered-text__header">
+            <h1 class="h1" data-site-animation-order="0">Guides & Articles</h1>
+          </div>
+          <div class="hero-centered-text__paragraphs" data-site-animation-order="2">
+            <p class="p-large">Helpful resources and calculator tools to help with your financial education and planning</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-article-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Featured Article">
+    <div class="section-container">
+      <a class="featured-article-section__container" data-link-name="How to Pay for College: Top 6 Ways to Pay for College" href="https://www.collegeave.com/articles/how-to-pay-for-college/">
+        <div class="featured-article-section__left-column background-color__gray">
+          <div class="featured-article-section__arrow">
+
+            <svg viewbox="0 0 25 15" style="color: #002769">
+              <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+            </svg>
+          </div>
+          <div class="featured-article-section__content">
+            <div class="featured-article-section__top-content">
+              <h4 class="featured-article-section__category" data-site-animation-order="1">Featured Article</h4>
+              <h3 class="h3" data-site-animation-order="2">How to Pay for College: Top 6 Ways to Pay for College</h3>
+            </div>
+            <div class="featured-article-section_bottom-content" data-site-animation-order="3">
+              <p class="p-large">
+                <strong>By College Ave</strong>
+              </p>
+              <p class="p-small">June 13, 2024</p>
+            </div>
+          </div>
+        </div>
+        <div class="featured-article-section__right-column">
+          <div class="featured-article-section__right-column-image">
+            <img width="750" height="392" src="{% static 'assets/images/articlefamily.png' %}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="How to Pay for College: Top 6 Ways to Pay for College" decoding="async"/>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+  <div data-app="ResourcesSection"></div>
+  <section class="subscribe-form-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Sign Up for the Latest College Ave News">
+    <div class="section-container">
+      <div class="subscribe-form-section__outer-container background-color__light-green">
+
+        <div class="responsive-background-image">
+
+          <picture>
+            <source media="(min-width: 992px)" srcset="{% static 'assets/images/guides-archive-hero.png' %}">
+            <source media="(min-width: 768px)" srcset="{% static 'assets/images/guides-articles-hero-t.png' %}">
+            <source media="(min-width: 1px)" srcset="{% static 'assets/images/guides-archive-hero-m.png' %}">
+            <img width="2880" height="624" src="{% static 'assets/images/guides-archive-hero.png' %}" class="attachment-full size-full" alt="" decoding="async"/>
+          </picture>
+        </div>
+        <div class="subscribe-form-section__container">
+          <div class="subscribe-form-section__header-column">
+            <h2 class="h2" data-site-animation-order="0">
+              Sign Up for the Latest College Ave News
+            </h2>
+          </div>
+          <div class="subscribe-form-section__form-column">
+            <form data-form-id="blog-subscription" data-form-type="subscribeForm" data-form-status="pending" data-data-extension="College Corner Subscribers" data-subscribe-keys="16507,16511" data-triggered-email-key="16336" data-acq-source="College Corner" data-account-type="transaction">
+              <div class="subscribe-form-section__form-flex-container" data-site-animation-order="1">
+                <div class="form-field form-field__text-input" data-form-field="email">
+                  <label class="form-field__label-container">
+                    <p class="form-field__label">Enter your email</p>
+                    <div class="form-field__text-input-container">
+                      <input name="email" type="text" placeholder="" maxlength="" class="form-field__input">
+                      <img src="{% static 'assets/images/icons/input-error.svg' %}" alt="error" class="form-field__icon form-field__icon--error">
+                      <img src="{% static 'assets/images/icons/input-success.svg' %}" alt="success" class="form-field__icon form-field__icon--success">
+                    </div>
+                  </label>
+                  <p class="form-field__message  form-field__error-message">Invalid Email Address</p>
+                </div>
+                <button aria-label="Subscribe" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-203 button__mobile-full-width">
+                  <svg class="loading-animation" viewbox="0 0 50 50">
+                    <circle cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                  </svg>
+                  <span class="button__submit-button-content">
+                    Subscribe
+                  </span>
+                  <span class="button__submit-button-success">Success</span>
+                </button>
+              </div>
+              <div class="subscribe-form-section__form-message" data-site-animation-order="2">
+                <p class="form-field__message">
+                  By providing your email address, you agree to our
+                  <a href="/privacy/" data-link-name="Privacy Policy">Privacy Policy</a>, and you give College Ave Student Loans permission to contact you. College Ave respects your inbox and will only send periodic emails.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <section class="sign-up-banner-component close-sign-up-form" data-sign-up-banner="container">
+    <div class="sign-up-form sign-up__hide background-color__light-teal" data-modal="sign-up-form" data-section-name="Sign up" data-sign-up-form="form-container">
+      <div class="section-container">
+        <button class="sign-up-form__close-button" data-sign-up-banner="close">
+          <svg width="20" height="20" viewbox="0 0 20 20" style="color: #002769">
+            <use href="{% static 'assets/images/icons/global/x_close.svg' %}#x_close"></use>
+          </svg>
+        </button>
+        <div class="sign-up-form__outer-container">
+          <div class="sign-up-form__container">
+            <div class="sign-up-form__left-column">
+              <div class="sign-up-form__icon background-color__teal">
+                <svg viewbox="0 0 35 34">
+                  <use href="{% static 'assets/images/icons/global/lightbulb.svg' %}#lightbulb"></use>
+                </svg>
+              </div>
+              <div class="sign-up-form__headline">
+                <h4 class="h4">Sign up</h4>
+              </div>
+            </div>
+            <div class="sign-up-form__right-column">
+              <div class="sign-up-form__form-container">
+                <form data-form-id="blog-subscription" data-form-type="subscribeForm" data-form-status="pending" data-data-extension="College Corner Subscribers" data-subscribe-keys="16507,16511" data-triggered-email-key="16336" data-acq-source="College Corner" data-account-type="transaction">
+                  <div class="form-field form-field__text-input" data-form-field="email">
+                    <label class="form-field__label-container">
+                      <p class="form-field__label">Enter your email</p>
+                      <div class="form-field__text-input-container">
+                        <input name="email" type="email" placeholder="" maxlength="" class="form-field__input">
+                        <img src="{% static 'assets/images/icons/input-error.svg' %}" alt="error" class="form-field__icon form-field__icon--error">
+                        <img src="{% static 'assets/images/icons/input-success.svg' %}" alt="success" class="form-field__icon form-field__icon--success">
+                      </div>
+                    </label>
+                  </div>
+                  <button aria-label="Subscribe" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-203 button__mobile-full-width">
+                    <svg class="loading-animation" viewbox="0 0 50 50">
+                      <circle cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                    </svg>
+                    <span class="button__submit-button-content">
+                      Subscribe
+                    </span>
+                    <span class="button__submit-button-success">Success</span>
+                  </button>
+                </form>
+              </div>
+              <div class="sign-up-form__extra-text-container">
+                <p class="p-xsmall">By providing your email address, you agree to our
+                  <a href='/privacy/'>Privacy Policy</a>
+                  and you give College Ave permission to contact you. College Ave respects your inbox and will only send periodic emails.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sign-up-banner" data-section-name="Sign Up Banner">
+      <div class="sign-up-banner__full-width-bg background-color__light-teal">
+        <div class="section-container">
+          <div class="sign-up-banner__container">
+            <div class="sign-up-banner__icon">
+              <img src="{% static 'assets/temp/banner-lightbulb-icon.svg' %}" alt="icon for lightbulb">
+            </div>
+            <div class="sign-up-banner__content">
+              <button data-sign-up-banner="trigger" class="arrow-link">Sign up for monthly college resources, financial news,
+                <span class="arrow-link__anchor">& advice
+                  <svg width="16" height="14" viewbox="0 0 16 14" style="color: #002769">
+                    <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <button class="sign-up-banner__close-button" data-sign-up-banner="close">
+              <svg width="20" height="20" viewbox="0 0 20 20" style="color: #002769">
+                <use href="{% static 'assets/images/icons/global/x_close.svg' %}#x_close"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}
+
+{% block pressScript %}
+
+  <script>
+    loadJSFile("{% static 'js/press.js' %}", function () {
+      console.log("file loaded");
+      setTimeout(() => {
+        loadJSFile("{% static 'assets/js/react-app/react-app.js' %}", function () {
+          console.log("This has also been loaded")
+        })
+      }, 3000)
+
+    });
+  </script>
+
+{% endblock pressScript %}
+
+{% block formScript %}{% endblock formScript %}

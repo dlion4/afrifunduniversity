@@ -58,7 +58,7 @@ fetch("/api/reviews/").then(response => response.json()).then(data => {
       };
     });
 
-    console.log("Reviews: ", window.NP)
+    console.log("Reviews: ", window.NP);
   } catch (error) {
     console.log(error);
   }
@@ -66,3 +66,12 @@ fetch("/api/reviews/").then(response => response.json()).then(data => {
   // You can now use window.allPressReleases in your frontend code
 }).catch(error => console.error("Error fetching reviews:", error));
 // Function to display press releases on the page (example)
+
+fetch("/api/articles-info/").then(response => response.json()).then(data => {
+  try {
+    window.articlesInfo = data;
+    console.log(window.articlesInfo);
+  } catch (error) {
+    console.log(error);
+  }
+}).catch(error => console.error("Error fetching data:", error));
