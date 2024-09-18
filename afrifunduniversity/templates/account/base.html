@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+<html lang="en" class="responsive">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="csrf-token" content="bQmXcxKuX3wsVvaHEAWQ3vIBLCNJ4VFvQmIMGf4s">
+
+        <title>Ascent Login</title>
+
+        <!-- Meta -->
+        <meta name="description" content="Sign in to your secure online account to access your Ascent Student Loan information, application status, and more.">
+        
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="apple-mobile-web-app-title" content="Ascent">
+        <meta name="application-name" content="Ascent">
+        <meta name="msapplication-TileColor" content="#ffc40d">
+        <meta name="theme-color" content="#ffffff">
+
+        <!-- Styles -->
+        <link media="all" type="text/css" rel="stylesheet" href="https://college.ascentfunding.com/css/abs431-app.css?id=54df347f9e944456f1a5206e07e16fea">
+        
+                <style>
+            body.preload { opacity: 0; }
+        </style>
+
+        <!-- Scripts -->
+        <script src="https://college.ascentfunding.com/js/abs431-app.js?id=4e86bbf3456b11eb2c187dd1b2099151"></script>
+        <!--
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.min.js" integrity="sha256-F0O1TmEa4I8N24nY0bya59eP6svWcshqX1uzwaWC4F4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.4.1/jquery-migrate.min.js" integrity="sha256-SOuLUArmo4YXtXONKz+uxIGSKneCJG4x0nVcA0pFzV0=" crossorigin="anonymous"></script>
+        -->
+    </head>
+
+    <body id="app-layout" class="preload auth_login home page pre_login">
+
+        <div id="content-wrapper">
+            <div id="excluding-footer">
+                
+                <div id='partner-header' class="container-fluid">
+    <div class="row">
+        <div class="col mx-auto whitebox-lg-width-nav">
+        <nav class="pb-3 pb-md-4 mb-3 pt-4 px-0 navbar navbar-expand navbar-dark">
+                <a class="navbar-brand" href="https://www.ascentfunding.com">
+                    <img width="38" height="40" class="d-inline-block align-top d-md-none mobile-logo" alt="Ascent Funding, LLC">
+                    <img class="img-fluid d-none d-md-block client-header-logo" alt="Ascent Funding, LLC">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="https://www.ascentfunding.com"><i class="fas fa-home"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                            </nav>
+        </div>
+    </div>
+</div>
+
+                <div class="container header-content small-width">
+    <div class="row">
+        <div class="offset-sm-1 col-sm-10 offset-md-2 col-md-8 offset-lg-3 col-lg-6 outer-box">
+            <div class="">
+                <div class="row">
+                    <div class="col inner-box">
+                        <div class="text-white content-box">
+
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <div class="container main-content small-width">
+    <div class="row">
+        <div class="offset-sm-1 col-sm-10 offset-md-2 col-md-8 offset-lg-3 col-lg-6 outer-box">
+            <div class="bg-white rounded container-fluid">
+                <div class="row">
+                    <div class="col inner-box">
+                        <div class="application-highlight  px-2">
+                            <div class="my-5 content-box">
+
+                            
+    <form class="transparent_form login-form" id="login-form" role="form" method="POST"
+          action="https://college.ascentfunding.com/login">
+        <input type="hidden" name="_token" value="bQmXcxKuX3wsVvaHEAWQ3vIBLCNJ4VFvQmIMGf4s">
+        <input type="hidden" name="returnTo" value="">
+        <input type="hidden" name="forcedCosigner" value="">
+        <input type="hidden" name="applicantType" value="">
+        <input type="hidden" name="loanAppId" value="">
+        <input type="hidden" name="maxInitialPage" value="">
+        <input type="hidden" id="page_errors" value="[]">
+        
+        <h3 class="text-center text-primary">Welcome to your<br />secure account.</h3>
+
+        <div class="row no-gutters mt-5">
+            <div class="offset-md-1 col-md-10 offset-xl-2 col-xl-8">
+                <div class="form-group">
+                    <label class="d-none">Email Address</label>
+                    <input id="input-email" type="email" class="form-control" name="email" value="" placeholder="Email Address" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="row no-gutters mt-2">
+            <div class="offset-md-1 col-md-10 offset-xl-2 col-xl-8">
+                <div class="form-group">
+                    <label class="d-none">Password</label>
+                    <input id="input-password" type="password" class="form-control" name="password" placeholder="Password" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="row no-gutters mt-4">
+            <div class="col">
+                <div class="form-group text-center">
+                    <button id="button-submit" type="submit" class="btn btn-warning btn-min-width">Login</button>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-center mt-3">
+            <a href="https://college.ascentfunding.com/forgot/password" id="link-forgot-password">Forgot Your Username/Password?</a>
+            <br>
+            <a href="https://college.ascentfunding.com/register" id="link-create-an-account">Create An Account</a>
+        </p>
+
+    </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    <div class="text-center mt-4 mb-5">
+    Need help? Call <a href="tel:+18772160876" id="link-customer-service-call">(877) 216-0876</a> or email<br /><a href="/cdn-cgi/l/email-protection#573f323b2717362434323923312239333e39307934383a" id="link-customer-service-email"><span class="__cf_email__" data-cfemail="f29a979e82b2938191979c8694879c969b9c95dc919d9f">[email&#160;protected]</span></a>
+</div>
+            </div>
+            <footer class="footer pt-5 pb-3 pb-md-5 my-md-3">
+    <div class="container text-center text-muted font-size-smaller">
+        <div>
+            <span class="mx-1 text-nowrap">2024 &copy; Ascent Funding, LLC.</span>
+            <span class="mx-1 text-nowrap">All Rights Reserved.</span>
+            <span class="mx-1 text-nowrap"><a href="https://www.ascentfunding.com/terms-conditions/" class="link-unstyled">Terms &amp; Conditions</a></span>
+            <span class="mx-1 text-nowrap"><a href="https://www.ascentfunding.com/privacy-notice/" class="link-unstyled">Privacy Notice</a></span>
+            <span class="mx-1 text-nowrap"><a href="tel:+18772160876" class="link-unstyled">(877) 216-0876</a></span>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Loading Modal -->
+<div class="loadingOverlay" id="loading_overlay" style="display: none;">
+    <div class="loadingOverlay-inner">
+        <span class="fas fa-spinner fa-spin"></span>
+        <br/>
+        <div id="loader_text">
+            Please Wait A Moment...
+        </div>
+    </div>
+</div>
+
+<div
+    id="call-customer-service-modal"
+    class="modal fade"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="call-customer-service-modal-title"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+                            <div class="modal-header">
+    <button
+      type="button"
+      class="close"
+      data-dismiss="modal"
+      aria-label="Close"
+    >
+        <span aria-hidden="true">×</span>
+        <span class="sr-only">Close</span>
+    </button>
+</div>
+<div class="modal-body">
+    <h3 class="text-primary font-size-x-large font-size-md-xxx-large font-weight-600 mb-2">
+        Let's talk!
+    </h3>
+    <p class="font-size-small font-size-md-medium mb-0">
+        Before you start a new application or modify an existing one, please contact our customer service team by calling us at <a href="tel:+18772160876">(877) 216-0876</a>.
+    </p>
+</div>
+                    </div>
+    </div>
+</div>
+<div
+    id="new-app-confirm-modal"
+    class="modal fade"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="new-app-confirm-modal-title"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+                            <div class="modal-header">
+    <button
+      type="button"
+      class="close"
+      data-dismiss="modal"
+      aria-label="Close"
+    >
+        <span aria-hidden="true">×</span>
+        <span class="sr-only">Close</span>
+    </button>
+</div>
+<div class="modal-body px-3 px-md-5">
+    <div class="container px-0">
+        <div class="row">
+            <div class="col">
+                <h3 class="text-primary font-size-x-large font-size-md-xxx-large font-weight-600 mb-2">
+                    Looks like you have a couple applications in progress already.
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="font-size-small font-size-md-medium mb-4">
+                    Before you start a new application, would you like to modify one of your existing applications?
+                </p>
+                <p class="text-primary font-weight-600 font-size-small font-size-md-medium mb-2">
+                    Things you can modify include:
+                </p>
+                <ul class="pl-3 font-size-small font-size-md-medium mb-2">
+                    <li>Your permanent address</li>
+                    <li>Your loan amount</li>
+                    <li>Your payment terms</li>
+                    <li>Your loan semesters/quarters</li>
+                </ul>
+                <div class="row mt-4 text-center">
+                    <div class="col">
+                        <a
+                            href="https://college.ascentfunding.com/dashboard?request_type=modify"
+                            class="btn btn-warning w-100 w-md-75 js-new-application-modify-existing"
+                        >
+                            Modify Existing Application
+                        </a>
+                    </div>
+                </div>
+                <div class="row text-center mt-4">
+                    <div class="col">
+                        <a
+                            href="https://college.ascentfunding.com/dashboard?request_type=cancel"
+                            class="btn btn-outline-warning w-100 w-md-75 js-new-application-from-scratch"
+                        >
+                            Start New Application
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    </div>
+    </div>
+</div>
+
+        </div>
+
+        <div
+    id="third-party"
+    class="modal fade"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="third-party-title"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+                            <div class="modal-header">
+    <button
+      type="button"
+      class="close"
+      data-dismiss="modal"
+      aria-label="Close"
+    >
+        <span aria-hidden="true">×</span>
+        <span class="sr-only">Close</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="text-center">
+        <img class="mb-4" src="https://college.ascentfunding.com/images/spaceship-entering-space.svg" alt="Spaceship Icon" />
+        <h3 class="text-primary font-size-x-large font-size-md-xxx-large font-weight-600 mb-2">
+            You’re leaving this galaxy!
+        </h3>
+        <p class="font-size-small font-size-md-medium mb-4">
+            Ascent is not responsible for links to third-party websites. The security and privacy policies on our partner’s site may differ from Ascent Funding's.
+        </p>
+        <div class="d-flex justify-content-center">
+            <button
+                id="third-party-continue"
+                class="btn btn-warning btn-min-width w-100 w-md-unset"
+                data-dismiss="modal"
+            >
+                Ok
+            </a>
+        </div>
+    </div>
+</div>
+                    </div>
+    </div>
+</div>
+        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+        'loanAppId' : '0',
+        'bType' : 'None',
+        'dtStamp' : '20240915121628'
+    });
+</script>
+
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-NBRMM5');</script>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NBRMM5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager -->
+
+
+<script>
+    var BASE_URL = "https:\/\/college.ascentfunding.com"
+    var sessionTimeOut = 30
+    var invalidSSN = 900000000
+    $.ajaxSetup({
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+    });
+
+    // Fade In Body Opacity
+    $(document).ready(function() {
+        $('body').animate({ opacity: 1 }, 500);
+    });
+
+    const continueButton = document.querySelector('#third-party-continue')
+    const globalAttachThirdPartyWarningToLink = link => {
+        if (!link.hasAttribute('third-party-confirm')) {
+            link.setAttribute('third-party-confirm', 'true')
+            link.setAttribute('data-target', '#third-party')
+            link.setAttribute('data-toggle', 'modal')
+            // check if the link is already inside the modal
+            // if it is, make sure it can close that one before opening third party modal
+            if (link.closest('.modal-dialog')) {
+                // adding this line to be able to dismiss non react modals before opening third party modal
+                link.setAttribute('data-dismiss', 'modal')
+            }
+            link.addEventListener('click', e => {
+                e.preventDefault()
+                // use e.currentTarget instead of target to prevent failure when a tag is a wrapper and has button inside
+                // or any other child element
+                const url = e.currentTarget.href
+                const target = e.currentTarget.target
+                // remove the listener once it is fired
+                continueButton.addEventListener('click', () => window.open(url, target), {once: true})
+            })
+        }
+    }
+    const globalAddThirdPartyWarningToLinks = () => {
+        const allLinks = document.querySelectorAll(`
+            a.third-party-link,
+            a[href^="http"]:not(.third-party-link):not([href*="${window.location.hostname}"]):not([href*="ascentstudentloans.com"]):not([href*="ascentfunding.com"]):not([href*="ascentup.com"]):not([href*="goalsolutions.com"])
+        `)
+        allLinks.forEach(link => globalAttachThirdPartyWarningToLink(link))
+    }
+    const globalBodyObserver = new MutationObserver(() => globalAddThirdPartyWarningToLinks())
+    globalBodyObserver.observe(
+        document.querySelector('body'), 
+        {
+            attributeFilter: ['href'],
+            childList: true, 
+            subtree: true
+        }
+    )
+</script>
+        <div
+    id="ie-unsupported"
+    class="modal fade"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="ie-unsupported-title"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+                            <div class="modal-header">
+    <button
+      type="button"
+      class="close"
+      data-dismiss="modal"
+      aria-label="Close"
+    >
+        <span aria-hidden="true">×</span>
+        <span class="sr-only">Close</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="text-center">
+        <img class="mb-4 img-fluid denial-icon" alt="Denial Icon" />
+        <h3 class="text-primary font-size-x-large font-size-md-xxx-large font-weight-600 mb-2">
+            Something must be wrong – it appears you're using <span class="text-warning">Internet Explorer®</span>
+        </h3>
+        <p class="font-size-small font-size-md-medium">You're reaching for the stars, which is hard to do with Internet Explorer®. Please complete your loan application using a different web browser, such as Chrome®, Safari®, Firefox®, or Microsoft Edge®</p>
+    </div>
+</div>
+                    </div>
+    </div>
+</div>
+                <script src="https://sdk.dv.socure.io/latest/device-risk-sdk.js" data-public-key="bf11e529-62b0-4010-808c-d659a7c5dd82" context="login">
+</script>
+<script>
+    SigmaDeviceManager.getSessionToken().then((sessionToken) => {
+        document.cookie = "soc_visitor_id=" + sessionToken + ";"
+    })
+</script>
+    <script src="https://college.ascentfunding.com/js/pre_login/all.js?id=74a511f4167a93896c8a5eb78aab3cd4"></script>
+
+    </body>
+</html>

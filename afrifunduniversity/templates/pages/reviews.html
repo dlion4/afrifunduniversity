@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% load static humanize %}
+{% block content %}
+
+  <section class="hero text-image-hero-section background-color__light-coral" data-site-animation-breakpoint="992" data-section-name="A-Spot > Reviews">
+    <div class="site-breadcrumbs site-breadcrumbs__hero">
+      <div class="site-breadcrumbs__container">
+
+        <nav class="site-breadcrumbs__mobile">
+          <p class="p-small">
+            < <a data-link-name="Breadcrumb > Home" href="{% url 'home' %}">Home</a>
+          </p>
+        </nav>
+      </div>
+    </div>
+    <div class="section-container">
+      <div class="text-image-hero-section__container">
+        <div class="text-image-hero-section__column-content">
+          <div class="text-image-hero-section__text-content">
+            <h1 class="h1 h1__mobile-small" data-site-animation-order="0">Reviews</h1>
+            <p class="p-large" data-site-animation-order="1">We aim for straight A's, but don't just listen to us - read what our customers have to say.</p>
+          </div>
+        </div>
+        <div class="text-image-hero-section__column-image" data-site-animation-order="4">
+
+          <picture>
+            <source media="(min-width: 992px)" srcset="{% static 'assets/images/reviews-hero-d.png' %}">
+            <img width="944" height="818" src="{% static 'assets/images/reviews-hero-d.png' %}" class="attachment-full size-full" alt="people holding stars" decoding="async" fetchpriority="high"/>
+          </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="react-section" data-app="ReviewsSection" data-section-name="ReviewsSection"></section>
+
+  <section class="color-card-links-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Learn More About Us">
+    {% include "pages/components/more-about-us.html" %}
+  </section>
+
+{% endblock content %}
+
+{% block pressScript %}
+
+  <script>
+    loadJSFile("{% static 'js/press.js' %}", function () {
+      setTimeout(() => {
+        loadJSFile("{% static 'assets/js/react-app/react-app.js' %}", function () {})
+      }, 3000)
+    });
+    window.NP = '';
+  </script>
+
+{% endblock pressScript %}

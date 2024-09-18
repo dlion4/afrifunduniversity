@@ -1,0 +1,52 @@
+{% load static %}
+
+<div class="section-container">
+  <div class="color-card-links-section__container">
+    <div class="color-card-links-section__header" data-site-animation-order="0">
+      <h2 class="h2">Learn More About Us</h2>
+    </div>
+    <div class="color-card-links-section__cards" data-site-animation-order="1">
+      <div class="color-card background-color__light-teal" href="% url 'press:home' %}">
+        <div class="color-card__container">
+          <div class="color-card__content">
+            <h3 class="color-card__header h3">Press</h3>
+            <p class="p-large color-card__text">Read all about Afri Fund latest news and announcements.</p>
+          </div>
+          <div class="color-card__button-container">
+
+            <a href="{% url 'press:home' %}" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-264" data-link-name="Learn More">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="color-card background-color__light-coral" href="{% url 'schools:school:home' %}">
+        <div class="color-card__container">
+          <div class="color-card__content">
+            <h3 class="color-card__header h3">For Schools</h3>
+            <p class="p-large color-card__text">Our team is dedicated to help your financial aid office help students and families borrow responsibly. Get in touch today.</p>
+          </div>
+          <div class="color-card__button-container">
+
+            <a href="{% url 'schools:school:home' %}" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-264" data-link-name="Learn More">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="color-card background-color__light-green" href="{% url 'partners:partner:home' %}">
+        <div class="color-card__container">
+          <div class="color-card__content">
+            <h3 class="color-card__header h3">Partner With Us</h3>
+            <p class="p-large color-card__text">Want to Partner with Afri Fund University to offer private student loans and student loan refinancing to your members or customers?</p>
+          </div>
+          <div class="color-card__button-container">
+            <a href="{% url 'partners:partner:home' %}" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-264" data-link-name="Learn More">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,732 @@
+{% load static %}
+
+<nav class="main-navigation-bar collapsed" data-nav="target" data-section-name="Top Navigation">
+  <div class="main-navigation-bar__container">
+    <div class="main-navigation-bar__left-container">
+      <a href="/" class="main-navigation-bar__logo" data-link-name="logo" aria-label="home page">
+        <img src="{% static 'assets/logos/college-ave-logo--color.svg' %}" alt="College Ave Logo">
+      </a>
+    </div>
+    <div class="main-navigation-bar__center-container">
+      <ul class="main-navigation-bar__main-links">
+        <li class="main-nav-link-item" data-nav-hover="target">
+          <a href="/student-loans/" class="main-nav-link" data-link-name="Student Loans">
+            <span class="main-nav-link__text">
+              Student Loans
+            </span>
+            <svg width="16" height="14" viewbox="0 0 16 14" style="color: #002769">
+              <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
+            </svg>
+          </a>
+          <div class="sub-navigation-desktop--wrapper">
+            <div class="sub-navigation-desktop" data-nav-hover="menu">
+              <div class="sub-navigation-desktop-container">
+                <div class="sub-navigation-desktop__layout-outer">
+                  <div class="sub-navigation-desktop__layout-column-one">
+                    <div class="sub-navigation-desktop__layout-column-one__row">
+                      <a href="/private-student-loans/" class="sub-nav-arrow-link" data-link-name="Private Student Loans">
+                        Private Student Loans
+                        <span class="sub-nav-arrow-link__arrow">
+                          <svg viewbox="0 0 25 15" style="color: #002769">
+                            <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                          </svg>
+                        </span>
+                      </a>
+                      <div class="sub-navigation-desktop__layout-column-one__grid-three">
+
+                        <a href="/student-loans/undergraduate/" class="sub-nav-link" data-link-name="Undergraduate">
+                          <div class="sub-nav-link__icon">
+                            <img src="{% static 'assets/images/icons/CAIS01.svg' %}" alt="CAIS01 icon">
+                          </div>
+                          <div class="sub-nav-link__content">
+                            <p class="sub-nav-link__title">Undergraduate</p>
+                            <p class="sub-nav-link__rate">3.69% - 17.99% APR<sup>&dagger;</sup>
+                            </p>
+                          </div>
+                        </a>
+                        <a href="/student-loans/parent/" class="sub-nav-link" data-link-name="Parent">
+                          <div class="sub-nav-link__icon">
+                            <img src="{% static 'assets/images/icons/CAPA01.svg' %}" alt="CAPA01 icon">
+                          </div>
+                          <div class="sub-nav-link__content">
+                            <p class="sub-nav-link__title">Parent</p>
+                            <p class="sub-nav-link__rate">3.74% - 17.99% APR<sup>&dagger;</sup>
+                            </p>
+                          </div>
+                        </a>
+                        <a href="/student-loans/career/" class="sub-nav-link" data-link-name="Career Loans">
+                          <div class="sub-nav-link__icon">
+                            <img src="{% static 'assets/images/icons/CAIS03.svg' %}" alt="CAIS03 icon">
+                          </div>
+                          <div class="sub-nav-link__content">
+                            <p class="sub-nav-link__title">Career Loans</p>
+                            <p class="sub-nav-link__rate">3.69% - 17.99% APR<sup>&dagger;</sup>
+                            </p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="sub-navigation-desktop__layout-column-one__row">
+                      <a href="/student-loans/graduate/" class="sub-nav-arrow-link" data-link-name="Graduate Loans">
+                        Graduate Loans
+                        <span class="sub-nav-arrow-link__arrow">
+                          <svg viewbox="0 0 25 15" style="color: #002769">
+                            <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                          </svg>
+                        </span>
+                      </a>
+                      <div class="sub-navigation-desktop__layout-column-one__grid-three">
+
+                        <a href="/student-loans/graduate/dental/" class="sub-nav-link" data-link-name="Dental">
+                          <div class="sub-nav-link__icon">
+                            <img src="{% static 'assets/images/icons/CAISDE.svg' %}" alt="CAISDE icon">
+                          </div>
+                          <div class="sub-nav-link__content">
+                            <p class="sub-nav-link__title">Dental</p>
+                            <p class="sub-nav-link__rate">3.74% - 14.47% APR<sup>&dagger;</sup>
+                            </p>
+                          </div>
+                        </a>
+                        <a href="/student-loans/graduate/mba/" class="sub-nav-link" data-link-name="MBA">
+                          <div class="sub-nav-link__icon">
+                            <img src="{% static 'assets/images/icons/CAISMB.svg' %}" alt="CAISMB icon">
+                          </div>
+                          <div class="sub-nav-link__content">
+                            <p class="sub-nav-link__title">MBA</p>
+                            <p class="sub-nav-link__rate">3.74% - 14.49% APR<sup>&dagger;</sup>
+                            </p>
+                          </div>
+                        </a>
+                        <a href="/student-loans/graduate/health-professions/" class="sub-nav-link" data-link-name="Health Professions">
+                          <div class="sub-nav-link__icon">
+                            <img src="{% static 'assets/images/icons/CAISGH.svg' %}" alt="CAISGH icon">
+                          </div>
+                          <div class="sub-nav-link__content">
+                            <p class="sub-nav-link__title">Health Professions</p>
+                            <p class="sub-nav-link__rate">3.74% - 14.47% APR<sup>&dagger;</sup>
+                            </p>
+                          </div>
+                        </a>
+                        <a href="/student-loans/graduate/law/" class="sub-nav-link" data-link-name="Law">
+                          <div class="sub-nav-link__icon">
+                            <img src="{% static 'assets/images/icons/CAISLW.svg' %}" alt="CAISLW icon">
+                          </div>
+                          <div class="sub-nav-link__content">
+                            <p class="sub-nav-link__title">Law</p>
+                            <p class="sub-nav-link__rate">3.74% - 14.47% APR<sup>&dagger;</sup>
+                            </p>
+                          </div>
+                        </a>
+                        <a href="/student-loans/graduate/medical/" class="sub-nav-link" data-link-name="Medical">
+                          <div class="sub-nav-link__icon">
+                            <img src="{% static 'assets/images/icons/CAISMD.svg' %}" alt="CAISMD icon">
+                          </div>
+                          <div class="sub-nav-link__content">
+                            <p class="sub-nav-link__title">Medical</p>
+                            <p class="sub-nav-link__rate">3.74% - 14.47% APR<sup>&dagger;</sup>
+                            </p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sub-navigation-desktop__layout-column-two">
+                    <a href="/student-loans/refinance/" class="sub-nav-arrow-link sub-nav-arrow-link__refinance" data-link-name="Student Loan Refinance">
+                      Student Loan Refinance
+                      <span class="sub-nav-arrow-link__arrow">
+                        <svg viewbox="0 0 25 15" style="color: #002769">
+                          <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                        </svg>
+                      </span>
+                    </a>
+                    <a href="/student-loans/undergraduate/" class="sub-nav-card sub-nav-card__background-gray" data-link-name="Undergraduate Loans">
+                      <div class="sub-nav-card__top">
+                        <div class="sub-nav-card__image-container"><img src="{% static 'assets/temp/test-image.png' %}" alt=""></div>
+                        <div class="sub-nav-card__arrow-container">
+                          <svg viewbox="0 0 25 15" style="color: #002769">
+                            <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="sub-nav-card__bottom">
+                        <h4 class="h4">Undergraduate Loans</h4>
+                        <p class="p-small">Get a loan for next year!</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="main-nav-link-item" data-nav-hover="target">
+          <a href="/credit/student-card/" class="main-nav-link" data-link-name="Student Card">
+            <span class="main-nav-link__text">
+              Student Card
+            </span>
+          </a>
+        </li>
+        <li class="main-nav-link-item" data-nav-hover="target">
+          <a href="/resources/" class="main-nav-link" data-link-name="Resources & Tools">
+            <span class="main-nav-link__text">
+              Resources & Tools
+            </span>
+            <svg width="16" height="14" viewbox="0 0 16 14" style="color: #002769">
+              <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
+            </svg>
+          </a>
+
+          <div class="sub-navigation-desktop--wrapper">
+            <div class="sub-navigation-desktop" data-nav-hover="menu">
+              <div class="sub-navigation-desktop-container">
+                <div class="sub-navigation-desktop__layout-outer">
+                  <div class="sub-navigation-desktop__layout-column-one">
+                    <div class="sub-navigation-desktop__layout-column-one__row">
+                      <a href="/resources/" class="sub-nav-arrow-link" data-link-name="Resources & Tools">
+                        Resources & Tools
+                        <span class="sub-nav-arrow-link__arrow">
+                          <svg viewbox="0 0 25 15" style="color: #002769">
+                            <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                          </svg>
+                        </span>
+                      </a>
+                      <div class="sub-navigation-desktop__layout-column-one__grid-two">
+
+                        <a href="/articles/" class="sub-nav-link" data-link-name="Guides & Articles">
+                          <div class="sub-nav-link__icon">
+                            <img src="{% static 'assets/images/icons/guides.svg' %}" alt="guides icon">
+                          </div>
+                          <div class="sub-nav-link__content">
+                            <p class="sub-nav-link__title">Guides & Articles</p>
+                            <p class="sub-nav-link__subtitle">All you need to know about loans and finances.</p>
+                          </div>
+                        </a>
+                        <a href="/calculators/" class="sub-nav-link" data-link-name="Calculators">
+                          <div class="sub-nav-link__icon">
+                            <img src="{% static 'assets/images/icons/calculators.svg' %}" alt="calculators icon">
+                          </div>
+                          <div class="sub-nav-link__content">
+                            <p class="sub-nav-link__title">Calculators</p>
+                            <p class="sub-nav-link__subtitle">Calculate and plan for your financial future.</p>
+                          </div>
+                        </a>
+                        <a href="https://help.collegeavestudentloans.com/hc/en-us/" class="sub-nav-link" data-link-name="FAQs">
+                          <div class="sub-nav-link__icon">
+                            <img src="{% static 'assets/images/icons/faqs.svg' %}" alt="faqs icon">
+                          </div>
+                          <div class="sub-nav-link__content">
+                            <p class="sub-nav-link__title">FAQs</p>
+                            <p class="sub-nav-link__subtitle">Questions about loans and finance?</p>
+                          </div>
+                        </a>
+                        <a href="/promotions/" class="sub-nav-link" data-link-name="Scholarships & Sweepstakes">
+                          <div class="sub-nav-link__icon">
+                            <img src="{% static 'assets/images/icons/promotions.svg' %}" alt="promotions icon">
+                          </div>
+                          <div class="sub-nav-link__content">
+                            <p class="sub-nav-link__title">Scholarships & Sweepstakes</p>
+                            <p class="sub-nav-link__subtitle">Rewards to assist you with your college tuition</p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sub-navigation-desktop__layout-column-two">
+                    <a href="/promotions/monthly-scholarship-award/" class="sub-nav-card sub-nav-card__background-light-green" data-link-name="$1000 Monthly Scholarship">
+                      <div class="sub-nav-card__top">
+                        <div class="sub-nav-card__image-container"><img src="{% static 'assets/temp/test-image-2.png' %}# alt=" "></div>
+                        <div class=" sub-nav-card__arrow-container">
+                          <svg viewbox="0 0 25 15" style="color: #002769">
+                            <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="sub-nav-card__bottom">
+                        <h4 class="h4">$1000 Monthly Scholarship</h4>
+                        <p class="p-small">Enter for a chance to win</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="main-nav-link-item" data-nav-hover="target">
+          <a href="/about/" class="main-nav-link" data-link-name="About Us">
+            <span class="main-nav-link__text">
+              About Us
+            </span>
+            <svg width="16" height="14" viewbox="0 0 16 14" style="color: #002769">
+              <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
+            </svg>
+          </a>
+
+          <div class="sub-navigation-desktop--wrapper">
+            <div class="sub-navigation-desktop" data-nav-hover="menu">
+              <div class="sub-navigation-desktop-container">
+                <div class="sub-navigation-desktop__layout-outer">
+                  <div class="sub-navigation-desktop__layout-column-one">
+                    <div class="sub-navigation-desktop__layout-column-one__row">
+                      <a href="/about/" class="sub-nav-arrow-link" data-link-name="About Us">
+                        About Us
+                        <span class="sub-nav-arrow-link__arrow">
+                          <svg viewbox="0 0 25 15" style="color: #002769">
+                            <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                          </svg>
+                        </span>
+                      </a>
+                      <div class="sub-navigation-desktop__layout-column-one__grid-three">
+
+                        <a href="{% url 'contact' %}" class="sub-nav-link" data-link-name="Contact Us">
+                          <div class="sub-nav-link__icon">
+                            <img src="{% static 'assets/images/icons/contact.svg' %}" alt="contact icon">
+                          </div>
+                          <div class="sub-nav-link__content">
+                            <p class="sub-nav-link__title">Contact Us</p>
+                            <p class="sub-nav-link__subtitle">Do you have questions? Or want to talk?</p>
+                          </div>
+                        </a>
+                        <a href="{% url 'reviews' %}" class="sub-nav-link" data-link-name="Reviews">
+                          <div class="sub-nav-link__icon">
+                            <img src="{% static 'assets/images/icons/reviews.svg' %}" alt="reviews icon">
+                          </div>
+                          <div class="sub-nav-link__content">
+                            <p class="sub-nav-link__title">Reviews</p>
+                            <p class="sub-nav-link__subtitle">Don't just listen to us - read what our customers have to say.</p>
+                          </div>
+                        </a>
+                        <a href="{% url 'careers' %}" class="sub-nav-link" data-link-name="Careers">
+                          <div class="sub-nav-link__icon">
+                            <img src="{% static 'assets/images/icons/careers.svg' %}" alt="careers icon">
+                          </div>
+                          <div class="sub-nav-link__content">
+                            <p class="sub-nav-link__title">Careers</p>
+                            <p class="sub-nav-link__subtitle">Come join our team.</p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="desktop-site-search" data-site-search="desktop-target">
+        <div class="site-search">
+          <div class="site-search__input-container" data-site-search="container">
+            <button data-site-search="handleSearch" class="site-search__button">
+
+              <svg viewbox="0 0 20 20" style="color: #00818A">
+                <use href="{% static 'assets/images/icons/global/magnifying_glass.svg' %}#magnifying_glass"></use>
+              </svg>
+            </button>
+            <div class="site-search__column">
+              <form class="site-search__form" method="GET" action="/site-search" data-site-search="form">
+                <input name="search" class="site-search__input" type="text" placeholder="Search">
+              </form>
+              <button data-site-search="closeSearch" class="site-search__button">
+                <svg width="20" height="20" viewbox="0 0 20 20" style="color: #00818A">
+                  <use href="{% static 'assets/images/icons/global/x_close.svg' %}#x_close"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-navigation-bar__right-links">
+      <button data-open-modal="apply" class="nav-bar-apply nav-bar-apply__desktop" data-link-name="Apply Now">Apply Now</button>
+      <button data-open-modal="apply" class="nav-bar-apply nav-bar-apply__mobile" data-link-name="Mobile Apply">Apply</button>
+      <span class="main-nav-mobile-divider"></span>
+      <button data-link-name="Open Mobile Nav" data-nav="toggle" class="main-nav-mobile-menu-button">
+        <span class="main-nav-mobile-menu-button__close-nav-menu">
+          <svg width="20" height="20" viewbox="0 0 20 20" style="color: #00818A">
+            <use href="{% static 'assets/images/icons/global/x_close.svg' %}#x_close"></use>
+          </svg>
+        </span>
+        <span class="main-nav-mobile-menu-button__open-nav-menu">
+          <svg viewbox="0 0 20 20" style="color: #00818A">
+            <use href="{% static 'assets/images/icons/global/menu.svg' %}#menu"></use>
+          </svg>
+
+        </span>
+      </button>
+    </div>
+    <div class="mobile-site-search" data-nav-offset="top" data-site-search="mobile-target">
+      <div>
+        <div class="site-search">
+          <div class="site-search__input-container" data-site-search="container">
+            <button data-site-search="handleSearch" class="site-search__button">
+
+              <svg viewbox="0 0 20 20" style="color: #00818A">
+                <use href="{% static 'assets/images/icons/global/magnifying_glass.svg' %}#magnifying_glass"></use>
+              </svg>
+            </button>
+            <div class="site-search__column">
+              <form class="site-search__form" method="GET" action="/site-search" data-site-search="form">
+                <input name="search" class="site-search__input" type="text" placeholder="Search">
+              </form>
+              <button data-site-search="closeSearch" class="site-search__button">
+                <svg width="20" height="20" viewbox="0 0 20 20" style="color: #00818A">
+                  <use href="{% static 'assets/images/icons/global/x_close.svg' %}#x_close"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="navigation-mobile-menu" data-nav-offset="top">
+      <div class="navigation-mobile-menu__container">
+        <div class="navigation-mobile-menu__top-section">
+
+          <button aria-label="Apply" data-open-modal="apply" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-264 button__mobile-full-width">
+            Apply
+          </button>
+        </div>
+        <ul class="navigation-mobile-menu__links-section accordion-group">
+          <li class="mobile-nav-link-item accordion_small" data-target="mobile-nav-submenu">
+            <a class="main-nav-link accordion-toggle" data-link-name="Student Loans">
+              <span class="main-nav-link__text">
+                Student Loans
+              </span>
+              <svg width="16" height="14" viewbox="0 0 16 14" style="color: #002769">
+                <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
+              </svg>
+            </a>
+            <div class="accordion-content">
+              <div>
+                <ul class="navigation-mobile-menu__sub-links-section">
+                  <li>
+                    <a href="/student-loans/" class="sub-nav-arrow-link" data-link-name="Student Loans Overview">
+                      Student Loans Overview
+                      <span class="sub-nav-arrow-link__arrow">
+                        <svg viewbox="0 0 25 15" style="color: #002769">
+                          <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                        </svg>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/private-student-loans/" class="sub-nav-arrow-link" data-link-name="Private Student Loans">
+                      Private Student Loans
+                      <span class="sub-nav-arrow-link__arrow">
+                        <svg viewbox="0 0 25 15" style="color: #002769">
+                          <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                        </svg>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/student-loans/undergraduate/" class="sub-nav-link" data-link-name="Undergraduate">
+                      <div class="sub-nav-link__icon">
+                        <img src="{% static 'assets/images/icons/CAIS01.svg' %}" alt="CAIS01 icon">
+                      </div>
+                      <div class="sub-nav-link__content">
+                        <p class="sub-nav-link__title">Undergraduate</p>
+                        <p class="sub-nav-link__rate">3.99% - 14.96% APR<sup>&dagger;</sup>
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/student-loans/parent/" class="sub-nav-link" data-link-name="Parent">
+                      <div class="sub-nav-link__icon">
+                        <img src="{% static 'assets/images/icons/CAPA01.svg' %}" alt="CAPA01 icon">
+                      </div>
+                      <div class="sub-nav-link__content">
+                        <p class="sub-nav-link__title">Parent</p>
+                        <p class="sub-nav-link__rate">3.99% - 14.96% APR<sup>&dagger;</sup>
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/student-loans/career/" class="sub-nav-link" data-link-name="Career Loans">
+                      <div class="sub-nav-link__icon">
+                        <img src="{% static 'assets/images/icons/CAIS03.svg' %}" alt="CAIS03 icon">
+                      </div>
+                      <div class="sub-nav-link__content">
+                        <p class="sub-nav-link__title">Career Loans</p>
+                        <p class="sub-nav-link__rate">1.19% - 12.99% APR<sup>&dagger;</sup>
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/student-loans/graduate/" class="sub-nav-arrow-link" data-link-name="Graduate Loans">
+                      Graduate Loans
+                      <span class="sub-nav-arrow-link__arrow">
+                        <svg viewbox="0 0 25 15" style="color: #002769">
+                          <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                        </svg>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/student-loans/graduate/dental/" class="sub-nav-link" data-link-name="Dental">
+                      <div class="sub-nav-link__icon">
+                        <img src="{% static 'assets/images/icons/CAISDE.svg' %}" alt="CAISDE icon">
+                      </div>
+                      <div class="sub-nav-link__content">
+                        <p class="sub-nav-link__title">Dental</p>
+                        <p class="sub-nav-link__rate">3.99% - 12.99% APR<sup>&dagger;</sup>
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/student-loans/graduate/mba/" class="sub-nav-link" data-link-name="MBA">
+                      <div class="sub-nav-link__icon">
+                        <img src="{% static 'assets/images/icons/CAISMB.svg' %}" alt="CAISMB icon">
+                      </div>
+                      <div class="sub-nav-link__content">
+                        <p class="sub-nav-link__title">MBA</p>
+                        <p class="sub-nav-link__rate">3.99% - 14.96% APR<sup>&dagger;</sup>
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/student-loans/graduate/health-professions/" class="sub-nav-link" data-link-name="Health Professions">
+                      <div class="sub-nav-link__icon">
+                        <img src="{% static 'assets/images/icons/CAISGH.svg' %}" alt="CAISGH icon">
+                      </div>
+                      <div class="sub-nav-link__content">
+                        <p class="sub-nav-link__title">Health Professions</p>
+                        <p class="sub-nav-link__rate">1.19% - 12.99% APR<sup>&dagger;</sup>
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/student-loans/graduate/law/" class="sub-nav-link" data-link-name="Law">
+                      <div class="sub-nav-link__icon">
+                        <img src="{% static 'assets/images/icons/CAISLW.svg' %}" alt="CAISLW icon">
+                      </div>
+                      <div class="sub-nav-link__content">
+                        <p class="sub-nav-link__title">Law</p>
+                        <p class="sub-nav-link__rate">1.19% - 12.99% APR<sup>&dagger;</sup>
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/student-loans/graduate/medical/" class="sub-nav-link" data-link-name="Medical">
+                      <div class="sub-nav-link__icon">
+                        <img src="{% static 'assets/images/icons/CAISMD.svg' %}" alt="CAISMD icon">
+                      </div>
+                      <div class="sub-nav-link__content">
+                        <p class="sub-nav-link__title">Medical</p>
+                        <p class="sub-nav-link__rate">1.19% - 12.99% APR<sup>&dagger;</sup>
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/student-loans/refinance/" class="sub-nav-arrow-link sub-nav-arrow-link__refinance" data-link-name="Student Loan Refinance">
+                      Student Loan Refinance
+                      <span class="sub-nav-arrow-link__arrow">
+                        <svg viewbox="0 0 25 15" style="color: #002769">
+                          <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                        </svg>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="mobile-nav-link-item" data-target="mobile-nav-submenu">
+            <a class="main-nav-link" data-link-name="Student Card" href="/credit/student-card/">
+              <span class="main-nav-link__text">
+                Student Card
+              </span>
+            </a>
+          </li>
+          <li class="mobile-nav-link-item accordion_small" data-target="mobile-nav-submenu">
+            <a class="main-nav-link accordion-toggle" data-link-name="Resources & Tools">
+              <span class="main-nav-link__text">
+                Resources & Tools
+              </span>
+              <svg width="16" height="14" viewbox="0 0 16 14" style="color: #002769">
+                <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
+              </svg>
+            </a>
+            <div class="accordion-content">
+              <div>
+                <ul class="navigation-mobile-menu__sub-links-section">
+                  <li>
+                    <a href="/resources/" class="sub-nav-arrow-link" data-link-name="Resources & Tools">
+                      Resources & Tools
+                      <span class="sub-nav-arrow-link__arrow">
+                        <svg viewbox="0 0 25 15" style="color: #002769">
+                          <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                        </svg>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/articles/" class="sub-nav-link" data-link-name="Guides & Articles">
+                      <div class="sub-nav-link__icon">
+                        <img src="{% static 'assets/images/icons/guides.svg' %}" alt="guides icon">
+                      </div>
+                      <div class="sub-nav-link__content">
+                        <p class="sub-nav-link__title">Guides & Articles</p>
+                        <p class="sub-nav-link__subtitle">All you need to know about loans and finances.</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/calculators/" class="sub-nav-link" data-link-name="Calculators">
+                      <div class="sub-nav-link__icon">
+                        <img src="{% static 'assets/images/icons/calculators.svg' %}" alt="calculators icon">
+                      </div>
+                      <div class="sub-nav-link__content">
+                        <p class="sub-nav-link__title">Calculators</p>
+                        <p class="sub-nav-link__subtitle">Calculate and plan for your financial future.</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://help.collegeavestudentloans.com/hc/en-us/" class="sub-nav-link" data-link-name="FAQs">
+                      <div class="sub-nav-link__icon">
+                        <img src="{% static 'assets/images/icons/faqs.svg' %}" alt="faqs icon">
+                      </div>
+                      <div class="sub-nav-link__content">
+                        <p class="sub-nav-link__title">FAQs</p>
+                        <p class="sub-nav-link__subtitle">Questions about loans and finance?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/promotions/" class="sub-nav-link" data-link-name="Scholarships & Sweepstakes">
+                      <div class="sub-nav-link__icon">
+                        <img src="{% static 'assets/images/icons/promotions.svg' %}" alt="promotions icon">
+                      </div>
+                      <div class="sub-nav-link__content">
+                        <p class="sub-nav-link__title">Scholarships & Sweepstakes</p>
+                        <p class="sub-nav-link__subtitle">Rewards to assist you with your college tuition</p>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="mobile-nav-link-item accordion_small" data-target="mobile-nav-submenu">
+            <a class="main-nav-link accordion-toggle" data-link-name="About Us">
+              <span class="main-nav-link__text">
+                About Us
+              </span>
+              <svg width="16" height="14" viewbox="0 0 16 14" style="color: #002769">
+                <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
+              </svg>
+            </a>
+            <div class="accordion-content">
+              <div>
+                <ul class="navigation-mobile-menu__sub-links-section">
+                  <li>
+                    <a href="/about/" class="sub-nav-arrow-link" data-link-name="About Us">
+                      About Us
+                      <span class="sub-nav-arrow-link__arrow">
+                        <svg viewbox="0 0 25 15" style="color: #002769">
+                          <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                        </svg>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/contact/" class="sub-nav-link" data-link-name="Contact Us">
+                      <div class="sub-nav-link__icon">
+                        <img src="{% static 'assets/images/icons/contact.svg' %}" alt="contact icon">
+                      </div>
+                      <div class="sub-nav-link__content">
+                        <p class="sub-nav-link__title">Contact Us</p>
+                        <p class="sub-nav-link__subtitle">Do you have questions? Or want to talk?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{% url 'reviews' %}" class="sub-nav-link" data-link-name="Reviews">
+                      <div class="sub-nav-link__icon">
+                        <img src="{% static 'assets/images/icons/reviews.svg' %}" alt="reviews icon">
+                      </div>
+                      <div class="sub-nav-link__content">
+                        <p class="sub-nav-link__title">Reviews</p>
+                        <p class="sub-nav-link__subtitle">Don't just listen to us - read what our customers have to say.</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{% static 'careers' %}" class="sub-nav-link" data-link-name="Careers">
+                      <div class="sub-nav-link__icon">
+                        <img src="{% static 'assets/images/icons/careers.svg' %}" alt="careers icon">
+                      </div>
+                      <div class="sub-nav-link__content">
+                        <p class="sub-nav-link__title">Careers</p>
+                        <p class="sub-nav-link__subtitle">Come join our team.</p>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="mobile-nav-link-item accordion_small" data-target="mobile-nav-submenu">
+            <a class="main-nav-link accordion-toggle" data-link-name="Find My Application">
+              <span class="main-nav-link__text">
+                Find My Application
+              </span>
+              <svg width="16" height="14" viewbox="0 0 16 14" style="color: #002769">
+                <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
+              </svg>
+            </a>
+            <div class="accordion-content">
+              <div>
+                <ul class="navigation-mobile-menu__sub-links-section">
+                  <li>
+                    <a href="" class="sub-nav-link" data-link-name="Return to Application">
+                      <div class="sub-nav-link__icon">
+                        <img src="{% static 'assets/images/icons/parchment.svg' %}" alt="parchment icon">
+                      </div>
+                      <div class="sub-nav-link__content">
+                        <p class="sub-nav-link__title">Return to Application</p>
+                        <p class="sub-nav-link__subtitle"></p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="" class="sub-nav-link" data-link-name="Application Status">
+                      <div class="sub-nav-link__icon">
+                        <img src="{% static 'assets/images/icons/parchment.svg' %}" alt="parchment icon">
+                      </div>
+                      <div class="sub-nav-link__content">
+                        <p class="sub-nav-link__title">Application Status</p>
+                        <p class="sub-nav-link__subtitle"></p>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="navigation-mobile-menu__top-nav-buttons">
+
+          <button aria-label="My Account" data-open-modal="account-modal" class="dropshadow dropshadow__hover-off button button__dark-blue button__width-264 button__mobile-full-width">
+
+            <svg viewbox="0 0 15 17" style="color: #fff">
+              <use href="{% static 'assets/images/icons/global/person.svg' %}#person"></use>
+            </svg>
+            My Account
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

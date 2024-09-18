@@ -1,0 +1,124 @@
+{% extends "account/layout.html" %}
+{% load static %}
+
+{% block content %}
+
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2>Log In</h2>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class=" form-section">
+      <div id="response-card-container"></div>
+      <div class="form-content">
+        <form action="{% url 'users:login' %}" method="post" id="loginForm">
+          {% csrf_token %}
+          <div class="form-group">
+            <div class="input-group">
+              {{form.email}}
+              <label class="floating" for="{{form.email.id_for_label}}">{{form.email.label}}</label>
+            </div>
+            <span class="field-validation-error {{form.email.id_for_label}}-error" data-id-for="{{form.email.id_for_label}}"></span>
+          </div>
+
+          <div class="form-group inputOverLink">
+            <div class="password-with-showHide input-group">
+              {{form.password}}
+              <label class="floating" for="{{form.password.id_for_label}}">{{form.password.label}}</label>
+              <a href="#" class="show-hide" tabindex="99">Show</a>
+            </div>
+            <span class="field-validation-valid {{form.password.id_for_label}}-error" style="color:crimson" data-id-for="{{form.password.id_for_label}}"></span>
+          </div>
+          <div class="form-group remember-me">
+            {{form.remember_me}}
+            <label class="rememberMeLabel" for="{{form.remember_me.id_for_label}}">
+              {{form.remember_me.label}}
+            </label>
+          </div>
+          <div class="text-center">
+            <button id="btnSubmit" type="submit" tabindex="6" class="btn btn-primary">
+              Login In
+            </button>
+          </div>
+        </form>
+        <div class="text-center nav-link  bottom-screen-nav-link">
+          <p>
+            <a class="anchorLink" href="{% url 'users:register' %}" tabindex="5">Create Account</a>
+          </p>
+        </div>
+
+        <div class="row text-center post-form-section" style="margin-top: 0px">
+          <div class="col-12">
+            <p>Forgot
+              <a class="anchorLink" href="">Username</a>
+              or
+              <a class="anchorLink" href="">Password</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row text-center post-form-section">
+    <div class="col-12">
+      <p></p>
+    </div>
+    <div class="col-12">
+      <p>Questions? Call 844-803-0736</p>
+    </div>
+  </div>
+
+  <div id="validationScripts"></div>
+{% endblock content %}
+
+{% block formScript %}
+
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      loadBodyScripts("{% static 'js/validation.min.js' %}", function () {
+        console.log("file loaded");
+
+        validateEmailAddress();
+        validatePasswordField();
+        showLoadingState();
+        removeLoadingState();
+
+      });
+
+      $("#loginForm").submit(function (event) {
+        event.preventDefault();
+        showLoadingState("btnSubmit");
+        $.ajax({
+          url: $(this).attr("action"), // Get the form's action attribute
+          data: JSON.stringify({
+            "email": $("input[name=email]").val(), "password": $("input[name=password]").val(), "remember_me": $("input[name=remember_me]").is(":checked") // Handle checkbox properly
+          }),
+          type: $(this).attr("method"), // Should be "POST" for form submissions
+          contentType: "application/json", // Set the content type as JSON
+          headers: {
+            "X-CSRFToken": $("input[name=csrfmiddlewaretoken]").val() // Django CSRF protection
+          },
+          success: function (response) {
+            removeLoadingState("btnSubmit", "Log In");
+            handleSuccessResponse(response.message);
+            setTimeout(() => {
+              window.location.href = response.url
+            }, 5000)
+
+          },
+          error: function (xhr, status, errorThrown) {
+            removeLoadingState("btnSubmit", "Log In")
+            handleFailedResponse(JSON.parse(xhr.responseText).error)
+          }
+        });
+
+      })
+
+    })
+  </script>
+{% endblock formScript %}

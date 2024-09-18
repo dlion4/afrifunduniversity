@@ -1,0 +1,108 @@
+{% load static %}
+
+<div class="footer">
+  <div class="row">
+    <div class="col-lg-4 footer-col">
+      <img class="footer-img" src="{% static 'assets/images/footerLogo.webp' %}" style="width:290px; height:86px;" alt="Afri Fund University"/>
+      <div class="footer-content" style="padding-top:60px;">
+        Afri Fund University combines user-friendliness with personalized customer service to bring you an uncomplicated student loan repayment experience.
+      </div>
+      <a class="learn-more" href="https://www.afrifunduniveristystudentloans.com/">
+        Learn More &#8594;
+      </a>
+      <div class="footer-underline"></div>
+    </div>
+    <div class="col-lg-4 footer-col">
+      <div class="footer-header">
+        Quick Links
+      </div>
+      <div class="footer-underline"></div>
+      <a class="quick-link" href="https://www.afrifunduniveristyservicing.com/faq">
+        <div class="quick-link-text">
+          FAQ
+        </div>
+        <div class="quick-link-arrow">
+          &#187;
+        </div>
+      </a>
+      <a class="quick-link" href="https://www.afrifunduniveristystudentloans.com/privacy">
+        <div class="quick-link-text">
+          PRIVACY
+        </div>
+        <div class="quick-link-arrow">
+          &#187;
+        </div>
+      </a>
+      <a class="quick-link" href="https://www.afrifunduniveristyservicing.com/terms-and-conditions">
+        <div class="quick-link-text">
+          TERMS
+        </div>
+        <div class="quick-link-arrow">
+          &#187;
+        </div>
+      </a>
+      <a class="quick-link" href="https://www.afrifunduniveristystudentloans.com/about-us">
+        <div class="quick-link-text">
+          ABOUT US
+        </div>
+        <div class="quick-link-arrow">
+          &#187;
+        </div>
+      </a>
+    </div>
+    <div class="col-lg-4 footer-col">
+      <div class="footer-header">
+        Contact Us
+      </div>
+      <div class="footer-underline"></div>
+      <div class="footer-content" style="padding-top:24px;">
+        Receive a letter, call, or message from us?
+      </div>
+      <div class="footer-content" style="padding-bottom:16px;">
+        Reach back out to us at:
+      </div>
+      <div class="row" style="padding-bottom:16px;">
+        <div class="footer-icon">
+          <img style="padding-bottom:7px;" src="{% static 'assets/images/LocationIcon.webp' %}" alt="Afri Fund University"/>
+        </div>
+        <div class="footer-content" style="padding-left:0px;">
+          Afri Fund University<br/>
+          c/o University Accounting Service, LLC<br/>
+          4099 McEwen Road Suite 700 B<br/>
+          Farmers Branch, TX 75244<br/>
+        </div>
+      </div>
+      <div class="row" style="padding-bottom:16px;">
+        <div class="footer-icon">
+          <img style="padding-bottom:7px;" src="{% static 'assets/images/PhoneIcon.webp' %}" alt="Afri Fund University"/>
+        </div>
+        <div class="footer-content" style="padding-left:0px;">
+          844-803-0736
+        </div>
+      </div>
+      <div class="row" style="padding-bottom:16px;">
+        <div class="footer-icon">
+          <img style="padding-bottom:7px;" src="{% static 'assets/images/MailIcon.webp' %}" alt="Afri Fund University"/>
+        </div>
+        <div class="footer-content" style="padding-left:0px;">
+          <a href="{% url 'email_protection_view' %}" class="__cf_email__" data-cfemail="2350575647464d574f4c424d5063404c4f4f4644464255460d404c4e">
+            [email&#160;protected]
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    Copyright ©
+    <span class="year"></span>
+    All Rights Reserved.
+  </div>
+</div>
+
+<script>
+  document
+    .querySelectorAll(".year")
+    .forEach(element => {
+      element.innerHTML = new Date().getFullYear()
+    })
+</script>

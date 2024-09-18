@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% load static humanize %}
+
+{% block headerScript %}{% endblock headerScript %}
+
+{% block content %}
+
+  <section class="hero hero-centered-text background-color__light-orange" data-site-animation-breakpoint="992" data-section-name="A-Spot > Press">
+    <div class="site-breadcrumbs site-breadcrumbs__hero">
+      <div class="site-breadcrumbs__container">
+
+        <nav class="site-breadcrumbs__mobile">
+          <p class="p-small">
+            < <a data-link-name="Breadcrumb > Home" href="{% url 'home' %}">Home</a>
+          </p>
+        </nav>
+      </div>
+    </div>
+    <div class="section-container">
+
+      <div class="responsive-background-image">
+
+        <picture>
+          <source media="(min-width: 992px)" srcset="{% static 'assets/images/orange-bubble-hero-background-d.png' %}">
+          <source media="(min-width: 1px)" srcset="{% static 'assets/images/orange-bubble-hero-background-m.png' %}">
+          <img width="2880" height="624" src="{% static 'assets/images/orange-bubble-hero-background-d.png' %}" class="attachment-full size-full" alt="orange background" decoding="async" fetchpriority="high"/>
+        </picture>
+      </div>
+      <div class="hero-centered-text__container">
+        <div class="hero-centered-text__content">
+          <div class="hero-centered-text__header">
+            <h1 class="h1" data-site-animation-order="0">Press</h1>
+          </div>
+          <div class="hero-centered-text__paragraphs" data-site-animation-order="2">
+            <p class="p-large">For all press inquiries email
+              <a href="/cdn-cgi/l/email-protection#aededccbddddeecdc1c2c2cbc9cbcfd8cb80cdc1c3">
+                <span class="__cf_email__" data-cfemail="11616374626251727e7d7d7476747067743f727e7c">[email&#160;protected]</span></a>
+              or call
+              <a href="tel:+13026846066">(302)&middot;684&middot;6066</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div data-app="PressReleaseSection"></div>
+  <section class="color-card-links-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Learn More About Us">
+    <div class="section-container">
+      <div class="color-card-links-section__container">
+        <div class="color-card-links-section__header" data-site-animation-order="0">
+          <h2 class="h2">Learn More About Us</h2>
+        </div>
+        <div class="color-card-links-section__cards" data-site-animation-order="1">
+          <div class="color-card background-color__light-teal" href="/about/">
+            <div class="color-card__container">
+              <div class="color-card__content">
+                <h3 class="color-card__header h3">About Us</h3>
+                <p class="p-large color-card__text">We created this company to flip the script on student loans and make getting a private student loan for college better.</p>
+              </div>
+              <div class="color-card__button-container">
+
+                <a href="/about/" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-205" data-link-name="Learn More">
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="color-card background-color__light-coral" href="{% url 'careers' %}">
+            <div class="color-card__container">
+              <div class="color-card__content">
+                <h3 class="color-card__header h3">Careers</h3>
+                <p class="p-large color-card__text">Believe in our mission as much as we do? Join our team.</p>
+              </div>
+              <div class="color-card__button-container">
+
+                <a href="{% url 'careers' %}" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-205" data-link-name="Learn More">
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="color-card background-color__light-green" href="/partner/">
+            <div class="color-card__container">
+              <div class="color-card__content">
+                <h3 class="color-card__header h3">Partner With Us</h3>
+                <p class="p-large color-card__text">Want to Partner with College Ave Student Loans to offer private student loans and student loan refinancing to your members or customers?</p>
+              </div>
+              <div class="color-card__button-container">
+
+                <a href="/partner/" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-205" data-link-name="Learn More">
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}
+
+{% block pressScript %}
+
+  <script>
+    loadJSFile("{% static 'js/press.js' %}", function () {
+      console.log("file loaded");
+      setTimeout(() => {
+        loadJSFile("{% static 'assets/js/react-app/react-app.js' %}", function () {
+          console.log("This has also been loaded")
+        })
+      }, 3000)
+
+    });
+  </script>
+
+{% endblock pressScript %}
+
+{% block formScript %}{% endblock formScript %}

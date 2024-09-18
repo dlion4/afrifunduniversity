@@ -1,0 +1,136 @@
+{% extends "layout.html" %}
+
+{% load static humanize %}
+
+{% block headerScript %}{% endblock headerScript %}
+
+{% block content %}
+
+  <section class="hero text-image-hero-section background-color__light-orange" data-site-animation-breakpoint="992">
+    <div class="site-breadcrumbs site-breadcrumbs__hero">
+      <div class="site-breadcrumbs__container">
+
+        <nav class="site-breadcrumbs__mobile">
+          <p class="p-small">
+            < <a data-link-name="Breadcrumb > Home" href="{% url 'home' %}">Home</a>
+          </p>
+        </nav>
+      </div>
+    </div>
+    <div class="section-container">
+      <div class="text-image-hero-section__container">
+        <div class="text-image-hero-section__column-content">
+          <div class="text-image-hero-section__text-content">
+            <h1 class="h1 h1__mobile-small" data-site-animation-order="0">Partner with Afri Fund University</h1>
+            <p class="p-large" data-site-animation-order="1">Partner with Afri Fund University to offer private student loans and student loan refinancing to your members or customers. We'll make it fast and easy, for both you and them. With a simple application, helpful tools, and great customer service, we're here to help.</p>
+          </div>
+          <div class="text-image-hero-section__buttons-container" data-site-animation-order="2">
+
+            <a href="mailto:{{main_site_mail_contact}}" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-210" data-link-name="Get in Touch" target="_blank">
+              Get in Touch
+            </a>
+          </div>
+          <p class="p-small" data-site-animation-order="2">For colleges and universities, visit our
+            <a href="{% url 'schools:school:home' %}" target="_blank" data-link-name="schools page">
+              schools page</a>.<br><br>*Please note we are not currently accepting guest post contributions at this time.
+          </p>
+        </div>
+        <div class="text-image-hero-section__column-image hidden-xs hidden-sm" data-site-animation-order="4">
+
+          <picture>
+            <source media="(min-width: 992px)" srcset="{% static 'assets/images/careers-hero.png' %}">
+            <img width="1036" height="848" src="{% static 'assets/images/careers-hero.png' %}" class="attachment-full size-full" alt="people" decoding="async" fetchpriority="high"/>
+          </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="one-column-video" data-section-name="Success with Less Stress">
+    <div class="section-container">
+      <div class="one-column-video__outer-container">
+        <div class="one-column-video__container">
+          <div class="one-column-video__header">
+            <h2 class="h2">Success with Less Stress</h2>
+            <div class="one-column-video__content-text">
+              <p class="p-large">Want to learn more about our Partnership Program? This video explains how we work with our partners to offer a better student loan experience for your members or customers. Looking for information for your school’s financial aid office?
+                <a href="{% url 'schools:school:home' %}" target="_blank" data-link-name="click here">Click here</a>.</p>
+            </div>
+          </div>
+          <div class="one-column-video__video-container">
+            <iframe class="one-column-video__yt" src="https://www.youtube.com/embed/LNLaY8Fqr9k" title="African Soil [Instr] 2024" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="allowfullscreen"></iframe>
+          </div>
+
+          <a href="{% url 'view_file' file_name='partnership.pdf' %}" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-293" data-link-name="Get More Information" target="_blank">
+            Get More Information
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="three-column-icon-grid-section background-color__white" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Benefits of Partnering with Afri Fund University">
+    <div class="section-container">
+      <div class="three-column-icon-grid-section__container">
+        <div class="three-column-icon-grid-section__header-container">
+          <h2 class="h2" data-site-animation-order="0">Benefits of Partnering with Afri Fund</h2>
+          <div class="three-column-icon-grid-section__paragraphs" data-site-animation-order="1">
+            <p class="p-large">Offer your members or customers a full suite of private student loan products: Undergraduate, Graduate, Parent, Career loans and Refinance, supported by top-notch customer service.
+              <style>
+                .three-column-icon-grid-section {
+                  margin-top: 40px;
+                  margin-bottom: 40px;
+                  padding-top: 20px;
+                  padding-bottom: 20px;
+                }
+              </style>
+            </p>
+          </div>
+        </div>
+        <div class="three-column-icon-grid-section__grid" data-site-animation-order="2">
+          <div class="three-column-icon-grid-section__grid-item">
+            <div class="three-column-icon-grid-section__grid-item--teal_circle">
+              <img width="96" height="96" src="{% static 'assets/images/piggy-bank-icon.png' %}" class="attachment-thumbnail size-thumbnail" alt="" decoding="async"/>
+            </div>
+            <div class="three-column-icon-grid-section__grid-item-title">
+              <h4 class="h4">Meet the higher education financing needs of your customers</h4>
+            </div>
+          </div>
+          <div class="three-column-icon-grid-section__grid-item">
+            <div class="three-column-icon-grid-section__grid-item--teal_circle">
+              <img width="68" height="68" src="{% static 'assets/images/heart-in-hand-icon.png' %}" class="attachment-thumbnail size-thumbnail" alt="" decoding="async"/>
+            </div>
+            <div class="three-column-icon-grid-section__grid-item-title">
+              <h4 class="h4">Create and strengthen customer relationships</h4>
+            </div>
+          </div>
+          <div class="three-column-icon-grid-section__grid-item">
+            <div class="three-column-icon-grid-section__grid-item--teal_circle">
+              <img width="96" height="96" src="{% static 'assets/images/high-five-icon.png' %}" class="attachment-thumbnail size-thumbnail" alt="" decoding="async"/>
+            </div>
+            <div class="three-column-icon-grid-section__grid-item-title">
+              <h4 class="h4">Generate referral fees while avoiding lending and loan administration</h4>
+            </div>
+          </div>
+        </div>
+        <div class="three-column-icon-grid-section__button-container" data-site-animation-order="3">
+
+          <a href="{% url 'view_file' file_name='partnership.pdf' %}" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-264" data-link-name="More Partnership Info" target="_blank">
+            More Partnership Info
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}
+
+{% block pressScript %}
+
+  <script>
+    loadJSFile("{% static 'js/loadVideo.js' %}", function () {});
+  </script>
+
+{% endblock pressScript %}
+
+{% block formScript %}{% endblock formScript %}

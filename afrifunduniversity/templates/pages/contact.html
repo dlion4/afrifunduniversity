@@ -1,0 +1,348 @@
+{% extends "layout.html" %}
+{% load static humanize %}
+{% block content %}
+
+  <!-- HERO SECTION START -->
+  <section class="hero text-image-hero-section background-color__light-coral" data-site-animation-breakpoint="992">
+    <div class="site-breadcrumbs site-breadcrumbs__hero">
+      <div class="site-breadcrumbs__container">
+        <nav class="site-breadcrumbs__desktop">
+          <!-- <p class="p-small"> <a data-link-name="Breadcrumb > Home" href="{% url 'home' %}">Home</a> > Contact </p> -->
+        </nav>
+
+        <nav class="site-breadcrumbs__mobile">
+          <p class="p-small">
+            <a data-link-name="Breadcrumb > Home" href="{% url 'home' %}">Home</a>
+          </p>
+        </nav>
+      </div>
+    </div>
+
+    <div class="section-container">
+      <div class="text-image-hero-section__container">
+        <div class="text-image-hero-section__column-content">
+          <div class="text-image-hero-section__text-content">
+            <h1 class="h1 h1__mobile-small" data-site-animation-order="0">Contact Us</h1>
+            <p class="p-large" data-site-animation-order="1">If you have a question, suggestion, or just need a little more detail, you can contact us using any of the options below.</p>
+            <p class="p-large" data-site-animation-order="1">Into self-help? Check out our FAQs for quick and easy answers.</p>
+          </div>
+          <div class="text-image-hero-section__buttons-container" data-site-animation-order="2">
+            <a href="" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-310" data-link-name="Frequently Asked Questions">
+              Frequently Asked Questions
+            </a>
+          </div>
+        </div>
+        <div class="text-image-hero-section__column-image hidden-xs hidden-sm" data-site-animation-order="4">
+          <picture>
+            <source media="(min-width: 992px)" srcset="{% static 'assets/images/contact-us-hero.png' %}">
+            <img width="1188" height="727" src="{% static 'assets/images/contact-us-hero.png' %}" class="attachment-full size-full" alt="Contact administrator answering calls and emails" decoding="async" fetchpriority="high"/>
+          </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- HERO SECTION END -->
+  <!-- COMMUNICATION CHANNEL START -->
+
+  <div class="zendesk-offline">
+    <section class="contact-button-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="The AfriFund University Support Team is Here For You">
+      <div class="section-container">
+        <div class="contact-button-section__container">
+          <div class="contact-button-section__header-container" data-site-animation-order="0">
+            <h2 class="h2">The AfriFund University Support Team is Here For You</h2>
+          </div>
+          <div class="contact-button-section__content-container">
+            <div class="contact-button-section__grid" data-site-animation-order="1">
+              <button class="contact-button-card background-color__light-teal zendesk" data-contact-button="chat">
+                <div class="contact-button-card__arrow-container">
+
+                  <svg viewbox="0 0 25 15" style="color: #002769">
+                    <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                  </svg>
+                </div>
+                <div class="contact-button-card__container">
+                  <div class="contact-button-card__icon-container background-color__teal">
+                    <svg width="34" height="30" viewbox="0 0 34 30" fill="none">
+                      <g clip-path="url(#clip0_3823_5870)">
+                        <path d="M17.2728 20.2542C17.4536 20.2542 17.6308 20.1813 17.7593 20.0544C17.8899 19.9247 17.962 19.7529 17.962 19.57C17.962 19.387 17.8878 19.2124 17.7593 19.0855C17.6287 18.9565 17.4557 18.8864 17.2707 18.8857H4.1812H4.11059V18.8892C3.76459 18.925 3.49414 19.2166 3.49414 19.5692C3.49414 19.945 3.80272 20.2521 4.1812 20.2535H17.2728V20.2542Z" fill="white"/>
+                        <path d="M33.3115 0.0042062H13.0965C13.0859 0.0042062 13.0754 0.00350516 13.0641 0.00350516L13.0612 0L13.021 0.0042062C12.6672 0.0392578 12.401 0.33229 12.401 0.684909V7.67H0.685654C0.502061 7.6707 0.32906 7.74221 0.199839 7.8719C0.0699118 8.00159 -0.000700882 8.17404 5.24497e-06 8.35631V23.7825C-0.00140701 24.1597 0.305758 24.4674 0.685654 24.4689H4.0221V29.3165C4.0221 29.5934 4.18875 29.8416 4.44649 29.9474C4.53263 29.9825 4.62231 30 4.71128 30C4.88923 30 5.06435 29.9313 5.19639 29.8009L10.5665 24.4689H21.4719C21.6534 24.4689 21.8306 24.3952 21.9591 24.267C22.0891 24.1373 22.1604 23.9648 22.159 23.7825V16.7989H23.9991L29.3636 22.1295C29.5613 22.3293 29.8572 22.3889 30.1177 22.2816C30.3783 22.1744 30.5449 21.9248 30.5428 21.6451V16.7981H33.3122C33.4951 16.7981 33.6674 16.728 33.7974 16.5998C33.928 16.4715 34 16.2997 34.0007 16.1167V0.68561C33.9993 0.309857 33.69 0.00490723 33.3122 0.00490723L33.3115 0.0042062ZM29.1659 16.1167V19.9991L24.7709 15.6323L24.7497 15.612H24.749C24.6234 15.497 24.4546 15.4311 24.2823 15.4311H13.7801V1.37052H32.6217V15.4311H29.8515C29.4716 15.4325 29.1645 15.7403 29.1659 16.1174V16.1167ZM5.39905 23.7531H5.39834C5.39058 23.5806 5.31926 23.4208 5.19569 23.2995C5.06576 23.1712 4.89346 23.1011 4.71128 23.1011H1.37695V9.03701H12.4017V16.1174C12.4017 16.1399 12.4031 16.163 12.4059 16.184C12.4405 16.5367 12.735 16.8024 13.0909 16.8024H20.7806V23.1004H10.277C10.0941 23.1018 9.92321 23.1733 9.79469 23.3023L5.39976 27.6614V23.7531H5.39905Z" fill="white"/>
+                        <path d="M23.2626 11.5012C22.8312 11.5012 22.4668 11.8616 22.4668 12.2878C22.4668 12.714 22.8312 13.0792 23.2626 13.0792C23.694 13.0792 24.0535 12.7168 24.0535 12.2878C24.0535 11.8587 23.6912 11.5012 23.2626 11.5012Z" fill="white"/>
+                        <path d="M23.4987 3.73288V3.73078L23.4288 3.72727C22.9747 3.70554 22.5341 3.78125 22.1175 3.953C20.9806 4.42199 20.2491 5.5121 20.254 6.72909C20.2505 6.91136 20.3225 7.09153 20.4517 7.22122C20.5803 7.35091 20.7596 7.42522 20.9425 7.42522H20.9446C21.1289 7.42452 21.3076 7.34881 21.4361 7.21771C21.5646 7.08662 21.6352 6.90645 21.6303 6.72559C21.6274 6.06381 22.0257 5.47074 22.645 5.21486C23.2621 4.96039 23.9654 5.09989 24.4385 5.57099C24.9095 6.03928 25.0465 6.73821 24.7881 7.35021C24.5416 7.93417 23.9676 8.32394 23.3278 8.34287H23.3207C23.2967 8.34007 23.272 8.33937 23.2466 8.33937C22.8907 8.34638 22.6005 8.61697 22.5722 8.9738V8.98852V8.99553C22.5722 9.00184 22.5715 9.00815 22.5708 9.01516C22.5708 9.02147 22.5708 9.02848 22.5708 9.03479C22.5708 9.0404 22.5708 9.04601 22.5708 9.04881V10.4649C22.5666 10.6479 22.6379 10.8273 22.7671 10.9577C22.8957 11.0881 23.075 11.1631 23.2593 11.1631C23.4436 11.1631 23.623 11.0881 23.7515 10.9577C23.88 10.8273 23.952 10.6472 23.9478 10.4663V9.63347C24.8982 9.41755 25.6849 8.76559 26.0591 7.88019C26.535 6.75293 26.2815 5.46583 25.4137 4.60216C24.9011 4.09251 24.2232 3.78475 23.498 3.73148L23.4987 3.73288Z" fill="white"/>
+                        <path d="M8.57324 15.4319H4.17902C3.80759 15.4403 3.50537 15.7466 3.50537 16.1154C3.50537 16.4841 3.80759 16.7905 4.18043 16.7989H8.57465C8.94608 16.7905 9.24759 16.4841 9.24759 16.1154C9.24759 15.7466 8.94537 15.4403 8.57324 15.4319Z" fill="white"/>
+                        <path d="M4.16111 12.8781C4.16746 12.8781 4.17382 12.8781 4.18088 12.8781H8.57157C8.75587 12.8837 8.93664 12.8115 9.06869 12.6832C9.20073 12.5556 9.27629 12.3775 9.27629 12.1946C9.27629 12.0116 9.20073 11.8335 9.06869 11.7059C8.93735 11.5777 8.75446 11.5076 8.57299 11.5111H4.18441C4.1604 11.5097 4.1371 11.5097 4.11309 11.5111H4.11168C3.74096 11.5384 3.45498 11.8609 3.47405 12.2289C3.49311 12.5907 3.80028 12.8781 4.16111 12.8781Z" fill="white"/>
+                      </g>
+                      <defs>
+                        <clippath id="clip0_3823_5870">
+                          <rect width="34" height="30" fill="white"/>
+                        </clippath>
+                      </defs>
+                    </svg>
+                  </div>
+                  <div class="contact-button-card__text-column">
+                    <p class="contact-button-card__header-text">Chat Now</p>
+                  </div>
+                </div>
+              </button>
+              <a href="sms://+{{student_loan_helpline}}" class="contact-button-card background-color__light-orange zendesk" data-contact-button="sms">
+                <div class="contact-button-card__container">
+                  <div class="contact-button-card__icon-container background-color__teal">
+                    <svg width="29" height="32" viewbox="0 0 29 32" fill="none">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M27.481 6.10742H20.454V1.36728C20.454 0.611875 19.8452 0 19.0937 0H1.94331C1.19176 0 0.583008 0.611875 0.583008 1.36728V30.6327C0.583008 31.3881 1.19176 32 1.94331 32H19.0937C19.8452 32 20.454 31.3881 20.454 30.6327V20.868H27.481C27.8455 20.868 28.1386 20.5734 28.1386 20.207V6.7684C28.1386 6.40203 27.8455 6.10742 27.481 6.10742ZM19.0937 30.6743H1.94331C1.91701 30.6743 1.89822 30.6554 1.89822 30.6289V26.6275H19.1388V30.6289C19.1388 30.6554 19.12 30.6743 19.0937 30.6743ZM19.1388 25.3056H1.89822V1.36728C1.89822 1.34084 1.91701 1.32195 1.94331 1.32195H19.0937C19.12 1.32195 19.1388 1.34084 19.1388 1.36728V6.10742H5.38917C5.02466 6.10742 4.73156 6.40203 4.73156 6.7684V20.2032C4.73156 20.5696 5.02466 20.8642 5.38917 20.8642H8.1699L7.77158 24.0407C7.73776 24.3164 7.88055 24.5883 8.12856 24.713C8.22251 24.7583 8.32397 24.7847 8.42543 24.7847C8.59077 24.7847 8.75611 24.7205 8.88011 24.5996L12.7656 20.8604H19.135V25.3018L19.1388 25.3056ZM26.8234 19.5422H12.5063C12.3372 19.5422 12.1757 19.6064 12.0517 19.7273L9.31225 22.3637L9.57154 20.2901C9.59408 20.1012 9.53772 19.9124 9.41371 19.7689C9.28971 19.6253 9.10934 19.546 8.92145 19.546H6.05429V7.43315H26.8309V19.546L26.8234 19.5422ZM11.656 28.8281C11.656 29.2855 11.2852 29.6562 10.8279 29.6562C10.3705 29.6562 9.99976 29.2855 9.99976 28.8281C9.99976 28.3708 10.3705 28 10.8279 28C11.2852 28 11.656 28.3708 11.656 28.8281ZM21.3338 14.8108C21.2196 14.9236 21.062 14.9884 20.9014 14.9884V14.9878H9.26439C8.92796 14.9866 8.65367 14.7136 8.65367 14.3796C8.65367 14.0662 8.89406 13.807 9.20162 13.7752V13.7721H9.26439H20.8995C21.0639 13.7727 21.2177 13.835 21.3338 13.9497C21.4481 14.0624 21.514 14.2176 21.514 14.3802C21.514 14.5429 21.4499 14.6956 21.3338 14.8108ZM9.2468 11.935H9.26438H13.1672C13.331 11.94 13.4917 11.8758 13.6091 11.7618C13.7265 11.6484 13.7936 11.4901 13.7936 11.3275C13.7936 11.1648 13.7265 11.0066 13.6091 10.8931C13.4924 10.7791 13.3298 10.7168 13.1685 10.7199H9.26752C9.24618 10.7187 9.22546 10.7187 9.20412 10.7199H9.20287C8.87334 10.7442 8.61914 11.0309 8.63608 11.358C8.65303 11.6796 8.92607 11.935 9.2468 11.935ZM9.02745 2.66659C8.78199 2.66659 8.58301 2.86557 8.58301 3.11103C8.58301 3.35649 8.78199 3.55548 9.02745 3.55548H12.583C12.8285 3.55548 13.0275 3.35649 13.0275 3.11103C13.0275 2.86557 12.8285 2.66659 12.583 2.66659H9.02745Z" fill="white"/>
+                    </svg>
+                  </div>
+                  <div class="contact-button-card__text-column">
+                    <p class="contact-button-card__header-text">Text Us*</p>
+                    <div class="contact-button-card__text-inner-container">
+                      <p class="contact-button-card__subheader">{{student_loan_helpline}}</p>
+                      <p class="p-xsmall">For help with student loans.</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <a href="sms://+{{ambition_card_helpline}}" class="contact-button-card background-color__light-green zendesk" data-contact-button="sms">
+                <div class="contact-button-card__container">
+                  <div class="contact-button-card__icon-container background-color__teal">
+                    <svg width="29" height="32" viewbox="0 0 29 32" fill="none">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M27.481 6.10742H20.454V1.36728C20.454 0.611875 19.8452 0 19.0937 0H1.94331C1.19176 0 0.583008 0.611875 0.583008 1.36728V30.6327C0.583008 31.3881 1.19176 32 1.94331 32H19.0937C19.8452 32 20.454 31.3881 20.454 30.6327V20.868H27.481C27.8455 20.868 28.1386 20.5734 28.1386 20.207V6.7684C28.1386 6.40203 27.8455 6.10742 27.481 6.10742ZM19.0937 30.6743H1.94331C1.91701 30.6743 1.89822 30.6554 1.89822 30.6289V26.6275H19.1388V30.6289C19.1388 30.6554 19.12 30.6743 19.0937 30.6743ZM19.1388 25.3056H1.89822V1.36728C1.89822 1.34084 1.91701 1.32195 1.94331 1.32195H19.0937C19.12 1.32195 19.1388 1.34084 19.1388 1.36728V6.10742H5.38917C5.02466 6.10742 4.73156 6.40203 4.73156 6.7684V20.2032C4.73156 20.5696 5.02466 20.8642 5.38917 20.8642H8.1699L7.77158 24.0407C7.73776 24.3164 7.88055 24.5883 8.12856 24.713C8.22251 24.7583 8.32397 24.7847 8.42543 24.7847C8.59077 24.7847 8.75611 24.7205 8.88011 24.5996L12.7656 20.8604H19.135V25.3018L19.1388 25.3056ZM26.8234 19.5422H12.5063C12.3372 19.5422 12.1757 19.6064 12.0517 19.7273L9.31225 22.3637L9.57154 20.2901C9.59408 20.1012 9.53772 19.9124 9.41371 19.7689C9.28971 19.6253 9.10934 19.546 8.92145 19.546H6.05429V7.43315H26.8309V19.546L26.8234 19.5422ZM11.656 28.8281C11.656 29.2855 11.2852 29.6562 10.8279 29.6562C10.3705 29.6562 9.99976 29.2855 9.99976 28.8281C9.99976 28.3708 10.3705 28 10.8279 28C11.2852 28 11.656 28.3708 11.656 28.8281ZM21.3338 14.8108C21.2196 14.9236 21.062 14.9884 20.9014 14.9884V14.9878H9.26439C8.92796 14.9866 8.65367 14.7136 8.65367 14.3796C8.65367 14.0662 8.89406 13.807 9.20162 13.7752V13.7721H9.26439H20.8995C21.0639 13.7727 21.2177 13.835 21.3338 13.9497C21.4481 14.0624 21.514 14.2176 21.514 14.3802C21.514 14.5429 21.4499 14.6956 21.3338 14.8108ZM9.2468 11.935H9.26438H13.1672C13.331 11.94 13.4917 11.8758 13.6091 11.7618C13.7265 11.6484 13.7936 11.4901 13.7936 11.3275C13.7936 11.1648 13.7265 11.0066 13.6091 10.8931C13.4924 10.7791 13.3298 10.7168 13.1685 10.7199H9.26752C9.24618 10.7187 9.22546 10.7187 9.20412 10.7199H9.20287C8.87334 10.7442 8.61914 11.0309 8.63608 11.358C8.65303 11.6796 8.92607 11.935 9.2468 11.935ZM9.02745 2.66659C8.78199 2.66659 8.58301 2.86557 8.58301 3.11103C8.58301 3.35649 8.78199 3.55548 9.02745 3.55548H12.583C12.8285 3.55548 13.0275 3.35649 13.0275 3.11103C13.0275 2.86557 12.8285 2.66659 12.583 2.66659H9.02745Z" fill="white"/>
+                    </svg>
+                  </div>
+                  <div class="contact-button-card__text-column">
+                    <p class="contact-button-card__header-text">Text Us*</p>
+                    <div class="contact-button-card__text-inner-container">
+                      <p class="contact-button-card__subheader">{{ambition_card_helpline}}</p>
+                      <p class="p-xsmall">For help with
+                        <span class='no-text-wrap'>Ambition Card.</span></p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <button class="contact-button-card background-color__light-coral" data-contact-button="email">
+                <div class="contact-button-card__arrow-container">
+
+                  <svg viewbox="0 0 25 15" style="color: #002769">
+                    <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                  </svg>
+                </div>
+                <div class="contact-button-card__container">
+                  <div class="contact-button-card__icon-container background-color__teal">
+                    <svg viewbox="0 0 32 32" width="32" height="32">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M 15.175 31.396 C 15.299 31.62 15.534 31.758 15.789 31.758 C 16.044 31.758 16.279 31.62 16.404 31.396 L 18.987 26.741 C 19.193 26.37 19.585 26.139 20.011 26.139 L 27.964 26.139 C 29.384 26.139 30.539 24.984 30.539 23.564 L 30.539 4.834 C 30.539 3.413 29.384 2.258 27.964 2.258 L 3.615 2.258 C 2.194 2.258 1.039 3.413 1.039 4.834 L 1.039 23.564 C 1.039 24.984 2.194 26.139 3.615 26.139 L 11.568 26.139 C 11.993 26.139 12.385 26.37 12.591 26.741 L 15.175 31.396 Z M 2.444 4.834 C 2.444 4.188 2.969 3.663 3.615 3.663 L 27.964 3.663 C 28.609 3.663 29.134 4.188 29.134 4.834 L 29.134 23.564 C 29.134 24.209 28.609 24.734 27.964 24.734 L 20.011 24.734 C 19.075 24.734 18.213 25.242 17.758 26.06 L 15.789 29.608 L 13.82 26.06 C 13.366 25.242 12.503 24.734 11.568 24.734 L 3.615 24.734 C 2.969 24.734 2.444 24.209 2.444 23.564 L 2.444 4.834 Z M 20.888 20 L 10.69 20 C 9.5 20 8.531 19.031 8.531 17.84 L 8.531 10.557 C 8.531 9.366 9.5 8.397 10.69 8.397 L 20.888 8.397 C 22.079 8.397 23.047 9.366 23.047 10.557 L 23.047 17.84 C 23.047 19.031 22.079 20 20.888 20 Z M 10.69 9.802 C 10.499 9.802 10.324 9.874 10.19 9.992 L 15.789 14.348 L 21.388 9.992 C 21.255 9.874 21.079 9.802 20.888 9.802 L 10.69 9.802 Z M 15.358 15.792 L 9.936 11.574 L 9.936 17.84 C 9.936 18.256 10.274 18.595 10.69 18.595 L 20.888 18.595 C 21.304 18.595 21.642 18.256 21.642 17.84 L 21.642 11.574 L 16.221 15.792 C 16.094 15.891 15.941 15.94 15.789 15.94 C 15.637 15.94 15.485 15.891 15.358 15.792 Z" fill="white"/>
+                    </svg>
+                  </div>
+                  <div class="contact-button-card__text-column">
+                    <p class="contact-button-card__header-text">Email Us</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+            <div class="contact-button-section__disclaimer" data-site-animation-order="2">
+              <p class="p-xsmall">*By texting us, you expressly consent to us texting you at the number from which you initiated the text conversation during our Eastern Standard Time (EST) business hours. You may reply "Stop" and we will no longer text you related to the text conversation, such a reply will only revoke consent for that text conversation and does not impact other consents you may have provided to us. Message & data rates may apply.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="email-contact-form" data-contact="email-form" data-app="ContactForms"></div>
+  </div>
+
+  <!-- COMMUNICATION CHANNEL END -->
+
+  <section class="contact-accordion-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Contact Accordion">
+    <div class="section-container">
+      <div class="contact-accordion__container background-color__gray">
+        <div class="contact-accordion__list">
+          <div class="contact-accordion__item accordion background-color__white expanded" data-site-animation-order="0">
+            <button class="contact-accordion__question accordion-toggle">
+              <h4 class="h4">For Help with a Student Loan</h4>
+              <div class="contact-accordion__icon">
+
+                <svg viewbox="0 0 20 20" style="color: #002769">
+                  <use href="{% static 'assets/images/icons/global/add.svg#add"></use>
+                </svg>
+              </div>
+            </button>
+            <div class="accordion-content">
+              <div>
+                <div class="contact-accordion__content">
+                  <div class="contact-accordion__content-columns">
+                    <div class="contact-accordion__contact-column">
+                      <button class="contact-accordion__contact-item zendesk" data-contact-button="chat">
+                        <img class="contact-accordion__contact-icon" src="{% static 'assets/images/icons/contact/chat-icon.svg' %}" alt="chat icon">
+                    Chat with Us
+                  </button>
+                  <a href="https://collegeaveservicing.com/" class="contact-accordion__contact-item" target="_blank">
+                    <img class="contact-accordion__contact-icon" src="{% static 'assets/images/icons/contact/web-icon.svg' %}" alt="web icon">
+                    Collegeaveservicing.com
+                  </a>
+                  <a href="tel:+18444227502" class="contact-accordion__contact-item">
+                    <img class="contact-accordion__contact-icon" src="{% static 'assets/images/icons/contact/phone-icon.svg' %}" alt="phone icon">
+                    (844) 422 &bull; 7502
+                  </a>
+                  <a href="sms://+17262272275" class="contact-accordion__contact-item zendesk" data-contact-button="sms">
+                    <img class="contact-accordion__contact-icon" src="{% static 'assets/images/icons/contact/text-icon.svg' %}" alt="text icon">
+                    <span>Text Us:
+                      <strong>726&bull;227&bull;2275</strong>
+                    </span>
+                  </a>
+                </div>
+                <div class="contact-accordion__divider hidden-md hidden-lg hidden-xl"></div>
+                <div class="contact-accordion__availability-column">
+                  <p class="contact-accordion__availability-header">Available</p>
+                  <div class="contact-accordion__availability-times">
+                    <p class="p-large">Mon - Fri: 9 am to 9 pm ET</p>
+                    <p class="p-large">for all of your pressing questions.</p>
+                  </div>
+                  <div class="contact-accordion__divider hidden-md hidden-lg hidden-xl"></div>
+                  <div class="contact-accordion__availabilty-bottom">
+                    <div class="contact-accordion__qr-code background-color__dark-blue hidden-xs hidden-sm">
+                      <p class="contact-accordion__qr-headline">Download Our Loan Repayment App</p>
+                      <img width="3000" height="3000" src="{% static 'assets/images/loan-app-qr.png' %}" class="attachment-full size-full" alt="AfriFund University Student Loan App - qr code" decoding="async"/>
+                    </div>
+                    <div class="contact-accordion__app-download-container hidden-md hidden-lg hidden-xl">
+                      <p class="p-xsmall font-weight-700">Download Our Loan Repayment App</p>
+                      <div class="contact-accordion__app-download-links">
+                        <a href="" target="_blank" class="contact-accordion__app-store-link" aria-label="Apple App Store" data-link-name="Apple App Store">
+                          <img src="{% static 'assets/images/icons/dark-blue-apple.svg' %}" class="attachment-full size-full" alt="Download on the App Store" decoding="async"/>
+                        </a>
+                        <a href="" target="_blank" class="contact-accordion__app-store-link" aria-label="Google Play Store" data-link-name="Google Play Store">
+                          <img src="{% static 'assets/images/icons/dark-blue-google.svg' %}" class="attachment-full size-full" alt="Get it on Google Play" decoding="async"/>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-accordion__item accordion background-color__white expanded" data-site-animation-order="1">
+        <button class="contact-accordion__question accordion-toggle">
+          <h4 class="h4">For Help with Ambition Card</h4>
+          <div class="contact-accordion__icon">
+
+            <svg viewbox="0 0 20 20" style="color: #002769">
+              <use href="{% static 'assets/images/icons/global/add.svg#add"></use>
+                </svg>
+              </div>
+            </button>
+            <div class="accordion-content">
+              <div>
+                <div class="contact-accordion__content">
+                  <div class="contact-accordion__content-columns">
+                    <div class="contact-accordion__contact-column">
+                        <a href="{% url 'email_protection_view' %}" class="contact-accordion__contact-item" target="_blank">
+                <img class="contact-accordion__contact-icon" src="{% static 'assets/images/icons/contact/email-icon.svg' %}" alt="email icon">
+                Email us
+              </a>
+              <a href="tel:+18446570445" class="contact-accordion__contact-item">
+                <img class="contact-accordion__contact-icon" src="{% static 'assets/images/icons/contact/phone-icon.svg' %}" alt="phone icon">
+                {{ambition_card_helpline}}
+              </a>
+              <a href="sms://+19292992308" class="contact-accordion__contact-item zendesk" data-contact-button="sms">
+                <img class="contact-accordion__contact-icon" src="{% static 'assets/images/icons/contact/text-icon.svg' %}" alt="text icon">
+                <span>Text Us:
+                  <strong>{{student_loan_helpline}}</strong>
+                </span>
+              </a>
+            </div>
+            <div class="contact-accordion__divider hidden-md hidden-lg hidden-xl"></div>
+            <div class="contact-accordion__availability-column">
+              <p class="contact-accordion__availability-header">Available</p>
+              <div class="contact-accordion__availability-times">
+                <p class="p-large">Available 24/7 for lost or stolen cards and transaction disputes.</p>
+                <p class="p-large">For all other calls: Mon - Fri 9am to 8pm ET.</p>
+              </div>
+              <div class="contact-accordion__divider hidden-md hidden-lg hidden-xl"></div>
+              <div class="contact-accordion__availabilty-bottom">
+                <div class="contact-accordion__qr-code background-color__dark-blue hidden-xs hidden-sm">
+                  <p class="contact-accordion__qr-headline">Download Our Ambition Card App</p>
+                  <img width="1200" height="1200" src="{% static 'assets/images/qr-code-ambition.png' %}" class="attachment-full size-full" alt="Ambition App QR code" decoding="async"/>
+                </div>
+                <div class="contact-accordion__app-download-container hidden-md hidden-lg hidden-xl">
+                  <p class="p-xsmall font-weight-700">Download Our Ambition Card App</p>
+                  <div class="contact-accordion__app-download-links">
+                    <a href="" target="_blank" class="contact-accordion__app-store-link" aria-label="Apple App Store" data-link-name="Apple App Store">
+                      <img src="{% static 'assets/images/icons/dark-blue-apple.svg' %}" class="attachment-full size-full" alt="Download on the App Store" decoding="async"/>
+                    </a>
+                    <a href="" target="_blank" class="contact-accordion__app-store-link" aria-label="Google Play Store" data-link-name="Google Play Store">
+                      <img src="{% static 'assets/images/icons/dark-blue-google.svg' %}" class="attachment-full size-full" alt="Get it on Google Play" decoding="async"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-accordion__item accordion background-color__white" data-site-animation-order="2">
+    <button class="contact-accordion__question accordion-toggle">
+      <h4 class="h4">For Schools</h4>
+      <div class="contact-accordion__icon">
+        <svg viewbox="0 0 20 20" style="color: #002769">
+          <use href="{% static 'assets/images/icons/global/add.svg' %}#add"></use>
+        </svg>
+      </div>
+    </button>
+    <div class="accordion-content">
+      <div>
+        <div class="contact-accordion__content">
+          <p class="p-large">If you are a school representative and need assistance, please chat, email, or call us:</p>
+          <div class="contact-accordion__content-columns">
+            <div class="contact-accordion__contact-column">
+              <button class="contact-accordion__contact-item zendesk" data-contact-button="chat">
+                <img class="contact-accordion__contact-icon" src="{% static 'assets/images/icons/contact/chat-icon.svg' %}" alt="chat icon">
+                Chat with Us
+              </button>
+              <a href="{% url 'email_protection_view' %}" class="contact-accordion__contact-item" target="_blank">
+                <img class="contact-accordion__contact-icon" src="{% static 'assets/images/icons/contact/email-icon.svg' %}" alt="email icon">
+                Email us
+              </a>
+              <a href="tel:+{{student_loan_helpline}}" class="contact-accordion__contact-item">
+                <img class="contact-accordion__contact-icon" src="{% static 'assets/images/icons/contact/phone-icon.svg' %}" alt="phone icon">
+                {{student_loan_helpline}}
+              </a>
+            </div>
+            <div class="contact-accordion__divider hidden-md hidden-lg hidden-xl"></div>
+            <div class="contact-accordion__availability-column">
+              <p class="contact-accordion__availability-header">Available</p>
+              <div class="contact-accordion__availability-times">
+                <p class="p-large">{{main_office_operation_hours}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-accordion__item accordion background-color__white" data-site-animation-order="3">
+    <button class="contact-accordion__question accordion-toggle">
+      <h4 class="h4">Payment Address For Student Loan Payments Only</h4>
+      <div class="contact-accordion__icon">
+        <svg viewbox="0 0 20 20" style="color: #002769">
+          <use href="{% static 'assets/images/icons/global/add.svg' %}#add"></use>
+        </svg>
+      </div>
+    </button>
+    <div class="accordion-content">
+      <div>
+        <div class="contact-accordion__content">
+          <div class="contact-accordion__content-columns">
+            <div class="contact-accordion__contact-column">
+              <p class="p-large">{{main_office_address|safe}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="color-card-links-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Learn More About Us">
+{% include "pages/components/more-about-us.html" %}
+</section>
+
+{% endblock content %}

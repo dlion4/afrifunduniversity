@@ -1,0 +1,424 @@
+{% extends "schools/base.html" %}
+
+{% load static humanize %}
+{% block content %}
+
+  <section class="hero text-image-hero-section background-color__light-teal" data-site-animation-breakpoint="992">
+    <div class="site-breadcrumbs site-breadcrumbs__hero">
+      <div class="site-breadcrumbs__container">
+
+        <nav class="site-breadcrumbs__mobile">
+          <p class="p-small">
+            < <a data-link-name="Breadcrumb > Home" href="{% url 'home' %}">Home</a>
+          </p>
+        </nav>
+      </div>
+    </div>
+    <div class="section-container">
+      <div class="text-image-hero-section__container">
+        <div class="text-image-hero-section__column-content">
+          <div class="text-image-hero-section__text-content">
+            <h1 class="h1 h1__mobile-small" data-site-animation-order="0">
+              Major Help. Minor Stress.<sup style="font-size: 24px;">&reg;</sup>
+            </h1>
+            <p class="p-large" data-site-animation-order="1">
+              As a leading national company and top 3 lender with deep industry expertise, AfriFund delivers a best-in-class experience that also happens to be the most consumer-friendly product suite in the industry. We deliver a simple, clear, and personal college financing experience that reduces stress and empowers students to focus on what matters most: preparing for a bright future.
+            </p>
+          </div>
+        </div>
+        <div class="text-image-hero-section__column-image hidden-xs hidden-sm" data-site-animation-order="4">
+
+          <picture>
+            <source media="(min-width: 992px)" srcset="{% static 'assets/images/for-schools.png' %}">
+            <img width="1024" height="964" src="{% static 'assets/images/for-schools.png' %}" class="attachment-full size-full" alt="For Schools" decoding="async" fetchpriority="high"/>
+          </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="color-card-links-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="">
+    <div class="section-container">
+      <div class="color-card-links-section__container">
+        <div class="color-card-links-section__header" data-site-animation-order="0">
+          <h2 class="h2"></h2>
+        </div>
+        <div class="color-card-links-section__cards" data-site-animation-order="1">
+          <div class="color-card background-color__light-green" href="{% url 'schools:school:lender_information' file_name='lender_info.pdf'  %}">
+            <div class="color-card__container">
+              <div class="color-card__content">
+                <h3 class="color-card__header h3">Our Lender Info</h3>
+                <p class="p-large color-card__text">For schools that use a preferred lender list, information on our lender and products codes can be found here.</p>
+              </div>
+              <div class="color-card__button-container">
+
+                <a href="{% url 'schools:school:lender_information' file_name='lender_info.pdf'  %}" class="arrow-link" target="_blank" data-link-name="Info Sheet">
+                  Info
+                  <span class="arrow-link__anchor">Sheet<svg width="16" height="14" viewbox="0 0 16 14" style="color: #002769">
+                      <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="color-card background-color__light-orange" href="https://afrifunduniversitycentral.com/Login">
+            <div class="color-card__container">
+              <div class="color-card__content">
+                <h3 class="color-card__header h3">Afri Fund Central</h3>
+                <p class="p-large color-card__text">For schools, we support preferred certification and disbursement methods, and offer our own online certification portal, Afri Fund Central.</p>
+              </div>
+              <div class="color-card__button-container">
+
+                <a href="https://afrifunduniversitycentral.com/Login" class="arrow-link" data-link-name="Go to Portal">
+                  Go to
+                  <span class="arrow-link__anchor">Portal<svg width="16" height="14" viewbox="0 0 16 14" style="color: #002769">
+                      <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="color-card background-color__light-blue" href="mailto:{{afrifund_school_mail}}">
+            <div class="color-card__container">
+              <div class="color-card__content">
+                <h3 class="color-card__header h3">Email Us</h3>
+                <p class="p-large color-card__text">Need access to Afri Fund Central or need to provide your school’s EFT routing information for disbursements?</p>
+              </div>
+              <div class="color-card__button-container">
+
+                <a href="{% url 'email_protection_view' %}" class="arrow-link" data-link-name="Go to Form">
+                  Go to
+                  <span class="arrow-link__anchor">Form<svg width="16" height="14" viewbox="0 0 16 14" style="color: #002769">
+                      <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="compare-cards-section" data-site-animation="container" data-site-animation-breakpoint="992">
+    <div class="section-container">
+      <div class="compare-cards-section__container">
+        <div class="compare-cards-section__header-row">
+          <h2 class="h2" data-site-animation-order="0">Certification & Disbursement</h2>
+        </div>
+        <div class="compare-cards-section__bottom-row">
+          <div class="compare-cards__row" data-equal-height="section" data-equal-height-breakpoint="768">
+            <div class="compare-cards__column site-animation__flex-container compare-cards-section__column" data-site-animation-order="3">
+              <div class="compare-card dropshadow">
+                <div class="compare-card__container">
+                  <div class="compare-card__header background-color__dark-blue" data-equal-height="target">
+                    <h3 class="compare-card__header-title h3">Certification Can Be Sent Via</h3>
+                  </div>
+                  <div class="compare-card__content-container">
+                    <div class="compare-card__content-inner-container">
+                      <p class="p-large"></p>
+                      <ul class="unordered-list__teal-dot">
+                        <li>ELM</li>
+                        <li>SCHOLARNET</li>
+                        <li>AFRI FUND CENTRAL</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="compare-cards__column site-animation__flex-container compare-cards-section__column" data-site-animation-order="4">
+              <div class="compare-card dropshadow">
+                <div class="compare-card__container">
+                  <div class="compare-card__header background-color__dark-blue" data-equal-height="target">
+                    <h3 class="compare-card__header-title h3">Disbursement Can Be Sent Via</h3>
+                  </div>
+                  <div class="compare-card__content-container">
+                    <div class="compare-card__content-inner-container">
+                      <p class="p-large"></p>
+                      <ul class="unordered-list__teal-dot">
+                        <li>Equity Bank</li>
+                        <li>KCB Bank</li>
+                        <li>Family Bank</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="one-column-selector background-color__light-teal" data-section-name="More Information About Our Products">
+    <div class="section-container">
+      <div class="one-column-selector__container">
+        <div class="one-column-selector__header-container">
+          <h2 class="h2">More Information About Our Products</h2>
+        </div>
+        {% if load_products %}
+          <div class="one-column-selector__selector-container">
+            <select class="custom-selector-control" placeholder="Select a document..." data-select="forSchoolsDownload" autocomplete="off">
+              <option class="selector-control__item" value="">Select a document...</option>
+              {% for document in load_products %}
+                <option class="custom-selector-control__item" value="{{document.url}}">
+                  {{document.name}}
+                </option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="one-column-selector__button-container" data-select-target="forSchoolsDownload">
+            <a href="javascript:void(0)" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-205" data-link-name="Download">
+              Download
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <section class="two-column-text-section background-color__white" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Financial Literacy Materials">
+    <div class="section-container">
+      <div class="two-column-text-section__container two-column-text-section__text_image">
+        <div class="two-column-text-section__image-column" data-site-animation-order="0">
+
+          <picture>
+            <source media="(min-width: 992px)" srcset="{% static 'assets/images/FinancialLiteracyMaterials.png' %}">
+            <img width="972" height="796" src="{% static 'assets/images/FinancialLiteracyMaterials.png' %}" class="attachment-full size-full" alt="Resources &amp; Tools" decoding="async"/>
+          </picture>
+        </div>
+
+        <div class="two-column-text-section__content-column">
+          <div class="two-column-text-section__content">
+            <div class="two-column-text-section__text-content">
+              <h2 class="h2" data-site-animation-order="1">Financial Literacy Materials</h2>
+              <div class="two-column-text-section__paragraphs" data-site-animation-order="2">
+                <p class="p-large">Afri Fund Student loans believes an educated borrower is better able to repay his or her loans successfully. We make financial literacy a top priority, providing in-depth customer education through videos, blog articles, and brochures covering a wide range of topics for students and families and available for schools to use and share at no cost.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="two-column-text-section background-color__white" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Videos To Assist Students With a Variety of Topics">
+    <div class="section-container">
+      <div class="two-column-text-section__container two-column-text-section__image_text">
+        <div class="two-column-text-section__image-column" data-site-animation-order="0">
+
+          <picture>
+            <source media="(min-width: 992px)" srcset="{% static 'assets/images/Videos.png' %}">
+            <source media="(min-width: 768px)" srcset="{% static 'assets/images/Videos.png' %}">
+            <source media="(min-width: 1px)" srcset="{% static 'assets/images/Videos.png' %}">
+            <img width="972" height="796" src="{% static 'assets/images/Videos.png' %}" class="attachment-full size-full" alt="youtube videos" decoding="async"/>
+          </picture>
+        </div>
+
+        <div class="two-column-text-section__content-column">
+          <div class="two-column-text-section__content">
+            <div class="two-column-text-section__text-content">
+              <h2 class="h2" data-site-animation-order="1">Videos To Assist Students With a Variety of Topics</h2>
+              <div class="two-column-text-section__paragraphs" data-site-animation-order="2">
+                <p class="p-large">The videos are 2-3 minutes in length and feature relatable student representatives who speak clearly and directly about the topic at hand. Videos are also available on
+                  <a href='https://www.youtube.com/channel/UCDCzSt2leKOw8kAoYSo2sDw/videos' target='_blank'>YouTube</a>
+                  where schools can link to provide quality financial literacy for their students.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="two-column-text-section background-color__white" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Brochures Addressing Student Financial Literacy Issues">
+    <div class="section-container">
+      <div class="two-column-text-section__container two-column-text-section__text_image">
+        <div class="two-column-text-section__image-column" data-site-animation-order="0">
+
+          <picture>
+            <source media="(min-width: 992px)" srcset="{% static 'assets/images/FinancialLiteracy2.png' %}">
+            <source media="(min-width: 768px)" srcset="{% static 'assets/images/FinancialLiteracy2.png' %}">
+            <source media="(min-width: 1px)" srcset="{% static 'assets/images/FinancialLiteracy2.png' %}">
+            <img width="972" height="796" src="{% static 'assets/images/FinancialLiteracy2.png' %}" class="attachment-full size-full" alt="financial literacy" decoding="async"/>
+          </picture>
+        </div>
+
+        <div class="two-column-text-section__content-column">
+          <div class="two-column-text-section__content">
+            <div class="two-column-text-section__text-content">
+              <h2 class="h2" data-site-animation-order="1">Brochures Addressing Student Financial Literacy Issues</h2>
+              <div class="two-column-text-section__paragraphs" data-site-animation-order="2">
+                <p class="p-large">Our brochures are available via digital or print format for schools to use. Contact your
+                  <a href="{% url 'email_protection_view' %}" target='_blank'>Afri Fund Campus Representative</a>
+                  for copies of our financial literacy materials to share with your students.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Placeholder for the JSON-LD script -->
+  <div id="json-ld-placeholder"></div>
+
+  <section data-scroll-id="faqs" class="faq-accordion-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Frequently Asked Questions">
+    <div class="section-container">
+      <div class="faq-accordion-section__header-container">
+        <h2 class="h2" data-site-animation-order="0">Frequently Asked Questions</h2>
+        <p class="p-large" data-site-animation-order="1">Questions you need answers to</p>
+      </div>
+      <div class="faq-accordion-section__list-container" data-show-more="section" data-show-more-number="5">
+        <ul class="faq-accordion-section__list">
+          {% include "schools/components/fags.html" %}
+        </ul>
+        <div class="faq-accordion-section__bottom-container"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="three-column-statistics-section" data-site-animation="container" data-site-animation-breakpoint="992">
+    <div class="section-container">
+      <div class="three-column-statistics-section__container background-color__white">
+        <div class="responsive-background-image">
+          <picture>
+            <source media="(min-width: 992px)" srcset="{% static 'assets/images/blue-background-spots.png' %}">
+            <img width="2600" height="1228" src="{% static 'assets/images/blue-background-spots.png' %}" class="attachment-full size-full" alt="" decoding="async"/>
+          </picture>
+        </div>
+        <div class="three-column-statistics-section__content-container">
+          <h2 class="h2" data-site-animation-order="0">What Our Borrowers Are Up To</h2>
+          <div class="three-column-statistics-section__stats-container" data-site-animation-order="1">
+
+            <div class="statistics-card background-color__dark-blue">
+              <div class="statistics-card__card-content-container">
+                <div class="statistics-card__card-content">
+                  <div class="statistics-card__header-container">
+                    <p class="statistics-card__percentage">
+                      <span data-animation="countUp" data-count-to="98" data-incrementer="3" data-duration="1500">0</span>%
+                    </div>
+                    <div class="statistics-card__text-container">
+                      <p class="p-small">borrowers are making on time payments</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="statistics-card background-color__white">
+                <div class="statistics-card__card-content-container">
+                  <div class="statistics-card__card-content">
+                    <div class="statistics-card__header-container">
+                      <p class="statistics-card__percentage">
+                        <span data-animation="countUp" data-count-to="66" data-incrementer="3" data-duration="1500">0</span>%
+                      </div>
+                      <div class="statistics-card__text-container">
+                        <p class="p-small">of borrowers choose an in school repayment option</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="statistics-card background-color__dark-blue">
+                  <div class="statistics-card__card-content-container">
+                    <div class="statistics-card__card-content">
+                      <div class="statistics-card__header-container">
+                        <p class="statistics-card__percentage">
+                          <span data-animation="countUp" data-count-to="73" data-incrementer="3" data-duration="1500">0</span>%
+                        </div>
+                        <div class="statistics-card__text-container">
+                          <p class="p-small">of all customers choose a repayment term of 10 years or less</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <section class="one-column-centered background-color__white" data-site-animation="container" data-site-animation-breakpoint="992"
+         data-section-name="More Questions?">
+          <div class="section-container">
+            <div class="one-column-centered__outer-container background-color__white">
+              <div class="one-column-centered__container">
+                <div class="one-column-centered__content_container">
+                  <div class="one-column-centered__headline-container" data-site-animation-order="1">
+                    <h2 class="h2">More Questions?</h2>
+                  </div>
+                  <div class="one-column-centered__sub-text-container" data-site-animation-order="2">
+                    <p class="p-small">Send us a note and we'll have your Campus Development representative reach out.</p>
+                  </div>
+                </div>
+                <div class="one-column-centered__button-container" data-site-animation-order="3">
+                  <a href="{% url 'email_protection_view' %}" 
+                  class="dropshadow dropshadow__hover-off button button__dark-teal button__width-239" data-link-name="Get in Touch">
+                    Get in Touch
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="footnotes accordion_small" data-target="footnotes-section" data-section-name="Footnotes">
+          <a class="footnotes__toggle accordion-toggle">
+            <p class="footnotes__header">Footnotes</p>
+            <span class="footnotes__arrow">
+              <svg width="16" height="14" viewbox="0 0 16 14" style="color: #002769">
+                <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
+              </svg>
+            </span>
+          </a>
+          <div class="section-container">
+            <div class="accordion-content">
+              <div>
+                <div class="footnotes__content">
+                  <div class="footnote__item">
+                    <p class="p-xsmall">2024 award from ForbesAdvisor.com, &copy; Forbes Marketplace Operations, Inc.</p>
+                  </div>
+                  <div class="footnote__item">
+                    <p class="p-xsmall">&copy;2017-2024 and TM, NerdWallet, Inc. All Rights Reserved.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      {% endblock content %}
+
+      {% block formScript %}
+
+        <script type="text/javascript">
+          $(document).ready(function () {
+            // AJAX request to load JSON-LD schema
+            $.ajax({
+              url: "{% url 'schools:school:faq-schema-json' %}",
+              type: "GET",
+              dataType: "json",
+              success: function (data) {
+                // Convert JSON to string and insert into script tag
+                var jsonLdScript = document.createElement('script');
+                jsonLdScript.type = 'application/ld+json';
+                jsonLdScript.text = JSON.stringify(data);
+
+                // Append the script to the placeholder div
+                document
+                  .getElementById('json-ld-placeholder')
+                  .appendChild(jsonLdScript);
+              },
+              error: function (xhr, status, error) {
+                console.error("Error loading JSON-LD data: " + error);
+              }
+            });
+          });
+        </script>
+
+      {% endblock formScript %}

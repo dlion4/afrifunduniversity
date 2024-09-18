@@ -1,0 +1,125 @@
+{% extends "account/layout.html" %}
+{% load static %}
+{% block content %}
+
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2>Create Account</h2>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="row">
+      <div class="form-section">
+        <div id="response-card-container"></div>
+        <div class="form-content">
+          <form action="{% url 'users:register' %}" method="post" id="registerForm">
+            {% csrf_token %}
+            <div class="form-group">
+              <div class="input-group">
+                {{form.dob}}
+                <label class="floating" for="{{form.dob.id_for_label}}">{{form.dob.label}}</label>
+              </div>
+              <span class="field-validation-error {{form.dob.id_for_label}}-error" data-id-for="{{form.dob.id_for_label}}"></span>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group">
+                {{form.email}}
+                <label class="floating" for="{{form.email.id_for_label}}">{{form.email.label}}</label>
+              </div>
+              <span class="field-validation-error {{form.email.id_for_label}}-error" data-id-for="{{form.email.id_for_label}}"></span>
+            </div>
+
+            <div class="form-group inputOverLink">
+              <div class="input-group">
+                {{form.national_id_number}}
+                <label class="floating" for="{{form.national_id_number.id_for_label}}">{{form.national_id_number.label}}</label>
+              </div>
+              <span class="field-validation-error {{form.national_id_number.id_for_label}}-error" data-id-for="{{form.national_id_number.id_for_label}}"></span>
+            </div>
+            <div class="form-group">
+              <div class="embedded-link remember-me">
+                {{ form.terms_and_conditions }}
+                <label for="{{form.terms_and_conditions.id_for_label}}">{{ form.terms_and_conditions.label|safe|urlize }}</label>
+              </div>
+              <span class="field-validation-valid {{form.terms_and_conditions.id_for_label}}-error" data-id-for="{{form.terms_and_conditions.id_for_label}}"></span>
+            </div>
+            <div class="text-center">
+              <button id="btnSubmit" type="submit" tabindex="6" class="btn btn-primary">
+                Create Account
+              </button>
+            </div>
+          </form>
+          <div class="text-center nav-link bottom-screen-nav-link">
+            <p>
+              <a class="anchorLink" href="{% url 'users:login' %}" tabindex="7">Log In</a>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row text-center post-form-section">
+    <div class="col-12">
+      <p></p>
+    </div>
+    <div class="col-12">
+      <p>Questions? Call 844-803-0736</p>
+    </div>
+  </div>
+
+  <div id="validationScripts"></div>
+{% endblock content %}
+
+{% block formScript %}
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      loadBodyScripts("{% static 'js/validation.min.js' %}", function () {
+
+        validateDob();
+        validateEmailAddress();
+        validateNationIdNumber();
+        validateTermsAndConditions();
+
+      })
+
+      // Submit form via AJAX
+
+      $("#registerForm").on("submit", async (event) => {
+        event.preventDefault();
+
+        validateDob();
+        validateEmailAddress();
+        validateNationIdNumber();
+
+        showLoadingState("btnSubmit")
+
+        const response = await fetch("/account/create-account/", {
+          method: "POST",
+          // dob email national_id_number
+          body: JSON.stringify({dob: $("#dob").val(), email: $("#email").val(), national_id_number: $("#idno").val(), terms_and_conditions: $("#id_terms_and_conditions").val()}),
+          headers: {
+            "X-CSRFToken": $("input[name=csrfmiddlewaretoken]").val(),
+            "Content-Type": "application/json"
+          }
+        });
+
+        if (!response.ok) {
+          let data = JSON.parse(await response.text());
+          console.log(data)
+          handleFailedResponse(data.error)
+          removeLoadingState("btnSubmit", "Create Account")
+          return false
+        }
+        let data = await response.json()
+        handleSuccessResponse(data.message);
+        removeLoadingState("btnSubmit", "Create Account");
+
+      });
+    })
+  </script>
+{% endblock formScript %}

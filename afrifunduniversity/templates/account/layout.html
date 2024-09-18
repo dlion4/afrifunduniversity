@@ -1,0 +1,300 @@
+{% load static i18n compress%}
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+
+  <script>
+    // Dynamically load a JavaScript file via AJAX
+    function loadJSFile(url, callback) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var script = document.createElement("script");
+          script.type = "text/javascript";
+          script.text = xhr.responseText;
+          document
+            .head
+            .appendChild(script);
+          if (callback) {
+            callback();
+          }
+        }
+      };
+      xhr.send();
+    }
+
+    function loadBodyScripts(url, callback) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", url, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var script = document.createElement("script");
+          script.type = "text/javascript";
+          script.text = xhr.responseText;
+          let targetAppend = document.getElementById("validationScripts");
+          // Insert the script as a sibling after the target element
+          targetAppend
+            .parentNode
+            .insertBefore(script, targetAppend.nextSibling);
+          if (callback) {
+            callback()
+          }
+        }
+      };
+      xhr.send();
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      loadJSFile("{% static 'js/load_schema.js' %}", function () {
+        console.log("load_schema.js file has been loaded");
+      });
+
+      loadJSFile("{% static 'js/load_gtm.js' %}", function () {
+        console.log("load_gtm.js file has been loaded");
+      });
+
+      fetch('/meta-links/')
+        .then(response => response.text())
+        .then(html => {
+          document
+            .head
+            .insertAdjacentHTML('beforeend', html);
+        })
+        .catch(err => console.error('Error fetching meta links:', err));
+    })
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="apple-itunes-app" content="app-id=1502777843"/>
+  <link rel="shortcut icon" sizes="16x16 24x24 48x48 64x64" href="{% static 'favicons/favicon.ico' %}">
+  <link rel="icon" sizes="32x32" href="{% static 'favicons/favicon-32.png' %}" type="image/png">
+  <link rel="apple-touch-icon" sizes="57x57" href="{% static 'favicons/favicon-57.png' %}">
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{% static 'favicons/favicon-57.png' %}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{% static 'favicons/favicon-72.png' %}">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'favicons/favicon-114.png' %}">
+  <link rel="apple-touch-icon" sizes="120x120" href="{% static 'favicons/favicon-120.png' %}">
+  <link rel="apple-touch-icon" sizes="144x144" href="{% static 'favicons/favicon-144.png' %}">
+  <link rel="apple-touch-icon" sizes="152x152" href="{% static 'favicons/favicon-152.png' %}">
+  <link rel="icon" sizes="128x128" href="{% static 'favicons/favicon-128.png' %}">
+  <link rel="icon" sizes="192x192" href="{% static 'favicons/favicon-192.png' %}">
+  <link rel='apple-touch-startup-image' href="{% static 'favicons/favicon.png' %}"/>
+
+  <!-- bootstrap 4 includes -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+
+  <link rel="stylesheet" href="{% static 'css/site.min.css' %}?v=21.1.99.1"/>
+
+  <title>
+    {% block title %}Education Loans &amp; College Planning Resources | afrifunduniversity.com{% endblock title %}
+  </title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <link rel="stylesheet" id="fonts-css" href="{% static 'css/fonts.css' %}?ver=4.9.8" type="text/css" media="all">
+</head>
+
+<body>
+  <!-- <nav class="navbar navbar-expand-lg"> <a class="navbar-brand" href="{% url 'home' %}"> <img src="{% static 'assets/images/afrifunduniversity.png' %}" style="width:155px; height:46px;" alt="College Ave"/> </a> </nav> -->
+  <div class="main">
+    <div class="container">
+
+      <div id="mainBodyDiv">
+        {% block content %}{% endblock content %}
+
+        <div class="modal fade" id="privacyPolicyModal" tabindex="-1" role="dialog" aria-labelledby="privacyPolicyModalLabel" aria-hidden="true" style="padding-right: 0px !important;">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content main-modal-content">
+              <div class="modal-heading">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <h1 aria-hidden="true">&times;</h1>
+                </button>
+                <h1 id="privacyPolicyModalLabel">Privacy Policy</h1>
+              </div>
+              <div class="modal-body modal-body-paragraphs">
+                <div class="sub-section">
+                  <h2 class="modal-section-heading">Our Promise</h2>
+                  <p>College Avenue Student Loans LLC (“College Avenue,” “College Ave Student Loans,” “we,” “our,” and “us”) respects the privacy of our online customers and visitors to this website (www.afrifunduniveristystudentloans.com), its affiliated pages, and any mobile application (an “App”) (collectively, the “Site”). This Online Privacy Statement explains what information we collect when you visit or otherwise interact with the Site, how we use it, and when we may share it.</p>
+                  <p>This Online Privacy Statement only describes our Site practices. It does not apply to how we generally collect or use other information we collect from or about you as a customer or applicant for a student loan. For a copy of our privacy policy applicable to you when you apply for a student loan please
+                    <a href="https://www.afrifunduniveristystudentloans.com/wp-content/uploads/2019/03/CASL_0419_GLBA_Privacy_Policy.pdf" target="_blank">click here</a>.</p>
+                  <p>In addition, our Sites may link to third party services or apps that we don’t control, including social media sites (collectively “Third Party Sites”). You should be aware that Third Party Sites may have different privacy practices from our Site and may provide less security than this Site. The choice to access a Third Party Site is yours, in your sole discretion.</p>
+                  <p>Please note that this Online Privacy Statement also applies regardless of how you may access the Site, including through a mobile device. Once you leave our Site or are redirected to a Third Party Site, you are no longer governed by this Online Privacy Statement.</p>
+                </div>
+                <div class="sub-section">
+                  <h2 class="modal-section-heading">How We Collect Information and What We Collect</h2>
+                  <p class="sub-section-header">Generally</p>
+                  <p>We collect and receive certain information about you when you access the Site. What we receive, and how we receive it, in part depends on what you do when you access the Site.</p>
+                  <p class="sub-section-header">We Collect Information When You Provide it to Us</p>
+                  <p>We collect personally-identifiable information (such as your name, address, or phone number) and non-personally-identifiable when you provide it to us. For example, if you request to receive offers and alerts or when you complete an online survey. In addition, our business partners and service providers may give us information about you. Please note that, except for limited instances where you choose to interact with us and provide us with your personally-identifiable information directly, you are not required to submit personally-identifiable information. You can browse the Site and review the content on the Site without having to submit such information.</p>
+                  <p>We also collect personally-identifiable information that you provide when filling in forms on the Site, including registration forms. We may also ask you for information when you enter a contest or promotion sponsored by us, and when you report a problem with the Site.</p>
+                  <p class="sub-section-header">We Collect Information Automatically When You Access the Site</p>
+                  <p>We may also automatically collect personally-identifiable information and non-personally-identifiable information about you when you access the Site.</p>
+                  <p class="sub-section-header">Tracking Technologies</p>
+                  <p>When you download, access, and use the App, we may use technology to automatically collect:</p>
+                  <ul>
+                    <li>Usage Details: We may automatically collect certain details of your access to and use of the App, including traffic data, logs, and other communication data and the resources that you access and use on or through the App.</li>
+                    <li>Device Information: We may collect information about your mobile device and internet connection, including the device’s unique device identifier, Internet Protocol (IP) address, operating system, browser type, mobile network information, and the device’s telephone number.</li>
+                    <li>Stored Information and Files: The App also may access metadata and other information associated with other files stored on your device. This may include, for example, photographs, audio and video clips, personal contacts, and address book information.</li>
+                  </ul>
+                  <p>When you use the App or its content, certain third parties may use tracking technologies (such as cookies and web beacons) and other automatic information collection technologies to collect information about you or your device and when you use the App. These third parties may include:</p>
+                  <ul>
+                    <li>Parties who we utilize to service loans or collect payments on our behalf.</li>
+                    <li>Your mobile device manufacturer.</li>
+                    <li>Your mobile service provider.</li>
+                  </ul>
+                  <p>The information they collect may be associated with your personal information or they may collect information, including personal information, about your online activities over time and across different websites, apps, and other online services websites. We may receive reports on this activity on an individual and aggregated basis.</p>
+                  <p>We do not control these third parties’ tracking technologies or how they may be used. If you have any questions about an advertisement or other targeted content, you should contact the responsible provider directly.</p>
+                  <p>If you do not want us or third parties to collect this information do not download the App or delete it from your device.</p>
+                  <p>We may also automatically collect non personally-identifiable information about you when you access the Site. The Site and some emails that we may send to you may also use common tracking technologies like:</p>
+                  <ul>
+                    <li>Cookies: A cookie is a small text file that is placed on your computer or mobile device to distinguish you from other visitors to the Site.
+                    </li>
+                    <li>Web Beacons: A web beacon (also referred to as a “pixel tag”) is a small block of code that is placed on a Site page or within an email to help distinguish you from other visitors to the Site, assess traffic patterns, and measure your engagement with the Site or email.
+                    </li>
+                  </ul>
+                  <p>College Avenue uses these features to collect non-personally-identifiable information about you. This type of information may include (but is not limited to) your IP address and/or domain; the type and version of the Internet browser that you use; the date, time and duration of your visit to the Site, and the specific pages, buttons, images, videos or other Site content that you may access during your visit. These tools enable us to track and target the interests of our users to enhance the experience on and off the Site.</p>
+                  <p>Your browser may enable you to block or (in the case of cookies) delete some of the means by which we automatically collect information when you visit the Site, but doing so may affect your experience on the Site. You should refer to your browser about what options might be available to you. College Ave does not process or respond to Do Not Track signals or other similar signals whereby a visitor to a website requests that it disable collection of information about the visitor’s online activities over time and across different websites.</p>
+                  <p class="sub-section-header">Behavioral Advertising</p>
+                  <p>We or our advertising service providers may use information about your activities on the Site (such as the pages that you visit and the key words that you use to search for content) to help determine what advertisements or offers might be of interest to you. These advertisements may be on the Site or on Third Party Sites. The use of information in this manner is referred to as “online behavioral advertising.” We believe that online behavioral advertising helps to provide you with more relevant advertising based on the websites that you visit.</p>
+                  <p>You may opt-out of online behavioral advertising by following the instructions in the “Your Options” section of this Online Privacy Statement. Please note that opting out of online behavioral advertising will not stop you from receiving advertisements. However, the advertisements that you see may not be as relevant to you.</p>
+                </div>
+                <div class="sub-section">
+                  <h2 class="modal-section-heading">How We Use the Information We Collect</h2>
+                  <p>Information that we collect about you and your web browsing behavior is used to optimize your online experience. Among other reasons, we may use the information that you provide or that we collect when you visit the Site to:</p>
+                  <ul>
+                    <li>Verify your identity and/or remember your personal settings or preferences when using the Site;</li>
+                    <li>Determine your interests and needs in order to recommend relevant products and services;</li>
+                    <li>Qualify you for products and services that you request and to process your transactions;</li>
+                    <li>Post advertising content on Third Party Sites, along with web beacons and pixel tags to provide information to us and to third parties about pages you visit after seeing our ads or offers;</li>
+                    <li>Analyze the quality and performance of the Site and marketing campaigns;</li>
+                    <li>Carry out our obligations and enforce our rights arising from any contracts entered into between you and us, including for billing and collection; and</li>
+                  </ul>
+                  <p>Notify you when App updates are available, and of changes to any products or services we offer or provide though it. We may also use data that we collect on an aggregate or anonymous basis (such that it does not identify any individual customer) for various business purposes, which may include offering products or services, research, marketing or analyzing marketing trends consistent with applicable law.</p>
+                </div>
+                <div class="sub-section">
+                  <h2 class="modal-section-heading">How We Share the Information We Collect</h2>
+                  <p>We may share the personally-identifiable information that you provide to us or that we receive from our business partners and/or service providers with our service providers. For example, we share your email address with service providers who send emails on our behalf. We may also share non-personally-identifiable information with third parties who perform advertising services on our behalf and with companies that operate or analyze the Site. We do not authorize these third parties to collect, use, or disclose this information except as necessary to perform services for us or to comply with law. These third parties may not use the information that we provide to them to independently market to you unless you consent.</p>
+                  <p>If you are also a customer of College Avenue the sharing of your personally-identifiable information will be governed by our customer privacy policy that may be accessed by clicking
+                    <a href="https://www.afrifunduniveristystudentloans.com/wp-content/uploads/2019/03/CASL_0419_GLBA_Privacy_Policy.pdf" target="_blank">here</a>.</p>
+                  <p>There may be other instances in which we may share either your personally-identifiable or non-personally-identifiable information with a third party. For example:</p>
+                  <ul>
+                    <li>To respond to a subpoena, warrant, court order or other official governmental actions that are served upon us, and then in conformity with their terms or as we are otherwise permitted or required by law;</li>
+                    <li>To respond to our regulators or other governmental authorities;</li>
+                    <li>To protect or defend College Avenue or any of its affiliates or subsidiaries, or their directors, officers, employees, agents, partners, or independent contractors in any legal proceeding;</li>
+                    <li>Where we suspect fraud or for other risk management purposes;</li>
+                    <li>As required or permitted by law; or</li>
+                    <li>As otherwise instructed or authorized by you.</li>
+                  </ul>
+                </div>
+                <div class="sub-section">
+                  <h2 class="modal-section-heading">Your Options</h2>
+                  <p>To stop receiving promotional emails, follow the instructions in any promotional message you receive from College Avenue. Even if you opt out of getting marketing messages, we may still send you transactional messages, including responses to your questions or information about your application or loan.</p>
+                  <p>To opt out of online behavioral advertising click the opt-out logo in the corner of the advertisement or visit
+                    <a href="http://www.aboutads.info" target="_blank">http://www.aboutads.info</a>. This opt-out is browser- and computer-specific because the opt out is stored as a cookie. If you delete cookies after you opt out, you will need to opt out again on AdChoices. Please note that you may still continue to see our generic advertising even if you opt out of online behavioral advertising.</p>
+                  <p>If you do not want us or third parties to automatically collect information from you through your use of the App in the ways described above, do not download the App or delete it from your device.</p>
+                </div>
+                <div class="sub-section">
+                  <h2 class="modal-section-heading">Online Security</h2>
+                  <p>College Avenue has developed and maintains security standards that are designed to protect information as it is transmitted from your computer to the network that hosts the Site. This technology is referred to as Secure Socket Layer (SSL), and it is the leading security protocol of data transfer on the Internet.</p>
+                  <p>However, you also have a significant role in maintaining the security of your information. For example, you should ensure that you have up-to-date anti-virus and anti-malware software installed on your computer. You should also understand that College Avenue will never send you electronic communications (whether they be email or requests made over the Internet) to request sensitive personal information. Similarly, you should never send us your sensitive personal information through a non-secure email channel. If you do communicate with us electronically you consent for us (or our service providers) to reply to you in that medium.</p>
+                  <p>You are also in control of the information that you share with College Avenue, either directly or indirectly. If you are uncomfortable with sharing your personally-identifiable information with us, the easiest option is not to do so. However, you understand that if you do not share such information with us we may be unable to assist you with certain transactions.</p>
+                  <p>Additionally, if you found information about College Avenue on a Third Party Site — such as a social media site like Facebook, LinkedIn, or Twitter — you understand that if you share information about you on such a Third Party Site that it will not be governed by this Online Privacy Statement and, depending on the Third Party Site, may be visible to all users of that Third Party Site. You should review the privacy policies and practices of Third Party Sites before providing information to them.</p>
+                </div>
+                <div class="sub-section">
+                  <h2 class="modal-section-heading">Personal Information of Children</h2>
+                  <p>The Site, and the products and services described on the Site, are intended for use by individuals who are at least 13 years old. If you are under the age of 13 you should not be visiting the Site. We do not knowingly collect or retain personal information from children under the age of 13. If you are under the age of 13 and are visiting or otherwise using the Site you are advised not to disclose or provide any personally-identifiable information on the Site.</p>
+                </div>
+                <div class="sub-section">
+                  <h2 class="modal-section-heading">If You Access the Site from Outside the United States</h2>
+                  <p>If you reside outside the United States, you understand and agree that any information you provide to us on the Site will be transferred from the country of your residence or location at the time it was provided to the United States. If you do not want your personally-identifiable information to be transferred to the United States do not provide that information to us. By providing us with your information you consent to the transfer of your information to the United States.</p>
+                </div>
+                <div>
+                  <h2 class="modal-section-heading">Changes to the Online Privacy Statement</h2>
+                  <p>We may make changes to this Online Privacy Statement at any time and without notice to you. It is your responsibility to review this Online Privacy Statement from time to time to understand whether any changes have been made. If you use the Site following any update to this Online Privacy Statement it constitutes your acceptance of the modifications.</p>
+                  <p>College Ave Student Loans is located at 233 N. King St, Suite 400, Wilmington, DE 19801.</p>
+                  <p>
+                    <b>This Online Privacy Statement Was Last Updated On</b>: March 22, 2019</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="uasTermsModal" tabindex="-1" role="dialog" aria-labelledby="uasTermsModalLabel" aria-hidden="true" style="padding-right: 0px !important;">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content main-modal-content">
+              <div class="modal-heading">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <h1 aria-hidden="true">&times;</h1>
+                </button>
+                <h1 id="uasTermsModalLabel">Terms and Conditions</h1>
+              </div>
+              <div class="modal-body modal-body-paragraphs">
+                <div class="sub-section">
+                  <h2 class="modal-section-heading">Terms Of Use and Legal Disclosures</h2>
+                  <p>The following terms and conditions ("Terms and Conditions") govern your use of the World Wide Web Site located at
+                    <a href="https://www.afrifunduniveristyservicing.com" target="_blank">
+                      https://www.afrifunduniveristyservicing.com
+                    </a>(this "website"). By accessing, viewing, or using the content, material, or services available on or through this website, you indicate that you have read and understand these Terms and Conditions, and that you agree to them and intend to be legally bound by them. If you do not agree to these Terms and Conditions, you are not granted permission to use this website and must exit immediately.</p>
+                  <p>This website has been prepared solely for the purpose of providing information about University Accounting Service, a Transworld Systems Inc Company ("UAS"), and the products and services offered by the company and its operating subsidiaries and affiliates. Any reports filed by UAS with the Securities and Exchange Commission, which may be accessed through this website, speak only as of the respective dates on which they are filed and the contents of those reports can become out-of-date. Without limiting the generality of anything else, UAS makes no commitment, and disclaims any duty, to update this website or any of the information obtained through this website, and its shall not be responsible for any errors or omissions in the website. UAS reserves the right to add, modify or delete any information on this website at any time, with or without notice</p>
+                </div>
+
+                <div class="sub-section">
+                  <h2 class="modal-section-heading">Copyright and Other Proprietary Information:</h2>
+                  <p>Website text, graphics, design, selection and arrangement copyright © 2019 UAS All rights reserved. UAS also owns a copyright in the website as a collective work and/or compilation. Permission is granted to download and print materials from this website only for the purpose of viewing, reading, and retaining for reference the materials for personal, non-commercial purposes. Any other copying, distribution, or modification of or preparation of derivative works based upon, or any framing, capturing, harvesting, or collection of, or creating of hypertext or other links or connections to, this website or any materials on this site, whether in electronic or hard copy form, without the express prior written permission UAS is strictly prohibited. Removing or altering any copyright notice or any other proprietary notice on any website materials is strictly prohibited.</p>
+                  <p>All names, trademarks, service marks, symbols, slogans, and logos appearing on the website are proprietary to UAS or its licensors. Use or misuse of these trademarks is expressly prohibited and may violate federal and state trademark law.</p>
+                  <p>UAS welcomes your feedback and suggestions about how to improve our products, information, and services and this website. By transmitting any suggestions, information, data, material, or other content (collectively, "Submissions") to UAS, you automatically grant UAS the royalty-free, perpetual, irrevocable, non-exclusive right and license to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, redistribute, transmit, perform and display any or all of such Submissions (in whole or part) throughout the universe and to incorporate such in other works in any form, media, or technology now known or later developed for the full term of any rights that may exist in such Submission(s). Further, UAS is free to use any ideas, concepts, methods, know-how, techniques, and processes contained in any communications you send to this website for any purpose whatever, including, but not limited to, creating and marketing products, information, or services using such information.</p>
+                </div>
+
+                <div class="sub-section">
+                  <h2 class="modal-section-heading">Forward-looking Statements Disclosure:</h2>
+                  <p>Certain statements in documents that appear in or are obtained through this website, including, without limitation, statements as to any company's objective to grow through strategic acquisitions and internal growth, the ability to realize operating efficiencies in the integration of its acquisitions or as to management's beliefs, expectations and opinions, are forward-looking statements that involve risks and uncertainties and are subject to change at any time. Certain factors, including without limitation, risks associated with growth and future acquisitions, fluctuations in quarterly operating results, and other risks detailed from time to time in any filings with the Securities and Exchange Commission, can cause actual results and developments to be materially different from those expressed or implied by such forward-looking statements.</p>
+                </div>
+
+                <div class="sub-section">
+                  <h2 class="modal-section-heading">Disclaimers; Disclaimers Regarding Other Servers and Web Sites:</h2>
+                  <p>This website, the website materials on and in and made available through this website, and the services, information, and products offered by UAS, and its operating subsidiaries and affiliates (the "UAS Companies") in connection therewith are made available "as is" and "with all faults." Use of this website is entirely at your own risk.</p>
+                  <p>The UAS Companies make no representations or warranties, and disclaim all representations and warranties, with respect to this website, the website materials on and in and made available through this website, and the services, information, and products offered in connection therewith, express or implied, written or oral, arising from course of dealing, course of performance, usage of trade, or otherwise, including, but not limited to, the implied warranties of merchantability, fitness for a particular purpose, accuracy, systems integration, non-interference, quality, title, and non-infringement. The entire risk as to satisfactory quality, performance, accuracy, and effort with regard to any and all website materials on and in and made available through this website is with you.</p>
+                  <p>The UAS Companies shall not be liable for any special, indirect, incidental, consequential, exemplary, extra-contractual, or punitive damages of any kind whatever, including, without limitation, lost revenues or lost profits, which may or do result from the use of, access to, or inability to use this website, the website materials on and in and made available through this website, or the services, information, and products offered in connection therewith, regardless of legal theory, whether or not any party had been advised of the possibility or probability of such damages, and even if the remedies otherwise available fail of their essential purpose. Under no circumstances will the total liability of the UAS Companies to you or any other person or entity in connection with, based upon, or arising from this website, the website materials on and in and made available through this website, or the services, information, or products offered in connection therewith exceed the price paid by you for use of this website.</p>
+                  <p>Without limiting the generality of the foregoing, other sites that may be listed or linked in this website are not under the control of UAS. Accordingly, UAS can make no representation concerning the content of these sites to you, nor can the fact that UAS has given you this listing serve as an endorsement by UAS , of any of these sites. UAS is providing links to these sites as a convenience to you. UAS has not tested any software that may be found on these sites and therefore cannot make any representations regarding the quality, safety or suitability of any software found there. There are inherent dangers in the use of any software found on the Internet, and UAS cautions you to make sure that you completely understand the risk before retrieving any software on the Internet. UAS is not responsible for any content, information, products, services, or software offered by any other party or at any other web site.</p>
+                </div>
+                <div class="sub-section">
+                  <h2 class="modal-section-heading">Privacy Statement:</h2>
+                  <p>UAS has a Privacy Notice setting out UAS's online information gathering and dissemination practices with respect to the website. The Privacy Notice is incorporated into these Terms and Conditions by reference, as if set forth fully herein.</p>
+                </div>
+                <div class="sub-section">
+                  <h2 class="modal-section-heading">Governing Law and Jurisdiction: Commonwealth of Pennsylvania.</h2>
+                  <p>These Terms and Conditions, including, without limitation, the Privacy Notice, represent the entire agreement between you and UAS companies with respect to the subject matter hereof, and supersede any and all prior and contemporaneous written and oral representations, understandings, and agreements, express and implied, and will be governed by and construed in accordance with the laws of the Commonwealth of Pennsylvania, without reference to its conflict of law rules; provided, however, that the terms of any applicable law now or hereafter enacted that is based on, derived from, similar to, or connected with the uniform computer information transactions act drafted by the national conference of commissioners on uniform state laws shall not apply except to the extent that the law expressly prohibits alteration by these terms and conditions of the applicability of one or more sections of the law.</p>
+                </div>
+                <div>
+                  <h2 class="modal-section-heading">Miscellany:</h2>
+                  <p>By accessing, viewing, or using the works, content, or materials on this website, you consent to the exclusive jurisdiction of the federal and state courts presiding in Philadelphia County, Pennsylvania, and agree to accept service of process by personal delivery or mail and hereby waive any and all jurisdictional and venue defenses otherwise available. This website is controlled and operated by UAS from its offices within the United States. Without limiting anything else, UAS makes no representation that the works, content, materials, services, information, or products available on, in, or through the website are appropriate or available for use in other locations, and access to them from territories where they are illegal is prohibited. Those who choose to access this website from other locations do so on their own volition and are responsible for compliance with applicable laws. The waiver or failure of UAS to exercise in any respect any right provided hereunder shall not be deemed a waiver of such right in the future or a waiver of any of other rights established under these Terms and Conditions. Headings used in these Terms and Conditions, including, without limitation, the Privacy Notice, are for reference only and shall not affect the interpretation of these Terms and Conditions (or the Privacy Notice). The waiver or failure of UAS to exercise in any respect any right provided hereunder shall not be deemed a waiver of such right in the future or a waiver of any of other rights established under these Terms and Conditions. UAS reserves the right to terminate your access to this website in the event that you violate these Terms and Conditions or for any reason whatever or no reason, with or without notice, in addition to any and all other remedies available at law or in equity.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div id="spinLoader" class="spinner" style="display:none;" hidden="hidden"></div>
+    </div>
+
+    <!-- bootstrap 4 includes -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/lib/js/jquery-3.6.3.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.unobtrusive.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+
+    <!-- <script src="{% static 'js/lib/js/site.min.js' %}?v=21.1.99.1"></script> -->
+    <script type="text/javascript">
+      var minAgeConfigParam = 16;
+    </script>
+
+    {% block formScript %}{% endblock formScript %}
+  </div>
+  {% include "account/components/footer.html" %}
+
+</body>
+
+</html>
