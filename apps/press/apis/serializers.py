@@ -1,8 +1,12 @@
+
 from django.utils.text import slugify
+from drf_spectacular.utils import extend_schema_field
 from rest_framework import serializers
 
 from apps.press.models import Article
 from apps.press.models import Category
+from apps.press.models import Leadership
+from apps.press.models import Paragraph
 from apps.press.models import PressRelease
 
 
@@ -12,7 +16,7 @@ class PressReleaseSerializer(serializers.ModelSerializer):
     class Meta:
         model = PressRelease
         fields = ["id", "title", "url", "date"]
-
+    @extend_schema_field(serializers.CharField())
     def get_url(self, obj):
         return obj.get_absolute_url()
 
@@ -25,7 +29,10 @@ class CategorySerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         label = validated_data.pop("label")
         return  Category.objects.using(
-            "afrifundpress").create(slug=slugify(label), **validated_data)
+            "afrifundpress").create(
+                slug=slugify(label),
+                label=label,
+                **validated_data)
 
 
     def update(self, instance, validated_data):
@@ -41,7 +48,8 @@ class ArticleSerializer(serializers.ModelSerializer):
         model = Article
         fields = ["id", "title", "url", "category", "content", "author"]
 
-    def get_url(self, obj):
+    @extend_schema_field(serializers.CharField())
+    def get_url(self, obj: Article) -> str:
         return obj.get_absolute_url()
 
 
@@ -59,9 +67,7 @@ class ArticleSerializer(serializers.ModelSerializer):
             )
 
     def update(self, instance, validated_data):
-        # Handle nested category update
-        category_data = validated_data.pop("category", None)
-        if category_data:
+        if category_data := validated_data.pop("category", None):
             category = Category.objects.using(
                 "afrifundpress").get(label=category_data.get("label"))
             instance.category = category
@@ -76,3 +82,17 @@ class ArticleSerializer(serializers.ModelSerializer):
 
 
 
+
+class ParagraphSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Paragraph
+        fields = ["paragraph"]
+
+
+class LeadershipSerializer(serializers.ModelSerializer):
+    paragraphs = ParagraphSerializer(many=True, read_only=True)
+    class Meta:
+        model = Leadership
+        fields = ["id", "image", "name", "job_title", "paragraphs"]
+    def create(self, validated_data):
+        return Leadership.objects.using("afrifundpress").create(**validated_data)

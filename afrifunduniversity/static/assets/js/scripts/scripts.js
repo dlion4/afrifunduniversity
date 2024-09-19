@@ -3216,7 +3216,8 @@
                         const e = document.querySelectorAll("[data-leadership]");
                         if (!e || 0 === e.length) return;
                         const t = document.querySelector("[data-modal='leadership']"),
-                            n = Array.from(t.querySelectorAll("[data-leadership-modal]")).reduce((e, t) => ({ ...e, [t.dataset.leadershipModal]: t }), {});
+                            n = Array.from(
+                                t.querySelectorAll("[data-leadership-modal]")).reduce((e, t) => ({ ...e, [t.dataset.leadershipModal]: t }), {});
                         e.forEach((e) => {
                             e.addEventListener("click", function () {
                                 const e = this.dataset.leadership,

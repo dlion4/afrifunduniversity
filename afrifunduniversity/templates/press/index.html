@@ -52,7 +52,7 @@
           <h2 class="h2">Learn More About Us</h2>
         </div>
         <div class="color-card-links-section__cards" data-site-animation-order="1">
-          <div class="color-card background-color__light-teal" href="/about/">
+          <div class="color-card background-color__light-teal" href="{% url 'about' %}">
             <div class="color-card__container">
               <div class="color-card__content">
                 <h3 class="color-card__header h3">About Us</h3>
@@ -60,7 +60,7 @@
               </div>
               <div class="color-card__button-container">
 
-                <a href="/about/" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-205" data-link-name="Learn More">
+                <a href="{% url 'about' %}" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-205" data-link-name="Learn More">
                   Learn More
                 </a>
               </div>
@@ -80,7 +80,7 @@
               </div>
             </div>
           </div>
-          <div class="color-card background-color__light-green" href="/partner/">
+          <div class="color-card background-color__light-green" href="{% url 'partners:partner:home' %}">
             <div class="color-card__container">
               <div class="color-card__content">
                 <h3 class="color-card__header h3">Partner With Us</h3>
@@ -88,7 +88,7 @@
               </div>
               <div class="color-card__button-container">
 
-                <a href="/partner/" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-205" data-link-name="Learn More">
+                <a href="{% url 'partners:partner:home' %}" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-205" data-link-name="Learn More">
                   Learn More
                 </a>
               </div>

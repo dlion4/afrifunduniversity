@@ -15,7 +15,7 @@ from . import views
 urlpatterns = [
     path("", include("apps.main_application.urls")),
     path("for-schools/", include("apps.schools.urls", namespace="schools")),
-    path("press/", include("apps.press.urls", namespace="press")),
+    path("about/press/", include("apps.press.urls", namespace="press")),
     path("partners/", include("apps.partners.urls", namespace="partners")),
     # MAIN WEBSITE CONFIGURATIONS
     path("schema/", views.json_ld_view),
@@ -36,6 +36,8 @@ urlpatterns = [
     # ...
     # Media files
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
+    # For the subdomain sites #Todo: Implement subdomain later
+    path("ss/", include("afrifunduniversity.saas.urls", namespace="ss")),
 ]
 if settings.DEBUG:
     # Static file serving when using Gunicorn + Uvicorn for local web socket development

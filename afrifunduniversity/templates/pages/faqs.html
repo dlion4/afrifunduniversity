@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{block.super}} ~ Help Page
+{% endblock title %}
+
+{% load static humanize %}
+{% block content %}
+{% endblock content %}
+
+
+{% block pressScript %}
+
+
+<script>
+
+    loadJSFile("{% static 'js/leadership.js' %}", function () { })
+
+</script>
+
+
+{% endblock pressScript %}

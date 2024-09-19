@@ -224,7 +224,7 @@
                             <p class="sub-nav-link__subtitle">Calculate and plan for your financial future.</p>
                           </div>
                         </a>
-                        <a href="" class="sub-nav-link" data-link-name="FAQs">
+                        <a href="{% url 'ss:help:help_home' %}" target="_blank" class="sub-nav-link" data-link-name="FAQs">
                           <div class="sub-nav-link__icon">
                             <img src="{% static 'assets/images/icons/faqs.svg' %}" alt="faqs icon">
                           </div>
@@ -607,7 +607,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="https://help.collegeavestudentloans.com/hc/en-us/" class="sub-nav-link" data-link-name="FAQs">
+                    <a href="{% url 'ss:help:help_home' %}" target="_blank" class="sub-nav-link" data-link-name="FAQs">
                       <div class="sub-nav-link__icon">
                         <img src="{% static 'assets/images/icons/faqs.svg' %}" alt="faqs icon">
                       </div>

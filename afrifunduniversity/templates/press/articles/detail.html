@@ -4,8 +4,247 @@
 
 {% block headerScript %}{% endblock headerScript %}
 
-{% block content %}{% endblock content %}
+{% block content %}
 
-{% block pressScript %}{% endblock pressScript %}
+<section class="hero article-hero-section background-color__light-green" data-section-name="A-Spot > What is the FAFSA?">
+    <div class="site-breadcrumbs site-breadcrumbs__hero">
+        <div class="site-breadcrumbs__container">
+            <nav class="site-breadcrumbs__desktop">
+                <p class="p-small">
+                    <a data-link-name="Breadcrumb > Home" href="/">Home</a>
+                    >
+                    <a data-link-name="Breadcrumb > Guides & Articles" href="{% url 'press:article_list_view' %}">Guides & Articles</a>
+                </p>
+            </nav>
+
+            <nav class="site-breadcrumbs__mobile">
+                <p class="p-small">
+                    < <a data-link-name="Breadcrumb > Guides & Articles" href="{% url 'press:article_list_view' %}">Guides & Articles</a>
+                </p>
+            </nav>
+        </div>
+    </div>
+    <div class="section-container">
+        <div class="article-hero-section__content-container">
+            <div class="article-hero-section__title-container">
+                <h1 class="h1 h1__mobile-small">{{article.title}}</h1>
+            </div>
+            <div class="article-hero-section__article-info-container">
+                <div class="article-hero-section__article-info-author">
+                    <p class="p-large">
+                        <strong>By
+                            {{article.author}}</strong>
+                    </p>
+                    <p class="p-regular">September 2, 2016</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="responsive-background-image">
+            <picture>
+                <source media="(min-width: 992px)" srcset="{% static 'assets/images/light-green-bg-d.png' %}">
+                <img width="1300" height="788" src="{% static 'assets/images/light-green-bg-d.png' %}" class="attachment-full size-full" alt="" decoding="async" />
+            </picture>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="article-layout">
+    <div class="section-container">
+        <div class="article-layout__container">
+            <aside class="article-layout__aside">
+                <section class="article-aside-social">
+                    <div class="article-aside-social__container">
+                        <p class="article-aside-social__header">Share:</p>
+                        <ul class="article-aside-social__list">
+                            <li>
+                                <a title="Twitter Sharable Link" class="article-aside-social__section-link article-aside-social__section-link__twitter" href="https://twitter.com/share?text=Check out this article&url=" target="_blank">
+                                    <svg viewBox="0 0 30 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M29.8881 3.71301C29.0464 4.9442 28.0288 5.99321 26.8353 6.86007C26.8478 7.03595 26.8541 7.29977 26.8541 7.65154C26.8541 9.28475 26.6154 10.9148 26.138 12.5417C25.6606 14.1686 24.9351 15.7296 23.9615 17.2246C22.9878 18.7196 21.8289 20.0419 20.4846 21.1914C19.1404 22.3409 17.5197 23.258 15.6227 23.9427C13.7257 24.6274 11.6968 24.9697 9.5359 24.9697C6.13129 24.9697 3.01567 24.0589 0.188965 22.2373C0.628675 22.2875 1.11863 22.3127 1.65885 22.3127C4.48555 22.3127 7.00443 21.4458 9.21554 19.7121C7.89641 19.687 6.71549 19.2818 5.67275 18.4966C4.63001 17.7114 3.91392 16.7095 3.52446 15.4909C3.93905 15.5537 4.32222 15.5851 4.67398 15.5851C5.2142 15.5851 5.74813 15.516 6.27578 15.3778C4.86871 15.0889 3.70349 14.3885 2.7801 13.2767C1.85671 12.1648 1.39502 10.874 1.39502 9.40409V9.32871C2.24931 9.80611 3.16641 10.0637 4.14633 10.1013C3.31717 9.54856 2.65761 8.82619 2.16765 7.93421C1.67769 7.04223 1.43271 6.07488 1.43271 5.03214C1.43271 3.92658 1.70909 2.9027 2.26187 1.96046C3.78201 3.83237 5.63191 5.33051 7.81162 6.45491C9.99132 7.57931 12.3249 8.20432 14.8124 8.32995C14.7119 7.85255 14.6616 7.38772 14.6616 6.93545C14.6616 5.25198 15.2552 3.81667 16.4425 2.62945C17.6297 1.44223 19.065 0.848633 20.7484 0.848633C22.5073 0.848633 23.9897 1.48934 25.1958 2.77078C26.5652 2.50696 27.8529 2.017 29.0589 1.3009C28.5941 2.74566 27.7021 3.86377 26.383 4.65525C27.5514 4.52962 28.7197 4.21554 29.8881 3.71301Z" fill="#FFFFFF" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a title="Facebook share" class="article-aside-social__section-link article-aside-social__section-link__facebook fb-share-button" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
+                                    <svg viewBox="0 0 14 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_461_8825)">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.09394 20.9709C3.09394 18.7788 3.085 16.5869 3.10249 14.3952C3.10567 14.0258 2.99386 13.9102 2.59834 13.9253C1.86732 13.953 1.13424 13.9224 0.402292 13.9381C0.105882 13.9451 -0.00329225 13.8686 -5.2255e-05 13.5753C0.0147277 12.2078 0.0133247 10.8394 0.00153466 9.47148C-0.00111534 9.2084 0.0836059 9.12191 0.368356 9.12786C1.11674 9.14395 1.86667 9.1079 2.61372 9.14244C3.04674 9.16225 3.1364 9.0188 3.12739 8.64342C3.10129 7.6026 3.1013 6.55988 3.12568 5.51894C3.15549 4.2476 3.5206 3.06078 4.33112 2.02714C5.3567 0.717917 6.81488 0.119351 8.49714 0.0492766C10.2248 -0.0224034 11.957 0.0174552 13.6868 5.78979e-05C13.928 -0.00248077 14 0.0781866 13.9988 0.297193C13.9912 1.68046 13.9896 3.06426 13.9999 4.44752C14.0023 4.69365 13.9163 4.76901 13.6578 4.76516C12.8258 4.75303 11.9936 4.75895 11.1622 4.76106C10.0548 4.76428 9.39213 5.29646 9.3227 6.32057C9.26704 7.14163 9.3077 7.96765 9.2873 8.79107C9.27974 9.08449 9.46626 9.06431 9.67402 9.06406C10.9382 9.06233 12.203 9.07557 13.4672 9.0554C13.8384 9.04933 13.9608 9.12929 13.9184 9.49426C13.7593 10.8687 13.6225 12.2458 13.4965 13.6236C13.4678 13.9345 13.316 13.9938 13.017 13.9891C12.0197 13.9748 11.0212 13.9791 10.0229 13.985C9.30606 13.989 9.37568 13.8872 9.37568 14.5702C9.37236 18.8606 9.36619 23.151 9.38593 27.4413C9.38792 27.8945 9.26393 28.0071 8.78413 27.9991C7.07087 27.9697 5.35677 27.9679 3.6435 27.9996C3.16066 28.0085 3.08107 27.8556 3.08491 27.4532C3.1032 25.2924 3.09394 23.1318 3.09394 20.9709Z" fill="#FFFFFF" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_461_8825">
+                                                <rect width="14" height="28" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a title="svg url" class="article-aside-social__section-link article-aside-social__section-link__email" href="" target="_blank">
+                                    <svg viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.35714 0H19.6429C20.2681 0 20.8675 0.252855 21.3097 0.702857C21.7517 1.15304 22 1.76338 22 2.4V13.6C22 14.2366 21.7517 14.8469 21.3097 15.2971C20.8676 15.7471 20.2681 16 19.6429 16H2.35714C1.73189 16 1.13246 15.7471 0.690306 15.2971C0.248341 14.847 0 14.2366 0 13.6V2.4C0 1.76338 0.248341 1.15305 0.690306 0.702857C1.13245 0.252855 1.73189 0 2.35714 0ZM2.73421 1.6L10.4688 8.8192H10.469C10.6138 8.95456 10.8034 9.02956 11 9.02956C11.1966 9.02956 11.3862 8.95456 11.5311 8.8192L19.2656 1.6H2.73421ZM2.35714 14.4H19.6429C19.8512 14.4 20.0512 14.3157 20.1985 14.1657C20.3458 14.0157 20.4286 13.8121 20.4286 13.6V2.68571L12.5925 10C12.1592 10.4084 11.5904 10.6353 10.9999 10.6353C10.4093 10.6353 9.8406 10.4084 9.4072 10L1.57116 2.68571V13.6C1.57116 13.8121 1.65394 14.0157 1.80126 14.1657C1.94858 14.3157 2.14852 14.4 2.35687 14.4H2.35714Z" fill="#FFFFFF" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <button title="This is an svg" type="button" class="article-aside-social__section-link article-aside-social__section-link__print" data-onclick="printPage">
+                                    <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19.6429 5.5H18.8571V2.35714C18.8571 1.73189 18.6088 1.13246 18.1668 0.690306C17.7247 0.24834 17.1252 0 16.5 0H5.5C4.87475 0 4.27532 0.24834 3.83316 0.690306C3.3912 1.13245 3.14286 1.73189 3.14286 2.35714V5.5H2.35714C1.73189 5.5 1.13246 5.74834 0.690306 6.19031C0.24834 6.63245 0 7.23189 0 7.85714V14.9286C0 15.5538 0.24834 16.1533 0.690306 16.5954C1.13245 17.0374 1.73189 17.2857 2.35714 17.2857H3.14286V19.6429C3.14286 20.2681 3.3912 20.8675 3.83316 21.3097C4.2753 21.7517 4.87475 22 5.5 22H16.5C17.1252 22 17.7247 21.7517 18.1668 21.3097C18.6088 20.8676 18.8571 20.2681 18.8571 19.6429V17.2857H19.6429C20.2681 17.2857 20.8675 17.0374 21.3097 16.5954C21.7517 16.1533 22 15.5538 22 14.9286V7.85714C22 7.23189 21.7517 6.63246 21.3097 6.19031C20.8676 5.74834 20.2681 5.5 19.6429 5.5ZM4.71429 2.35714C4.71429 2.14879 4.79707 1.94885 4.94439 1.80153C5.09171 1.65421 5.29165 1.57143 5.5 1.57143H16.5C16.7084 1.57143 16.9083 1.65421 17.0556 1.80153C17.2029 1.94885 17.2857 2.14879 17.2857 2.35714V5.5H4.71429V2.35714ZM17.2857 19.6429C17.2857 19.8512 17.2029 20.0511 17.0556 20.1985C16.9083 20.3458 16.7084 20.4286 16.5 20.4286H5.5C5.29165 20.4286 5.09171 20.3458 4.94439 20.1985C4.79707 20.0511 4.71429 19.8512 4.71429 19.6429V13.3571H17.2857V19.6429ZM20.4286 14.9286C20.4286 15.1369 20.3458 15.3369 20.1985 15.4842C20.0511 15.6315 19.8512 15.7143 19.6429 15.7143H18.8571V12.5714C18.8571 12.3631 18.7744 12.1631 18.627 12.0158C18.4797 11.8685 18.2798 11.7857 18.0714 11.7857H3.92857C3.72022 11.7857 3.52028 11.8685 3.37296 12.0158C3.22564 12.1631 3.14286 12.3631 3.14286 12.5714V15.7143H2.35714C2.14879 15.7143 1.94885 15.6315 1.80153 15.4842C1.65421 15.3369 1.57143 15.1369 1.57143 14.9286V7.85714C1.57143 7.64879 1.65421 7.44885 1.80153 7.30153C1.94885 7.15421 2.14879 7.07143 2.35714 7.07143H19.6429C19.8512 7.07143 20.0511 7.15421 20.1985 7.30153C20.3458 7.44885 20.4286 7.64879 20.4286 7.85714V14.9286Z" fill="#FFFFFF" />
+                                        <path d="M14.7825 14.3489H6.92535C6.64456 14.3489 6.38518 14.4987 6.24488 14.7417C6.10457 14.9848 6.10457 15.2844 6.24488 15.5274C6.38518 15.7705 6.64457 15.9203 6.92535 15.9203H14.7825C15.0633 15.9203 15.3227 15.7705 15.463 15.5274C15.6033 15.2844 15.6033 14.9848 15.463 14.7417C15.3227 14.4987 15.0633 14.3489 14.7825 14.3489Z" fill="#FFFFFF" />
+                                        <path d="M14.7825 17.3953H6.92535C6.64456 17.3953 6.38518 17.545 6.24488 17.7881C6.10457 18.0312 6.10457 18.3308 6.24488 18.5738C6.38518 18.8169 6.64457 18.9667 6.92535 18.9667H14.7825C15.0633 18.9667 15.3227 18.8169 15.463 18.5738C15.6033 18.3308 15.6033 18.0312 15.463 17.7881C15.3227 17.545 15.0633 17.3953 14.7825 17.3953Z" fill="#FFFFFF" />
+                                        <path d="M5.42696 8.18604H3.85553C3.57474 8.18604 3.31536 8.33581 3.17505 8.57889C3.03475 8.82197 3.03475 9.12153 3.17505 9.36461C3.31536 9.60768 3.57475 9.75746 3.85553 9.75746H5.42696C5.70774 9.75746 5.96712 9.60769 6.10743 9.36461C6.24774 9.12152 6.24774 8.82197 6.10743 8.57889C5.96712 8.33581 5.70773 8.18604 5.42696 8.18604Z" fill="#FFFFFF" />
+                                        <path d="M8.73426 8.18604H7.94855C7.66776 8.18604 7.40838 8.33581 7.26807 8.57889C7.12777 8.82197 7.12777 9.12153 7.26807 9.36461C7.40838 9.60768 7.66777 9.75746 7.94855 9.75746H8.73426C9.01505 9.75746 9.27443 9.60769 9.41473 9.36461C9.55504 9.12152 9.55504 8.82197 9.41473 8.57889C9.27443 8.33581 9.01504 8.18604 8.73426 8.18604Z" fill="#FFFFFF" />
+                                    </svg>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </aside>
+            <main class="article-layout__main">
+                <div class="article-layout__article" style="margin-bottom: 4rem;">
+                    {{article.content|safe}}
+                </div>
+                <div class="mobile-social-links hidden-lg hidden-xl">
+                    <div class="mobile-social-links-container">
+                        <section class="article-aside-social">
+                            <div class="article-aside-social__container">
+                                <p class="article-aside-social__header">Share:</p>
+                                <ul class="article-aside-social__list">
+                                    <li>
+                                        <a title="Twitter Sharable Link" class="article-aside-social__section-link article-aside-social__section-link__twitter" href="https://twitter.com/share?text=Check out this article&url=" target="_blank">
+                                            <svg viewBox="0 0 30 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M29.8881 3.71301C29.0464 4.9442 28.0288 5.99321 26.8353 6.86007C26.8478 7.03595 26.8541 7.29977 26.8541 7.65154C26.8541 9.28475 26.6154 10.9148 26.138 12.5417C25.6606 14.1686 24.9351 15.7296 23.9615 17.2246C22.9878 18.7196 21.8289 20.0419 20.4846 21.1914C19.1404 22.3409 17.5197 23.258 15.6227 23.9427C13.7257 24.6274 11.6968 24.9697 9.5359 24.9697C6.13129 24.9697 3.01567 24.0589 0.188965 22.2373C0.628675 22.2875 1.11863 22.3127 1.65885 22.3127C4.48555 22.3127 7.00443 21.4458 9.21554 19.7121C7.89641 19.687 6.71549 19.2818 5.67275 18.4966C4.63001 17.7114 3.91392 16.7095 3.52446 15.4909C3.93905 15.5537 4.32222 15.5851 4.67398 15.5851C5.2142 15.5851 5.74813 15.516 6.27578 15.3778C4.86871 15.0889 3.70349 14.3885 2.7801 13.2767C1.85671 12.1648 1.39502 10.874 1.39502 9.40409V9.32871C2.24931 9.80611 3.16641 10.0637 4.14633 10.1013C3.31717 9.54856 2.65761 8.82619 2.16765 7.93421C1.67769 7.04223 1.43271 6.07488 1.43271 5.03214C1.43271 3.92658 1.70909 2.9027 2.26187 1.96046C3.78201 3.83237 5.63191 5.33051 7.81162 6.45491C9.99132 7.57931 12.3249 8.20432 14.8124 8.32995C14.7119 7.85255 14.6616 7.38772 14.6616 6.93545C14.6616 5.25198 15.2552 3.81667 16.4425 2.62945C17.6297 1.44223 19.065 0.848633 20.7484 0.848633C22.5073 0.848633 23.9897 1.48934 25.1958 2.77078C26.5652 2.50696 27.8529 2.017 29.0589 1.3009C28.5941 2.74566 27.7021 3.86377 26.383 4.65525C27.5514 4.52962 28.7197 4.21554 29.8881 3.71301Z" fill="#FFFFFF" />
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a title="Facebook share" class="article-aside-social__section-link article-aside-social__section-link__facebook fb-share-button" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
+                                            <svg viewBox="0 0 14 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g clip-path="url(#clip0_461_8825)">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.09394 20.9709C3.09394 18.7788 3.085 16.5869 3.10249 14.3952C3.10567 14.0258 2.99386 13.9102 2.59834 13.9253C1.86732 13.953 1.13424 13.9224 0.402292 13.9381C0.105882 13.9451 -0.00329225 13.8686 -5.2255e-05 13.5753C0.0147277 12.2078 0.0133247 10.8394 0.00153466 9.47148C-0.00111534 9.2084 0.0836059 9.12191 0.368356 9.12786C1.11674 9.14395 1.86667 9.1079 2.61372 9.14244C3.04674 9.16225 3.1364 9.0188 3.12739 8.64342C3.10129 7.6026 3.1013 6.55988 3.12568 5.51894C3.15549 4.2476 3.5206 3.06078 4.33112 2.02714C5.3567 0.717917 6.81488 0.119351 8.49714 0.0492766C10.2248 -0.0224034 11.957 0.0174552 13.6868 5.78979e-05C13.928 -0.00248077 14 0.0781866 13.9988 0.297193C13.9912 1.68046 13.9896 3.06426 13.9999 4.44752C14.0023 4.69365 13.9163 4.76901 13.6578 4.76516C12.8258 4.75303 11.9936 4.75895 11.1622 4.76106C10.0548 4.76428 9.39213 5.29646 9.3227 6.32057C9.26704 7.14163 9.3077 7.96765 9.2873 8.79107C9.27974 9.08449 9.46626 9.06431 9.67402 9.06406C10.9382 9.06233 12.203 9.07557 13.4672 9.0554C13.8384 9.04933 13.9608 9.12929 13.9184 9.49426C13.7593 10.8687 13.6225 12.2458 13.4965 13.6236C13.4678 13.9345 13.316 13.9938 13.017 13.9891C12.0197 13.9748 11.0212 13.9791 10.0229 13.985C9.30606 13.989 9.37568 13.8872 9.37568 14.5702C9.37236 18.8606 9.36619 23.151 9.38593 27.4413C9.38792 27.8945 9.26393 28.0071 8.78413 27.9991C7.07087 27.9697 5.35677 27.9679 3.6435 27.9996C3.16066 28.0085 3.08107 27.8556 3.08491 27.4532C3.1032 25.2924 3.09394 23.1318 3.09394 20.9709Z" fill="#FFFFFF" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_461_8825">
+                                                        <rect width="14" height="28" fill="white" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a title="svg url" class="article-aside-social__section-link article-aside-social__section-link__email" href="" target="_blank">
+                                            <svg viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M2.35714 0H19.6429C20.2681 0 20.8675 0.252855 21.3097 0.702857C21.7517 1.15304 22 1.76338 22 2.4V13.6C22 14.2366 21.7517 14.8469 21.3097 15.2971C20.8676 15.7471 20.2681 16 19.6429 16H2.35714C1.73189 16 1.13246 15.7471 0.690306 15.2971C0.248341 14.847 0 14.2366 0 13.6V2.4C0 1.76338 0.248341 1.15305 0.690306 0.702857C1.13245 0.252855 1.73189 0 2.35714 0ZM2.73421 1.6L10.4688 8.8192H10.469C10.6138 8.95456 10.8034 9.02956 11 9.02956C11.1966 9.02956 11.3862 8.95456 11.5311 8.8192L19.2656 1.6H2.73421ZM2.35714 14.4H19.6429C19.8512 14.4 20.0512 14.3157 20.1985 14.1657C20.3458 14.0157 20.4286 13.8121 20.4286 13.6V2.68571L12.5925 10C12.1592 10.4084 11.5904 10.6353 10.9999 10.6353C10.4093 10.6353 9.8406 10.4084 9.4072 10L1.57116 2.68571V13.6C1.57116 13.8121 1.65394 14.0157 1.80126 14.1657C1.94858 14.3157 2.14852 14.4 2.35687 14.4H2.35714Z" fill="#FFFFFF" />
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <button title="This is an svg" type="button" class="article-aside-social__section-link article-aside-social__section-link__print" data-onclick="printPage">
+                                            <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M19.6429 5.5H18.8571V2.35714C18.8571 1.73189 18.6088 1.13246 18.1668 0.690306C17.7247 0.24834 17.1252 0 16.5 0H5.5C4.87475 0 4.27532 0.24834 3.83316 0.690306C3.3912 1.13245 3.14286 1.73189 3.14286 2.35714V5.5H2.35714C1.73189 5.5 1.13246 5.74834 0.690306 6.19031C0.24834 6.63245 0 7.23189 0 7.85714V14.9286C0 15.5538 0.24834 16.1533 0.690306 16.5954C1.13245 17.0374 1.73189 17.2857 2.35714 17.2857H3.14286V19.6429C3.14286 20.2681 3.3912 20.8675 3.83316 21.3097C4.2753 21.7517 4.87475 22 5.5 22H16.5C17.1252 22 17.7247 21.7517 18.1668 21.3097C18.6088 20.8676 18.8571 20.2681 18.8571 19.6429V17.2857H19.6429C20.2681 17.2857 20.8675 17.0374 21.3097 16.5954C21.7517 16.1533 22 15.5538 22 14.9286V7.85714C22 7.23189 21.7517 6.63246 21.3097 6.19031C20.8676 5.74834 20.2681 5.5 19.6429 5.5ZM4.71429 2.35714C4.71429 2.14879 4.79707 1.94885 4.94439 1.80153C5.09171 1.65421 5.29165 1.57143 5.5 1.57143H16.5C16.7084 1.57143 16.9083 1.65421 17.0556 1.80153C17.2029 1.94885 17.2857 2.14879 17.2857 2.35714V5.5H4.71429V2.35714ZM17.2857 19.6429C17.2857 19.8512 17.2029 20.0511 17.0556 20.1985C16.9083 20.3458 16.7084 20.4286 16.5 20.4286H5.5C5.29165 20.4286 5.09171 20.3458 4.94439 20.1985C4.79707 20.0511 4.71429 19.8512 4.71429 19.6429V13.3571H17.2857V19.6429ZM20.4286 14.9286C20.4286 15.1369 20.3458 15.3369 20.1985 15.4842C20.0511 15.6315 19.8512 15.7143 19.6429 15.7143H18.8571V12.5714C18.8571 12.3631 18.7744 12.1631 18.627 12.0158C18.4797 11.8685 18.2798 11.7857 18.0714 11.7857H3.92857C3.72022 11.7857 3.52028 11.8685 3.37296 12.0158C3.22564 12.1631 3.14286 12.3631 3.14286 12.5714V15.7143H2.35714C2.14879 15.7143 1.94885 15.6315 1.80153 15.4842C1.65421 15.3369 1.57143 15.1369 1.57143 14.9286V7.85714C1.57143 7.64879 1.65421 7.44885 1.80153 7.30153C1.94885 7.15421 2.14879 7.07143 2.35714 7.07143H19.6429C19.8512 7.07143 20.0511 7.15421 20.1985 7.30153C20.3458 7.44885 20.4286 7.64879 20.4286 7.85714V14.9286Z" fill="#FFFFFF" />
+                                                <path d="M14.7825 14.3489H6.92535C6.64456 14.3489 6.38518 14.4987 6.24488 14.7417C6.10457 14.9848 6.10457 15.2844 6.24488 15.5274C6.38518 15.7705 6.64457 15.9203 6.92535 15.9203H14.7825C15.0633 15.9203 15.3227 15.7705 15.463 15.5274C15.6033 15.2844 15.6033 14.9848 15.463 14.7417C15.3227 14.4987 15.0633 14.3489 14.7825 14.3489Z" fill="#FFFFFF" />
+                                                <path d="M14.7825 17.3953H6.92535C6.64456 17.3953 6.38518 17.545 6.24488 17.7881C6.10457 18.0312 6.10457 18.3308 6.24488 18.5738C6.38518 18.8169 6.64457 18.9667 6.92535 18.9667H14.7825C15.0633 18.9667 15.3227 18.8169 15.463 18.5738C15.6033 18.3308 15.6033 18.0312 15.463 17.7881C15.3227 17.545 15.0633 17.3953 14.7825 17.3953Z" fill="#FFFFFF" />
+                                                <path d="M5.42696 8.18604H3.85553C3.57474 8.18604 3.31536 8.33581 3.17505 8.57889C3.03475 8.82197 3.03475 9.12153 3.17505 9.36461C3.31536 9.60768 3.57475 9.75746 3.85553 9.75746H5.42696C5.70774 9.75746 5.96712 9.60769 6.10743 9.36461C6.24774 9.12152 6.24774 8.82197 6.10743 8.57889C5.96712 8.33581 5.70773 8.18604 5.42696 8.18604Z" fill="#FFFFFF" />
+                                                <path d="M8.73426 8.18604H7.94855C7.66776 8.18604 7.40838 8.33581 7.26807 8.57889C7.12777 8.82197 7.12777 9.12153 7.26807 9.36461C7.40838 9.60768 7.66777 9.75746 7.94855 9.75746H8.73426C9.01505 9.75746 9.27443 9.60769 9.41473 9.36461C9.55504 9.12152 9.55504 8.82197 9.41473 8.57889C9.27443 8.33581 9.01504 8.18604 8.73426 8.18604Z" fill="#FFFFFF" />
+                                            </svg>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <section class="article-author-section">
+                    <div class="article-author-section__container">
+                        <div class="article-author-section__author-image">
+                            <img src="{% static 'images/afrifunduniveristy.png' %}" alt="Afri Fund " class="avatar avatar-full wp-user-avatar wp-user-avatar-full alignnone photo" />
+                        </div>
+                        <div class="article-author-section__author-info">
+                            <h3 class="h3">Afri Fund </h3>
+                            <p class="p-large">We started with a big vision and a simple mission - help students prepare for a bright future. We love providing an altogether different (and uncomplicated!) experience. We're committed to delivering practical and personal solutions that give young adults a running start on their roads to financial success.</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</section>
+
+<section class="subscribe-form-section" data-site-animation="animated" data-site-animation-breakpoint="992" data-section-name="Sign Up for the Latest Afri Fund News">
+    <div class="section-container">
+        <div class="subscribe-form-section__outer-container background-color__light-green">
+            <div class="responsive-background-image">
+                <picture>
+                    <source media="(min-width: 992px)" srcset="{% static 'assets/images/guides-archive-hero.png' %}">
+                    <source media="(min-width: 768px)" srcset="{% static 'assets/images/guides-articles-hero-t.png' %}">
+                    <source media="(min-width: 1px)" srcset="{% static 'assets/images/guides-archive-hero-m.png' %}">
+                    <img width="2880" height="624" src="{% static 'assets/images/guides-archive-hero.png' %}" class="attachment-full size-full" alt="" decoding="async">
+                </picture>
+            </div>
+            <div class="subscribe-form-section__container">
+                <div class="subscribe-form-section__header-column">
+                    <h2 class="h2" data-site-animation-order="0" data-site-animation-element="animate">
+                        Sign Up for the Latest Afri Fund News </h2>
+                </div>
+                <div class="subscribe-form-section__form-column">
+                    <form data-form-id="blog-subscription" data-form-type="subscribeForm" data-form-status="pending" data-data-extension="College Corner Subscribers" data-subscribe-keys="16507,16511" data-triggered-email-key="6563" data-acq-source="" data-account-type="transaction">
+                        <div class="subscribe-form-section__form-flex-container" data-site-animation-order="1" data-site-animation-element="animate">
+                            <div class="form-field form-field__text-input" data-form-field="email">
+                                <label class="form-field__label-container">
+                                    <p class="form-field__label">Enter your email</p>
+                                    <div class="form-field__text-input-container">
+                                        <input name="email" type="text" placeholder="" maxlength="" class="form-field__input">
+                                        <img src="{% static 'assets/images/icons/input-error.svg' %}" alt="error" class="form-field__icon form-field__icon--error">
+                                        <img src="{% static 'assets/images/icons/input-success.svg' %}" alt="success" class="form-field__icon form-field__icon--success">
+                                    </div>
+                                </label>
+                                <p class="form-field__message  form-field__error-message">Invalid Email Address</p>
+                            </div>
+                            <button type="submit" aria-label="Subscribe" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-203 button__mobile-full-width">
+                                <svg class="loading-animation" viewBox="0 0 50 50">
+                                    <circle cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                                </svg>
+                                <span class="button__submit-button-content">
+                                    Subscribe </span>
+                                <span class="button__submit-button-success">Success</span>
+                            </button>
+                        </div>
+                        <div class="subscribe-form-section__form-message" data-site-animation-order="2" data-site-animation-element="animate">
+                            <p class="form-field__message">
+                                By providing your email address, you agree to our
+                                <a href="/privacy/" data-link-name="Privacy Policy">Privacy Policy</a>,
+                                and you give Afri Fund Student Loans permission to contact you.
+                                Afri Fund respects your inbox and will only send periodic emails.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+{% endblock content %}
+
+{% block pressScript %}
+
+<script>
+    loadJSFile("{% static 'js/press.js' %}", function () {
+        console.log("file loaded");
+        setTimeout(() => {
+            loadJSFile("{% static 'assets/js/react-app/react-app.js' %}", function () {
+                console.log("This has also been loaded")
+            })
+        }, 3000)
+
+    });
+</script>
+
+{% endblock pressScript %}
+
 
 {% block formScript %}{% endblock formScript %}

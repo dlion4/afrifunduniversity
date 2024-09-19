@@ -1,4 +1,5 @@
 import json
+
 from django.shortcuts import get_object_or_404
 from rest_framework import permissions
 from rest_framework import status
@@ -6,11 +7,11 @@ from rest_framework import views
 from rest_framework import viewsets
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
-
+from drf_spectacular.utils import extend_schema
 from apps.main_application.models import Review
 from apps.main_application.models import Subscription
-
-from .serializers import ReviewSerializer
+from rest_framework import generics
+from .serializers import ReviewSerializer, SubscriptionRecordSerializer
 from .serializers import SubscriptionSerializer
 
 
@@ -26,8 +27,18 @@ class SubscriptionViewSet(viewsets.ModelViewSet):
     queryset = Subscription.objects.all()
     permission_classes = [permissions.AllowAny]
 
+    @extend_schema(
+        operation_id="create_subscription",
+        request=SubscriptionSerializer,
+        responses={201: SubscriptionSerializer},
+    )
+    def create(self, request, *args, **kwargs):
+        return super().create(request, *args, **kwargs)
+
 class SubscriptionView(views.APIView):
     permission_classes = [permissions.AllowAny]
+    serializer_class = SubscriptionSerializer
+    queryset = Subscription.objects.all()
     def get(self, request, pk=None, *args, **kwargs):
         try:
             subscription = get_object_or_404(Subscription, pk=pk)
@@ -46,18 +57,17 @@ class SubscriptionView(views.APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def put(self, request, pk=None, *args, **kwargs):
-        subscription = get_object_or_404(Subscription, pk=pk)
-        serializer = SubscriptionSerializer(
-            subscription, data=request.data, partial=False)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return self._extracted_from_patch_2(pk, request, False)
 
     def patch(self, request, pk=None, *args, **kwargs):
+        return self._extracted_from_patch_2(pk, request, True)
+
+    # TODO Rename this here and in `put` and `patch`
+    def _extracted_from_patch_2(self, pk, request, partial):
         subscription = get_object_or_404(Subscription, pk=pk)
         serializer = SubscriptionSerializer(
-            subscription, data=request.data, partial=True)
+            subscription, data=request.data, partial=partial
+        )
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
@@ -69,9 +79,11 @@ class SubscriptionView(views.APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-class SubscriptionRecordView(views.APIView):
+class SubscriptionRecordView(
+    generics.ListCreateAPIView, generics.RetrieveUpdateDestroyAPIView):
     http_method_names = ["put"]
     permission_classes = [permissions.AllowAny]
+    serializer_class = SubscriptionRecordSerializer
     def put(self, request, *args, **kwargs):
         print("Put data: ", json.loads(request.body))
         return Response({"message": "Data updated"}, status=status.HTTP_200_OK)

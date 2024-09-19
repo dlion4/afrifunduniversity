@@ -12,7 +12,6 @@ class PressRelease(models.Model):
     is_archived = models.BooleanField(default=False)
     is_approved = models.BooleanField(default=True)
 
-
     def __str__(self):
         return self.title
     def save(self, *args,**kwargs):
@@ -38,8 +37,7 @@ class Category(models.Model):
     label = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100)
 
-    class Meta:
-        managed = False
+
 
     def __str__(self):
         return self.label
@@ -63,7 +61,6 @@ class Article(models.Model):
 
 
     class Meta:
-        managed = False
         constraints = [
             models.UniqueConstraint(
                 fields=["title", "category"],
@@ -85,3 +82,29 @@ class Article(models.Model):
                     "slug": self.slug,
             },
         )
+
+
+class Leadership(models.Model):
+    image = models.URLField(
+        max_length=400,
+        default="https://cdn.collegeavestudentloans.com/ca2023/wp-content/uploads/2023/10/07145727/joe-depaulo.png")
+    name = models.CharField(max_length=255)
+    job_title = models.CharField(max_length=255)
+
+
+    def __str__(self):
+        return self.name
+
+class Paragraph(models.Model):
+    leadership = models.ForeignKey(
+        Leadership, related_name="paragraphs",
+        on_delete=models.CASCADE)
+    paragraph = models.TextField()
+
+
+    def __str__(self):
+        return str(self.leadership.name)
+
+    def save(self, *args, **kwargs):
+        using = kwargs.pop("using", None)
+        super().save(using=using, *args, **kwargs)

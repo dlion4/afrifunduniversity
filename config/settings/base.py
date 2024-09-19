@@ -1,6 +1,7 @@
 # ruff: noqa: ERA001, E501
 """Base settings to build other settings files upon."""
 
+
 import sys
 from pathlib import Path
 
@@ -13,8 +14,7 @@ sys.path.append(str(BASE_DIR / "apps"))
 APPS_DIR = BASE_DIR / "afrifunduniversity"
 env = environ.Env()
 
-READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=True)
-if READ_DOT_ENV_FILE:
+if READ_DOT_ENV_FILE := env.bool("DJANGO_READ_DOT_ENV_FILE", default=True):
     # OS environment variables take precedence over variables from .env
     env.read_env(str(BASE_DIR / ".env"))
 
@@ -51,12 +51,16 @@ DATABASES = {
     "default": env.db("DATABASE_URL"),
     "afrifundpress": env.db("AFRIFUNDUNIVERSITY_PRESS_DATABASE_URL"),
 }
+# DATABASES["default"]["ENGINE"] = "django_tenants.postgresql_backend"
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 DATABASES["afrifundpress"]["ATOMIC_REQUESTS"] = True
 # TODO: Add More database
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# DATABASE_ROUTERS = (
+#     "django_tenants.routers.TenantSyncRouter",
+# )
 # URLS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#root-urlconf
@@ -67,6 +71,10 @@ WSGI_APPLICATION = "config.wsgi.application"
 # APPS
 # ------------------------------------------------------------------------------
 DJANGO_APPS = [
+    # "django_tenants",
+
+
+
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -98,15 +106,34 @@ LOCAL_APPS = [
     "apps.press",
     # for the environment variables
     "afrifunduniversity.environments",
+
+    "afrifunduniversity.saas",
+]
+
+SHARED_APPS = [
+    *DJANGO_APPS,
+    *THIRD_PARTY_APPS,
+    *LOCAL_APPS,
+]
+
+TENANT_APPS = [
+    "afrifunduniversity.help",
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+INSTALLED_APPS = list(SHARED_APPS) + [app for app in TENANT_APPS if app not in SHARED_APPS]
+
+# TENANT APPLICATION SETUPS
+TENANT_MODEL = "saas.Client" # app.Model
+TENANT_DOMAIN_MODEL = "saas.Domain" # app.Model
 
 # MIGRATIONS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
-MIGRATION_MODULES = {"sites": "afrifunduniversity.contrib.sites.migrations"}
+MIGRATION_MODULES = {
+    "sites": "afrifunduniversity.contrib.sites.migrations",
+    "press": None,  # Disable migrations for the 'press' app temporarily
+    }
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------
@@ -145,6 +172,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
 MIDDLEWARE = [
+    # "django_tenants.middleware.main.TenantMainMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
@@ -155,6 +183,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # "afrifunduniversity.saas.tenant_settings_middleware.TenantSettingsMiddleware",
 ]
 
 # STATIC
@@ -186,7 +215,10 @@ TEMPLATES = [
         # https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-TEMPLATES-BACKEND
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         # https://docs.djangoproject.com/en/dev/ref/settings/#dirs
-        "DIRS": [str(APPS_DIR / "templates")],
+        "DIRS": [
+                str(APPS_DIR / "templates"),
+                str(BASE_DIR / "templates"),
+            ],
         # https://docs.djangoproject.com/en/dev/ref/settings/#app-dirs
         "APP_DIRS": True,
         "OPTIONS": {
@@ -336,3 +368,5 @@ SPECTACULAR_SETTINGS = {
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
+# https://django-tenants.readthedocs.io/en/latest/install.html#PUBLIC_SCHEMA_URLCONF
+PUBLIC_SCHEMA_URLCONF=ROOT_URLCONF

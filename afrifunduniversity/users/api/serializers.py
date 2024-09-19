@@ -4,14 +4,14 @@ from afrifunduniversity.users.models import User
 
 
 class UserSerializer(serializers.ModelSerializer[User]):
-    name = serializers.SerializerMethodField()
+    email = serializers.SerializerMethodField()
     class Meta:
         model = User
-        fields = ["name", "url"]
+        fields = ["email", "url"]
 
         extra_kwargs = {
             "url": {"view_name": "api:user-detail", "lookup_field": "pk"},
         }
-    def get_name(self, obj):
-        return obj.email
+    def get_email(self) -> str:
+        return self.instance.email
 

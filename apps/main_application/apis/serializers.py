@@ -1,4 +1,5 @@
 from django.db import IntegrityError
+from drf_spectacular.utils import extend_schema
 from rest_framework import serializers
 from rest_framework import status
 from rest_framework.response import Response
@@ -23,7 +24,6 @@ class SubscriptionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subscription
         fields = ["id", "email"]
-
     def create(self, validated_data):
         try:
             return super().create(validated_data)
@@ -32,3 +32,6 @@ class SubscriptionSerializer(serializers.ModelSerializer):
                 {"message": "Email already subscribed"},
                 status=status.HTTP_400_BAD_REQUEST)
 
+
+class SubscriptionRecordSerializer(serializers.Serializer):
+    email = serializers.EmailField()

@@ -1,7 +1,9 @@
+from rest_framework import generics
+from rest_framework import permissions
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework import permissions
+
 from apps.press.models import Article
 from apps.press.models import Category
 from apps.press.models import PressRelease
@@ -11,16 +13,15 @@ from .serializers import CategorySerializer
 from .serializers import PressReleaseSerializer
 
 
-class PressReleaseListView(GenericAPIView):
-    def get(self, request, *args, **kwargs):
-        press_releases = PressRelease.objects.using("afrifundpress").all()
-        serializer = PressReleaseSerializer(press_releases, many=True)
-        return Response(serializer.data)
-
+class PressReleaseListView(generics.ListCreateAPIView):
+    queryset = PressRelease.objects.using("afrifundpress").all()
+    serializer_class = PressReleaseSerializer
+    permission_classes = [permissions.AllowAny]
 
 
 class ArticlesInfoListView(APIView):
     permission_classes = [permissions.AllowAny]
+    serializer_class = ArticleSerializer
 
     def get(self, request, *args, **kwargs):
         categories = Category.objects.using("afrifundpress").all()
@@ -34,3 +35,4 @@ class ArticlesInfoListView(APIView):
             "categories": categories_data,
             "articles": articles_data,
         })
+

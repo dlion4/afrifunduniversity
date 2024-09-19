@@ -90,3 +90,34 @@ fetch("/api/articles-info/")
   })
   .catch(error => console.error("Error fetching data:", error));
 
+// feting leaders
+// Fetch leadership data from the API
+fetch("/api/leadership/")
+  .then(response => response.json())
+  .then(data => {
+    try {
+      // Assuming data is an array of leadership objects
+      window.leadership = data;
+
+      // Get the container element
+      const leadershipList = document.getElementById('leadership-list');
+
+      // Clear any existing content
+      leadershipList.innerHTML = '';
+
+      // Iterate over the leadership data and create list items
+      data.forEach(leader => {
+        // Create a list item for each leader
+        const listItem = document.createElement('li');
+        listItem.textContent = `ID: ${leader.id}, Name: ${leader.name}`; // Customize as needed
+
+        // Append the list item to the list
+        leadershipList.appendChild(listItem);
+      });
+    } catch (error) {
+      console.log("Error processing data:", error);
+    }
+  })
+  .catch(error => console.error("Error fetching data:", error));
+
+
