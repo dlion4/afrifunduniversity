@@ -21,6 +21,7 @@ class HelpView(TemplateView):
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context =  super().get_context_data(**kwargs)
         context["questions"] = self.faqs.objects.all().order_by("-id")[:4]
+        context["top_fags"] = QuestionResponseArticle.objects.prefetch_related("response").order_by("-id")[:12]
         return context
 
 

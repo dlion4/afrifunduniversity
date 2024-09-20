@@ -33,8 +33,7 @@
                 {% for q in questions %}
                 <li class="mb-4 col-12 md:col-6 lg:col-4 xl:col-3">
                     <div class="card py-4 px-6 bg-white shadow-xs" x-data="{ isExpanded: false }">
-                        <img class="mt-4 align-self-center" alt="{{q.title}}" data-asset="image" data-asset-id="question-{{q.pk}}" 
-                        src="{% if q.icon %}{{ q.icon.url }}{% else %}{% static 'ss/images/search.png' %}{% endif %}" style="height: 225px; width: auto;">
+                        <img class="mt-4 align-self-center" alt="{{q.title}}" data-asset="image" data-asset-id="question-{{q.pk}}" src="{% if q.icon %}{{ q.icon.url }}{% else %}{% static 'ss/images/search.png' %}{% endif %}" style="height: 225px; width: auto;">
 
                         <h2 class="h3 mb-3 font-semibold">
                             <a class="block hover:no-underline text-inherit link-stretched hover:text-primary" href="{{q.get_absolute_url}}">
@@ -57,53 +56,21 @@
             <h2 class="inline-flex align-items-baseline my-6">
                 Top FAQs
             </h2>
-
+            {% if top_fags %}
             <ul class="row row-sm list-unstyled">
+                {% for article in top_fags %}
                 <li class="col-12 md:col-6 lg:col-4">
                     <div class="relative media align-items-baseline py-3 h-full border-bottom">
                         <div class="media-body">
-                            <a class="text-inherit link-stretched" href="">
-                                Do I need a cosigner for a Student loan?</a>
+                            <a class="text-inherit link-stretched" href="{{articel.get_absolute_url}}">
+                                {{article.title|truncatewords:"6"}}
+                            </a>
                         </div>
                     </div>
                 </li>
-                <li class="col-12 md:col-6 lg:col-4">
-                    <div class="relative media align-items-baseline py-3 h-full border-bottom">
-                        <div class="media-body">
-                            <a class="text-inherit link-stretched" href="">What&#39;s my reference number? </a>
-                        </div>
-                    </div>
-                </li>
-                <li class="col-12 md:col-6 lg:col-4">
-                    <div class="relative media align-items-baseline py-3 h-full border-bottom">
-                        <div class="media-body">
-                            <a class="text-inherit link-stretched" href="">How long does it take for the school to certify my loan?</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="col-12 md:col-6 lg:col-4">
-                    <div class="relative media align-items-baseline py-3 h-full border-bottom">
-                        <div class="media-body">
-                            <a class="text-inherit link-stretched" href="">How do I cancel my loan application? </a>
-                        </div>
-                    </div>
-                </li>
-                <li class="col-12 md:col-6 lg:col-4">
-                    <div class="relative media align-items-baseline py-3 h-full border-bottom">
-                        <div class="media-body">
-                            <a class="text-inherit link-stretched" href="">How can I track when the school will get the money?</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="col-12 md:col-6 lg:col-4">
-                    <div class="relative media align-items-baseline py-3 h-full border-bottom">
-                        <div class="media-body">
-                            <a class="text-inherit link-stretched" href="">How can I manage my loan online (i.e. make payments, update contact info)?</a>
-                        </div>
-                    </div>
-                </li>
+                {% endfor %}
             </ul>
-
+            {% endif %}
         </div>
     </div>
 
@@ -161,24 +128,16 @@
             <li class="mb-4 col-12 sm:col-6 md:col-4">
                 <div class="card card-body h-full text-base text-white-inverse bg-white">
                     <div class="media">
-
                         <img class="mt-4 align-self-start" alt="Guides &amp; Articles " src="{% static 'ss/images/book.png' %}" style="height: 50px; width: auto;">
-
                         <div class="media-body mt-1 ml-4">
-
                             <h3 class="my-4">
-
-                                <a class="link-stretched text-inherit text-white-inverse hover:text-primary hover:text-white-inverse hover:no-underline" href="">
+                                <a class="link-stretched text-inherit text-white-inverse hover:text-primary hover:text-white-inverse hover:no-underline" href="{% url 'resources' %}">
                                     Guides &amp; Articles
                                 </a>
-
                             </h3>
-
-
                             <p>
                                 Your go-to spot for all the basics about student loans, grants, scholarships, the FAFSA and more.
                             </p>
-
                         </div>
                     </div>
                 </div>
@@ -187,24 +146,16 @@
             <li class="mb-4 col-12 sm:col-6 md:col-4">
                 <div class="card card-body h-full text-base text-white-inverse bg-white">
                     <div class="media">
-
                         <img class="mt-4 align-self-start" alt="Calculators" src="{% static 'ss/images/calc.png' %}" style="height: 50px; width: auto;">
-
                         <div class="media-body mt-1 ml-4">
-
                             <h3 class="my-4">
-
                                 <a class="link-stretched text-inherit text-white-inverse hover:text-primary hover:text-white-inverse hover:no-underline" href="">
                                     Calculators
                                 </a>
-
                             </h3>
-
-
                             <p>
                                 Estimate what your student loan monthly payment would look like with our easy-to-use calculators.
                             </p>
-
                         </div>
                     </div>
                 </div>

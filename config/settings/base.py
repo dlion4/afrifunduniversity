@@ -72,9 +72,6 @@ WSGI_APPLICATION = "config.wsgi.application"
 # ------------------------------------------------------------------------------
 DJANGO_APPS = [
     # "django_tenants",
-
-
-
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -124,8 +121,8 @@ TENANT_APPS = [
 INSTALLED_APPS = list(SHARED_APPS) + [app for app in TENANT_APPS if app not in SHARED_APPS]
 
 # TENANT APPLICATION SETUPS
-TENANT_MODEL = "saas.Client" # app.Model
-TENANT_DOMAIN_MODEL = "saas.Domain" # app.Model
+# TENANT_MODEL = "saas.Client" # app.Model
+# TENANT_DOMAIN_MODEL = "saas.Domain" # app.Model
 
 # MIGRATIONS
 # ------------------------------------------------------------------------------
@@ -369,5 +366,5 @@ SPECTACULAR_SETTINGS = {
 # Your stuff...
 # ------------------------------------------------------------------------------
 # https://django-tenants.readthedocs.io/en/latest/install.html#PUBLIC_SCHEMA_URLCONF
-PUBLIC_SCHEMA_URLCONF=ROOT_URLCONF
+# PUBLIC_SCHEMA_URLCONF=ROOT_URLCONF
 CORS_ALLOW_ALL_ORIGINS=True
