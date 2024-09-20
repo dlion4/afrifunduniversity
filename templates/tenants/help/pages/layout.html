@@ -1,12 +1,593 @@
 {% extends "layout.html" %}
+
+
 {% load static humanize %}
-{% block content %}
+
+{% block headerCss %}
+
+
+<link rel="stylesheet" href="{% static 'ss/css/application.css' %}" media="all" id="stylesheet">
+<link rel="stylesheet" href="{% static 'ss/css/style.css' %}">
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
+
+
+<script type="text/javascript">
+
+
+  /**
+
+  fetch("/api/ss/help/contact-block/")
+    .then(response => response.json())
+    .then(data => {
+      Theme.contactBlocks = {
+        blocks: data,
+        images: [],  // Static or dynamically set
+        imageHeight: "50px",
+        numberColumns: 3,
+        color: "white"
+      };
+      console.log(data);
+      console.log(Theme.contactBlocks);
+    });
+
+
+    fetch("/api/ss/help/contact-block/")
+      .then(response => response.json())
+      .then(data => {
+        Theme.contactBlocks = { blocks: data.blocks, images: data.images, numberColumns: data.numberColumns, color: data.color };
+        console.log(Theme.contactBlocks)
+      });
+  */
+
+  /**
+
+   Theme.contactBlocks = {
+     blocks: [{
+       name: "Contact us?",
+       description: "Can&#39;t find an answer? Contact us.",
+       html_url: "{% url 'contact' %}"
+     }, {
+       name: "Guides &amp; Articles ",
+       description: "Your go-to spot for all the basics about student loans, grants, scholarships, the FAFSA and more.",
+       html_url: ""
+     }, {
+       name: "Calculators",
+       description: "Estimate what your student loan monthly payment would look like with our easy-to-use calculators.",
+       html_url: ""
+     }, {
+       name: "Create a ticket",
+       description: "If you still need help you can create a ticket and we&#39;ll get back to you.",
+       html_url: "https://www.youtube.com"
+     }].slice(0, 3),
+     images: [],
+     imageHeight: "50px",
+     numberColumns: 3,
+     color: "white"
+   };
+  
+  */
+</script>
+
+
+
+<script type="text/javascript">window.Theme = Object.assign(window.Theme || {}, { assets: {}, locale: "en-us" });</script>
+<script type="text/javascript" src="{% static 'ss/js/util.min.js' %}"></script>
+
+
+
+
+<link rel="stylesheet" href="{% static 'ss/css/extension-animations.min.css' %}">
+<link rel="stylesheet" href="{% static 'ss/css/extension-transitions.min.css' %}">
+<link rel="stylesheet" href="{% static 'ss/css/fonts.css' %}">
+
+
+<style id="settings-styles">
+  .hero .svg-shape {
+    fill: #F6F9F9;
+  }
+</style>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+
+
+{% endblock headerCss %}
+{% block headerScript %}
+{% endblock headerScript %}
+
+
+{% block body %}
+
+
+<body class="">
+
+
+
+  <a class="sr-only sr-only-focusable" tabindex="1" href="#page-container">
+    Skip to main content
+  </a>
+  <!-- <div class="layout flex flex-1 flex-column" x-data="Widgets.mobileMenu"> -->
+
+
+
+  {% block header %}
+
+  <div class="navigation-container" data-nav="container">
+    <div class="top-navigation-bar">
+      <div class="top-navigation-bar__container">
+        <div class="top-navigation-bar__right-links">
+          <a href="" class="top-nav-link">
+            <span class="top-nav-link__icon">
+              <svg viewbox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7002 0.321362C12.8833 0.505116 12.9998 0.750041 12.9832 1.0255L13 13.9898C13 14.5408 12.5006 15 11.9014 15H1.09862C0.499388 15 0 14.5408 0 13.9898V4.10205C0 3.97959 0.0332072 3.8725 0.116457 3.75004L0.149781 3.7194L4.0947 0.0765522C4.19455 0.0152675 4.32773 0 4.42758 0L11.9013 0.0152675C12.2009 0.0152675 12.5005 0.12235 12.7002 0.321362ZM1.33158 13.7755H11.6683L11.6684 13.7755V1.23981H5.14341L5.16002 3.65808C5.16002 4.27041 4.64389 4.74487 3.97814 4.74487H1.33158V13.7755ZM3.75991 7.41757C3.47828 7.41757 3.25 7.68252 3.25 8.00844C3.25 8.33438 3.47828 8.59933 3.75955 8.59933H9.47707C9.7587 8.59933 9.98698 8.33437 9.98698 8.00844C9.98698 7.6821 9.75833 7.41757 9.47707 7.41757H3.75991ZM3.75991 9.7802C3.47828 9.7802 3.25 10.0452 3.25 10.3711C3.25 10.6974 3.47828 10.962 3.75955 10.962H8.45762C8.73925 10.962 8.96754 10.697 8.96754 10.3711C8.96754 10.0447 8.73889 9.7802 8.45762 9.7802H3.75991Z" fill="#00818A"></path>
+              </svg>
+            </span>
+            <span class="top-nav-link__text">Find My Application</span>
+          </a>
+          <span class="top-nav-link-divider"></span>
+          <button data-open-modal="account-modal" class="top-nav-link" data-link-name="My Account">
+            <span class="top-nav-link__icon">
+              <svg viewbox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.8387 4.56213C4.8387 3.11048 6.0302 1.93369 7.49999 1.93369C8.96978 1.93369 10.1613 3.11048 10.1613 4.56213C10.1613 6.01377 8.96978 7.19056 7.49999 7.19056C6.0302 7.19056 4.8387 6.01377 4.8387 4.56213ZM7.49999 0.5C5.22849 0.5 3.38708 2.31868 3.38708 4.56213C3.38708 6.80558 5.22849 8.62425 7.49999 8.62425C9.77148 8.62425 11.6129 6.80558 11.6129 4.56213C11.6129 2.31868 9.77148 0.5 7.49999 0.5ZM4.1129 9.98148C3.02209 9.98148 1.97596 10.4095 1.20464 11.1713C0.433322 11.933 0 12.9663 0 14.0436V14.9904C0 15.3913 0.324955 15.7162 0.725806 15.7162C1.12666 15.7162 1.45161 15.3913 1.45161 14.9904V14.0436C1.45161 13.3465 1.732 12.678 2.23109 12.185C2.73018 11.6921 3.40709 11.4152 4.1129 11.4152H10.8871C11.5929 11.4152 12.2698 11.6921 12.7689 12.185C13.268 12.678 13.5484 13.3465 13.5484 14.0436V14.9904C13.5484 15.3913 13.8733 15.7162 14.2742 15.7162C14.675 15.7162 15 15.3913 15 14.9904V14.0436C15 12.9663 14.5667 11.933 13.7954 11.1713C13.024 10.4095 11.9779 9.98148 10.8871 9.98148H4.1129Z" fill="#00818A"></path>
+              </svg>
+            </span>
+            <span class="top-nav-link__text">My Account</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <nav class="main-navigation-bar collapsed" data-nav="target">
+      <div class="main-navigation-bar__container">
+        <a href="{% url 'home' %}" class="main-navigation-bar__logo" data-nav-link="logo" aria-label="logo">
+          <img src="{% static 'images/logo.svg' %}" class="logo" alt="Afrifund Logo">
+          <style>
+            .logo {
+              height: 120px;
+              width: 300px;
+              max-width: 100%;
+              object-fit: contain;
+              transform: translateY(-37px);
+            }
+
+            .main-navigation-bar__left-container {
+              display: flex;
+              align-items: center;
+            }
+          </style>
+        </a>
+
+        <div class="main-navigation-bar__center-container">
+          <ul class="main-navigation-bar__main-links">
+            <li class="main-nav-link-item" data-nav-hover="target">
+              <a href="{% url 'home' %}" class="main-nav-link">
+                <span class="main-nav-link__text">
+                  Student Loans
+                </span>
+              </a>
+            </li>
+            <li class="main-nav-link-item" data-nav-hover="target">
+              <a href="{% url 'home' %}" class="main-nav-link" data-link-name="Student Card">
+                <span class="main-nav-link__text">
+                  Student Card</span>
+              </a>
+            </li>
+            <li class="main-nav-link-item" data-nav-hover="target">
+              <a href="{% url 'resources' %}" class="main-nav-link">
+                <span class="main-nav-link__text">
+                  Resources & Tools
+                </span>
+              </a>
+            </li>
+            <li class="main-nav-link-item" data-nav-hover="target">
+              <a href="{% url 'about' %}" class="main-nav-link">
+                <span class="main-nav-link__text">
+                  About Us
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="main-navigation-bar__right-links">
+          <a href="" class="nav-bar-apply nav-bar-apply__desktop">Apply Now</a>
+          <a href="" class="nav-bar-apply nav-bar-apply__mobile">Apply</a>
+          <span class="main-nav-mobile-divider"></span>
+          <button type="button" title="toggle button" data-nav="toggle" class="main-nav-mobile-menu-button">
+            <span class="main-nav-mobile-menu-button__close-nav-menu">
+              <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.57416 3.2636C4.22269 2.91213 3.65284 2.91213 3.30137 3.2636C2.9499 3.61508 2.9499 4.18492 3.30137 4.5364L8.74611 9.98113L3.30137 15.4259C2.9499 15.7773 2.9499 16.3472 3.30137 16.6987C3.65284 17.0501 4.22269 17.0501 4.57416 16.6987L10.0189 11.2539L15.4636 16.6986C15.8151 17.0501 16.3849 17.0501 16.7364 16.6986C17.0879 16.3472 17.0879 15.7773 16.7364 15.4258L11.2917 9.98113L16.7364 4.53643C17.0879 4.18496 17.0879 3.61511 16.7364 3.26364C16.3849 2.91217 15.8151 2.91217 15.4636 3.26364L10.0189 8.70834L4.57416 3.2636Z" fill="#00818A"></path>
+              </svg>
+            </span>
+            <span class="main-nav-mobile-menu-button__open-nav-menu">
+              <svg viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="9" width="15" height="1.8" rx="0.9" fill="#00818A"></rect>
+                <rect x="1" y="2" width="18" height="1.8" rx="0.9" fill="#00818A"></rect>
+                <rect x="7" y="16" width="12" height="1.8" rx="0.9" fill="#00818A"></rect>
+              </svg>
+            </span>
+          </button>
+        </div>
+
+        <div class="navigation-mobile-menu" data-nav-offset="top">
+          <div class="navigation-mobile-menu__container">
+            <div class="navigation-mobile-menu__top-section">
+              <a href="" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-264 button__mobile-full-width">Apply</a>
+            </div>
+            <ul class="navigation-mobile-menu__links-section accordion-group">
+              <li class="mobile-nav-link-item" data-target="mobile-nav-submenu">
+                <a class="main-nav-link" href=""><span class="main-nav-link__text">Student Loans</span></a>
+              </li>
+              <li class="mobile-nav-link-item" data-target="mobile-nav-submenu">
+                <a class="main-nav-link" data-link-name="Student Card" href=""><span class="main-nav-link__text">Student Card</span></a>
+              </li>
+              <li class="mobile-nav-link-item" data-target="mobile-nav-submenu">
+                <a class="main-nav-link" href="{% url 'resources' %}"><span class="main-nav-link__text">Resources & Tools</span></a>
+              </li>
+              <li class="mobile-nav-link-item" data-target="mobile-nav-submenu">
+                <a class="main-nav-link" href="{% url 'about' %}"><span class="main-nav-link__text">About Us</span></a>
+              </li>
+              <li class="mobile-nav-link-item" data-target="mobile-nav-submenu">
+                <a class="main-nav-link" href=""><span class="main-nav-link__text">Find My Application</span></a>
+              </li>
+            </ul>
+            <div class="navigation-mobile-menu__top-nav-buttons">
+              <button type="button" title="my account" aria-label="My Account" data-open-modal="account-modal" class="dropshadow dropshadow__hover-off button button__dark-blue button__width-264 button__mobile-full-width">
+                <svg viewbox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M4.8387 4.56213C4.8387 3.11048 6.0302 1.93369 7.49999 1.93369C8.96978 1.93369 10.1613 3.11048 10.1613 4.56213C10.1613 6.01377 8.96978 7.19056 7.49999 7.19056C6.0302 7.19056 4.8387 6.01377 4.8387 4.56213ZM7.49999 0.5C5.22849 0.5 3.38708 2.31868 3.38708 4.56213C3.38708 6.80558 5.22849 8.62425 7.49999 8.62425C9.77148 8.62425 11.6129 6.80558 11.6129 4.56213C11.6129 2.31868 9.77148 0.5 7.49999 0.5ZM4.1129 9.98148C3.02209 9.98148 1.97596 10.4095 1.20464 11.1713C0.433322 11.933 0 12.9663 0 14.0436V14.9904C0 15.3913 0.324955 15.7162 0.725806 15.7162C1.12666 15.7162 1.45161 15.3913 1.45161 14.9904V14.0436C1.45161 13.3465 1.732 12.678 2.23109 12.185C2.73018 11.6921 3.40709 11.4152 4.1129 11.4152H10.8871C11.5929 11.4152 12.2698 11.6921 12.7689 12.185C13.268 12.678 13.5484 13.3465 13.5484 14.0436V14.9904C13.5484 15.3913 13.8733 15.7162 14.2742 15.7162C14.675 15.7162 15 15.3913 15 14.9904V14.0436C15 12.9663 14.5667 11.933 13.7954 11.1713C13.024 10.4095 11.9779 9.98148 10.8871 9.98148H4.1129Z" fill="#fff"></path>
+                </svg>
+                My Account
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  {% endblock header %}
+
+  <template id="tmpl-header-search">
+    <div x-data="Widgets.search" @keydown.escape="close" @click.away="close">
+      <button class="search-toggle nav-link not-a-button hidden xl:h-full" :class="{ 'xl:block': !isOpen }" @click="toggle" x-ref="toggle">
+        <svg class="svg-icon fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 12 12" aria-hidden="true" x-show="!isOpen">
+          <use xlink:href="#icon-search"></use>
+        </svg>
+        <svg class="svg-icon fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 58 58" aria-hidden="true" x-show="isOpen">
+          <line x1="3" y1="3" x2="55" y2="55"></line>
+          <path d="M55,58 C54.2046186,57.9992998 53.4420694,57.6827699 52.88,57.12 L0.88,5.12 C-0.221435442,3.93796098 -0.188935504,2.09596111 0.953512804,0.953512804 C2.09596111,-0.188935504 3.93796098,-0.221435442 5.12,0.88 L57.12,52.88 C57.9768812,53.7379473 58.2330328,55.0273683 57.7691479,56.1476941 C57.305263,57.2680198 56.2125666,57.9989335 55,58 Z"></path>
+          <line x1="3" y1="55" x2="55" y2="3"></line>
+          <path d="M3,58 C1.78743338,57.9989335 0.694736971,57.2680198 0.230852095,56.1476941 C-0.233032781,55.0273683 0.0231187894,53.7379473 0.88,52.88 L52.88,0.88 C54.062039,-0.221435442 55.9040389,-0.188935504 57.0464872,0.953512804 C58.1889355,2.09596111 58.2214354,3.93796098 57.12,5.12 L5.12,57.12 C4.55793057,57.6827699 3.7953814,57.9992998 3,58 Z"></path>
+        </svg>
+        <span class="ml-1 sr-only">Search</span>
+      </button>
+      <div class="search search-sm align-self-center flex-1 text-base mx-2" :class="{ 'hidden': !isOpen }">
+
+        <form role="search" class="form-field mb-0" data-search="" action="/hc/en-us/search" accept-charset="UTF-8" method="get">
+          <input name="utf8" type="hidden" value="&#x2713;" autocomplete="off">
+          <input type="search" name="query" id="query" placeholder="Search for answers..." aria-label="Search for answers...">
+        </form>
+
+        <svg class="search-icon transition" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 12 12" aria-hidden="true">
+          <use xlink:href="#icon-search"></use>
+        </svg>
+      </div>
+    </div>
+  </template>
+
+
+  <div class="main-content-container">
+    <div class="modal-grayout"></div>
+    <!-- main data goes here -->
+    <main role="main">
+      {% block main %}
+      {% endblock main %}
+    </main>
+
+
+
+    <!-- Footer component section -->
+    {% include "components/footer.html" %}
+
+
+  </div>
+
+
+
+  <script type="text/javascript" src="{% static 'ss/js/lib/jquery.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'ss/js/extension-animations.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'ss/js/extension-assets.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'ss/js/extensions.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'ss/js/widgets.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'ss/js/lib/alpine.js' %}"></script>
+  <script type="text/javascript" src="{% static 'ss/js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'ss/js/slick.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'ss/js/moment.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'ss/js/intersection-observer.js' %}"></script>
+  <script type="text/javascript" src="{% static 'ss/js/newNav.js' %}"></script>
+  <script type="text/javascript" src="{% static 'ss/js/modals.js' %}"></script>
+
+  <script type="text/javascript">
+    window.onload = function () {
+      if ($(".advertised-date").length) {
+        $.get("https://www.afrifunduniversity.com/wp-json/rates-api/advertised-date/?_=" + new Date().getTime(), function (response, status) {
+          if (status !== "success" || !response) return;
+
+          $(".advertised-date").each(function () {
+            $(this).text(response);
+          });
+        });
+      }
+    }
+  </script>
+
+
+  <template id="tmpl-popular-keywords">
+    <div class="flex flex-first flex-wrap mt-5 mb-4 justify-content-center" x-data="Widgets.popularKeywords" x-init="parseKeywords('<%= keywords %>')">
+      <p class="font-semibold m-1">
+        Popular searches:
+      </p>
+      <div class="flex flex-wrap align-items-center">
+        <template x-for="(keyword, index) in keywords" :key="index">
+          <div class="flex align-items-center m-1">
+            <a class="inline-block text-inherit hover:text-inherit" :href="keyword.html_url" :title="keyword.title" x-text="keyword.title">
+            </a><span x-show="index !== keywords.length - 1">,</span>
+          </div>
+        </template>
+      </div>
+    </div>
+  </template>
 
 
 
 
 
-{% endblock content %}
+
+
+
+  <template id="tmpl-back-to-top-link">
+    <button class="flex button button-outline button-sm bg-white p-3 m-4">
+      <svg class="fill-current" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" aria-hidden="true">
+        <polygon points="12.4,40.1 25.8,53.6 40.5,38.8 40.5,97.5 59.5,97.5 59.5,38.8 74.2,53.6 87.6,40.1 50,2.5"></polygon>
+      </svg>
+    </button>
+  </template>
+
+  <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
+    <symbol id="icon-search">
+      <circle cx="4.5" cy="4.5" r="4" fill="none" stroke="currentColor"></circle>
+      <path stroke="currentColor" stroke-linecap="round" d="M11 11L7.5 7.5"></path>
+    </symbol>
+    <symbol id="icon-lock">
+      <rect width="12" height="9" x="2" y="7" fill="currentColor" rx="1" ry="1"></rect>
+      <path fill="none" stroke="currentColor" d="M4.5 7.5V4a3.5 3.5 0 017 0v3.5"></path>
+    </symbol>
+    <symbol id="icon-star">
+      <polygon points="213 325 81 405 116 255 0 154 153 141 213 0 273 141 426 154 310 255 345 405"></polygon>
+    </symbol>
+    <symbol id="icon-chevron-down">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" d="M3 4.5l2.6 2.6c.2.2.5.2.7 0L9 4.5"></path>
+    </symbol>
+    <symbol id="icon-agent">
+      <path fill="currentColor" d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm2.3 7H3.7c-.3 0-.4-.3-.3-.5C3.9 7.6 4.9 7 6 7s2.1.6 2.6 1.5c.1.2 0 .5-.3.5z"></path>
+    </symbol>
+  </svg>
+
+
+
+
+
+
+
+
+
+  <template id="tmpl-article-list">
+    <div class="border-top border-bottom lg:border-transparent my-5" x-data="toggle({ isOpen: false })" @collapse:show.stop="open" @collapse:hide.stop="close">
+      <h3 class="flex align-items-center justify-content-between my-4 font-size-lg cursor-pointer lg:hidden" data-toggle="collapse" data-target="#sidebar-article-navigation" aria-controls="sidebar-article-navigation" aria-expanded="false">
+        Categories
+        <svg class="fill-current pointer-events-none ml-3" :class="isOpen && 'rotate-180'" width="14px" viewbox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20,19.5 C19.4,19.5 18.9,19.3 18.4,18.9 L1.4,4.9 C0.3,4 0.2,2.4 1.1,1.4 C2,0.3 3.6,0.2 4.6,1.1 L20,13.8 L35.5,1.1 C36.6,0.2 38.1,0.4 39,1.4 C39.9,2.5 39.7,4 38.7,4.9 L21.7,18.9 C21.1,19.3 20.5,19.5 20,19.5 Z" fill-rule="nonzero"></path>
+        </svg>
+      </h3>
+      <div class="collapse lg:expand lg:flex-column" id="sidebar-article-navigation">
+        <p class="my-2">
+          <a class="text-inherit font-bold font-size-lg" href="/hc/en-us">
+            FAQs home
+          </a>
+        </p>
+        <ul class="list-unstyled font-size-lg w-full">
+          <% categories.forEach(function(category, index) { %>
+            <li class="font-semibold" x-data="toggle({ isOpen: <%= !!category.isActive %> })" @collapse:show.stop="open" @collapse:hide.stop="close">
+              <div class="flex justify-content-between align-items-center">
+                <a class="flex-1 py-3 text-inherit font-bold" :class="{ 'text-inherit': !isOpen }" href="<%= category.html_url %>">
+                  <%= category.name %>
+                </a>
+                <button class="p-2 ml-1 not-a-button border-radius transition cursor-pointer hover:bg-gray-200 hidden lg:block" :class="{ 'is-active': isOpen }" :aria-expanded="isOpen" data-toggle="collapse" data-target="#category-<%= category.id %>">
+                  <svg class="text-inherit fill-current pointer-events-none" :class="{ 'rotate-180': isOpen }" width="12px" height="12px" viewbox="0 0 324 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M162,190 C156,190 150,187 146,183 L7,38 C-2,29 -2,15 7,7 C16,-2 30,-2 39,7 L162,135 L285,7 C293,-2 308,-2 317,7 C326,15 326,29 317,38 L178,183 C174,187 168,190 162,190 Z"></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="hidden lg:block">
+                <%= partial('partial-article-list-sections', { id: 'category-' + category.id, parentId: '#sidebar-article-navigation' , sections: category.sections, activeCategoryId: activeCategoryId, activeSectionId: activeSectionId, activeArticleId: activeArticleId, partial: partial }) %>
+              </div>
+            </li>
+            <% }); %>
+        </ul>
+      </div>
+    </div>
+  </template>
+
+
+  <template id="tmpl-section-list">
+    <% var maxSections=5 %>
+      <div class="border-top border-bottom lg:border-transparent my-5" x-data="toggle({ isOpen: false })" @collapse:show.stop="open" @collapse:hide.stop="close">
+        <h3 class="flex align-items-center justify-content-between my-4 font-size-lg cursor-pointer lg:hidden" data-toggle="collapse" data-target="#sidebar-section-navigation" aria-controls="sidebar-section-navigation" aria-expanded="false">
+          Toggle navigation menu
+          <svg class="fill-current pointer-events-none ml-3" :class="isOpen && 'rotate-180'" width="14px" viewbox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20,19.5 C19.4,19.5 18.9,19.3 18.4,18.9 L1.4,4.9 C0.3,4 0.2,2.4 1.1,1.4 C2,0.3 3.6,0.2 4.6,1.1 L20,13.8 L35.5,1.1 C36.6,0.2 38.1,0.4 39,1.4 C39.9,2.5 39.7,4 38.7,4.9 L21.7,18.9 C21.1,19.3 20.5,19.5 20,19.5 Z" fill-rule="nonzero"></path>
+          </svg>
+        </h3>
+        <div class="collapse lg:expand lg:flex-column" id="sidebar-section-navigation">
+          <ul class="list-unstyled m-0 py-2">
+            <% categories.forEach(function(category, index) { %>
+              <li>
+                <h3 class="font-size-lg <% if (index === 0) { %>mt-4 lg:mt-0<% } else { %>mt-6<% } %>">
+                  <a class="text-inherit" href="<%= category.html_url %>">
+                    <%= category.name %>
+                  </a>
+                </h3>
+                <%= partial('partial-section-list-sections', { parent: category, sections: category.sections, maxSections: maxSections, partial: partial }) %>
+              </li>
+              <% }); %>
+          </ul>
+        </div>
+      </div>
+  </template>
+  <template id="tmpl-category-list">
+    <ul class="list-unstyled my-4 md:my-5" x-data="toggle({ isOpen: false })" @collapse:show.stop="open" @collapse:hide.stop="close">
+      <li class="border-top border-bottom lg:border-transparent">
+        <h3 class="flex align-items-center justify-content-between my-4 font-size-lg cursor-pointer lg:hidden" data-toggle="collapse" data-target="#sidebar-category-navigation" aria-controls="sidebar-category-navigation" aria-expanded="false">
+          Categories
+          <svg class="fill-current pointer-events-none ml-3" :class="isOpen && 'rotate-180'" width="14px" viewbox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20,19.5 C19.4,19.5 18.9,19.3 18.4,18.9 L1.4,4.9 C0.3,4 0.2,2.4 1.1,1.4 C2,0.3 3.6,0.2 4.6,1.1 L20,13.8 L35.5,1.1 C36.6,0.2 38.1,0.4 39,1.4 C39.9,2.5 39.7,4 38.7,4.9 L21.7,18.9 C21.1,19.3 20.5,19.5 20,19.5 Z" fill-rule="nonzero"></path>
+          </svg>
+        </h3>
+        <div class="collapse lg:expand lg:flex-column" id="sidebar-category-navigation">
+          <p class="my-2">
+            <a class="text-inherit font-bold font-size-lg" href="/hc/en-us">
+              FAQs home
+            </a>
+          </p>
+          <h3 class="font-size-lg mt-2 hidden lg:block">
+            <a class="text-inherit" href="/hc/en-us">
+              Categories
+            </a>
+          </h3>
+          <ul class="list-unstyled font-size-base font-semibold">
+            <% categories.forEach(function(category) { %>
+              <li>
+                <a class="block py-2 text-inherit<% if (category.isActive) { %> underline<% } %>" href="<%= category.html_url %>">
+                  <%= category.name %>
+                </a>
+              </li>
+              <% }); %>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </template>
+  <template id="tmpl-partial-article-list-sections">
+    <% if (sections.length) { %>
+      <ul class="list-none pl-3 mb-0 font-size-base collapse" id="<%= id %>" :class="{ 'is-visible': isOpen }" data-parent="<%= parentId %>">
+        <% sections.forEach(function(section) { %>
+          <li class="font-medium" x-data="toggle({ isOpen: <%= !!section.isActive && (section.id !== activeSectionId || activeArticleId !== null) %> })" @collapse:show.stop="open" @collapse:hide.stop="close">
+            <div class="flex justify-content-between align-items-center">
+              <a class="flex-1 py-2 text-inherit font-semibold" :class="{ 'text-inherit': !isOpen, 'underline': <%= section.isActive %> }" href="<%= section.html_url %>">
+                <%= section.name %>
+              </a>
+              <button class="p-2 ml-1 not-a-button border-radius transition cursor-pointer hover:bg-gray-200" :class="{ 'is-active': isOpen }" :aria-expanded="isOpen" data-toggle="collapse" data-target="#section-<%= section.id %>">
+                <svg class="text-inherit fill-current pointer-events-none" :class="{ 'rotate-180': isOpen }" width="12px" height="12px" viewbox="0 0 324 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M162,190 C156,190 150,187 146,183 L7,38 C-2,29 -2,15 7,7 C16,-2 30,-2 39,7 L162,135 L285,7 C293,-2 308,-2 317,7 C326,15 326,29 317,38 L178,183 C174,187 168,190 162,190 Z"></path>
+                </svg>
+              </button>
+            </div>
+            <%= partial('partial-article-list-sections', { id: 'section-' + section.id, parentId: '#' + id, sections: section.sections, activeCategoryId: activeCategoryId, activeSectionId: activeSectionId, activeArticleId: activeArticleId, partial: partial }) %>
+              <% if (section.articles.length) { %>
+                <ul class="list-none font-size-md font-normal pl-0 mb-0 collapse" :class="{ 'is-visible': isOpen }" id="section-<%= section.id %>" data-parent="#<%= id %>">
+                  <% section.articles.forEach(function(article) { %>
+                    <li>
+                      <a class="block px-3 py-2 text-inherit border-radius transition<% if (article.isActive) { %> bg-gray-100<% } %>" href="<%= article.html_url %>">
+                        <%= article.title %>
+                      </a>
+                    </li>
+                    <% }); %>
+                </ul>
+                <% } %>
+
+          </li>
+          <% }); %>
+      </ul>
+      <% } %>
+  </template>
+  <template id="tmpl-partial-section-list-sections">
+    <% if (sections.length) { %>
+      <ul class="list-unstyled font-size-md<% if (parent.hasOwnProperty('parent_section_id')) { %> pl-4 mb-0<% } %>">
+        <% sections.slice(0, maxSections).forEach(function(section) { %>
+          <li>
+            <a class="block py-2 text-inherit<% if (section.isActive) { %> underline<% } %>" href="<%= section.html_url %>">
+              <%= section.name %>
+            </a>
+            <%= partial('partial-section-list-sections', { parent: section, sections: section.sections, maxSections: maxSections, partial: partial }) %>
+          </li>
+          <% }); %>
+            <% if (sections.length> maxSections) { %>
+              <li>
+                <a class="block py-2 text-inherit" href="<%= parent.html_url %>">
+                  See more
+                </a>
+              </li>
+              <% } %>
+      </ul>
+      <% } %>
+  </template>
+
+
+
+  <script src="{% static 'ss/js/en-us.js' %}"></script>
+  <!-- <script src="https://collegeave.zendesk.com/auth/v2/host/without_iframe.js" data-brand-id="360002338634" data-return-to="https://help.collegeavestudentloans.com/hc/en-us" data-theme="hc" data-locale="en-us" data-auth-origin="360002338634,true,true"></script> -->
+
+  <script type="text/javascript">
+    /*
+  
+      Greetings sourcecode lurker!
+  
+      This is for internal Zendesk and legacy usage,
+      we don't support or guarantee any of these values
+      so please don't build stuff on top of them.
+  
+   
+
+    <!-- HelpCenter = {};
+    HelpCenter.account = { "subdomain": "collegeave", "environment": "production", "name": "Afri Fund Student Loans" };
+    HelpCenter.user = { "identifier": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "email": null, "name": "", "role": "anonymous", "avatar_url": "https://assets.zendesk.com/hc/assets/default_avatar.png", "is_admin": false, "organizations": [], "groups": [] };
+    HelpCenter.internal = {
+      "asset_url": "//static.zdassets.com/hc/assets/",
+      "web_widget_asset_composer_url": "https://static.zdassets.com/ekr/snippet.js",
+      "current_session": { "locale": "en-us", "csrf_token": null, "shared_csrf_token": null },
+      "settings": {},
+      "usage_tracking": {
+        "event": "front_page_viewed",
+        "data": "BAh7BjoKX21ldGF7DDoPYWNjb3VudF9pZGkD+QeNOhNoZWxwX2NlbnRlcl9pZGwrCAJQtNFTADoNYnJhbmRfaWRsKwhKv8/RUwA6DHVzZXJfaWQwOhN1c2VyX3JvbGVfbmFtZUkiDkFOT05ZTU9VUwY6BkVUOgtsb2NhbGVJIgplbi11cwY7C1Q6GmFub255bW91c190cmFja2luZ19pZDA=--ea8a91914a829eab44443636490d25e5d3a6870e",
+        "url": "/"
+      },
+      "current_record_id": null, "current_record_url": null, "current_record_title": null,
+      "search_results_count": null, "current_text_direction": "ltr",
+      "current_brand": {
+        "id": 360002338634, "account_id": 9242617, "name": "College Ave Student Loans", "active": true, "deleted_at": null,
+        "created_at": "2019-04-15T20:05:56Z", "updated_at": "2023-09-06T12:41:14Z", "route_id": 2739835,
+        "signature_template": "{{agent.signature}}"
+      },
+      "current_brand_url": "https://collegeave.zendesk.com", "current_host_mapping": "help.collegeavestudentloans.com", "current_path": null, "authentication_domain": "https://collegeave.zendesk.com", "show_autocomplete_breadcrumbs": true, "user_info_changing_enabled": false, "has_user_profiles_enabled": false, "has_end_user_attachments": true, "user_aliases_enabled": false, "has_anonymous_kb_voting": true, "has_multi_language_help_center": true, "show_at_mentions": false, "embeddables_config": { "embeddables_web_widget": false, "embeddables_connect_ipms": false }, "base_domain": "zendesk.com", "answer_bot_subdomain": "static", "manage_content_url": "https://help.collegeavestudentloans.com/hc/en-us", "arrange_content_url": "https://help.collegeavestudentloans.com/hc/admin/arrange_contents?locale=en-us", "general_settings_url": "https://help.collegeavestudentloans.com/hc/admin/general_settings?locale=en-us", "user_segments_url": "https://collegeave.zendesk.com/knowledge/user_segments?brand_id=360002338634", "has_gather": true, "has_ckeditor": false, "has_community_enabled": false, "has_community_badges": true, "has_community_post_content_tagging": false, "has_gather_content_tags": true, "has_guide_content_tags": true, "has_user_segments": true, "has_answer_bot_web_form_enabled": false, "has_lookup_fields_in_guide_legacy_templates": false, "has_edit_user_profile_v2": false, "has_garden_modals": false, "billing_url": "/access/return_to?return_to=https%3A%2F%2Fcollegeave.zendesk.com%2Fadmin%2Fbilling%2Fsubscription", "is_account_owner": false, "theming_cookie_key": "hc-da39a3ee5e6b4b0d3255bfef95601890afd80709-2-preview", "is_preview": false, "has_alternate_templates": true, "arrange_articles_url": "https://collegeave.zendesk.com/knowledge/arrange?brand_id=360002338634", "article_verification_url": "https://collegeave.zendesk.com/knowledge/verification?brand_id=360002338634", "has_article_verification": true, "guide_language_settings_url": "https://help.collegeavestudentloans.com/hc/admin/language_settings?locale=en-us", "docs_importer_url": "https://collegeave.zendesk.com/knowledge/import_articles?brand_id=360002338634", "content_tags_url": "https://collegeave.zendesk.com/knowledge/content_tags?brand_id=360002338634", "community_badges_url": "https://collegeave.zendesk.com/knowledge/community_badges?brand_id=360002338634", "community_settings_url": "https://collegeave.zendesk.com/knowledge/community_settings?brand_id=360002338634", "gather_plan_state": "subscribed", "search_settings_url": "https://collegeave.zendesk.com/knowledge/search_settings?brand_id=360002338634", "has_multibrand_search_in_plan": true, "has_search_settings_in_plan": true, "theming_api_version": 2, "theming_settings": { "color_primary": "#1886a8", "color_primary_inverse": "rgba(0, 39, 105, 1)", "color_secondary": "#03465D", "color_secondary_inverse": "#fff", "color_tertiary": "#41B6D9", "color_tertiary_inverse": "#fff", "color_gray_100": "#f5f8f9", "color_gray_200": "#EDF2F7", "color_gray_600": "#647074", "color_heading": "rgba(0, 39, 105, 1)", "color_text": "rgba(108, 108, 108, 1)", "color_link": "#1886a8", "color_border": "#e2e8f0", "color_outline": "rgba(24, 134, 168, .25)", "bg_color": "#fff", "heading_font": "'Helvetica Neue', Arial, Helvetica, sans-serif", "text_font": "'Helvetica Neue', Arial, Helvetica, sans-serif", "base_font_size": "16px", "favicon": "/hc/theming_assets/01HZPMFG7CZNNTYWKQK2A1GYK0", "logo": "/hc/theming_assets/01HZPMFGDE7CDWZ7YD0CNF702R", "logo_height": "45px", "tagline": "", "homepage_background_image": "/hc/theming_assets/01HZPMFGH1N79ZAW5P65KRNHGM", "community_background_image": "/hc/theming_assets/01HZPMFGQ4GRW88SHH37M2RXG1", "content_block_1_image": "/hc/theming_assets/01HZPMFGWJGFRSM6GBYNGZXTV9", "content_block_2_image": "/hc/theming_assets/01HZPMFH1S5928DGMYJM81C1J0", "content_block_3_image": "/hc/theming_assets/01HZPMFH6AHQV1HGQ69VR3TX8E", "content_block_4_image": "/hc/theming_assets/01HZPMFHAGP4J5M60R43JJRG0C", "content_block_5_image": "/hc/theming_assets/01HZPMFHENH04T1YJNJESPW1QM", "content_block_6_image": "/hc/theming_assets/01HZPMFHK622BY3NCWQEFW9PWF", "content_block_7_image": "/hc/theming_assets/01HZPMFHPYPWYFBH5YYQBNHYVP", "content_block_8_image": "/hc/theming_assets/01HZPMFHTZP5EZZ8RMJYMKZPR6", "custom_block_1_image": "/hc/theming_assets/01HZPMFHYWSSHRW6S2ZXMXMX38", "custom_block_2_image": "/hc/theming_assets/01HZPMFJ33YD2WG11CWZ7T4MPK", "custom_block_3_image": "/hc/theming_assets/01HZPMFJ6QWVE2MR8JAJEDY82B", "custom_block_4_image": "/hc/theming_assets/01HZPMFJAKX9W5FDHG78H92G18", "contact_block_1_image": "/hc/theming_assets/01HZPMFJJ150VTK0CBGSANJ9FT", "contact_block_2_image": "/hc/theming_assets/01HZPMFJPMSX2PR0CYMM5AXPMH", "contact_block_3_image": "/hc/theming_assets/01HZPMFJVRMFNQHHZCRDNKVNZ2", "contact_block_4_image": "/hc/theming_assets/01HZPMFK0VY9ZWF5M3MA1BPD6V", "cta_block_image": "/hc/theming_assets/01HZPMFK67GKNQSVWJMX2V45JQ", "header_search_style": "collapsible", "instant_search": true, "scoped_kb_search": false, "scoped_community_search": false, "search_placeholder": "Search for answers...", "search_translucent": false, "show_search_button": false, "header_layout": "links-right", "fixed_header": true, "sticky_header": true, "nav_style": "standard", "nav_breakpoint": "xl", "full_width_header": false, "header_height": "60px", "color_header_link": "rgba(0, 39, 105, 1)", "color_header_link_fixed": "rgba(0, 39, 105, 1)", "bg_color_header": "#fff", "header_link_1_text": "Find My Application", "header_link_1_url": "https://www.collegeavestudentloans.com/application/find-your-application?SC=CAIS01\u0026ACT=FA", "header_link_2_text": "Pay My Loan", "header_link_2_url": "https://www.collegeaveservicing.com/", "header_link_3_text": "APPLY", "header_link_3_url": "https://www.collegeavestudentloans.com/student-loans/", "show_submit_a_request_link": false, "category_dropdown_style": "none", "notification_location": "none", "notification_content": "notification_content", "color_notification": "#fff", "bg_color_notification": "#ef526e", "back_to_top_link_style": "standard", "boxed_layout": false, "bg_color_boxed": "#F7F7F7", "hero_heading": "How can we help?", "color_hero_heading": "rgba(0, 39, 105, 1)", "hero_text": "", "color_hero_text": "rgba(0, 39, 105, 1)", "hero_image_style": "overlay", "bg_color_hero": "rgba(255, 255, 255, 1)", "bg_color_secondary_hero": "rgba(255, 255, 255, 1)", "bg_gradient_hero": "radial", "hero_content_alignment": "center", "hero_element_shape": "none", "popular_keywords_style": "links", "popular_keywords_heading": "Popular searches:", "popular_keywords": "reference number, certification, disbursement", "promoted_videos_heading": "Helpful videos", "promoted_video_ids": "", "recent_activity": "none", "custom_block_style": "none", "color_custom_blocks": "white", "bg_color_custom_blocks": "rgba(108, 108, 108, 1)", "custom_blocks_heading": "Useful links", "number_custom_blocks": "3", "number_custom_block_columns": "3", "custom_block_alignment": "center", "custom_block_image_height": "32px", "custom_block_1_title": "Tutorials", "custom_block_1_description": "Helpful content to get you started", "custom_block_1_url": "#", "custom_block_2_title": "Community", "custom_block_2_description": "Share knowledge with others in our forum", "custom_block_2_url": "#", "custom_block_3_title": "Submit a request", "custom_block_3_description": "Get help from our team if you're stuck", "custom_block_3_url": "#", "custom_block_4_title": "Announcements", "custom_block_4_description": "Get the latest news and information", "custom_block_4_url": "#", "content_block_style": "1-boxes", "color_content_blocks": "white", "bg_color_content_blocks": "#F6F9F9", "content_blocks_heading": "Browse our FAQs", "number_content_block_columns": "4", "content_block_alignment": "center", "content_block_image_height": "225px", "article_list_style": "3-bordered", "article_list_columns": "1", "article_list_excerpt": 0, "promoted_article_style": "icon", "promoted_article_list_style": "3-bordered", "promoted_article_list_position": "after", "promoted_articles_heading": "Top FAQs", "promoted_article_list_columns": "3", "promoted_articles_alignment": "center", "promoted_article_list_excerpt": 0, "contact_block_style": "cards", "color_contact_blocks": "white", "contact_blocks_heading": "Popular resources", "number_contact_blocks": "3", "number_contact_block_columns": "3", "contact_block_image_height": "50px", "contact_block_1_title": "Contact us?", "contact_block_1_description": "Can't find an answer? Contact us.", "contact_block_1_url": "https://www.collegeave.com/contact/", "contact_block_2_title": "Guides \u0026 Articles ", "contact_block_2_description": "Your go-to spot for all the basics about student loans, grants, scholarships, the FAFSA and more.", "contact_block_2_url": "https://www.collegeave.com/articles/", "contact_block_3_title": "Calculators", "contact_block_3_description": "Estimate what your student loan monthly payment would look like with our easy-to-use calculators.", "contact_block_3_url": "https://www.collegeave.com/calculators/", "contact_block_4_title": "Create a ticket", "contact_block_4_description": "If you still need help you can create a ticket and we'll get back to you.", "contact_block_4_url": "https://www.youtube.com", "cta_style": "none", "cta_location": "all", "cta_element_heading": "Didn't find what you're looking for?", "color_heading_cta": "#212121", "cta_element_body": "Our customer service team are ready to help", "color_text_cta": "#383838", "cta_element_link_text": "Contact us", "bg_color_cta": "rgba(246, 251, 253, 0.98)", "category_sidebar": "category-list", "section_sidebar": "article-list", "show_follow_section": false, "article_metadata": "none", "show_follow_article": false, "table_of_contents_style": "boxed", "table_of_contents_heading": "In this article", "article_navigation_style": "none", "next_article_title": "Next article", "previous_article_title": "Previous article", "show_article_voting": true, "show_article_sharing": false, "share_title": "", "show_recently_viewed_articles": false, "show_related_articles": false, "show_article_comments": false, "article_sidebar": "article-list", "note_title": "Note", "color_note": "#61a5ff", "warning_title": "Warning", "color_warning": "#ef526e", "enable_lightboxes": false, "enable_video_player": false, "form_list_style": "standard", "form_tip": "Providing as much information as possible in your request will allow us to help you faster", "community_image_style": "standard", "show_recent_activity_community": true, "show_follow_topic": true, "show_follow_post": true, "show_post_sharing": true, "footer_layout": "links-left", "footer_shape": "none", "color_footer_link": "#fefefe", "bg_color_footer": "rgba(0, 39, 105, 1)", "footer_link_1_text": "Terms of Use", "footer_link_1_url": "https://www.collegeave.com/terms-of-use/", "footer_link_2_text": "Privacy Policy", "footer_link_2_url": "https://www.collegeave.com/privacy/", "footer_link_3_text": "Licenses", "footer_link_3_url": "https://www.collegeave.com/licenses/", "facebook_link": "https://www.facebook.com/collegeaveloans/", "twitter_link": "https://twitter.com/CollegeAveLoans", "linkedin_link": "", "instagram_link": "https://www.instagram.com/collegeaveloans/", "youtube_link": "", "show_credit_link": false, "use_translations": false, "read_more_text": "Read more" }, "has_pci_credit_card_custom_field": true, "current_brand_id": 360002338634, "help_center_restricted": false, "current_brand_active": true, "is_assuming_someone_else": false, "flash_messages": [], "user_photo_editing_enabled": true, "has_docs_importer": false, "user_preferred_locale": "en-us", "base_locale": "en-us", "has_end_user_session_renewal": true, "has_user_session_cookie_enabled": false, "has_end_user_2fa": true, "has_custom_statuses_enabled": false, "has_generative_answers_in_help_center": false, "has_hc_generative_answers_setting_enabled": false, "version": "v25090"
+    }; 
+     */
+  </script>
+
+
+  <script src="{% static 'ss/js/enduser.js' %}"></script>
+  <script type="text/javascript" src="{% static 'ss/js/script.js' %}"></script>
+
+
+
+</body>
+
+
+{% endblock body %}
 
 
 {% block pressScript %}

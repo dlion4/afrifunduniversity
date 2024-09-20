@@ -1,0 +1,167 @@
+{% extends "tenants/help/pages/layout.html" %}
+{% load static %}
+
+{% block main %}
+
+
+<div class="container my-6" id="page-container">
+
+
+    <div class="row align-items-center lg:hidden">
+        <nav class="col font-size-md">
+            <ol class="breadcrumbs">
+
+                <li title="Afri Fund University Student Loans">
+                    <a href="{% url 'ss:help:help_home' %}">Afri Fund University Student Loans</a>
+                </li>
+
+                <li title="{{response.question.title}}">
+
+                    <a href="{{response.question.get_absolute_url}}">{{response.question.title}}</a>
+
+                </li>
+
+                <li title="Student Loans">
+
+                    <a href="{{response.get_absolute_url}}">{{response.title}}</a>
+
+                </li>
+
+            </ol>
+
+        </nav>
+    </div>
+
+    <div class="row row-lg">
+
+        <div class="col">
+            <div class="row">
+                <div class="col-12">
+
+
+                    <header class="sm:flex flex-wrap justify-content-between">
+                        <h1 class="w-full font-size-4xl mb-3">
+                            {{response.title}}
+                        </h1>
+                    </header>
+
+                    <p>
+                        <a class="font-size-lg" href="{{response.question.get_absolute_url}}">
+                            Back
+                        </a>
+                    </p>
+
+                    {% if response.get_response_articles %}
+                    <ul class="list-unstyled list-bordered border-top border-bottom max-w-lg my-6">
+                        {% for article in response.get_response_articles %}
+                        <li class="bg-white">
+                            <h3 class="my-0">
+                                <a class="flex align-items-center justify-content-between py-4 text-inherit" href="{{article.get_absolute_url}}">
+                                    {{article.title}}
+                                    <svg class="fill-current pointer-events-none rotate-270 ml-3" width="14px" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20,19.5 C19.4,19.5 18.9,19.3 18.4,18.9 L1.4,4.9 C0.3,4 0.2,2.4 1.1,1.4 C2,0.3 3.6,0.2 4.6,1.1 L20,13.8 L35.5,1.1 C36.6,0.2 38.1,0.4 39,1.4 C39.9,2.5 39.7,4 38.7,4.9 L21.7,18.9 C21.1,19.3 20.5,19.5 20,19.5 Z" fill-rule="nonzero"></path>
+                                    </svg>
+                                </a>
+                            </h3>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <aside class="relative flex-first lg:col lg:mr-6 lg:max-w-13 lg:border-right" data-template="article-list">
+            <div class="border-top border-bottom lg:border-transparent my-5" x-data="toggle({ isOpen: false })" @collapse:show.stop="open" @collapse:hide.stop="close">
+
+
+                <h3 class="flex align-items-center justify-content-between my-4 font-size-lg cursor-pointer lg:hidden" data-toggle="collapse" data-target="#sidebar-article-navigation" aria-controls="sidebar-article-navigation" aria-expanded="false">
+                    Categories
+                    <svg class="fill-current pointer-events-none ml-3" :class="isOpen &amp;&amp; 'rotate-180'" width="14px" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20,19.5 C19.4,19.5 18.9,19.3 18.4,18.9 L1.4,4.9 C0.3,4 0.2,2.4 1.1,1.4 C2,0.3 3.6,0.2 4.6,1.1 L20,13.8 L35.5,1.1 C36.6,0.2 38.1,0.4 39,1.4 C39.9,2.5 39.7,4 38.7,4.9 L21.7,18.9 C21.1,19.3 20.5,19.5 20,19.5 Z" fill-rule="nonzero"></path>
+                    </svg>
+                </h3>
+
+                <div class="collapse lg:expand lg:flex-column" id="sidebar-article-navigation">
+
+                    <p class="my-2">
+                        <a class="text-inherit font-bold font-size-lg" href="{% url 'ss:help:help_home' %}">
+                            FAQs home
+                        </a>
+                    </p>
+
+                    {% if questions %}
+                    <ul class="list-unstyled font-size-lg w-full">
+                        {% for question in questions %}
+                        <li class="font-semibold" x-data="toggle({ isOpen: true })" @collapse:show.stop="open" @collapse:hide.stop="close">
+
+                            <div class="flex justify-content-between align-items-center">
+                                <a class="flex-1 py-3 font-bold" :class="{ 'text-inherit': !isOpen }" href="{{question.get_absolute_url}}">
+                                    {{question.title|truncatewords:"5"}}
+                                </a>
+                                <button title="{{question.title}}" class="p-2 ml-1 not-a-button border-radius transition cursor-pointer hover:bg-gray-200 hidden lg:block is-active collapsed" :class="{ 'is-active': isOpen }" :aria-expanded="isOpen" data-toggle="collapse" data-target="#category-4420559469463" aria-expanded="false">
+                                    <svg class="text-inherit fill-current pointer-events-none rotate-180" :class="{ 'rotate-180': isOpen }" width="12px" height="12px" viewBox="0 0 324 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path d="M162,190 C156,190 150,187 146,183 L7,38 C-2,29 -2,15 7,7 C16,-2 30,-2 39,7 L162,135 L285,7 C293,-2 308,-2 317,7 C326,15 326,29 317,38 L178,183 C174,187 168,190 162,190 Z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="hidden lg:block">
+                                {% if question.get_responses %}
+                                <ul class="list-none pl-3 mb-0 font-size-base is-visible collapse" id="category" :class="{ 'is-visible': isOpen }" data-parent="#sidebar-article-navigation" aria-expanded="false">
+                                    {% for response in question.get_responses %}
+                                    <li class="font-medium" x-data="toggle({ isOpen: true })" @collapse:show.stop="open" @collapse:hide.stop="close">
+
+                                        <div class="flex justify-content-between align-items-center">
+                                            <a class="flex-1 py-2 text-inherit font-semibold {% if response.pk == response.pk %} underline {% endif %}" :class="{ 'text-inherit': !isOpen, 'underline': true }" href="{{response.get_absolute_url}}">
+                                                {{response.title|truncatewords:"5"}}
+                                            </a>
+                                            <button title="{{response.title}}" class="p-2 ml-1 not-a-button border-radius transition cursor-pointer hover:bg-gray-200" :class="{ 'is-active': isOpen }" :aria-expanded="isOpen" data-toggle="collapse" data-target="#section-4420559743383" aria-expanded="false">
+                                                <svg class="text-inherit fill-current pointer-events-none" :class="{ 'rotate-180': isOpen }" width="12px" height="12px" viewBox="0 0 324 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                    <path d="M162,190 C156,190 150,187 146,183 L7,38 C-2,29 -2,15 7,7 C16,-2 30,-2 39,7 L162,135 L285,7 C293,-2 308,-2 317,7 C326,15 326,29 317,38 L178,183 C174,187 168,190 162,190 Z"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+
+                                        {% if response.get_response_articles %}
+
+                                        <ul class="list-none pl-3 mb-0 font-size-base collapse" id="section-4420559743383" :class="{ 'is-visible': isOpen }" data-parent="#category-4420559469463">
+                                            {% for article in response.get_response_articles %}
+                                            <li class="font-medium" x-data="toggle({ isOpen: false })" @collapse:show.stop="open" @collapse:hide.stop="close">
+
+                                                <div class="flex justify-content-between align-items-center">
+                                                    <a class="flex-1 py-2 text-inherit font-semibold" :class="{ 'text-inherit': !isOpen, 'underline': false }" href="{{article_title.get_absolute_url}}">
+                                                        {{article_title.title}}
+                                                    </a>
+                                                </div>
+                                                <ul class="list-none font-size-md font-normal pl-0 mb-0 {% if forloop.counter > 1 %} collapse {% endif %}" :class="{ 'is-visible': isOpen }" id="section-5325057326871" data-parent="#section-4420559743383">
+                                                    <li>
+                                                        <a class="block px-3 py-2 text-inherit border-radius transition" href="{{article.get_absolute_url}}">
+                                                            {{article.title}}
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            {% endfor %}
+
+                                        </ul>
+
+                                        {% endif %}
+
+
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+
+{% endblock main %}

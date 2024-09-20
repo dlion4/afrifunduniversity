@@ -71,13 +71,17 @@
         .catch(err => console.error('Error fetching meta links:', err));
     })
   </script>
+  {% block headerCss %}
   <link rel='stylesheet' href='{% static "assets/css/style.min.css" %}' />
   <link rel='stylesheet' href='{% static "assets/css/auto.css" %}' />
   <link rel='stylesheet' href='{% static "assets/css/styles.css" %}' />
 
+  {% endblock headerCss %}
   {% block headerScript %}
   {% endblock headerScript %}
 </head>
+
+{% block body %}
 
 <body class="home page-template page-template-page-templates page-template-home-template page-template-page-templateshome-template-php page page-id-8">
   <div class="navigation-container" data-nav="container">
@@ -1138,5 +1142,7 @@
   <!-- <script type="text/javascript" src="{% static 'assets/js/react-app/react-app.js' %}?ver=1726234432" id="survey-js" defer="defer"></script> -->
   {% block formScript %}{% endblock formScript %}
 </body>
+
+{% endblock body %}
 
 </html>

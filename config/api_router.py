@@ -8,6 +8,14 @@ from afrifunduniversity.environments.views import EnvironmentConfigListCreateApi
 from afrifunduniversity.environments.views import (
     EnvironmentConfigRetrieveUpdateDestroyAPIView,
 )
+from afrifunduniversity.help.apis.viewsets import ContactBlockModelViewSet
+from afrifunduniversity.help.apis.viewsets import QuestionModelViewSet
+
+# from afrifunduniversity.help.apis.viewsets import (
+#     QuestionResponseArticleContentModelViewSet,
+# )  # noqa: ERA001, RUF100
+from afrifunduniversity.help.apis.viewsets import QuestionResponseArticleModelViewSet
+from afrifunduniversity.help.apis.viewsets import QuestionResponseModelViewSet
 from afrifunduniversity.users.api.views import UserViewSet
 from apps.main_application.apis.viewsets import ReviewListViewSet
 from apps.main_application.apis.viewsets import SubscriptionRecordView
@@ -33,12 +41,33 @@ router.register("subscriptions", SubscriptionViewSet, basename="subscription")
 router.register("categories", CategoryViewSet, basename="categories")
 router.register("articles", ArticleViewSet, basename="articles")
 router.register("leadership", LeadershipViewSet, basename="leadership")
+router.register(
+    "ss/help/contact-block",
+    ContactBlockModelViewSet, basename="contact-block")
+router.register("questions",QuestionModelViewSet, basename="question")
 
 # Nested router for the leadership
 leadership_router = NestedDefaultRouter(router, r"leadership", lookup="leadership")
 leadership_router.register(
     r"paragraphs", ParagraphViewSet, basename="leadership-paragraphs")
 
+# Nested for the questions and the question response article
+
+question_router = NestedDefaultRouter(router, r"questions", lookup="question")
+question_router.register(
+    r"responses", QuestionResponseModelViewSet, basename="question-response",
+)
+
+response_router = NestedDefaultRouter(question_router, r"responses", lookup="response")
+response_router.register(
+    r"articles", QuestionResponseArticleModelViewSet, basename="article")
+
+# article_title_router = NestedDefaultRouter(  # noqa: ERA001, RUF100
+#     response_router, r"articles", lookup="article")
+# article_title_router.register(
+#     r"article-contents", QuestionResponseArticleContentModelViewSet,
+#     basename="article-content",  # noqa: ERA001
+# )  # noqa: ERA001, RUF100
 
 app_name = "api"
 urlpatterns = [
@@ -71,4 +100,7 @@ urlpatterns = [
 
     *router.urls,
     *leadership_router.urls,
+    *question_router.urls,
+    *response_router.urls,
+    # *article_title_router.urls,
 ]

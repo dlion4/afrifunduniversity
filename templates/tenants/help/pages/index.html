@@ -1,1 +1,295 @@
 {% extends "tenants/help/pages/layout.html" %}
+{% load static %}
+
+{% block main %}
+
+<div class="hero relative overflow-hidden">
+    <div class="relative container z-30 mt-6 py-6 lg:py-8">
+        <div class="mt-6 mb-5 text-center">
+            <h1 class="font-size-4xl lg:font-size-5xl">
+                How can we help?
+            </h1>
+        </div>
+        <div class="search search-lg font-size-lg lg:font-size-xl text-base max-w-sm my-4 mx-auto">
+            <h2 class="sr-only">Search</h2>
+            <form role="search" class="form-field mb-0">
+                <input name="utf8" type="hidden" value="&#x2713;" autocomplete="off">
+                <input style="margin-left:50px;" type="search" name="query" id="query" placeholder="Search for answers...">
+            </form>
+        </div>
+
+        <div id="popular-keywords">
+            <script type="text/javascript">
+                ready(function () {
+                    Util.renderTemplate(document.getElementById('popular-keywords'), 'popular-keywords', {
+                        keywords: 'reference number, certification, disbursement'
+                    });
+                })
+            </script>
+        </div>
+    </div>
+    <div class="absolute z-20 top-0 left-0 h-full w-full bg-home bg-cover bg-center"></div>
+    <div class="absolute z-10 top-0 left-0 h-full w-full bg-hero"></div>
+</div>
+
+{% if questions %}
+<div class="relative flex flex-column z-40" id="page-container">
+    <div class="content-blocks bg-content-blocks" id="content-blocks">
+        <div class="container py-4 text-center">
+            <h2 class="inline-flex align-items-baseline my-6">
+                Browse our FAQs
+            </h2>
+            <ul class="list-unstyled row row-sm justify-content-start">
+                {% for q in questions %}
+                <li class="mb-4 col-12 md:col-6 lg:col-4 xl:col-3">
+                    <div class="card py-4 px-6 bg-white shadow-xs" x-data="{ isExpanded: false }">
+                        <img class="mt-4 align-self-center" alt="{{q.title}}" data-asset="image" data-asset-id="question-{{q.pk}}" src="{% if q.icon %}{{ q.icon.url }}{% else %}{% static 'ss/images/search.png' %}{% endif %}" style="height: 225px; width: auto;">
+
+                        <h2 class="h3 mb-3 font-semibold">
+                            <a class="block hover:no-underline text-inherit link-stretched hover:text-primary" href="{{q.get_absolute_url}}">
+                                {{q.title|truncatewords:"4"}}
+                            </a>
+                        </h2>
+                        <p>{{q.description|truncatewords:"8"}}</p>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+
+
+
+    <div class="promoted-articles" id="promoted-articles">
+        <div class="container text-center py-4">
+
+
+            <h2 class="inline-flex align-items-baseline my-6" x-data="{ src: Theme.assets['promoted-articles-heading'] }">
+                <template x-if="src">
+                    <img class="svg-icon mr-2" src="{% static 'ss/images/placeholder.png' %}" alt="" aria-hidden="true" :src="src">
+                </template>
+                Top FAQs
+            </h2>
+
+            <ul class="row row-sm list-unstyled">
+                <li class="col-12 md:col-6 lg:col-4">
+
+                    <div class="relative media align-items-baseline py-3 h-full border-bottom">
+                        <div class="flex" x-data="{ src: Theme.assets['article'] }">
+                            <template x-if="src">
+                                <img class="svg-icon mr-3" src="{% static 'ss/images/placeholder.png' %}" alt="" aria-hidden="true" :src="src">
+                            </template>
+                        </div>
+                        <div class="media-body">
+                            <a class="text-inherit link-stretched" href="">
+                                Do I need a cosigner for a Student loan?</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="col-12 md:col-6 lg:col-4">
+
+                    <div class="relative media align-items-baseline py-3 h-full border-bottom">
+                        <div class="flex" x-data="{ src: Theme.assets['article'] }">
+                            <template x-if="src">
+                                <img class="svg-icon mr-3" src="{% static 'ss/images/placeholder.png' %}" alt="" aria-hidden="true" :src="src">
+                            </template>
+                        </div>
+                        <div class="media-body">
+                            <a class="text-inherit link-stretched" href="">What&#39;s my reference number? </a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="col-12 md:col-6 lg:col-4">
+
+                    <div class="relative media align-items-baseline py-3 h-full border-bottom">
+                        <div class="flex" x-data="{ src: Theme.assets['article'] }">
+                            <template x-if="src">
+                                <img class="svg-icon mr-3" src="{% static 'ss/images/placeholder.png' %}" alt="" aria-hidden="true" :src="src">
+                            </template>
+                        </div>
+                        <div class="media-body">
+                            <a class="text-inherit link-stretched" href="">How long does it take for the school to certify my loan?</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="col-12 md:col-6 lg:col-4">
+
+                    <div class="relative media align-items-baseline py-3 h-full border-bottom">
+                        <div class="flex" x-data="{ src: Theme.assets['article'] }">
+                            <template x-if="src">
+                                <img class="svg-icon mr-3" src="{% static 'ss/images/placeholder.png' %}" alt="" aria-hidden="true" :src="src">
+                            </template>
+                        </div>
+                        <div class="media-body">
+                            <a class="text-inherit link-stretched" href="">How do I cancel my loan application? </a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="col-12 md:col-6 lg:col-4">
+
+                    <div class="relative media align-items-baseline py-3 h-full border-bottom">
+                        <div class="flex" x-data="{ src: Theme.assets['article'] }">
+                            <template x-if="src">
+                                <img class="svg-icon mr-3" src="{% static 'ss/images/placeholder.png' %}" alt="" aria-hidden="true" :src="src">
+                            </template>
+                        </div>
+                        <div class="media-body">
+                            <a class="text-inherit link-stretched" href="">How can I track when the school will get the money?</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="col-12 md:col-6 lg:col-4">
+
+                    <div class="relative media align-items-baseline py-3 h-full border-bottom">
+                        <div class="flex" x-data="{ src: Theme.assets['article'] }">
+                            <template x-if="src">
+                                <img class="svg-icon mr-3" src="{% static 'ss/images/placeholder.png' %}" alt="" aria-hidden="true" :src="src">
+                            </template>
+                        </div>
+                        <div class="media-body">
+                            <a class="text-inherit link-stretched" href="">How can I manage my loan online (i.e. make payments, update contact info)?</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+
+    <script>
+        loadJSFile("{% static 'ss/js/block.js' %}", function () {
+            setTimeout(() => { }, 3000)
+        })
+    </script>
+
+
+    <!-- <div class="contact-blocks" id="contact-blocks">
+        <script type="text/javascript">
+            ready(function () {
+                Util.renderTemplate(document.getElementById('contact-blocks'), 'contact-blocks', Theme.contactBlocks);
+            })
+        </script>
+    </div> -->
+
+
+</div>
+
+{% endif %}
+
+<div class="contact-blocks" id="contact-blocks">
+    <div class="container py-4">
+
+        <div class="text-center">
+            <h2 class="inline-flex align-items-baseline mt-6">
+
+                Popular resources
+
+            </h2>
+        </div>
+
+        <ul class="list-unstyled row row-sm justify-content-center mb-0 mt-4">
+
+            <li class="mb-4 col-12 sm:col-6 md:col-4">
+                <div class="card card-body h-full text-base text-white-inverse bg-white">
+                    <div class="media">
+
+                        <img class="mt-4 align-self-start" alt="Contact us?" src="{% static 'ss/images/whatsapp.png' %}" style="height: 50px; width: auto;">
+
+                        <div class="media-body mt-1 ml-4">
+
+                            <h3 class="my-4">
+
+                                <a class="link-stretched text-inherit text-white-inverse hover:text-primary hover:text-white-inverse hover:no-underline" href="">
+                                    Contact us?
+                                </a>
+
+                            </h3>
+
+
+                            <p>
+                                Can't find an answer? Contact us.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="mb-4 col-12 sm:col-6 md:col-4">
+                <div class="card card-body h-full text-base text-white-inverse bg-white">
+                    <div class="media">
+
+                        <img class="mt-4 align-self-start" alt="Guides &amp; Articles " src="{% static 'ss/images/book.png' %}" style="height: 50px; width: auto;">
+
+                        <div class="media-body mt-1 ml-4">
+
+                            <h3 class="my-4">
+
+                                <a class="link-stretched text-inherit text-white-inverse hover:text-primary hover:text-white-inverse hover:no-underline" href="">
+                                    Guides &amp; Articles
+                                </a>
+
+                            </h3>
+
+
+                            <p>
+                                Your go-to spot for all the basics about student loans, grants, scholarships, the FAFSA and more.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="mb-4 col-12 sm:col-6 md:col-4">
+                <div class="card card-body h-full text-base text-white-inverse bg-white">
+                    <div class="media">
+
+                        <img class="mt-4 align-self-start" alt="Calculators" src="{% static 'ss/images/calc.png' %}" style="height: 50px; width: auto;">
+
+                        <div class="media-body mt-1 ml-4">
+
+                            <h3 class="my-4">
+
+                                <a class="link-stretched text-inherit text-white-inverse hover:text-primary hover:text-white-inverse hover:no-underline" href="">
+                                    Calculators
+                                </a>
+
+                            </h3>
+
+
+                            <p>
+                                Estimate what your student loan monthly payment would look like with our easy-to-use calculators.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+</script>
+
+<script type="text/javascript">document.documentElement.classList.add('home-page')</script>
+
+
+
+
+
+
+
+
+
+{% endblock main %}

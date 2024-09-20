@@ -1,0 +1,49 @@
+/*
+ * The Typekit service used to deliver this font or fonts for use on websites
+ * is provided by Adobe and is subject to these Terms of Use
+ * http://www.adobe.com/products/eulas/tou_typekit. For font license
+ * information, see the list below.
+ *
+ * europa:
+ *   - http://typekit.com/eulas/00000000000000007735a081
+ *   - http://typekit.com/eulas/00000000000000007735a082
+ *   - http://typekit.com/eulas/00000000000000007735a08e
+ *   - http://typekit.com/eulas/00000000000000007735a08f
+ *   - http://typekit.com/eulas/00000000000000007735a09e
+ *
+ * © 2009-2024 Adobe Systems Incorporated. All Rights Reserved.
+ */
+
+@import url("p.css");
+
+@font-face {
+font-family:"europa";
+src:url("af/ebcd51/00000000000000007735a081/30/l") format("woff2"),url("af/ebcd51/00000000000000007735a081/30/d") format("woff"),url("af/ebcd51/00000000000000007735a081/30/a") format("opentype");
+font-display:auto;font-style:normal;font-weight:700;font-stretch:normal;
+}
+
+@font-face {
+font-family:"europa";
+src:url("af/821a05/00000000000000007735a082/30/l") format("woff2"),url("af/821a05/00000000000000007735a082/30/d") format("woff"),url("af/821a05/00000000000000007735a082/30/a") format("opentype");
+font-display:auto;font-style:normal;font-weight:300;font-stretch:normal;
+}
+
+@font-face {
+font-family:"europa";
+src:url("af/1db03a/00000000000000007735a08e/30/l") format("woff2"),url("af/1db03a/00000000000000007735a08e/30/d") format("woff"),url("af/1db03a/00000000000000007735a08e/30/a") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+font-family:"europa";
+src:url("af/40cfbf/00000000000000007735a08f/30/l") format("woff2"),url("af/40cfbf/00000000000000007735a08f/30/d") format("woff"),url("af/40cfbf/00000000000000007735a08f/30/a") format("opentype");
+font-display:auto;font-style:italic;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+font-family:"europa";
+src:url("af/2a1b80/00000000000000007735a09e/30/l") format("woff2"),url("af/2a1b80/00000000000000007735a09e/30/d") format("woff"),url("af/2a1b80/00000000000000007735a09e/30/a") format("opentype");
+font-display:auto;font-style:italic;font-weight:700;font-stretch:normal;
+}
+
+.tk-europa { font-family: "europa",sans-serif; }

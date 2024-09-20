@@ -370,3 +370,4 @@ SPECTACULAR_SETTINGS = {
 # ------------------------------------------------------------------------------
 # https://django-tenants.readthedocs.io/en/latest/install.html#PUBLIC_SCHEMA_URLCONF
 PUBLIC_SCHEMA_URLCONF=ROOT_URLCONF
+CORS_ALLOW_ALL_ORIGINS=True
