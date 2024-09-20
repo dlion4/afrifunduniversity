@@ -13,19 +13,9 @@
         <div class="search search-lg font-size-lg lg:font-size-xl text-base max-w-sm my-4 mx-auto">
             <h2 class="sr-only">Search</h2>
             <form role="search" class="form-field mb-0">
-                <input name="utf8" type="hidden" value="&#x2713;" autocomplete="off">
+                <input name="utf8" type="hidden" value="" autocomplete="off">
                 <input style="margin-left:50px;" type="search" name="query" id="query" placeholder="Search for answers...">
             </form>
-        </div>
-
-        <div id="popular-keywords">
-            <script type="text/javascript">
-                ready(function () {
-                    Util.renderTemplate(document.getElementById('popular-keywords'), 'popular-keywords', {
-                        keywords: 'reference number, certification, disbursement'
-                    });
-                })
-            </script>
         </div>
     </div>
     <div class="absolute z-20 top-0 left-0 h-full w-full bg-home bg-cover bg-center"></div>
@@ -43,7 +33,8 @@
                 {% for q in questions %}
                 <li class="mb-4 col-12 md:col-6 lg:col-4 xl:col-3">
                     <div class="card py-4 px-6 bg-white shadow-xs" x-data="{ isExpanded: false }">
-                        <img class="mt-4 align-self-center" alt="{{q.title}}" data-asset="image" data-asset-id="question-{{q.pk}}" src="{% if q.icon %}{{ q.icon.url }}{% else %}{% static 'ss/images/search.png' %}{% endif %}" style="height: 225px; width: auto;">
+                        <img class="mt-4 align-self-center" alt="{{q.title}}" data-asset="image" data-asset-id="question-{{q.pk}}" 
+                        src="{% if q.icon %}{{ q.icon.url }}{% else %}{% static 'ss/images/search.png' %}{% endif %}" style="height: 225px; width: auto;">
 
                         <h2 class="h3 mb-3 font-semibold">
                             <a class="block hover:no-underline text-inherit link-stretched hover:text-primary" href="{{q.get_absolute_url}}">
@@ -63,95 +54,49 @@
 
     <div class="promoted-articles" id="promoted-articles">
         <div class="container text-center py-4">
-
-
-            <h2 class="inline-flex align-items-baseline my-6" x-data="{ src: Theme.assets['promoted-articles-heading'] }">
-                <template x-if="src">
-                    <img class="svg-icon mr-2" src="{% static 'ss/images/placeholder.png' %}" alt="" aria-hidden="true" :src="src">
-                </template>
+            <h2 class="inline-flex align-items-baseline my-6">
                 Top FAQs
             </h2>
 
             <ul class="row row-sm list-unstyled">
                 <li class="col-12 md:col-6 lg:col-4">
-
                     <div class="relative media align-items-baseline py-3 h-full border-bottom">
-                        <div class="flex" x-data="{ src: Theme.assets['article'] }">
-                            <template x-if="src">
-                                <img class="svg-icon mr-3" src="{% static 'ss/images/placeholder.png' %}" alt="" aria-hidden="true" :src="src">
-                            </template>
-                        </div>
                         <div class="media-body">
                             <a class="text-inherit link-stretched" href="">
                                 Do I need a cosigner for a Student loan?</a>
                         </div>
                     </div>
                 </li>
-
                 <li class="col-12 md:col-6 lg:col-4">
-
                     <div class="relative media align-items-baseline py-3 h-full border-bottom">
-                        <div class="flex" x-data="{ src: Theme.assets['article'] }">
-                            <template x-if="src">
-                                <img class="svg-icon mr-3" src="{% static 'ss/images/placeholder.png' %}" alt="" aria-hidden="true" :src="src">
-                            </template>
-                        </div>
                         <div class="media-body">
                             <a class="text-inherit link-stretched" href="">What&#39;s my reference number? </a>
                         </div>
                     </div>
                 </li>
-
                 <li class="col-12 md:col-6 lg:col-4">
-
                     <div class="relative media align-items-baseline py-3 h-full border-bottom">
-                        <div class="flex" x-data="{ src: Theme.assets['article'] }">
-                            <template x-if="src">
-                                <img class="svg-icon mr-3" src="{% static 'ss/images/placeholder.png' %}" alt="" aria-hidden="true" :src="src">
-                            </template>
-                        </div>
                         <div class="media-body">
                             <a class="text-inherit link-stretched" href="">How long does it take for the school to certify my loan?</a>
                         </div>
                     </div>
                 </li>
-
                 <li class="col-12 md:col-6 lg:col-4">
-
                     <div class="relative media align-items-baseline py-3 h-full border-bottom">
-                        <div class="flex" x-data="{ src: Theme.assets['article'] }">
-                            <template x-if="src">
-                                <img class="svg-icon mr-3" src="{% static 'ss/images/placeholder.png' %}" alt="" aria-hidden="true" :src="src">
-                            </template>
-                        </div>
                         <div class="media-body">
                             <a class="text-inherit link-stretched" href="">How do I cancel my loan application? </a>
                         </div>
                     </div>
                 </li>
-
                 <li class="col-12 md:col-6 lg:col-4">
-
                     <div class="relative media align-items-baseline py-3 h-full border-bottom">
-                        <div class="flex" x-data="{ src: Theme.assets['article'] }">
-                            <template x-if="src">
-                                <img class="svg-icon mr-3" src="{% static 'ss/images/placeholder.png' %}" alt="" aria-hidden="true" :src="src">
-                            </template>
-                        </div>
                         <div class="media-body">
                             <a class="text-inherit link-stretched" href="">How can I track when the school will get the money?</a>
                         </div>
                     </div>
                 </li>
-
                 <li class="col-12 md:col-6 lg:col-4">
-
                     <div class="relative media align-items-baseline py-3 h-full border-bottom">
-                        <div class="flex" x-data="{ src: Theme.assets['article'] }">
-                            <template x-if="src">
-                                <img class="svg-icon mr-3" src="{% static 'ss/images/placeholder.png' %}" alt="" aria-hidden="true" :src="src">
-                            </template>
-                        </div>
                         <div class="media-body">
                             <a class="text-inherit link-stretched" href="">How can I manage my loan online (i.e. make payments, update contact info)?</a>
                         </div>
@@ -168,15 +113,6 @@
             setTimeout(() => { }, 3000)
         })
     </script>
-
-
-    <!-- <div class="contact-blocks" id="contact-blocks">
-        <script type="text/javascript">
-            ready(function () {
-                Util.renderTemplate(document.getElementById('contact-blocks'), 'contact-blocks', Theme.contactBlocks);
-            })
-        </script>
-    </div> -->
 
 
 </div>
@@ -277,19 +213,5 @@
         </ul>
     </div>
 </div>
-
-
-<script type="text/javascript">
-</script>
-
-<script type="text/javascript">document.documentElement.classList.add('home-page')</script>
-
-
-
-
-
-
-
-
 
 {% endblock main %}

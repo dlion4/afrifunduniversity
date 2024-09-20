@@ -1,0 +1,161 @@
+{% extends "tenants/help/pages/layout.html" %}
+{% load static %}
+
+{% block main %}
+
+<div class="container my-6" id="page-container">
+    <div class="row align-items-center lg:hidden">
+        <nav class="col font-size-md">
+            <ol class="breadcrumbs">
+
+                <li title="Afri Fund University Student Loans">
+
+                    <a href="{% url 'ss:help:help_home' %}">Afri Fund University Student Loans</a>
+
+                </li>
+
+                <li title="{{article.response.question.title}}">
+
+                    <a href="{{article.response.question.get_absolute_url}}">{{article.response.question.title}}</a>
+
+                </li>
+
+                <li title="{{article.response.title}}">
+
+                    <a href="{{article.response.get_absolute_url}}">{{article.response.title}}</a>
+
+                </li>
+
+            </ol>
+
+        </nav>
+    </div>
+    <div class="row row-lg">
+
+        <article class="col" itemscope="" itemtype="http://schema.org/Article">
+            <header class="mb-6">
+                <h1 class="font-size-4xl mb-3" title="{{article.title}}" itemprop="name">{{article.title}}</h1>
+                <p><a class="font-size-lg" href="{{article.response.get_absolute_url}}">Back</a></p>
+            </header>
+            <section class="content article-content mb-6" itemprop="articleBody">
+                <p class="mb-4">Last Updated: {{article.updated_at|date:"F d, Y"}}</p>
+                {{article.content|safe}}
+            </section>
+            <div class="my-7 md:flex flex-wrap align-items-center">
+                <h4 class="my-4 font-semibold">
+                    Was this article helpful?
+                </h4>
+                <div class="my-4 md:mx-3" role="group">
+                    <button type="button" class="button button-outline-primary mr-1 upvote-btn" aria-label="This article was helpful" aria-pressed="false">
+                        <svg class="svg-icon fill-current" viewBox="0 0 507 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path d="M330,512 C261,512 152,489 126,470 C119,466 116,459 116,452 L116,234 C116,228 119,221 124,217 C126,216 165,185 206,163 C256,135 291,96 300,71 C310,41 324,0 370,0 C392,0 409,12 419,33 C438,77 418,137 384,184 C407,189 434,196 451,201 C482,211 502,233 506,260 C510,288 496,317 467,338 C445,397 408,489 380,504 C370,510 352,512 330,512 Z M161,439 C203,456 333,475 358,465 C370,454 403,379 426,316 C428,312 431,308 434,305 C453,293 462,278 461,266 C459,256 450,248 437,243 C409,234 340,219 339,219 C331,218 325,212 322,204 C319,196 321,188 327,183 C377,129 386,73 377,51 C374,45 372,45 370,45 C359,45 354,52 342,86 C329,125 282,171 227,201 C201,216 174,235 161,245 L161,439 Z M73,454 L73,232 C73,211 57,195 37,195 C16,195 0,211 0,232 L0,454 C0,474 16,490 36,490 C56,490 73,474 73,454 Z"></path>
+                        </svg>
+                    </button>
+                    <button type="button" class="button button-outline-primary downvote-btn" aria-label="This article was not helpful" aria-pressed="false">
+                        <svg class="svg-icon fill-current" viewBox="0 0 507 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path d="M177,0 C247,0 355,23 382,42 C388,46 391,53 391,60 L391,278 C391,284 388,291 383,295 C381,296 342,327 302,349 C251,377 216,416 208,441 C197,471 183,512 137,512 C115,512 98,500 88,479 C69,435 89,375 123,328 C100,323 73,316 56,311 C26,301 5,279 1,252 C-3,224 11,195 41,174 C63,116 100,23 127,8 C137,2 155,0 177,0 Z M346,73 C304,56 174,37 149,47 C137,58 104,133 81,196 C79,200 76,204 73,207 C54,219 45,234 46,246 C48,256 57,264 70,269 C98,278 167,293 168,293 C176,294 182,300 185,308 C188,316 186,324 180,329 C130,383 121,439 130,461 C133,467 135,467 137,467 C148,467 153,460 165,426 C178,387 225,341 280,311 C306,296 333,277 346,267 L346,73 Z M434,58 L434,280 C434,300 450,316 470,316 C491,316 507,300 507,280 L507,58 C507,38 491,22 470,22 C450,22 434,38 434,58 Z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <span class="block w-full text-gray-600 font-size-sm mb-4">
+                    <span class="upvote-counter">{{article.up_vote}}</span> out of <span class="totalvote-counter">{{article.get_total_votes}}</span> found this helpful
+                </span>
+            </div>
+            <div id="table-of-contents" data-element="table-of-contents" data-template="table-of-contents" data-selector=".content h2"></div>
+        </article>
+
+        <aside class="relative flex-first lg:col lg:mr-6 lg:max-w-13 lg:border-right">
+            <div data-element="navigation" data-template="article-list">
+                <div class="border-top border-bottom lg:border-transparent my-5" x-data="toggle({ isOpen: false })" @collapse:show.stop="open" @collapse:hide.stop="close">
+                    <h3 class="flex align-items-center justify-content-between my-4 font-size-lg cursor-pointer lg:hidden" data-toggle="collapse" data-target="#sidebar-article-navigation" aria-controls="sidebar-article-navigation" aria-expanded="false">
+                        Categories
+                        <svg class="fill-current pointer-events-none ml-3" :class="isOpen &amp;&amp; 'rotate-180'" width="14px" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20,19.5 C19.4,19.5 18.9,19.3 18.4,18.9 L1.4,4.9 C0.3,4 0.2,2.4 1.1,1.4 C2,0.3 3.6,0.2 4.6,1.1 L20,13.8 L35.5,1.1 C36.6,0.2 38.1,0.4 39,1.4 C39.9,2.5 39.7,4 38.7,4.9 L21.7,18.9 C21.1,19.3 20.5,19.5 20,19.5 Z" fill-rule="nonzero"></path>
+                        </svg>
+                    </h3>
+                    <div class="collapse lg:expand lg:flex-column" id="sidebar-article-navigation">
+                        <p class="my-2">
+                            <a class="text-inherit font-bold font-size-lg" href="{% url 'ss:help:help_home' %}">
+                                FAQs home
+                            </a>
+                        </p>
+                        {% if questions %}
+                        <ul class="list-unstyled font-size-lg w-full">
+                            {% for question in questions %}
+                            <li class="font-semibold" x-data="toggle({ isOpen: true })" @collapse:show.stop="open" @collapse:hide.stop="close">
+                                <div class="flex justify-content-between align-items-center">
+                                    <a class="flex-1 py-3 font-bold" :class="{ 'text-inherit': !isOpen }" href="{{question.get_absolute_url}}">
+                                        {{question.title|truncatewords:"6"}}
+                                    </a>
+                                    <button title="{{question.title}}" type="button" class="p-2 ml-1 not-a-button border-radius transition cursor-pointer hover:bg-gray-200 hidden lg:block is-active" :class="{ 'is-active': isOpen }" :aria-expanded="isOpen" data-toggle="collapse" data-target="#category-{{forloop.counter}}" aria-expanded="true">
+                                        <svg class="text-inherit fill-current pointer-events-none rotate-180" :class="{ 'rotate-180': isOpen }" width="12px" height="12px" viewBox="0 0 324 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                            <path d="M162,190 C156,190 150,187 146,183 L7,38 C-2,29 -2,15 7,7 C16,-2 30,-2 39,7 L162,135 L285,7 C293,-2 308,-2 317,7 C326,15 326,29 317,38 L178,183 C174,187 168,190 162,190 Z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="hidden lg:block">
+                                    {% if question.get_responses %}
+                                    <ul class="list-none pl-3 mb-0 font-size-base collapse is-visible" id="category-{{forloop.counter}}" :class="{ 'is-visible': isOpen }" data-parent="#sidebar-article-navigation">
+                                        {% for response in question.get_responses %}
+                                        <li class="font-medium" x-data="toggle({ isOpen: true })" @collapse:show.stop="open" @collapse:hide.stop="close">
+                                            <div class="flex justify-content-between align-items-center">
+                                                <a class="flex-1 py-2 font-semibold {% if response.pk == article.response.pk %}underline{% endif %}" :class="{ 'text-inherit': !isOpen, 'underline': true }" href="{{response.get_absolute_url}}">
+                                                    {{response.title|truncatewords:"6"}}
+                                                </a>
+                                                <button title="{{response.title}}" type="button" class="p-2 ml-1 not-a-button border-radius transition cursor-pointer hover:bg-gray-200 is-active" :class="{ 'is-active': isOpen }" :aria-expanded="isOpen" data-toggle="collapse" data-target="#section-{{forloop.counter}}" aria-expanded="true">
+                                                    <svg class="text-inherit fill-current pointer-events-none rotate-180" :class="{ 'rotate-180': isOpen }" width="12px" height="12px" viewBox="0 0 324 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                        <path d="M162,190 C156,190 150,187 146,183 L7,38 C-2,29 -2,15 7,7 C16,-2 30,-2 39,7 L162,135 L285,7 C293,-2 308,-2 317,7 C326,15 326,29 317,38 L178,183 C174,187 168,190 162,190 Z"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            {% if response.get_response_articles %}
+                                            <ul class="list-none font-size-md font-normal pl-0 mb-0 collapse is-visible" :class="{ 'is-visible': isOpen }" id="section-{{forloop.counter}}" data-parent="#category-{{forloop.counter}}">
+                                                {% for article in response.get_response_articles %}
+                                                <li>
+                                                    <a class="block px-3 py-2 text-inherit border-radius transition {% if article.pk == current_pk %}bg-gray-100{% endif %}" href="{{article.get_absolute_url}}">
+                                                        {{article.title}}
+                                                    </a>
+                                                </li>
+
+                                                {% endfor %}
+                                            </ul>
+
+                                            {% endif %}
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                            </li>
+                            {% endfor %}
+
+                        </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+
+        <aside class="md:col md:max-w-13 hidden" x-data="{ tableOfContents: false }">
+            <div :class="{ 'sticky-top': tableOfContents }" @table-of-contents:render.camel="tableOfContents = $event.target.children.length > 0"></div>
+        </aside>
+
+    </div>
+</div>
+
+<div style="display: none;" id="articleId" data-article-id="{{article.pk}}" data-article-url="{{article.get_absolute_url}}" data-article-slug="{{article.slug}}"></div>
+
+{% endblock main %}
+
+
+{% block pressScript %}
+
+<script>
+    loadJSFile("{% static 'ss/js/vote.js' %}", function () {
+        console.log("Hello World")
+    })
+</script>
+
+
+{% endblock pressScript %}

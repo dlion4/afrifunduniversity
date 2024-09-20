@@ -26,6 +26,7 @@ class ContactBlockSerializer(serializers.ModelSerializer):
 
 class QuestionResponseArticleSerializer(serializers.ModelSerializer):
     # articles = QuestionResponseArticleContentSerializer(many=True, read_only=True)
+    total_votes = serializers.SerializerMethodField()
     class Meta:
         model = QuestionResponseArticle
         fields = [
@@ -34,7 +35,14 @@ class QuestionResponseArticleSerializer(serializers.ModelSerializer):
             "slug",
             "content",
             "created_at",
+            "updated_at",
+            "is_helpful",
+            "up_vote",
+            "down_vote",
+            "total_votes",
         ]
+    def get_total_votes(self, obj)->int:
+        return obj.get_total_votes()
 
 
 class QuestionResponseSerializer(serializers.ModelSerializer):

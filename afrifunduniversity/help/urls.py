@@ -15,4 +15,14 @@ urlpatterns = [
         views.QuestionResponseDetailView.as_view(),
         name="question_response_detail_view",
     ),
+    path(
+        "categories/<pk>/<question_slug>/sections/<response_pk>/<response_slug>/<article_pk>/<article_slug>/",
+        views.QuestionResponseArticleDetailView.as_view(),
+        name="question_response_article_view",
+    ),
+    path(
+        "categories/<pk>/<question_slug>/sections/<response_pk>/<response_slug>/<article_pk>/<article_slug>/vote/",
+        views.QuestionResponseArticleVoteView.as_view(),
+        name="question_response_article_vote_view",
+    ),
 ]
