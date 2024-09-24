@@ -1,0 +1,39 @@
+{% extends "loans/applications/layout.html" %}
+{% load static %}
+
+
+{% block loader %}
+{% endblock loader %}
+
+
+{% block content %}
+{% if country %}
+{% include "loans/applications/errors/outside-kenya.html" %}
+{% endif %}
+
+
+<script>
+    // use only in development
+    function getPublicIP() {
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            })
+            .catch(error => {
+                console.error('Error fetching IP:', error);
+            });
+    }
+
+    getPublicIP();
+</script>
+
+{% if not country %}
+{% include "loans/applications/errors/generic.html" %}
+{% endif %}
+
+{% endblock content %}
+
+
+{% block location %}
+{% endblock location %}

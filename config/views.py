@@ -1,12 +1,18 @@
 import json
-from django.http import HttpResponse, JsonResponse
+from pathlib import Path
+import time
+
+import ipinfo
+from django.conf import settings
+from django.http import FileResponse, HttpRequest
+from django.http import Http404
+from django.http import HttpResponse
+from django.http import JsonResponse
 from django.shortcuts import render
+from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import View
-from pathlib import Path
-from django.conf import settings
-from django.http import Http404, FileResponse
-from django.utils import timezone
+import requests
 
 
 def meta_links_view(request):
@@ -222,4 +228,46 @@ class AfriFundLoadYoutubeVideoLinkView(View):
             "https://www.youtube.com/embed/rySJ2Cm5xwc?list=RDGMEMYH9CUrFO7CfLJpaD7UR85w" 
             ]
         return JsonResponse(links, safe=False)
+
+
+def get_user_ip(request:HttpResponse):
+    # Get the user's IP address
+    ip = request.META.get("HTTP_X_FORWARDED_FOR")  # For load balancers or proxies
+    ip = ip.split(",")[0] if ip else request.META.get("REMOTE_ADDR")
+    return {"ip": ip}
+
+
+
+def get_public_ip(request:HttpRequest):
+
+    time.sleep(3)
+    response = requests.get(
+        "https://api.ipify.org?format=json", timeout=5)
+    response.raise_for_status()
+    data = response.json()
+    return data["ip"]
+
+def get_actual_user_location(
+    ip_address:str,
+    access_key="0ec66558b407a88da165787b6ae207f2"):
+    response = requests.get(
+        f"https://api.ipinfo.info/api/{ip_address}?access_key={access_key}",
+        timeout=5,
+    )
+    response.raise_for_status()
+    return response.json()
+def get_ip_details(ip_address=None):
+    ipinfo_token = getattr(settings, "IPINFO_TOKEN", None)
+    ipinfo_settings = getattr(settings, "IPINFO_SETTINGS", {})
+    ip_data = ipinfo.getHandler(ipinfo_token, **ipinfo_settings)
+    return ip_data.getDetails(ip_address)
+
+def location(request:HttpRequest):
+    time.sleep(3)
+    print(get_public_ip(request))
+    ip_data = get_actual_user_location(ip_address=get_public_ip(request))
+    time.sleep(1)
+    print(ip_data)
+    return JsonResponse(json.dumps(ip_data), safe=False)
+
 

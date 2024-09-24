@@ -30,3 +30,4 @@ scrapy
 drf-nested-routers==0.94.1 # https://pypi.org/project/drf-nested-routers/
 django-tenants==3.7.0 # https://django-tenants.readthedocs.io/en/latest/install.html#installation
 drf-spectacular[sidecar]
+ipinfo_django==2.0.0

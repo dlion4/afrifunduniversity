@@ -22,6 +22,7 @@ urlpatterns = [
     path("calculators/", include("afrifunduniversity.calculators.urls", namespace="calculators")),
     # MAIN WEBSITE CONFIGURATIONS
     path("schema/", views.json_ld_view),
+    path("user-location/", views.location),
     path('meta-links/', views.meta_links_view, name='meta_links_view'),
     path('load-gtm/', views.load_gtm, name='load_gtm'),
     path('decode-mails/', views.load_decode_mail_script, name='generate-decode-email-script'),

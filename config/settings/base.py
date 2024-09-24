@@ -110,6 +110,8 @@ LOCAL_APPS = [
     "apps.loans.studentloans",
     # calculators
     "afrifunduniversity.calculators",
+    # Application pages
+    "apps.loans.applications",
 ]
 
 SHARED_APPS = [
@@ -186,7 +188,22 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # "afrifunduniversity.saas.tenant_settings_middleware.TenantSettingsMiddleware",
+    "ipinfo_django.middleware.IPinfoMiddleware",
 ]
+
+IPINFO_TOKEN = "d96b2e0fe777b3"  # noqa: S105
+
+IPINFO_SETTINGS = {
+    "cache_options": {
+        "ttl": 30,
+        "maxsize": 128,
+    },
+}
+
+from ipinfo_django.ip_selector.remote_client import ClientIPSelector  # noqa: E402
+
+IPINFO_IP_SELECTOR = ClientIPSelector()
+IPINFO_FILTER = lambda request: request.scheme == "http"  # noqa: E731
 
 # STATIC
 # ------------------------------------------------------------------------------
@@ -195,7 +212,10 @@ STATIC_ROOT = str(BASE_DIR / "staticfiles")
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
-STATICFILES_DIRS = [str(APPS_DIR / "static")]
+STATICFILES_DIRS = [
+    str(APPS_DIR / "static"),
+    str(BASE_DIR / "static"),
+]
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
