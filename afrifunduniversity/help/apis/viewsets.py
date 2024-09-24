@@ -1,6 +1,9 @@
 from django.db import IntegrityError
+from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from django.utils.text import slugify
+from drf_spectacular.utils import OpenApiParameter
+from drf_spectacular.utils import extend_schema
 from rest_framework import permissions
 from rest_framework import status
 from rest_framework import viewsets
@@ -8,14 +11,17 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.generics import ListCreateAPIView
 from rest_framework.generics import RetrieveUpdateDestroyAPIView
 from rest_framework.response import Response
-from django.db.models import Q
+
+from afrifunduniversity.help.models import Category
 from afrifunduniversity.help.models import ContactBlock
 from afrifunduniversity.help.models import Question
 from afrifunduniversity.help.models import QuestionResponse
 from afrifunduniversity.help.models import QuestionResponseArticle
-# from afrifunduniversity.help.models import QuestionResponseArticleContent
 
+# from afrifunduniversity.help.models import QuestionResponseArticleContent
 from .serializers import ContactBlockSerializer
+from .serializers import HelpCategorySerializer
+
 # from .serializers import QuestionResponseArticleContentSerializer
 from .serializers import QuestionResponseArticleSerializer
 from .serializers import QuestionResponseSerializer
@@ -75,11 +81,28 @@ class QuestionResponseModelViewSet(viewsets.ModelViewSet):
         serializer = self.serializer_class(instance)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+
+
+
 class QuestionResponseArticleModelViewSet(viewsets.ModelViewSet):
     queryset = QuestionResponseArticle.objects.all()
     permission_classes = [permissions.AllowAny]
     serializer_class = QuestionResponseArticleSerializer
 
+
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                "response__question___pk",
+                int, description="Primary key of the question"),
+            OpenApiParameter(
+                "response_pk",
+                int, description="Primary key of the response"),
+            OpenApiParameter("title", str, description="Title of the article"),
+            OpenApiParameter("slug", str, description="Slug of the article"),
+            OpenApiParameter("content", str, description="Content of the article"),
+        ],
+    )
     def create(self, request, *args, **kwargs) -> Response:
         # [('question_pk', '2'), ('response_pk', '1')]  # noqa: ERA001
         question_pk = kwargs.get("question_pk", None)
@@ -110,8 +133,38 @@ class QuestionResponseArticleModelViewSet(viewsets.ModelViewSet):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                "response__question___pk",
+                int,
+                description="Primary key of the question"),
+            OpenApiParameter(
+                "id", int, description="Primary key of the article"),
+            OpenApiParameter(
+                "response__question__slug",
+                str,
+                description="Slug of the question"),
+            OpenApiParameter(
+                "response__pk",
+                int, description="Primary key of the response"),
+            OpenApiParameter(
+                "response__slug", str, description="Slug of the response"),
+            OpenApiParameter("pk", int, description="Primary key of the article"),
+            OpenApiParameter("slug", str, description="Slug of the article"),
+        ]
+    )
+    def retrieve(self, request, question_pk, id, question_slug, response_pk, response_slug, article_pk, article_slug):
+        # Your logic here
+        pass
 
 # class QuestionResponseArticleContentModelViewSet(viewsets.ModelViewSet):
 #     queryset = QuestionResponseArticleContent
 #     serializer_class = QuestionResponseArticleContentSerializer
 #     permission_classes = [permissions.AllowAny]
+
+
+class CategoryModelViewSet(viewsets.ModelViewSet):
+    permission_classes = [permissions.AllowAny]
+    serializer_class = HelpCategorySerializer
+    queryset = Category.objects.all()

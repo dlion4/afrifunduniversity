@@ -1,0 +1,99 @@
+{% load static %}
+
+
+<div class="section-container">
+    <div class="faq-accordion-section__header-container">
+        <h2 class="h2" data-site-animation-order="0">Frequently Asked Question</h2>
+        <p class="p-large" data-site-animation-order="1">Questions you need answer to.</p>
+    </div>
+    <div class="faq-accordion-section__list-container" data-show-more="section" data-show-more-number="5">
+        <ul class="faq-accordion-section__list">
+            <div data-site-animation-order=1>
+
+                <li class="faq-section__item accordion" data-show-more="item">
+                    <a data-link-name="What is residency deferment?" class="faq-section__question accordion-toggle" tabindex="0">
+                        <span class="faq-section__question-text">What is residency deferment?</span>
+                        <div class="faq-section__question-text__icon">
+
+                            <svg viewBox="0 0 20 20" style="color: #002769">
+                                <use href="{% static 'assets/images/icons/global/add.svg' %}#add"></use>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="accordion-content">
+                        <div>
+                            <div class="faq-section__answer">
+                                <p>
+                                    Residency deferment allows you to postpone your Dental School Loan payments during your residency programs,
+                                    hitting pause on your payments for a period of time. You should contact us in advance if you plan to use this
+                                    option for your dental school loan. It's important to know that your loan will continue to accrue interest
+                                    even while in deferment so it's best to make payments if you can to continue paying down your balance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+            <div data-site-animation-order=2>
+
+                <li class="faq-section__item accordion" data-show-more="item">
+                    <a data-link-name="Do I have to start paying back my loan while I’m studying for the bar exam?" class="faq-section__question accordion-toggle" tabindex="0">
+                        <span class="faq-section__question-text">Do I have to start paying back my loan while I’m studying for the bar exam?</span>
+                        <div class="faq-section__question-text__icon">
+
+                            <svg viewBox="0 0 20 20" style="color: #002769">
+                                <use href="{% static 'assets/images/icons/global/add.svg' %}#add"></use>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="accordion-content">
+                        <div>
+                            <div class="faq-section__answer">
+                                <p>
+                                    This will depend on the type of loan you take out.
+                                    You may qualify for a deferment period if you are clerking or working after your graduate.
+                                </p>
+                                <p>
+                                    If you need extra financial assistance while you're studying for the bar exam,
+                                    we do offer a separate Bar Study Loan. This allows you to primarily focus on your studies and passing the bar
+                                    without having to stress over your finances.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+            <div data-site-animation-order=3>
+
+                <li class="faq-section__item accordion" data-show-more="item">
+                    <a data-link-name="Which student loans should I refinance?" class="faq-section__question accordion-toggle" tabindex="0">
+                        <span class="faq-section__question-text">Which student loans should I refinance?</span>
+                        <div class="faq-section__question-text__icon">
+
+                            <svg viewBox="0 0 20 20" style="color: #002769">
+                                <use href="{% static 'assets/images/icons/global/add.svg' %}#add"></use>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="accordion-content">
+                        <div>
+                            <div class="faq-section__answer">
+                                <p>
+                                    A good rule of thumb is to refinance high-interest student loans. Federal student loans have unique benefits
+                                    that only apply to federal loans. You will forfeit all of those exclusive federal benefits if you refinance
+                                    your federal student loans with a private lender. Both your federal and private student loans are eligible
+                                    to be refinanced into one simple, monthly payment.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+        </ul>
+        <div class="faq-accordion-section__bottom-container">
+            <a href="{% url 'ss:help:help_home' %}" target="">
+                Still have questions? We're here to help >
+            </a>
+        </div>
+    </div>
+</div>

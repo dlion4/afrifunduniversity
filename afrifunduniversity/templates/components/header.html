@@ -24,7 +24,7 @@
     <div class="main-navigation-bar__center-container">
       <ul class="main-navigation-bar__main-links">
         <li class="main-nav-link-item" data-nav-hover="target">
-          <a href="/student-loans/" class="main-nav-link" data-link-name="Student Loans">
+          <a href="" class="main-nav-link" data-link-name="Student Loans">
             <span class="main-nav-link__text">
               Student Loans
             </span>
@@ -38,7 +38,7 @@
                 <div class="sub-navigation-desktop__layout-outer">
                   <div class="sub-navigation-desktop__layout-column-one">
                     <div class="sub-navigation-desktop__layout-column-one__row">
-                      <a href="/private-student-loans/" class="sub-nav-arrow-link" data-link-name="Private Student Loans">
+                      <a href="{% url 'loans:studentloans:private-student-loans' %}" class="sub-nav-arrow-link" data-link-name="Private Student Loans">
                         Private Student Loans
                         <span class="sub-nav-arrow-link__arrow">
                           <svg viewbox="0 0 25 15" style="color: #002769">
@@ -48,13 +48,13 @@
                       </a>
                       <div class="sub-navigation-desktop__layout-column-one__grid-three">
 
-                        <a href="/student-loans/undergraduate/" class="sub-nav-link" data-link-name="Undergraduate">
+                        <a href="{% url 'loans:studentloans:undergraduate-student-loans' %}" class="sub-nav-link" data-link-name="Undergraduate">
                           <div class="sub-nav-link__icon">
                             <img src="{% static 'assets/images/icons/CAIS01.svg' %}" alt="CAIS01 icon">
                           </div>
                           <div class="sub-nav-link__content">
                             <p class="sub-nav-link__title">Undergraduate</p>
-                            <p class="sub-nav-link__rate">3.69% - 17.99% APR<sup>&dagger;</sup>
+                            <p class="sub-nav-link__rate">8.69% - 32.99% APR<sup>&dagger;</sup>
                             </p>
                           </div>
                         </a>
@@ -80,7 +80,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="sub-navigation-desktop__layout-column-one__row">
+                    <!-- <div class="sub-navigation-desktop__layout-column-one__row">
                       <a href="/student-loans/graduate/" class="sub-nav-arrow-link" data-link-name="Graduate Loans">
                         Graduate Loans
                         <span class="sub-nav-arrow-link__arrow">
@@ -142,7 +142,7 @@
                           </div>
                         </a>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="sub-navigation-desktop__layout-column-two">
                     <a href="/student-loans/refinance/" class="sub-nav-arrow-link sub-nav-arrow-link__refinance" data-link-name="Student Loan Refinance">
@@ -153,7 +153,7 @@
                         </svg>
                       </span>
                     </a>
-                    <a href="/student-loans/undergraduate/" class="sub-nav-card sub-nav-card__background-gray" data-link-name="Undergraduate Loans">
+                    <a href="{% url 'loans:studentloans:undergraduate-student-loans' %}" class="sub-nav-card sub-nav-card__background-gray" data-link-name="Undergraduate Loans">
                       <div class="sub-nav-card__top">
                         <div class="sub-nav-card__image-container"><img src="{% static 'assets/temp/test-image.png' %}" alt=""></div>
                         <div class="sub-nav-card__arrow-container">
@@ -215,7 +215,7 @@
                             <p class="sub-nav-link__subtitle">All you need to know about loans and finances.</p>
                           </div>
                         </a>
-                        <a href="/calculators/" class="sub-nav-link" data-link-name="Calculators">
+                        <a href="{% url 'calculators:home' %}" class="sub-nav-link" data-link-name="Calculators">
                           <div class="sub-nav-link__icon">
                             <img src="{% static 'assets/images/icons/calculators.svg' %}" alt="calculators icon">
                           </div>
@@ -233,7 +233,7 @@
                             <p class="sub-nav-link__subtitle">Questions about loans and finance?</p>
                           </div>
                         </a>
-                        <a href="/promotions/" class="sub-nav-link" data-link-name="Scholarships & Sweepstakes">
+                        <a href="{% url 'promotions' %}" class="sub-nav-link" data-link-name="Scholarships & Sweepstakes">
                           <div class="sub-nav-link__icon">
                             <img src="{% static 'assets/images/icons/promotions.svg' %}" alt="promotions icon">
                           </div>
@@ -246,7 +246,7 @@
                     </div>
                   </div>
                   <div class="sub-navigation-desktop__layout-column-two">
-                    <a href="/promotions/monthly-scholarship-award/" class="sub-nav-card sub-nav-card__background-light-green" data-link-name="$1000 Monthly Scholarship">
+                    <a href="{% url 'promotions' %}" class="sub-nav-card sub-nav-card__background-light-green" data-link-name="$1000 Monthly Scholarship">
                       <div class="sub-nav-card__top">
                         <div class="sub-nav-card__image-container"><img src="{% static 'assets/temp/test-image-2.png' %}#" alt=""></div>
                         <div class=" sub-nav-card__arrow-container">
@@ -267,7 +267,7 @@
           </div>
         </li>
         <li class="main-nav-link-item" data-nav-hover="target">
-          <a href="/about/" class="main-nav-link" data-link-name="About Us">
+          <a href="{% url 'about' %}" class="main-nav-link" data-link-name="About Us">
             <span class="main-nav-link__text">
               About Us
             </span>
@@ -282,7 +282,7 @@
                 <div class="sub-navigation-desktop__layout-outer">
                   <div class="sub-navigation-desktop__layout-column-one">
                     <div class="sub-navigation-desktop__layout-column-one__row">
-                      <a href="/about/" class="sub-nav-arrow-link" data-link-name="About Us">
+                      <a href="{% url 'about' %}" class="sub-nav-arrow-link" data-link-name="About Us">
                         About Us
                         <span class="sub-nav-arrow-link__arrow">
                           <svg viewbox="0 0 25 15" style="color: #002769">
@@ -331,8 +331,7 @@
       <div class="desktop-site-search" data-site-search="desktop-target">
         <div class="site-search">
           <div class="site-search__input-container" data-site-search="container">
-            <button data-site-search="handleSearch" class="site-search__button">
-
+            <button data-site-search="handleSearch" class="site-search__button" title="magnifying glass" type="button">
               <svg viewbox="0 0 20 20" style="color: #00818A">
                 <use href="{% static 'assets/images/icons/global/magnifying_glass.svg' %}#magnifying_glass"></use>
               </svg>
@@ -341,7 +340,7 @@
               <form class="site-search__form" method="GET" action="/site-search" data-site-search="form">
                 <input name="search" class="site-search__input" type="text" placeholder="Search">
               </form>
-              <button data-site-search="closeSearch" class="site-search__button">
+              <button data-site-search="closeSearch" class="site-search__button" title="close bnt" type="button">
                 <svg width="20" height="20" viewbox="0 0 20 20" style="color: #00818A">
                   <use href="{% static 'assets/images/icons/global/x_close.svg' %}#x_close"></use>
                 </svg>
@@ -352,10 +351,10 @@
       </div>
     </div>
     <div class="main-navigation-bar__right-links">
-      <button data-open-modal="apply" class="nav-bar-apply nav-bar-apply__desktop" data-link-name="Apply Now">Apply Now</button>
-      <button data-open-modal="apply" class="nav-bar-apply nav-bar-apply__mobile" data-link-name="Mobile Apply">Apply</button>
+      <button type="button" data-open-modal="apply" class="nav-bar-apply nav-bar-apply__desktop" data-link-name="Apply Now">Apply Now</button>
+      <button type="button" data-open-modal="apply" class="nav-bar-apply nav-bar-apply__mobile" data-link-name="Mobile Apply">Apply</button>
       <span class="main-nav-mobile-divider"></span>
-      <button data-link-name="Open Mobile Nav" data-nav="toggle" class="main-nav-mobile-menu-button">
+      <button title="close" type="button" data-link-name="Open Mobile Nav" data-nav="toggle" class="main-nav-mobile-menu-button">
         <span class="main-nav-mobile-menu-button__close-nav-menu">
           <svg width="20" height="20" viewbox="0 0 20 20" style="color: #00818A">
             <use href="{% static 'assets/images/icons/global/x_close.svg' %}#x_close"></use>
@@ -373,8 +372,7 @@
       <div>
         <div class="site-search">
           <div class="site-search__input-container" data-site-search="container">
-            <button data-site-search="handleSearch" class="site-search__button">
-
+            <button data-site-search="handleSearch" class="site-search__button" title="magnifying glass" type="button">
               <svg viewbox="0 0 20 20" style="color: #00818A">
                 <use href="{% static 'assets/images/icons/global/magnifying_glass.svg' %}#magnifying_glass"></use>
               </svg>
@@ -383,7 +381,7 @@
               <form class="site-search__form" method="GET" action="/site-search" data-site-search="form">
                 <input name="search" class="site-search__input" type="text" placeholder="Search">
               </form>
-              <button data-site-search="closeSearch" class="site-search__button">
+              <button data-site-search="closeSearch" class="site-search__button" type="button" title="close">
                 <svg width="20" height="20" viewbox="0 0 20 20" style="color: #00818A">
                   <use href="{% static 'assets/images/icons/global/x_close.svg' %}#x_close"></use>
                 </svg>
@@ -398,7 +396,7 @@
       <div class="navigation-mobile-menu__container">
         <div class="navigation-mobile-menu__top-section">
 
-          <button aria-label="Apply" data-open-modal="apply" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-264 button__mobile-full-width">
+          <button type="button" aria-label="Apply" data-open-modal="apply" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-264 button__mobile-full-width">
             Apply
           </button>
         </div>
@@ -472,76 +470,6 @@
                     </a>
                   </li>
                   <li>
-                    <a href="/student-loans/graduate/" class="sub-nav-arrow-link" data-link-name="Graduate Loans">
-                      Graduate Loans
-                      <span class="sub-nav-arrow-link__arrow">
-                        <svg viewbox="0 0 25 15" style="color: #002769">
-                          <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
-                        </svg>
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/student-loans/graduate/dental/" class="sub-nav-link" data-link-name="Dental">
-                      <div class="sub-nav-link__icon">
-                        <img src="{% static 'assets/images/icons/CAISDE.svg' %}" alt="CAISDE icon">
-                      </div>
-                      <div class="sub-nav-link__content">
-                        <p class="sub-nav-link__title">Dental</p>
-                        <p class="sub-nav-link__rate">3.99% - 12.99% APR<sup>&dagger;</sup>
-                        </p>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/student-loans/graduate/mba/" class="sub-nav-link" data-link-name="MBA">
-                      <div class="sub-nav-link__icon">
-                        <img src="{% static 'assets/images/icons/CAISMB.svg' %}" alt="CAISMB icon">
-                      </div>
-                      <div class="sub-nav-link__content">
-                        <p class="sub-nav-link__title">MBA</p>
-                        <p class="sub-nav-link__rate">3.99% - 14.96% APR<sup>&dagger;</sup>
-                        </p>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/student-loans/graduate/health-professions/" class="sub-nav-link" data-link-name="Health Professions">
-                      <div class="sub-nav-link__icon">
-                        <img src="{% static 'assets/images/icons/CAISGH.svg' %}" alt="CAISGH icon">
-                      </div>
-                      <div class="sub-nav-link__content">
-                        <p class="sub-nav-link__title">Health Professions</p>
-                        <p class="sub-nav-link__rate">1.19% - 12.99% APR<sup>&dagger;</sup>
-                        </p>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/student-loans/graduate/law/" class="sub-nav-link" data-link-name="Law">
-                      <div class="sub-nav-link__icon">
-                        <img src="{% static 'assets/images/icons/CAISLW.svg' %}" alt="CAISLW icon">
-                      </div>
-                      <div class="sub-nav-link__content">
-                        <p class="sub-nav-link__title">Law</p>
-                        <p class="sub-nav-link__rate">1.19% - 12.99% APR<sup>&dagger;</sup>
-                        </p>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/student-loans/graduate/medical/" class="sub-nav-link" data-link-name="Medical">
-                      <div class="sub-nav-link__icon">
-                        <img src="{% static 'assets/images/icons/CAISMD.svg' %}" alt="CAISMD icon">
-                      </div>
-                      <div class="sub-nav-link__content">
-                        <p class="sub-nav-link__title">Medical</p>
-                        <p class="sub-nav-link__rate">1.19% - 12.99% APR<sup>&dagger;</sup>
-                        </p>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
                     <a href="/student-loans/refinance/" class="sub-nav-arrow-link sub-nav-arrow-link__refinance" data-link-name="Student Loan Refinance">
                       Student Loan Refinance
                       <span class="sub-nav-arrow-link__arrow">
@@ -575,7 +503,7 @@
               <div>
                 <ul class="navigation-mobile-menu__sub-links-section">
                   <li>
-                    <a href="/resources/" class="sub-nav-arrow-link" data-link-name="Resources & Tools">
+                    <a href="{% url 'resources' %}" class="sub-nav-arrow-link" data-link-name="Resources & Tools">
                       Resources & Tools
                       <span class="sub-nav-arrow-link__arrow">
                         <svg viewbox="0 0 25 15" style="color: #002769">
@@ -585,7 +513,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="/articles/" class="sub-nav-link" data-link-name="Guides & Articles">
+                    <a href="{% url 'press:article_list_view' %}" class="sub-nav-link" data-link-name="Guides & Articles">
                       <div class="sub-nav-link__icon">
                         <img src="{% static 'assets/images/icons/guides.svg' %}" alt="guides icon">
                       </div>
@@ -596,7 +524,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="/calculators/" class="sub-nav-link" data-link-name="Calculators">
+                    <a href="{% url 'calculators:home' %}" class="sub-nav-link" data-link-name="Calculators">
                       <div class="sub-nav-link__icon">
                         <img src="{% static 'assets/images/icons/calculators.svg' %}" alt="calculators icon">
                       </div>
@@ -618,7 +546,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="/promotions/" class="sub-nav-link" data-link-name="Scholarships & Sweepstakes">
+                    <a href="{% url 'promotions' %}" class="sub-nav-link" data-link-name="Scholarships & Sweepstakes">
                       <div class="sub-nav-link__icon">
                         <img src="{% static 'assets/images/icons/promotions.svg' %}" alt="promotions icon">
                       </div>
@@ -645,7 +573,7 @@
               <div>
                 <ul class="navigation-mobile-menu__sub-links-section">
                   <li>
-                    <a href="/about/" class="sub-nav-arrow-link" data-link-name="About Us">
+                    <a href="{% url 'about' %}" class="sub-nav-arrow-link" data-link-name="About Us">
                       About Us
                       <span class="sub-nav-arrow-link__arrow">
                         <svg viewbox="0 0 25 15" style="color: #002769">
@@ -655,7 +583,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="/contact/" class="sub-nav-link" data-link-name="Contact Us">
+                    <a href="{% url 'contact' %}" class="sub-nav-link" data-link-name="Contact Us">
                       <div class="sub-nav-link__icon">
                         <img src="{% static 'assets/images/icons/contact.svg' %}" alt="contact icon">
                       </div>
@@ -731,9 +659,7 @@
           </li>
         </ul>
         <div class="navigation-mobile-menu__top-nav-buttons">
-
-          <button aria-label="My Account" data-open-modal="account-modal" class="dropshadow dropshadow__hover-off button button__dark-blue button__width-264 button__mobile-full-width">
-
+          <button type="button" aria-label="My Account" data-open-modal="account-modal" class="dropshadow dropshadow__hover-off button button__dark-blue button__width-264 button__mobile-full-width">
             <svg viewbox="0 0 15 17" style="color: #fff">
               <use href="{% static 'assets/images/icons/global/person.svg' %}#person"></use>
             </svg>

@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+{% load static humanize %}
+
+{% block title %}
+License | {{block.super}}
+{% endblock title %}
+
+{% block content %}
+
+
+<section class="hero hero-centered-text background-color__light-green" data-site-animation-breakpoint="992" data-section-name="A-Spot > Licenses">
+    <div class="site-breadcrumbs site-breadcrumbs__hero">
+        <div class="site-breadcrumbs__container">
+
+            <nav class="site-breadcrumbs__mobile">
+                <p class="p-small">
+                    < <a data-link-name="Breadcrumb > Home" href="{% url 'home' %}">Home</a>
+                </p>
+            </nav>
+        </div>
+    </div>
+    <div class="section-container">
+
+        <div class="responsive-background-image">
+
+            <picture>
+                <source media="(min-width: 992px)" srcset="{% static 'assets/images/guides-archive-hero.png' %}">
+                <img width="2880" height="624" src="{% static 'assets/images/guides-archive-hero.png' %}" class="attachment-full size-full" alt="" decoding="async" />
+            </picture>
+        </div>
+        <div class="hero-centered-text__container">
+            <div class="hero-centered-text__content">
+                <div class="hero-centered-text__header">
+                    <h1 class="h1" data-site-animation-order="0">Licenses</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="licenses-section">
+    <div class="section-container">
+        <table class="licenses-section__desktop">
+            <tr class="licenses-section__desktop--row">
+                <th scope="row">
+                    <p class="licenses-section__item">The Republic Of Kenya</p>
+                </th>
+                <td>
+                    <p class="licenses-section__item">
+                        2307-5865 </p>
+                </td>
+                <td>
+                    <p class="licenses-section__item">
+                        <a href="" target="_blank">Ministry of Education and Lending Coop</a>
+                    </p>
+                </td>
+            </tr>
+            <tr class="licenses-section__desktop--row">
+                <th scope="row">
+                    <p class="licenses-section__item">The Republic of Tanzania</p>
+                </th>
+                <td>
+                    <p class="licenses-section__item">
+                    </p>
+                </td>
+                <td>
+                    <p class="licenses-section__item">
+                        Consumer Act Registration </p>
+                </td>
+            </tr>
+        </table>
+
+        <div class="licenses-section__mobile">
+            <div class="licenses-section__mobile-group  background-color__white">
+                <div class="licenses-section__mobile-row licenses-section__mobile-row--border">
+                    <h5 class="licenses-section__header">Country</h5>
+                    <p class="licenses-section__item">Kenya</p>
+                </div>
+                <div class="licenses-section__mobile-row licenses-section__mobile-row--border">
+                    <h5 class="licenses-section__header">License Number</h5>
+                    <p class="licenses-section__item">AC-6536 </p>
+                </div>
+                <div class="licenses-section__mobile-row">
+                    <h5 class="licenses-section__header">License Type</h5>
+                    <p class="licenses-section__item">
+                        <a href="" target="_blank">Collection Agency License </a>
+                    </p>
+                </div>
+            </div>
+            <div class="licenses-section__mobile-group  background-color__light-gray">
+                <div class="licenses-section__mobile-row licenses-section__mobile-row--border">
+                    <h5 class="licenses-section__header">Country</h5>
+                    <p class="licenses-section__item">Tanzania</p>
+                </div>
+                <div class="licenses-section__mobile-row licenses-section__mobile-row--border">
+                    <h5 class="licenses-section__header">License Number</h5>
+                    <p class="licenses-section__item"></p>
+                </div>
+                <div class="licenses-section__mobile-row">
+                    <h5 class="licenses-section__header">License Type</h5>
+                    <p class="licenses-section__item">Student Loan Servicing License </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}

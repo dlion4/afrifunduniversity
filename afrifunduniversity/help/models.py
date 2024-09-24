@@ -12,8 +12,24 @@ class ContactBlock(models.Model):
     def __str__(self):
         return self.name
 
+class Category(models.Model):
+    title = models.CharField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100)
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
+
 
 class Question(models.Model):
+    category = models.ForeignKey(
+        Category, blank=True, null=True, on_delete=models.SET_NULL,
+        related_name="category_questions",
+    )
     title = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100, blank=True)
     description = models.CharField(max_length=500)
@@ -46,6 +62,7 @@ class QuestionResponse(models.Model):
         related_name="question_response",
     )
     title = models.CharField(max_length=100, unique=True)
+    summary = models.TextField(max_length=6000, blank=True)
     slug = models.SlugField(max_length=100, blank=True)
 
 

@@ -1,0 +1,179 @@
+{% extends "layout.html" %}
+{% load static humanize %}
+
+{% block title %}
+Calculators | {{block.super}}
+{% endblock title %}
+
+{% block content %}
+
+
+<section class="hero hero-centered-text background-color__light-teal" data-site-animation-breakpoint="992" data-section-name="A-Spot > Calculators">
+    <div class="site-breadcrumbs site-breadcrumbs__hero">
+        <div class="site-breadcrumbs__container">
+            <nav class="site-breadcrumbs__mobile">
+                <p class="p-small">
+                    < <a data-link-name="Breadcrumb > Home" href="{% url 'home' %}">Home</a>
+                </p>
+            </nav>
+        </div>
+    </div>
+    <div class="section-container">
+
+        <div class="responsive-background-image">
+
+            <picture>
+                <source media="(min-width: 992px)" srcset="{% static 'assets/images/light-blue-background-d.png' %}">
+                <source media="(min-width: 1px)" srcset="{% static 'assets/images/light-blue-background-m.png' %}">
+                <img width="2880" height="624" src="{% static 'assets/images/light-blue-background-d.png' %}" class="attachment-full size-full" alt="background" decoding="async" />
+            </picture>
+        </div>
+        <div class="hero-centered-text__container">
+            <div class="hero-centered-text__content">
+                <div class="hero-centered-text__header">
+                    <h1 class="h1" data-site-animation-order="0">Calculators</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="two-column-product-selectors" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="">
+    <div class="section-container">
+        <div class="two-column-product-selectors__container">
+            <div class="two-column-product-selectors__header-container" data-site-animation-order="0">
+                <div class="two-column-product-selectors__paragraphs">
+                    <p class="p-large">Estimate any student loan with our Student Loan Calculator <strong>OR</strong> check out one of our other advanced student loan calculators to help you understand and estimate your own private student loan options with College Ave.</p>
+                </div>
+            </div>
+            <div class="two-column-product-selectors__grid">
+                {% for calc in calculators %}
+                <div data-site-animation-order="1">
+                    <a data-link-name="Student Loan Calculator" href="{{calc.get_absolute_url}}" class="product-selection-button dropshadow dropshadow__hover-on">
+                        <img src="{% static 'assets/images/icons/calculators.svg' %}" alt="{{calc.title|title}} Calculator" class="product-selection-button__icon">
+                        <h4 class="h4">{{calc.title|title}} Calculator</h4>
+                        <img src="{% static 'assets/images/icons/arrow.svg' %}" alt="arrow" class="product-selection-button__arrow">
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="icon-cta-banner" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Want to borrow less?">
+    <div class="section-container">
+        <div class="icon-cta-banner__container background-color__light-green" data-site-animation-order="0">
+            <div class="icon-cta-banner__row">
+                <div class="icon-cta-banner__text-container">
+                    <div class="icon-cta-banner__header-container">
+                        <div class="icon-cta-banner__icon">
+                            <img width="68" height="68" src="{% static 'assets/images/two-person-icon.png' %}" class="attachment-full size-full" alt="two person icon" decoding="async" />
+                        </div>
+                        <h4 class="h4">Want to borrow less?</h4>
+                    </div>
+                    <p class="icon-cta-banner__subheadline p-large">Enter to win our KES 10,000 monthly scholarship</p>
+                </div>
+
+                <a href="{% url 'promotions' %}" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-205" data-link-name="Enter Now">
+                    Enter Now </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="one-column-centered background-color__white" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Let's get started, you've got this.">
+    <div class="section-container">
+        <div class="one-column-centered__outer-container background-color__light-orange">
+            <div class="one-column-centered__container">
+                <div class="one-column-centered__content_container">
+                    <div class="one-column-centered__headline-container" data-site-animation-order="1">
+                        <h2 class="h2">Let's get started, you've got this.</h2>
+                    </div>
+                </div>
+                <div class="one-column-centered__button-container" data-site-animation-order="3">
+
+                    <a href="/prequalify/" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-203" data-link-name="Prequalify">
+                        Prequalify
+                    </a>
+
+                    <button type="button" aria-label="Apply Now" data-open-modal="apply" class="dropshadow dropshadow__hover-off button button__dark-blue button__width-203">
+                        Apply Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="two-column-image-header-text" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="The Importance of Financial Planning">
+    <div class="section-container">
+        <div class="two-column-image-header-text__outer-background background-color__gray">
+            <div class="two-column-image-header-text__outer-container">
+                <div class="two-column-image-header-text__left-column">
+                    <div class="two-column-image-header-text__headline">
+                        <h2 class="h2" data-site-animation-order="0">The Importance of Financial Planning</h2>
+                    </div>
+                    <div class="two-column-image-header-text__image" data-site-animation-order="1">
+
+                        <picture>
+                            <source media="(min-width: 992px)" srcset="{% static 'assets/images/resources-tools-hero.png' %}">
+                            <img width="1234" height="758" src="{% static 'assets/images/resources-tools-hero.png' %}" class="attachment-full size-full" alt="sitting on a couch" decoding="async" />
+                        </picture>
+                    </div>
+                </div>
+                <div class="two-column-image-header-text__right-column" data-site-animation-order="2">
+                    <p class="p-large">With more repayment options, the less you have to worry. Why? Because the way you repay your loan drives how much you'll save in the end. And if you start making payments sooner-or pay more each month-you can lower the cost of the loan over time. When choosing your repayment options, consider how much you feel comfortable paying each month, and how quickly you hope to have your loan entirely paid off.</p>
+                    <p class="p-large">This way you'll feel confident that when you make your monthly payment it's working extra-hard for you.</p>
+                    <ul class="checklist__list">
+                        <li class="checklist__list-item">
+                            <span class="checklist__marker">
+                                <svg viewBox="0 0 17 12" style="color: #00A4B3">
+                                    <use href="{% static 'assets/images/icons/global/check_mark.svg' %}#check_mark"></use>
+                                </svg>
+                            </span>
+                            <span>Save more money</span>
+                        </li>
+                        <li class="checklist__list-item">
+                            <span class="checklist__marker">
+                                <svg viewBox="0 0 17 12" style="color: #00A4B3">
+                                    <use href="{% static 'assets/images/icons/global/check_mark.svg' %}#check_mark"></use>
+                                </svg>
+                            </span>
+                            <span>Invest your money more wisely</span>
+                        </li>
+                        <li class="checklist__list-item">
+                            <span class="checklist__marker">
+                                <svg viewBox="0 0 17 12" style="color: #00A4B3">
+                                    <use href="{% static 'assets/images/icons/global/check_mark.svg' %}#check_mark"></use>
+                                </svg>
+                            </span>
+                            <span>Reduce your risk</span>
+                        </li>
+                        <li class="checklist__list-item">
+                            <span class="checklist__marker">
+                                <svg viewBox="0 0 17 12" style="color: #00A4B3">
+                                    <use href="{% static 'assets/images/icons/global/check_mark.svg' %}#check_mark"></use>
+                                </svg>
+                            </span>
+                            <span>Reach your financial goals sooner</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section data-scroll-id="faqs" class="faq-accordion-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Frequently Asked Question">
+    {% include "components/faqs.html" %}
+</section>
+
+
+{% endblock content %}
+{% block pressScript %}
+{% endblock pressScript %}

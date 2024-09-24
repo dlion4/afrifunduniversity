@@ -1,0 +1,155 @@
+{% extends "layout.html" %}
+{% load static humanize %}
+
+{% block title %}
+Sitemap | {{block.super}}
+{% endblock title %}
+
+{% block content %}
+<section class="hero hero-centered-text background-color__light-teal" data-site-animation-breakpoint="992" data-section-name="A-Spot > Sitemap">
+    <div class="site-breadcrumbs site-breadcrumbs__hero">
+        <div class="site-breadcrumbs__container">
+
+            <nav class="site-breadcrumbs__mobile">
+                <p class="p-small">
+                    < <a data-link-name="Breadcrumb > Home" href="{% url 'home' %}">Home</a>
+                </p>
+            </nav>
+        </div>
+    </div>
+    <div class="section-container">
+
+        <div class="responsive-background-image">
+
+            <picture>
+                <source media="(min-width: 992px)" srcset="{% static 'assets/images/guides-archive-hero.png' %}">
+                <img width="2880" height="624" src="{% static 'assets/images/guides-archive-hero.png' %}" class="attachment-full size-full" alt="" decoding="async" />
+            </picture>
+        </div>
+        <div class="hero-centered-text__container">
+            <div class="hero-centered-text__content">
+                <div class="hero-centered-text__header">
+                    <h1 class="h1" data-site-animation-order="0">Sitemap</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="article-layout full-width-text-layout" data-section-name="Main Text Section">
+    <div class="section-container">
+        <div class="article-layout__container">
+            <main class="article-layout__main">
+                <div class="article-layout__article">
+                    <style>
+                        .sitemap-container {
+                            display: flex;
+                            align-items: center;
+                            flex-direction: column;
+                            gap: 30px;
+                        }
+
+                        .sitemap-header {
+                            color: #00A4b3;
+                            text-align: center;
+                            width: 100%;
+                            max-width: 800px;
+                        }
+
+                        ul.sitemap-list {
+                            margin: 0;
+                            column-count: 2;
+                            column-gap: 100px;
+                            width: fit-content;
+                        }
+
+                        ul.sitemap-list a {
+                            text-decoration: none !important;
+                        }
+
+                        ul.sitemap-list a:hover {
+                            text-decoration: underline !important;
+                        }
+
+                        ul.sitemap-list li {
+                            margin-bottom: 15px;
+                        }
+
+                        ul.sitemap-list ul {
+                            margin: 0;
+                        }
+
+                        @media screen and (max-width: 768px) {
+                            ul.sitemap-list {
+                                column-count: 1;
+                            }
+                        }
+                    </style>
+                    <div class="sitemap-container">
+                        <p class="p-large sitemap-header">
+                            <strong>
+                                Looking for something? From student loans to preparing for college,
+                                use our site map to help you find what you need quickly.
+                            </strong>
+                        </p>
+                        <ul class="sitemap-list">
+                            <li class="column-one"><strong><a href="/student-loans/">Student Loans</a></strong>
+                                <ul>
+                                    <li><a href="/private-student-loans/">Private Student Loans</a>
+                                        <ul>
+                                            <li><a href="/student-loans/undergraduate/">Undergraduate</a></li>
+                                            <li><a href="/student-loans/parent/">Parent</a></li>
+                                            <li><a href="/student-loans/career/">Career Loans</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/student-loans/graduate/">Graduate Loans</a>
+                                        <ul>
+                                            <li><a href="/student-loans/graduate/dental/">Dental</a></li>
+                                            <li><a href="/student-loans/graduate/mba/">MBA</a></li>
+                                            <li><a href="/student-loans/graduate/health-professions/">Health Professions</a></li>
+                                            <li><a href="/student-loans/graduate/law/">Law</a></li>
+                                            <li><a href="/student-loans/graduate/medical/">Medical</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/student-loans/refinance/">Student Loan Refinance</a></li>
+                                </ul>
+                            </li>
+                            <li class="column-one"><strong><a href="{% url 'resources' %}">Resources &#038; Tools</a></strong>
+                                <ul>
+                                    <li><a href="{% url 'press:article_list_view' %}">Guides &#038; Articles</a></li>
+                                    <li><a href="/calculators/">Calculators</a></li>
+                                    <li><a href="{% url 'ss:help:help_home' %}">FAQs</a></li>
+                                    <li><a href="{% url 'promotions' %}">Scholarships &#038; Sweepstakes</a></li>
+                                </ul>
+                            </li>
+                            <li class="column-two"><strong><a href="{% url 'about' %}">About Us</a></strong>
+                                <ul>
+                                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                                    <li><a href="{% url 'reviews' %}">Reviews</a></li>
+                                    <li><a href="{% url 'careers' %}">Careers</a></li>
+                                    <li><a href="{% url 'press:home' %}">Press</a></li>
+                                    <li><a href="{% url 'partners:partner:home' %}">Partner With Us</a></li>
+                                    <li><a href="{% url 'schools:school:home' %}">For Schools</a></li>
+                                </ul>
+                            </li>
+                            <li class="column-two"><strong><a href="">Find My Application</a><strong>
+                                        <ul>
+                                            <li><a href="">Return to Application</a></li>
+                                            <li><a href="">Application Status</a></li>
+                                        </ul>
+                            </li>
+                            <li class="column-two"><strong><a data-open-modal="account-modal">My Account</a></strong></li>
+                            <li class="column-two"><strong><a data-open-modal="apply">Apply</a><strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock content %}

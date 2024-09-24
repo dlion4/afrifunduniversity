@@ -90,6 +90,7 @@ THIRD_PARTY_APPS = [
     "rest_framework.authtoken",
     "corsheaders",
     "drf_spectacular",
+    "drf_spectacular_sidecar",
 ]
 
 LOCAL_APPS = [
@@ -105,6 +106,10 @@ LOCAL_APPS = [
     "afrifunduniversity.environments",
 
     "afrifunduniversity.saas",
+    # we now start loans
+    "apps.loans.studentloans",
+    # calculators
+    "afrifunduniversity.calculators",
 ]
 
 SHARED_APPS = [
@@ -362,7 +367,12 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "1.0.0",
     "SERVE_PERMISSIONS": ["rest_framework.permissions.AllowAny"],
     "SCHEMA_PATH_PREFIX": "/api/",
+
+    "SWAGGER_UI_DIST": "SIDECAR",  # shorthand to use the sidecar instead
+    "SWAGGER_UI_FAVICON_HREF": "SIDECAR",
+    "REDOC_DIST": "SIDECAR",
 }
+
 # Your stuff...
 # ------------------------------------------------------------------------------
 # https://django-tenants.readthedocs.io/en/latest/install.html#PUBLIC_SCHEMA_URLCONF

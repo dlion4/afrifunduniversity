@@ -9,6 +9,7 @@ from rest_framework import status
 from afrifunduniversity.help.apis.serializers import QuestionResponseArticleSerializer
 from rest_framework import permissions
 import json
+from drf_spectacular.utils import extend_schema, extend_schema_view, OpenApiParameter
 
 # Create your views here.
 def get_home_page(self):
@@ -92,36 +93,55 @@ class QuestionResponseArticleDetailView(TemplateView):
             self.get_question_response_article_object(**kwargs).pk
         )
         return context
-    
+
+@extend_schema_view(
+    get=extend_schema(description="Retrieve an article"),
+    put=extend_schema(description="Vote on an article"),
+)
 class QuestionResponseArticleVoteView(api_generics.RetrieveUpdateAPIView):
     serializer_class = QuestionResponseArticleSerializer
-    queryset = QuestionResponseArticle
+    queryset = QuestionResponseArticle.objects.all()
     permission_classes = [permissions.AllowAny]
 
-    def put(self, request, *args, **kwargs)->JsonResponse:
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                "pk", int, description="Primary key of the response article"),
+            OpenApiParameter(
+                "slug", str, description="Slug of the response article"),
+            OpenApiParameter(
+                "upvote", bool, description="Indicates if the vote is an upvote"),
+        ],
+    )
+    def put(self, request, *args, **kwargs):
         try:
-            data:dict = json.loads(request.body)
+            data = json.loads(request.body)
         except json.JSONDecodeError as e:
             return Response({"detail": str(e)}, status=status.HTTP_400_BAD_REQUEST)
-        try:
-            article = get_object_or_404(
-                QuestionResponseArticle,
-                pk=data.get("pk"),
-                slug=data.get("slug")
-            )
-        except QuestionResponseArticle.DoesNotExist:
-            return Response(
-                {"detail": "Error updating the article voting"},
-                status=status.HTTP_400_BAD_REQUEST)
+
+        article = get_object_or_404(
+            QuestionResponseArticle,
+            pk=data.get("pk"),
+            slug=data.get("slug"),
+        )
+
         is_upvote = data.get("upvote", False)
         if is_upvote:
             article.up_vote += 1
         else:
             article.down_vote += 1
         article.save()
+
         serializer = self.serializer_class(instance=article)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                "pk", int, description="Primary key of the response article"),
+            OpenApiParameter(
+                "slug", str, description="Slug of the response article"),
+        ],
+    )
     def get(self, request, *args, **kwargs):
         return Response({"message": "Item Retrieved"})

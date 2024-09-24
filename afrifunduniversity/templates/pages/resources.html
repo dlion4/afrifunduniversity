@@ -1,0 +1,382 @@
+{% extends "layout.html" %}
+{% load static humanize %}
+{% block title %}
+Resources | {{block.super}}
+{% endblock title %}
+
+
+{% block content %}
+<section class="hero text-image-hero-section background-color__light-green" data-site-animation-breakpoint="992" data-section-name="A-Spot > Resources & Tools">
+    <div class="site-breadcrumbs site-breadcrumbs__hero">
+        <div class="site-breadcrumbs__container">
+            <nav class="site-breadcrumbs__desktop">
+                <p class="p-small">
+                    <a data-link-name="Breadcrumb > Home" href="{% url 'home' %}">Home</a> > Resources &#038; Tools
+                </p>
+            </nav>
+
+            <nav class="site-breadcrumbs__mobile">
+                <p class="p-small">
+                    < <a data-link-name="Breadcrumb > Home" href="{% url 'home' %}">Home</a>
+                </p>
+            </nav>
+        </div>
+    </div>
+    <div class="section-container">
+        <div class="text-image-hero-section__container">
+            <div class="text-image-hero-section__column-content">
+                <div class="text-image-hero-section__text-content">
+                    <h1 class="h1 h1__mobile-small" data-site-animation-order="0">Resources & Tools</h1>
+                    <p class="p-large" data-site-animation-order="1">Our mission is to financially prepare college students and their families without any added stress - it should be simple, clear, and personal. So we created free resources and guides that live by those same rules. From research tips to savings strategies to reminders of key dates, keep coming back to Afri Fund University Lender for more helpful content throughout your college journey.</p>
+                </div>
+            </div>
+            <div class="text-image-hero-section__column-image" data-site-animation-order="4">
+
+                <picture>
+                    <source media="(min-width: 992px)" srcset="{% static 'assets/images/resources-tools-hero.png' %}">
+                    <img width="1234" height="758" src="{% static 'assets/images/resources-tools-hero.png' %}" class="attachment-full size-full" alt="sitting on a couch" decoding="async" />
+                </picture>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="product-cards-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Resources to Help You All Along the Way">
+    <div class="section-container">
+        <div class="product-cards-section__container">
+            <h2 class="h2 product-cards-section__header" data-site-animation-order="0">Resources to Help You All Along the Way</h2>
+            <div class="product-cards__container keen-slider" data-slider="product-cards">
+                <div class="keen-slider__slide" data-site-animation-order=1>
+                    <a data-link-name="Guides & Articles" href="{% url 'press:article_list_view' %}" class="product-card background-color__light-coral">
+                        <div class="product-card__container">
+                            <div class="product-card__content-column">
+                                <div class="product-card__content">
+                                    <h3 class="product-card__header h3">Guides & Articles</h3>
+                                    <p class="p-large">Helpful resources, complete guides, and interesting articles to help you and your family on your college journey.</p>
+                                </div>
+                            </div>
+                            <div class="product-card__image-column">
+                                <img width="256" height="253" src="{% static 'assets/images/resources-card-image.png' %}" class="attachment-full size-full" alt="guides and articles" decoding="async" />
+                            </div>
+                            <div class="product-card__arrow-container">
+
+                                <svg viewBox="0 0 25 15" style="color: #002769">
+                                    <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="keen-slider__slide" data-site-animation-order=2>
+                    <a data-link-name="Calculators" href="" class="product-card background-color__light-teal">
+                        <div class="product-card__container">
+                            <div class="product-card__content-column">
+                                <div class="product-card__content">
+                                    <h3 class="product-card__header h3">Calculators</h3>
+                                    <p class="p-large">Understand and estimate your loan options with student loan calculators designed with you in mind.</p>
+                                </div>
+                            </div>
+                            <div class="product-card__image-column">
+                                <img width="256" height="253" src="{% static 'assets/images/calculators-card-image.png' %}" class="attachment-full size-full" alt="calculators" decoding="async" />
+                            </div>
+                            <div class="product-card__arrow-container">
+
+                                <svg viewBox="0 0 25 15" style="color: #002769">
+                                    <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="keen-slider__slide" data-site-animation-order=3>
+                    <a data-link-name="Sweepstakes & Scholarships" href="{% url 'promotions' %}" class="product-card background-color__light-green">
+                        <div class="product-card__container">
+                            <div class="product-card__content-column">
+                                <div class="product-card__content">
+                                    <h3 class="product-card__header h3">Sweepstakes & Scholarships</h3>
+                                    <p class="p-large">Throughout the year, we offer sweepstakes, giveaways, and scholarships to help you on your financial journey.</p>
+                                </div>
+                            </div>
+                            <div class="product-card__image-column">
+                                <img width="226" height="220" src="{% static 'assets/images/promo-card-image.png' %}" class="attachment-full size-full" alt="promotions" decoding="async" />
+                            </div>
+                            <div class="product-card__arrow-container">
+
+                                <svg viewBox="0 0 25 15" style="color: #002769">
+                                    <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="keen-slider__slide" data-site-animation-order="4">
+                    <a data-link-name="FAQs" href="{% url 'ss:help:help_home' %}" class="product-card background-color__light-orange">
+                        <div class="product-card__container">
+                            <div class="product-card__content-column">
+                                <div class="product-card__content">
+                                    <h3 class="product-card__header h3">FAQs</h3>
+                                    <p class="p-large">Browse through our most frequently asked questions that fellow students and parents have asked us before.</p>
+                                </div>
+                            </div>
+                            <div class="product-card__image-column">
+                                <img width="237" height="221" src="{% static 'assets/images/faqs-card-image.png' %}" class="attachment-full size-full" alt="faqs" decoding="async" />
+                            </div>
+                            <div class="product-card__arrow-container">
+
+                                <svg viewBox="0 0 25 15" style="color: #002769">
+                                    <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="resources-grid" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Most Popular Articles & Guides">
+    <div class="section-container">
+        <div class="resources-grid__container">
+            <div class="resources-grid__header-container">
+                <h2 class="h2" data-site-animation-order="0">Most Popular Articles & Guides</h2>
+                <p class="p-large" data-site-animation-order="1">These are some of the pages that parents, students, and families are finding most helpful today.</p>
+            </div>
+            {% if articles %}
+            <div class="resources-grid__cards-container">
+                {% for article in articles %}
+                <div data-site-animation-order="2">
+
+                    <a data-link-name="6 Surprising Insights For Parents of College-Bound Students" href="{{article.get_absolute_url}}" class="resource-card dropshadow">
+                        <div class="resource-card__container">
+                            <div class="resource-card__content">
+                                <h4 class="resource-card__category">{{article.category.label|default:"Un categorized"}}</h4>
+                                <h3 class="resource-card__title">
+                                    {{article.title}}
+                                </h3>
+                            </div>
+                            <span class="arrow-link" data-link-name="Learn More">
+                                <span class="arrow-link__anchor">
+                                    Learn More
+                                    <svg width="16" height="14" viewBox="0 0 16 14" style="color: #002769">
+                                        <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
+                                    </svg> </span>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+                <!-- endfor -->
+            </div>
+
+            <a href="{% url 'press:article_list_view' %}" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-264" data-link-name="View All Articles">
+                View All Articles
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+
+
+<section class="one-two-card-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Current Scholarships & Sweepstakes">
+    <div class="section-container">
+        <div class="one-two-card-section__container">
+            <div class="one-two-card-section__top-container">
+                <h2 class="h2 one-two-card-section__headline" data-site-animation-order="0">Current Scholarships & Sweepstakes</h2>
+                <div class="one-two-card-section__content" data-site-animation-order="1">
+                    <p class="p-large">Throughout the year we offer sweepstakes and giveaways to help you on your college and financial journey. Enter one of our sweepstakes today!</p>
+                </div>
+            </div>
+
+            <div class="one-two-card-section__card-container" data-site-animation-order="2">
+                <div class="featured-card dropshadow">
+                    <div class="featured-card__outer-container background-color__light-green">
+                        <div class="featured-card__image">
+                            <img width="691" height="441" src="{% static 'assets/images/promo-2.png' %}" class="attachment-full size-full" alt="promo image" decoding="async" />
+                        </div>
+                        <div class="featured-card__container">
+
+                            <a href="" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-205" data-link-name="Win Scholarship">
+                                Win Scholarship
+                            </a>
+                            <div class="featured-card__content">
+                                <div class="featured-card__header">
+                                    <h3 class="h3">$100 Scholarship Monthly Sweepstakes</h3>
+                                </div>
+                                <div class="featured-card__footer">
+
+                                    <svg class="clock-icon" viewBox="0 0 16 16" style="color: #002769">
+                                        <use href="{% static 'assets/images/icons/global/clock.svg' %}#clock"></use>
+                                    </svg>
+                                    <p class="featured-card__bottom-text">Closed, no purchases necessary</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="one-two-card-section__bottom-container" data-site-animation-order="3">
+                <a href="{% url 'promotions' %}" class="arrow-link" data-link-name="View All Current Scholarships & Sweepstakes">
+                    View All Current Scholarships & <span class="arrow-link__anchor">
+                        Sweepstakes<svg width="16" height="14" viewBox="0 0 16 14" style="color: #002769">
+                            <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="calculator-links-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Calculators">
+    <div class="section-container">
+        <div class="calculator-links-section__container background-color__light-teal">
+            <div class="calculator-links-section__content-container">
+                <div class="calculator-links-section__header-container">
+                    <h2 class="h2" data-site-animation-order="0">Calculators</h2>
+                    <p class="p-large" data-site-animation-order="1">Use our calculator tools to get a better grasp on your student loans and financial future.</p>
+                </div>
+                <div class="calculator-links-section__card-container" data-site-animation-order="2">
+                    <a data-link-name="Student Loan Calculator" class="icon-link-card background-color__white dropshadow dropshadow__hover-on" href="/calculators/student-loans/">
+                        <div class="icon-link-card__container">
+                            <div class="icon-link-card__image-container">
+                                <div class="icon-link-card__image">
+                                    <img src="{% static 'assets/temp/calculator.svg' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="icon-link-card__content">
+                                <h4 class="icon-link-card__header h4">Student Loan Calculator</h4>
+                                <p class="p-large icon-link-card__text">Use our student loan calculator to estimate your monthly student loan payments.</p>
+                            </div>
+                            <div class="icon-link-card__arrow-container">
+
+                                <svg viewBox="0 0 25 15" style="color: #002769">
+                                    <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </a><a data-link-name="Graduate Loan Calculator" class="icon-link-card background-color__white dropshadow dropshadow__hover-on" href="/calculators/graduate/">
+                        <div class="icon-link-card__container">
+                            <div class="icon-link-card__image-container">
+                                <div class="icon-link-card__image">
+                                    <img src="{% static 'assets/temp/calculator-divide.svg' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="icon-link-card__content">
+                                <h4 class="icon-link-card__header h4">Graduate Loan Calculator</h4>
+                                <p class="p-large icon-link-card__text">Estimate what your graduate student loan payments would be with our graduate loan calculator.</p>
+                            </div>
+                            <div class="icon-link-card__arrow-container">
+
+                                <svg viewBox="0 0 25 15" style="color: #002769">
+                                    <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div data-site-animation-order="3">
+
+                    <a href="" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-239" data-link-name="View All Calculators">
+                        View All Calculators </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="icon-link-card-carousel-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Browse our FAQs">
+    <div class="section-container">
+        <div class="icon-link-card-carousel-section__container background-color__white">
+            <div class="icon-link-card-carousel-section__header-container">
+                <h2 class="h2" data-site-animation-order="0">Browse our FAQs</h2>
+            </div>
+            <div class="icon-link-card-carousel-section__faqs-container">
+                <div class="icon-link-card-carousel-section__slider-container keen-slider" data-slider="icon-link-cards">
+                    <div class="keen-slider__slide" data-site-animation-order=1>
+                        <a data-link-name="I'm looking for a loan" class="icon-link-card background-color__white dropshadow dropshadow__hover-on" href="{% url 'ss:help:help_home' %}">
+                            <div class="icon-link-card__container">
+                                <div class="icon-link-card__image-container">
+                                    <div class="icon-link-card__image">
+                                        <img width="1" height="1" src="{% static 'assets/images/icons/magnifying-glass.svg' %}" class="attachment-thumbnail size-thumbnail" alt="magnifying glass" decoding="async" />
+                                    </div>
+                                </div>
+                                <div class="icon-link-card__content">
+                                    <h4 class="icon-link-card__header h4">I'm looking for a loan</h4>
+                                    <p class="p-large icon-link-card__text">Ready to apply? Read about how our loan products work, the eligibility requirements, how to apply, and more.</p>
+                                </div>
+                                <div class="icon-link-card__arrow-container">
+
+                                    <svg viewBox="0 0 25 15" style="color: #002769">
+                                        <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="keen-slider__slide" data-site-animation-order=2>
+                        <a data-link-name="I've started an application" class="icon-link-card background-color__white dropshadow dropshadow__hover-on" href="{% url 'ss:help:help_home' %}">
+                            <div class="icon-link-card__container">
+                                <div class="icon-link-card__image-container">
+                                    <div class="icon-link-card__image">
+                                        <img width="1" height="1" src="{% static 'assets/images/icons/calendar-pencil.svg' %}" class="attachment-thumbnail size-thumbnail" alt="make a note" decoding="async" />
+                                    </div>
+                                </div>
+                                <div class="icon-link-card__content">
+                                    <h4 class="icon-link-card__header h4">I've started an application</h4>
+                                    <p class="p-large icon-link-card__text">Start here if you need to find your reference number, complete an application, check your status, and more.</p>
+                                </div>
+                                <div class="icon-link-card__arrow-container">
+
+                                    <svg viewBox="0 0 25 15" style="color: #002769">
+                                        <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="keen-slider__slide" data-site-animation-order=3>
+                        <a data-link-name="I need to manage my loan" class="icon-link-card background-color__white dropshadow dropshadow__hover-on" href="{% url 'ss:help:help_home' %}">
+                            <div class="icon-link-card__container">
+                                <div class="icon-link-card__image-container">
+                                    <div class="icon-link-card__image">
+                                        <img width="1" height="1" src="{% static 'assets/images/icons/calendar.svg' %}" class="attachment-thumbnail size-thumbnail" alt="calendar" decoding="async" />
+                                    </div>
+                                </div>
+                                <div class="icon-link-card__content">
+                                    <h4 class="icon-link-card__header h4">I need to manage my loan</h4>
+                                    <p class="p-large icon-link-card__text">Learn how to get online access to our payment portal, how to make payments, how to set up auto-pay, and how to contact us if you need assistance.</p>
+                                </div>
+                                <div class="icon-link-card__arrow-container">
+
+                                    <svg viewBox="0 0 25 15" style="color: #002769">
+                                        <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div data-site-animation-order="5">
+                <a href="{% url 'ss:help:help_home' %}" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-229" data-link-name="View All FAQs">
+                    View All FAQs </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="subscribe-form-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Sign Up for the Latest Afri Fund News">
+    {% include "components/forms/subscribe.html" %}
+</section>
+
+{% endblock content %}
+{% block pressScript %}
+{% endblock pressScript %}

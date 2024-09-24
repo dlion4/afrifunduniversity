@@ -4,10 +4,12 @@ from rest_framework.routers import DefaultRouter
 from rest_framework.routers import SimpleRouter
 from rest_framework_nested.routers import NestedDefaultRouter
 
+from afrifunduniversity.calculators.apis.viewset import LoanCalculatorModelViewSet
 from afrifunduniversity.environments.views import EnvironmentConfigListCreateApiView
 from afrifunduniversity.environments.views import (
     EnvironmentConfigRetrieveUpdateDestroyAPIView,
 )
+from afrifunduniversity.help.apis.viewsets import CategoryModelViewSet
 from afrifunduniversity.help.apis.viewsets import ContactBlockModelViewSet
 from afrifunduniversity.help.apis.viewsets import QuestionModelViewSet
 
@@ -17,6 +19,7 @@ from afrifunduniversity.help.apis.viewsets import QuestionModelViewSet
 from afrifunduniversity.help.apis.viewsets import QuestionResponseArticleModelViewSet
 from afrifunduniversity.help.apis.viewsets import QuestionResponseModelViewSet
 from afrifunduniversity.users.api.views import UserViewSet
+from apps.loans.apis.viewsets import GlossaryModelViewset
 from apps.main_application.apis.viewsets import ReviewListViewSet
 from apps.main_application.apis.viewsets import SubscriptionRecordView
 from apps.main_application.apis.viewsets import SubscriptionView
@@ -41,10 +44,16 @@ router.register("subscriptions", SubscriptionViewSet, basename="subscription")
 router.register("categories", CategoryViewSet, basename="categories")
 router.register("articles", ArticleViewSet, basename="articles")
 router.register("leadership", LeadershipViewSet, basename="leadership")
+router.register("help/category",CategoryModelViewSet, basename="help-category")
 router.register(
     "ss/help/contact-block",
     ContactBlockModelViewSet, basename="contact-block")
 router.register("questions",QuestionModelViewSet, basename="question")
+router.register("calculators",LoanCalculatorModelViewSet, basename="calculators")
+
+# Loans apis part
+
+router.register("loans/glossary", GlossaryModelViewset, basename="Glossary")
 
 # Nested router for the leadership
 leadership_router = NestedDefaultRouter(router, r"leadership", lookup="leadership")

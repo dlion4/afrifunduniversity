@@ -1,0 +1,55 @@
+{% load static %}
+
+
+<div class="section-container">
+    <div class="subscribe-form-section__outer-container background-color__light-green">
+        <div class="responsive-background-image">
+            <picture>
+                <source media="(min-width: 992px)" srcset="{% static 'assets/images/guides-archive-hero.png' %}">
+                <source media="(min-width: 768px)" srcset="{% static 'assets/images/guides-articles-hero-t.png' %}">
+                <source media="(min-width: 1px)" srcset="{% static 'assets/images/guides-archive-hero-m.png' %}">
+                <img width="2880" height="624" src="{% static 'assets/images/guides-archive-hero.png' %}" class="attachment-full size-full" alt="" decoding="async">
+            </picture>
+        </div>
+        <div class="subscribe-form-section__container">
+            <div class="subscribe-form-section__header-column">
+                <h2 class="h2" data-site-animation-order="0" data-site-animation-element="animate">
+                    Sign Up for the Latest Afri Fund News </h2>
+            </div>
+            <div class="subscribe-form-section__form-column">
+                <form data-form-id="blog-subscription" data-form-type="subscribeForm" data-form-status="pending" data-data-extension="College Corner Subscribers" data-subscribe-keys="16507,16511" data-triggered-email-key="6563" data-acq-source="" data-account-type="transaction">
+                    <div class="subscribe-form-section__form-flex-container" data-site-animation-order="1" data-site-animation-element="animate">
+                        <div class="form-field form-field__text-input" data-form-field="email">
+                            <label class="form-field__label-container">
+                                <p class="form-field__label">Enter your email</p>
+                                <div class="form-field__text-input-container">
+                                    <input name="email" type="text" placeholder="" maxlength="" class="form-field__input">
+                                    <img src="{% static 'assets/images/icons/input-error.svg' %}" alt="error" class="form-field__icon form-field__icon--error">
+                                    <img src="{% static 'assets/images/icons/input-success.svg' %}" alt="success" class="form-field__icon form-field__icon--success">
+                                </div>
+                            </label>
+                            <p class="form-field__message  form-field__error-message">Invalid Email Address</p>
+                        </div>
+                        <button type="submit" aria-label="Subscribe" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-203 button__mobile-full-width">
+                            <svg class="loading-animation" viewBox="0 0 50 50">
+                                <circle cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                            </svg>
+                            <span class="button__submit-button-content">
+                                Subscribe </span>
+                            <span class="button__submit-button-success">Success</span>
+                        </button>
+                    </div>
+                    <div class="subscribe-form-section__form-message" data-site-animation-order="2" data-site-animation-element="animate">
+                        <p class="form-field__message">
+                            By providing your email address, you agree to our
+                            <a href="/privacy/" data-link-name="Privacy Policy">Privacy Policy</a>,
+                            and you give Afri Fund Student Loans permission to contact you.
+                            Afri Fund respects your inbox and will only send periodic emails.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

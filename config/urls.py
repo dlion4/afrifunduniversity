@@ -9,6 +9,7 @@ from django.views import defaults as default_views
 from django.views.generic import TemplateView
 from drf_spectacular.views import SpectacularAPIView
 from drf_spectacular.views import SpectacularSwaggerView
+from drf_spectacular.views import SpectacularRedocView
 from rest_framework.authtoken.views import obtain_auth_token
 from . import views
 
@@ -17,6 +18,8 @@ urlpatterns = [
     path("for-schools/", include("apps.schools.urls", namespace="schools")),
     path("about/press/", include("apps.press.urls", namespace="press")),
     path("partners/", include("apps.partners.urls", namespace="partners")),
+    path("loans/", include("apps.loans.urls", namespace="loans")),
+    path("calculators/", include("afrifunduniversity.calculators.urls", namespace="calculators")),
     # MAIN WEBSITE CONFIGURATIONS
     path("schema/", views.json_ld_view),
     path('meta-links/', views.meta_links_view, name='meta_links_view'),
@@ -55,6 +58,8 @@ urlpatterns += [
         SpectacularSwaggerView.as_view(url_name="api-schema"),
         name="api-docs",
     ),
+    path('api-redoc/', SpectacularRedocView.as_view(url_name='api-schema'), name='redoc'),
+
 ]
 
 if settings.DEBUG:

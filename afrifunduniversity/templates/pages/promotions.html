@@ -1,0 +1,322 @@
+{% extends "layout.html" %}
+{% load static humanize %}
+
+{% block title %}
+Promotions | {{block.super}}
+{% endblock title %}
+
+{% block content %}
+
+
+<section class="hero promotions-hub-hero-section background-color__gray" data-site-animation-breakpoint="992" data-section-name="Scholarships & Sweepstakes">
+    <div class="site-breadcrumbs site-breadcrumbs__hero">
+        <div class="site-breadcrumbs__container">
+            <nav class="site-breadcrumbs__desktop">
+                <p class="p-small">
+                    <a data-link-name="Breadcrumb > Home" href="{% url 'home' %}">Home</a>
+                </p>
+            </nav>
+
+            <nav class="site-breadcrumbs__mobile">
+                <p class="p-small">
+                    < <a data-link-name="Breadcrumb > Home" href="{% url 'home' %}">Home</a>
+                </p>
+            </nav>
+        </div>
+    </div>
+    <div class="section-container">
+        <div class="promotions-hub-hero-section__container">
+            <div class="promotions-hub-hero-section__column-content">
+                <div class="promotions-hub-hero-section__text-content">
+                    <h1 class="h1 h1__mobile-small" data-site-animation-order="0">Scholarships & Sweepstakes</h1>
+                    <p class="p-large" data-site-animation-order="1">Throughout the year, we offer scholarships and sweepstakes for students and their parents to help cover your costs on your college journey. We want to make the college journey easier and stress-free for you, so be sure to check back often for the latest promotion.
+                    </p>
+                </div>
+            </div>
+            <div class="promotions-hub-hero-section__column-slider" data-site-animation-order="4">
+                <h4 class="promotions-hub-hero-section__carousel-header">Sweepstakes Winners</h4>
+                <div class="promotions-hub-hero-section__slider-container">
+
+                    <div class="responsive-background-image">
+                        <picture>
+                            <source media="(min-width: 992px)" srcset="{% static 'assets/images/sweepstakes-slider-bg.png' %}">
+                            <img width="1307" height="762" src="{% static 'assets/images/sweepstakes-slider-bg.png' %}" class="attachment-full size-full" alt="Background" decoding="async" />
+                        </picture>
+                    </div>
+
+                    <div class="promo-hub-slider">
+                        <div class="promo-hub-slider__container keen-slider" data-slider="promo-hub-cards">
+                            <!-- forloop for winners -->
+                            <div class="keen-slider__slide">
+                                <div class="promo-hub-slider__card-container">
+                                    <div class="promo-winners-card dropshadow">
+                                        <div class="promo-winners-card__container background-color__white">
+                                            <div class="promo-winners-card__header">
+                                                <div class="promo-winners-card__quote-outer-container">
+                                                    <div class="promo-winners-card__quote-container">
+                                                        <img src="{% static 'assets/images/icons/quote.svg' %}" alt="quote" />
+                                                    </div>
+                                                    <div class="promo-winners-card__quote-text-container">
+                                                        <p>Afri Fund Lender Scholarships awarded me with a Macbook laptop, and I am so grateful for their support.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="promo-winners-card__footer">
+                                                <p class="p-small font-weight-700">Abby M.</p>
+                                                <p class="p-small">Pharmacy student at JKUAT</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="keen-slider__slide">
+                                <div class="promo-hub-slider__card-container">
+                                    <div class="promo-winners-card dropshadow">
+                                        <div class="promo-winners-card__container background-color__white">
+                                            <div class="promo-winners-card__header">
+                                                <div class="promo-winners-card__image-container">
+                                                    <img width="98" height="96" src="{% static 'assets/images/promotions/winner1.png' %}" class="attachment-thumbnail size-thumbnail" alt="Abby M" decoding="async" />
+                                                </div>
+                                            </div>
+                                            <div class="promo-winners-card__footer">
+                                                <p class="p-small font-weight-700">Abby M.</p>
+                                                <p class="p-small">Pharmacy student at JKUAT</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="keen-slider__slide">
+                                <div class="promo-hub-slider__card-container">
+                                    <div class="promo-winners-card dropshadow">
+                                        <div class="promo-winners-card__container background-color__white">
+                                            <div class="promo-winners-card__header">
+                                                <div class="promo-winners-card__image-container">
+                                                    <img width="98" height="96" src="{% static 'assets/images/promotions/winner1.png' %}" class="attachment-thumbnail size-thumbnail" alt="Abby M" decoding="async" />
+                                                </div>
+                                            </div>
+                                            <div class="promo-winners-card__footer">
+                                                <p class="p-small font-weight-700">Abby M.</p>
+                                                <p class="p-small">Pharmacy student at JKUAT</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- endforloop -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="promos-list-section" data-section-name="Current Scholarships & Sweepstakes">
+    <div class="section-container">
+        <div class="promos-list-section__container">
+            <h2 class="h2 promos-list-section__headline">Current Scholarships & Sweepstakes</h2>
+            <div class="promos-list-section__promos-container">
+                <div data-site-animation="container" data-site-animation-breakpoint="992" data-promo-status="ongoing">
+
+                    <div class="standard-promo-card background-color__light-green" data-site-animation-order="0">
+                        <div class="standard-promo-card__container reverse-columns__medium">
+                            <div class="standard-promo-card__image-column">
+                                <div class="standard-promo-card__image-container">
+
+                                    <picture>
+                                        <source media="(min-width: 992px)" srcset="{% static 'assets/images/monthly-promo-hero-d.png' %}">
+                                        <img width="994" height="1066" src="{% static 'assets/images/monthly-promo-hero-d.png' %}" class="attachment-full size-full" alt="$1k promo" decoding="async" />
+                                    </picture>
+                                </div>
+                            </div>
+                            <div class="standard-promo-card__text-column">
+                                <div class="standard-promo-card__text-container">
+                                    <div class="standard-promo-card__text-top">
+                                        <h3 class="h3">Enter our $1,000 Scholarship Monthly Sweepstakes</h3>
+                                        <p class="p-large">Getting into college is the first step. Navigating how to pay for college is the next. Enter to win $1,000 for college. We’ll choose one winner each month, so be sure to check back each month and enter. We want to give you more help, so there is less stress.</p>
+                                    </div>
+                                    <div class="standard-promo-card__text-bottom">
+
+                                        <a href="" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-210" data-link-name="Enter Today">
+                                            Enter Today </a>
+                                        <div class="standard-promo-card__promo-end">
+
+                                            <svg class="clock-icon" viewBox="0 0 16 16" style="color: #002769">
+                                                <use href="{% static 'assets/images/icons/global/clock.svg' %}#clock"></use>
+                                            </svg>
+                                            <p class="p-xsmall">Closed, no purchases necessary</p>
+                                        </div>
+                                        <p class="p-xsmall"><a target="_blank" href="">Rules & Regulations</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-site-animation="container" data-site-animation-breakpoint="992" data-promo-status="open">
+
+                    <div class="standard-promo-card background-color__light-teal" data-site-animation-order="0">
+                        <div class="standard-promo-card__container reverse-columns__medium">
+                            <div class="standard-promo-card__image-column">
+                                <div class="standard-promo-card__image-container">
+                                    <picture>
+                                        <source media="(min-width: 992px)" srcset="{% static 'assets/images/sweep_room.png' %}">
+                                        <img width="1064" height="1064" src="{% static 'assets/images/sweep_room.png' %}" class="attachment-full size-full" alt="Fall 2024 Sweepstakes" decoding="async" />
+                                    </picture>
+                                </div>
+                            </div>
+                            <div class="standard-promo-card__text-column">
+                                <div class="standard-promo-card__text-container">
+                                    <div class="standard-promo-card__text-top">
+                                        <h3 class="h3">Enter to win $500 to spruce your study space! </h3>
+                                        <p class="p-large">
+                                            If you’re anything like us, you’re more productive when you enjoy the space you’re working in.
+                                            That’s why College Ave wants to help cover the costs of your living space, with our Fall Sweepstakes.
+                                        </p>
+                                    </div>
+                                    <div class="standard-promo-card__text-bottom">
+                                        <a href="" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-210" data-link-name="Enter Today">
+                                            Enter Today </a>
+                                        <div class="standard-promo-card__promo-end">
+                                            <svg class="clock-icon" viewBox="0 0 16 16" style="color: #002769">
+                                                <use href="{% static 'assets/images/icons/global/clock.svg' %}#clock"></use>
+                                            </svg>
+                                            <p class="p-xsmall">Ends November 30, 2024, no purchases necessary</p>
+                                        </div>
+                                        <p class="p-xsmall">
+                                            <a target="_blank" href="">
+                                                Rules & Regulations
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="horizontal-headline-cta background-color__white" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Looking for Past Promotions?">
+    <div class="section-container">
+        <div class="horizontal-headline-cta__container" data-site-animation-order="0">
+            <h3 class="h3">Looking for Past Promotions?</h3>
+            <a href="{% url 'past_promotions_view' %}" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-310" data-link-name="View All Past Promotions">
+                View All Past Promotions
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="one-column-centered background-color__white" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Complete Guide to Scholarships for College Students">
+    <div class="section-container">
+        <div class="one-column-centered__outer-container background-color__gray">
+            <div class="one-column-centered__container">
+                <div class="one-column-centered__content_container">
+                    <div class="one-column-centered__icon-container background-color__teal" data-site-animation-order="0">
+                        <img width="96" height="96" src="{% static 'assets/images/promotions-star-icon.png' %}" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" />
+                    </div>
+                    <div class="one-column-centered__headline-container" data-site-animation-order="1">
+                        <h2 class="h2">Complete Guide to Scholarships for College Students</h2>
+                    </div>
+                    <div class="one-column-centered__sub-text-container" data-site-animation-order="2">
+                        <p class="p-small">Scholarships for college are one of the many ways that students pay for college.</p>
+                    </div>
+                </div>
+                <div class="one-column-centered__button-container" data-site-animation-order="3">
+
+                    <a href="" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-205" data-link-name="Read More">
+                        Read More </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% if questions %}
+<section data-scroll-id="faqs" class="faq-accordion-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Frequently Asked Question">
+    <div class="section-container">
+        <div class="faq-accordion-section__header-container">
+            <h2 class="h2" data-site-animation-order="0">Frequently Asked Question</h2>
+            <p class="p-large" data-site-animation-order="1">Questions you need answers to.</p>
+        </div>
+        <div class="faq-accordion-section__list-container" data-show-more="section" data-show-more-number="5">
+            <ul class="faq-accordion-section__list">
+                {% for q in questions %}
+                <div data-site-animation-order={{forloop.counter}}>
+                    <li class="faq-section__item accordion" data-show-more="item">
+                        <a data-link-name="{{q.question.title}}" class="faq-section__question accordion-toggle" tabindex="0">
+                            <span class="faq-section__question-text">{{q.question.title}}</span>
+                            <div class="faq-section__question-text__icon">
+
+                                <svg viewBox="0 0 20 20" style="color: #002769">
+                                    <use href="{% static 'assets/images/icons/global/add.svg' %}#add"></use>
+                                </svg>
+                            </div>
+                        </a>
+                        <div class="accordion-content">
+                            <div>
+                                <div class="faq-section__answer">
+                                    <p>No purchases are required to enter or win</p>
+                                    <ul class="unordered-list__teal-dot">
+                                        <li>Awarded prize is subject to restrictions and criteria and the winner maintaining eligibility requirements, as defined in these rules and regulations (“Official Rules”). If an entrant is an “eligible minor” in his or her state of resident, his or her parent or legal guardian agrees to these rules & regulations on behalf of his or her minor child; by entering, you agree to these rules & regulations, which are a contract, so read them carefully before entering. Without limitation, these rules and regulations include indemnities to the administrator (defined below) from you and a limitation of your rights and remedies. Void where prohibited by law.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+                {% endfor %}
+            </ul>
+            <div class="faq-accordion-section__bottom-container">
+                <a href="{% url 'ss:help:help_home' %}" target="">
+                    Still have questions? We're here to help >
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+<section class="two-column-text-section background-color__white" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="A student loan that works for you.">
+    <div class="section-container">
+        <div class="two-column-text-section__container two-column-text-section__image_text">
+            <div class="two-column-text-section__image-column" data-site-animation-order="0">
+
+                <picture>
+                    <source media="(min-width: 992px)" srcset="https://cdn.collegeavestudentloans.com/ca2023/wp-content/uploads/2023/10/07145726/calculating-a-loan.png">
+                    <img width="981" height="922" src="https://cdn.collegeavestudentloans.com/ca2023/wp-content/uploads/2023/10/07145726/calculating-a-loan.png" class="attachment-full size-full" alt="calculating a loan" decoding="async" />
+                </picture>
+            </div>
+
+            <div class="two-column-text-section__content-column">
+                <div class="two-column-text-section__content">
+                    <div class="two-column-text-section__text-content">
+                        <h2 class="h2" data-site-animation-order="1">A student loan that works for you.</h2>
+                    </div>
+                    <div class="two-column-text-section__button-container" data-site-animation-order="3">
+
+                        <button aria-label="Apply Now" data-open-modal="apply" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-203 button__mobile-full-width">
+                            Apply Now </button>
+
+                        <a href="/calculators/" class="dropshadow dropshadow__hover-off button button__dark-blue button__width-264 button__mobile-full-width" data-link-name="Estimate Your Loan">
+                            Estimate Your Loan </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="subscribe-form-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Don’t Miss Out On Savings">
+    {% include "components/forms/subscribe.html" %}
+</section>
+
+{% endblock content %}
+{% block pressScript %}
+{% endblock pressScript %}

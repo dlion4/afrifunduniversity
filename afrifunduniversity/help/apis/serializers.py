@@ -1,12 +1,13 @@
 from django.utils.text import slugify
 from rest_framework import serializers
-from rest_framework import status
-from rest_framework.response import Response
+from drf_spectacular.utils import extend_schema_serializer
 
+from afrifunduniversity.help.models import Category
 from afrifunduniversity.help.models import ContactBlock
 from afrifunduniversity.help.models import Question
 from afrifunduniversity.help.models import QuestionResponse
 from afrifunduniversity.help.models import QuestionResponseArticle
+
 # from afrifunduniversity.help.models import QuestionResponseArticleContent
 
 
@@ -59,7 +60,7 @@ class QuestionSerializer(serializers.ModelSerializer):
     responses = QuestionResponseSerializer(many=True, read_only=True)
     class Meta:
         model = Question
-        fields = ["id", "title", "slug", "description", "icon", "responses"]
+        fields = ["id", "category", "title", "slug", "description", "icon", "responses"]
 
 
     def create(self, validated_data):
@@ -72,3 +73,9 @@ class QuestionSerializer(serializers.ModelSerializer):
         )
 
 
+
+class HelpCategorySerializer(serializers.ModelSerializer):
+    category_questions = QuestionSerializer(many=True, read_only=True)
+    class Meta:
+        model = Category
+        fields = ["id", "title", "category_questions"]

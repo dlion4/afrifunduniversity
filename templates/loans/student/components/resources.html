@@ -1,0 +1,33 @@
+{% load static %}
+
+
+<div class="section-container">
+    <div class="resources-slider-section__header-container">
+        <h2 class="h2" data-site-animation-order="0">Helpful Resources</h2>
+        <p class="p-large" data-site-animation-order="1">Confidently plan and pay for your undergraduate degree using our free resources.</p>
+    </div>
+    <div class="resources-slider-section__slider-container keen-slider" data-slider="resource-cards" data-site-animation-order="2">
+        <!-- for loop -->
+        <div class="keen-slider__slide">
+
+            <a data-link-name="Does Your Credit Score Drop When You Check It? Here&#8217;s What You Need to Know" href="" class="resource-card dropshadow">
+                <div class="resource-card__container">
+                    <div class="resource-card__content">
+                        <h4 class="resource-card__category">Credit</h4>
+                        <h3 class="resource-card__title">
+                            Does Your Credit Score Drop When You Check It? Here&#8217;s What You Need to Know </h3>
+                    </div>
+                    <span class="arrow-link" data-link-name="Learn More">
+                        <span class="arrow-link__anchor">
+                            Learn More
+                            <svg width="16" height="14" viewBox="0 0 16 14" style="color: #002769">
+                                <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </div>
+            </a>
+        </div>
+        <!-- endfor -->
+    </div>
+</div>
