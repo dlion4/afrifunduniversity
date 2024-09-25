@@ -1,11 +1,13 @@
 # Create your views here.
 import base64
 import contextlib
+import json
 from typing import Any
 
+from django.http import HttpRequest, JsonResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView
-
+from urllib.parse import parse_qs
 from .forms import LoanApplicationForm
 
 
@@ -29,6 +31,9 @@ class LoanApplicationFormView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["form"] = self.form_class()
         return context
+    def post(self, request:HttpRequest, *args, **kwargs):
+        print(json.loads(request.body)[0])
+        return JsonResponse({"message": "The server responded with 200 status code"})
 
 
 class LoanApplicationErrorPageView(TemplateView):

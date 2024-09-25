@@ -13,7 +13,7 @@
     <div class="sc-fjhmcy kTHGXN">
         {% include "loans/applications/apply/forms/modal.html" %}
 
-        <form action="" method="post">
+        <form action="{% url 'loans:applications:application_entry_form' %}" method="post" id="uploadForm">
             {% csrf_token %}
             <div class="sc-kvZOFW elSnyR">
                 <div class="sc-hqyNC container keRCOE">
@@ -218,13 +218,9 @@
                 <ul class="sc-bMvGRv klFfLY">
                     <li class="sc-CtfFt ddYKQP">
                         <div class="sc-hSdWYo gJFFhu">
-                            <button type="button" class="sc-kEYyzF bTpaUX" tabindex="0" aria-label="Review Terms" aria-describedby="button-describer">
-                                Review Terms
-                                <span class="sc-kkGfuU bmbkEI spinner-btn"></span>
+                            <button type="submit" class="sc-kEYyzF bTpaUX" tabindex="0">
+                                Review Terms <span class="sc-kkGfuU bmbkEI spinner-btn"></span>
                             </button>
-                            <p class="sc-iAyFgw kPJnip" aria-hidden="false" id="button-describer">
-                                After submission, it may take a few moments to save or retrieve your data.
-                            </p>
                         </div>
                     </li>
                 </ul>

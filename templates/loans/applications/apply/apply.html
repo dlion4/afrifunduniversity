@@ -128,4 +128,30 @@
     })
 </script>
 
+<script>
+    $(document).ready(function () {
+        $("#uploadForm").submit(function (event) {
+            event.preventDefault();
+            console.log(JSON.stringify($(this).serializeArray()))
+
+            $.ajax({
+                url: $(this).attr("action"),
+                type: 'POST',
+                data: JSON.stringify($(this).serializeArray()),
+                headers: {
+                    "X-CSRFToken": $("input[name='csrfmiddlewaretoken']").val(), // Correct selector
+                },
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    console.log(response);
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText);
+                }
+            })
+        });
+    })
+</script>
+
 {% endblock bundleJs %}
