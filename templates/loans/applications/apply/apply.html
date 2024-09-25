@@ -137,7 +137,7 @@
             $.ajax({
                 url: $(this).attr("action"),
                 type: 'POST',
-                data: JSON.stringify($(this).serializeArray()),
+                data: JSON.stringify($(this).serialize()),
                 headers: {
                     "X-CSRFToken": $("input[name='csrfmiddlewaretoken']").val(), // Correct selector
                 },

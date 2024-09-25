@@ -32,7 +32,7 @@ class LoanApplicationFormView(TemplateView):
         context["form"] = self.form_class()
         return context
     def post(self, request:HttpRequest, *args, **kwargs):
-        print(json.loads(request.body)[0])
+        print(parse_qs(json.loads(request.body)))
         return JsonResponse({"message": "The server responded with 200 status code"})
 
 
