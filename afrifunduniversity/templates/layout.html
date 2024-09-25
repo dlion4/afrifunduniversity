@@ -22,27 +22,8 @@
   <meta property="og:site_name" content="Afri Fun University Funding Cooperation " />
   <meta property="article:modified_time" content="2024-06-05T18:08:22+00:00" />
   <meta name="twitter:card" content="summary_large_image" />
+  <script src="{% static 'js/load-scripts.js' %}"></script>
   <script>
-    // Dynamically load a JavaScript file via AJAX
-    function loadJSFile(url, callback) {
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', url, true);
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          var script = document.createElement("script");
-          script.type = "text/javascript";
-          script.text = xhr.responseText;
-          document
-            .head
-            .appendChild(script);
-          if (callback) {
-            callback();
-          }
-        }
-      };
-      xhr.send();
-    }
-
     document.addEventListener("DOMContentLoaded", function () {
       loadJSFile("{% static 'js/load_schema.js' %}", function () { });
 
@@ -964,8 +945,8 @@
     </dialog>
     <!--  -->
 
-   {% include "components/modals/apply.html" %}
-    
+    {% include "components/modals/apply.html" %}
+
     {% endblock modal %}
     <!--  -->
     <!-- Footer component section -->

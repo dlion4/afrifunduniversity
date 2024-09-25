@@ -1,4 +1,3 @@
-/*! For license information please see modules.0721e7cf944cf9d78a0b.js.LICENSE.txt */
 !function() {
     var e = {
         4788: function(e, t, n) {

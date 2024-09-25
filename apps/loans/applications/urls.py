@@ -20,4 +20,9 @@ urlpatterns = [
         views.LoanApplicationView.as_view(),
         name="application_entry",
     ),
+    path(
+        "apply/get-started",
+        views.LoanApplicationFormView.as_view(),
+        name="application_entry_form",
+    ),
 ]

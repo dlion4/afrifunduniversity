@@ -91,6 +91,7 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "drf_spectacular",
     "drf_spectacular_sidecar",
+    "django_cotton",
 ]
 
 LOCAL_APPS = [

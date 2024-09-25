@@ -1,9 +1,12 @@
 # Create your views here.
 import base64
 import contextlib
+from typing import Any
 
 from django.shortcuts import render
 from django.views.generic import TemplateView
+
+from .forms import LoanApplicationForm
 
 
 def decode_message(encoded_msg):
@@ -18,6 +21,14 @@ class LoanApplicationHomeView(TemplateView):
 
 class LoanApplicationView(TemplateView):
     template_name = "loans/applications/apply/home.html"
+
+class LoanApplicationFormView(TemplateView):
+    template_name = "loans/applications/apply/apply.html"
+    form_class = LoanApplicationForm
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["form"] = self.form_class()
+        return context
 
 
 class LoanApplicationErrorPageView(TemplateView):
