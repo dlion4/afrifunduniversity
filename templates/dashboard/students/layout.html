@@ -1,0 +1,527 @@
+{% load static i18n compress %}
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}" class="loaded">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>
+        {% block title %}Education Loans &amp; College Planning Resources | afrifunduniversity.com{% endblock title %}
+    </title>
+    <link rel="shortcut icon" sizes="16x16 24x24 48x48 64x64" href="{% static 'favicons/favicon.ico' %}">
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+    <meta name="description" content="Afri Fun University Funding Cooperation  was built to take the stress out of paying for college. We offer stress-free, customizable student loans." />
+    <link rel="canonical" href="https://www.afrifunduniversity.com/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Education Loans &amp; College Planning Resources | Afri Fund University Lender" />
+    <meta property="og:description" content="Afri Fun University Funding Cooperation was built to take the stress out of paying for college. We offer stress-free, customizable student loans." />
+    <meta property="og:url" content="https://www.afrifunduniversity.com/" />
+    <meta property="og:site_name" content="Afri Fun University Funding Cooperation " />
+    <meta property="article:modified_time" content="2024-06-05T18:08:22+00:00" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap');
+    </style>
+    <link href="{% static 'dashboard/students/assets/app-assets/line-awesome/css/line-awesome.min.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'dashboard/students/assets/rapido/css/main.css' %}">
+
+    <!-- <script data-require-id="echarts/chart/pie" src="{% static 'dashboard/students/assets/app-assets/vendors/js/charts/echarts/chart/pie.js' %}" async=""></script>
+    <script data-require-id="echarts/chart/funnel" src="{% static 'dashboard/students/assets/app-assets/vendors/js/charts/echarts/chart/funnel.js' %}" async=""></script> -->
+
+    <style>
+        body,
+        html {
+            font-family: "Quicksand", sans-serif;
+            font-style: normal;
+            font-optical-sizing: auto;
+        }
+    </style>
+
+</head>
+
+<body class="vertical-layout 2-columns fixed-navbar pace-done menu-hide vertical-overlay-menu" data-open="click" data-menu="vertical-menu" data-col="2-columns">
+    <div class="pace  pace-inactive">
+        <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
+
+    <!-- fixed-top-->
+    {% include "dashboard/students/components/header.html" %}
+    <!-- Top Menu Items -->
+    <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow " data-scroll-to-active="true">
+        <div class="main-menu-content ps-container ps-theme-light ps-active-y" data-ps-id="45cce931-291f-ff1f-b12f-5e9d1dfed2a7">
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                <li class=" nav-item active"><a href="{% url 'dashboard:students:student:home' %}"><i class="la la-home"></i>
+                        <span class="menu-title" data-i18n="nav.dash.main">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="javascript:void(0);">
+                        <i class="la la-columns"></i>
+                        <span class="menu-title">My Account</span>
+                    </a>
+                <li class=" nav-item">
+                    <a href="/frm_messages">
+                        <i class="la la-envelope"></i>
+                        <span class="menu-title">Messages</span>
+                        <span class="badge badge badge-pill badge-warning float-right">0</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <hr class="light-grey-hr mb-10">
+                </li>
+
+                <li class="navigation-header"><span>FUNDING MENU</span><i class="zmdi zmdi-more"></i></li>
+
+                <li class=" nav-item"><a href=""><i class="la la-user-plus"></i><span class="menu-title">My Profile</span></a></li>
+                <li class=" nav-item"><a href=""><i class="la la-code-fork"></i><span class="menu-title">AFUL Scholarship</span></a></li>
+                <li class=" nav-item"><a href=""><i class="la la-arrows-v"></i><span class="menu-title">Funds Appeal</span></a></li>
+
+                <li class="nav-item has-sub">
+                    <a href="javascript:void(0);"><i class="la la-briefcase"></i>
+                        <span class="menu-title">Self Serve</span>
+                    </a>
+                    <ul class="menu-content">
+                        <li><a class="menu-item" href="">Loan Statement</a></li>
+                        <li><a class="menu-item" href="">Compliance Certificate</a></li>
+                        <li><a class="menu-item" href="">Penalty Waiver</a></li>
+                        <li><a class="menu-item" href="">Stop Orders</a></li>
+                        <li><a class="menu-item" href="">Clearance Certificate</a></li>
+                        <li><a class="menu-item" href="">Loan Overpayment</a></li>
+                        <li><a class="menu-item" href="">Loan Repayment</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <hr class="light-grey-hr mb-10">
+                </li>
+                <li class="navigation-header">
+                    <span>HELP DESK</span> <i class="zmdi zmdi-more"></i>
+                </li>
+                <li class="nav-item has-sub">
+                    <a href="javascript:void(0);">
+                        <i class="la la-cogs"></i>
+                        <span class="menu-title">Help me</span>
+                    </a>
+                    <ul class="menu-content"></ul>
+                </li>
+                <li class=" nav-item">
+                    <a href="">
+                        <i class="la la-support"></i>
+                        <span class="menu-title">Contact Us</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;">
+                <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+            </div>
+            <div class="ps-scrollbar-y-rail" style="top: 0px; height: 676px; right: 3px;">
+                <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 506px;"></div>
+            </div>
+        </div>
+    </div>
+    <!-- ============ Start Content ==================== -->
+    <!-- Content -->
+    <!-- Main Content -->
+    <input type="hidden" name="user_profile" id="user_profile" value="">
+    <input type="hidden" name="roleid" id="roleid" value="5">
+    <input name="usermobile" type="hidden" id="usermobile" value="+254745547755">
+    <input name="verified" type="hidden" id="verified" value="1">
+    <input name="unames" type="hidden" id="unames" value="JECKONIA ONYANGO">
+    <input name="user_id" type="hidden" id="user_id" value="44645">
+    <input name="jenga_status" type="hidden" id="jenga_status" value="fail">
+    <input name="employed" type="hidden" id="employed" value="0">
+    <input type="hidden" name="base_url" id="base_url" value="{% url 'home' %}">
+
+    <!-- Main Content -->
+    <div class="app-content content">
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+
+                <!-- eCommerce statistic -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-12">
+                        <div class="card pull-up">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="media-body text-left">
+                                            <h3 class="info">3</h3>
+                                            <h6><a href="https://portal.hef.co.ke/service/index/frm_loans"><b>My Loans</b></a></h6>
+                                        </div>
+                                        <div>
+                                            <i class="icon-wallet info font-large-2 float-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                                        <div class="progress-bar bg-gradient-x-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-12">
+                        <div class="card pull-up">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="media-body text-left">
+                                            <h3 class="warning">1</h3>
+                                            <h6><a href="https://portal.hef.co.ke/service/index/frm_loan_repayment"><b>Repay Loan</b></a></h6>
+                                        </div>
+                                        <div>
+                                            <i class="icon-pie-chart warning font-large-2 float-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                                        <div class="progress-bar bg-gradient-x-warning" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-12">
+                        <div class="card pull-up">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="media-body text-left">
+                                            <h3 class="success">1</h3>
+                                            <h6>
+                                                <a href="https://portal.hef.co.ke/service/index/frm_loan_statement">
+                                                    <b>AFUL Loan Statement</b>
+                                                </a>
+                                            </h6>
+                                        </div>
+                                        <div>
+                                            <i class="icon-user-follow success font-large-2 float-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                                        <div class="progress-bar bg-gradient-x-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-12">
+                        <div class="card pull-up">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="media-body text-left">
+                                            <h3 class="danger">1 </h3>
+                                            <h6><a href="https://portal.hef.co.ke/service/index/frm_cert"><b>Clearance Certificate</b></a></h6>
+                                        </div>
+                                        <div>
+                                            <i class="icon-book-open danger font-large-2 float-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                                        <div class="progress-bar bg-gradient-x-danger" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ eCommerce statistic -->
+
+
+                <div class="row">
+                    <div class="col-xl-6 col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Your Overall school performance</h4>
+                                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-content collapse show">
+                                <div class="card-body pt-0">
+                                    <div class="row mb-1">
+                                        <div class="col-6 col-md-4">
+                                            <h5>Presence Result</h5>
+                                            <h2 class="success">4</h2>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <h5>Previous Result</h5>
+                                            <h2 class="text-muted">6</h2>
+                                        </div>
+                                    </div>
+                                    <div class="chartjs">
+                                        <div class="chartjs-size-monitor">
+                                            <div class="chartjs-size-monitor-expand">
+                                                <div class=""></div>
+                                            </div>
+                                            <div class="chartjs-size-monitor-shrink">
+                                                <div class=""></div>
+                                            </div>
+                                        </div>
+                                        <div class="chartjs-size-monitor">
+                                            <div class="chartjs-size-monitor-expand">
+                                                <div class=""></div>
+                                            </div>
+                                            <div class="chartjs-size-monitor-shrink">
+                                                <div class=""></div>
+                                            </div>
+                                        </div>
+                                        <canvas id="thisYearRevenue" width="648" class="position-absolute chartjs-render-monitor" height="323" style="display: block; height: 259px; width: 519px;"></canvas>
+                                        <canvas id="lastYearRevenue" width="648" height="323" style="display: block; height: 259px; width: 519px;" class="chartjs-render-monitor"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-12">
+
+                        <div class="row">
+                            <div class="col-lg-6 col-12">
+                                <div class="card pull-up">
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <div class="media d-flex">
+                                                <div class="media-body text-left">
+                                                    <h6 class="text-muted">Total Scholarships Awarded</h6>
+                                                    <h3>$ 88,568</h3>
+                                                </div>
+                                                <div class="align-self-center">
+                                                    <i class="icon-trophy success font-large-2 float-right"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <div class="card pull-up">
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <div class="media d-flex">
+                                                <div class="media-body text-left">
+                                                    <h6 class="text-muted">Calls</h6>
+                                                    <h3>3,568</h3>
+                                                </div>
+                                                <div class="align-self-center">
+                                                    <i class="icon-call-in danger font-large-2 float-right"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title text-center">Loaned Amount</h4>
+                                    </div>
+                                    <div class="card-content collapse show">
+                                        <div class="card-body pt-0">
+                                            <div class="row">
+                                                <div class="col-md-6 col-12 border-right-blue-grey border-right-lighten-5 text-center">
+                                                    <h6 class="danger text-bold-600">30%</h6>
+                                                    <h4 class="font-large-2 text-bold-400">$12,536</h4>
+                                                    <p class="blue-grey lighten-2 mb-0">Principle</p>
+                                                </div>
+                                                <div class="col-md-6 col-12 text-center">
+                                                    <h6 class="success text-bold-600">+12%</h6>
+                                                    <h4 class="font-large-2 text-bold-400">$18,548</h4>
+                                                    <p class="blue-grey lighten-2 mb-0">Amount Compounded</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Recent Transactions -->
+                <div class="row">
+                    <div id="recent-transactions" class="col-12">
+                        <div class="card">
+                            <div class="card-header border-success">
+                                DEAR <strong>JECKONIA</strong>, YOU HAVE<strong><code>NOT CHECKED OR SELECTED AFUL STUDENT LOAN OPTION </code></strong>!
+                                <hr>
+                                <h5 class="card-title">
+                                    To access the <b>AFUL Loan</b>, you need to indicate your interest by selecting the AFUL Student Loan option within the <b>"Complete Profile"</b> tab.
+                                    Doing this will reveal the available loan products, allowing you to apply for the AFUL Student Loan. To express interest in the AFUL Student Loan, follow these steps.
+                                    <ol>
+                                        1. Select <b>"Update Profile"</b> Menu on the left. <br>
+                                        2. Go to the 6th Tab and click on <b>"Complete Profile" Tab</b>. <br>
+                                        3. You will be displayed with Scholarship Only, AFUL Loan Only or Both options for your selection. <br>
+                                        4. Select the option for <b>AFUL Student Loan</b>
+                                        <ol>
+                                        </ol>
+                                    </ol>
+                                </h5>
+                                <h5 class="card-title">
+                                    OR <br>
+                                    <a href="https://portal.hef.co.ke/nfm/index/frm_update_details"> <b>CLICK HERE</b> </a> to express interest for AFUL Student Loan.
+                                </h5>
+                                <br>
+                                <h5 class="card-title"></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    <!-- Modules Details Modal -->
+    <div class="modal animated bounce text-left" id="responsive-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content border-pink">
+                <div class="modal-header border-bottom-pink">
+                    <h4 class="modal-title" id="myModalLabel15"><i class="la la-tree"></i> <b>AFUL FINANCIAL LITERACY CAMPAIGN</b></h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-body text-center">
+
+
+                        <img src="{% static 'dashboard/students/assets/app-assets/images/logo/logo.png' %}" alt="Higher Education Loans Board" class="reponsive" style="margin-bottom: 1px;">
+
+                        <br>
+
+                        <p> We have a campaign to empower you with the requisite knowledge to guide you when making financial related decisions.
+                        </p>
+
+
+
+                        <form name="myform" id="myForm" class="form form-horizontal" action="https://portal.hef.co.ke/jenga/index/" method="post">
+
+                            <input type="hidden" name="product_id" id="product_id" value="">
+                            <input type="hidden" name="product" id="product" value="">
+                            <input type="hidden" name="study_year" id="study_year" value="">
+                            <input type="hidden" name="academic_year" id="academic_year" value="">
+
+                            <input name="names" type="hidden" id="names" value="JECKONIA ONYANGO">
+                            <input name="user_id" type="hidden" id="user_id" value="44645">
+
+                            <br>
+
+                            <p>Click on your current year of study below to continue:</p>
+
+                            <div>
+                                <a class="btn btn-success  box-shadow-2" href="javascript: submitform(1);">First Year</a>
+                                <a class="btn btn-warning  box-shadow-2" href="javascript: submitform(2);">Second Year</a>
+                                <a class="btn btn-danger  box-shadow-2" href="javascript: submitform(3);">Third Year</a>
+                                <p>
+                                </p>
+                                <p><a class="btn btn-primary  box-shadow-2" href="javascript: submitform(4);">Fourth Year Or Higher</a></p>
+                                <p></p>
+                            </div>
+
+
+                            <br>
+
+                            <p style="color: #ff0000">Note: This stage is mandatory and cannot be skipped</p>
+
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--End Modal Form -->
+
+
+
+    <!-- jQuery -->
+    <script src="{% static 'dashboard/students/assets/app-assets/vendors/js/vendors.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'dashboard/students/assets/app-assets/vendors/js/extensions/toastr.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'dashboard/students/assets/app-assets/vendors/js/tables/datatable/datatables.min.js' %}" type="text/javascript"></script>
+
+
+
+    <script type="text/javascript">
+        function submitform(studyYr) {
+
+            $('#study_year').val(studyYr);
+            //alert($('#product_id').val() + '-' + $('#academic_year').val() );
+            document.myform.submit();
+        }
+
+        function submitloan(param1 = '', param2 = '') {
+
+            $('#prod_id').val(param1);
+            $('#acad_year').val(param2);
+            //alert('#pForm').serialize();
+
+            document.pForm.submit();
+        }
+
+
+        function submitDiploma(param1 = '', param2 = '') {
+
+            $('#prod_id').val(param1);
+            $('#acad_year').val(param2);
+            //alert('#pForm').serialize();
+
+            document.pDiploma.submit();
+        }
+
+        function submitUndergraduate(param1 = '', param2 = '') {
+            //alert('yo');
+            $('#prod_id').val(param1);
+            $('#acad_year').val(param2);
+            //alert('#pForm').serialize();
+
+            document.pUndergraduate.submit();
+        }
+
+        function submitPostgraduate(param1 = '', param2 = '') {
+
+            $('#prod_id').val(param1);
+            $('#acad_year').val(param2);
+            //alert('#pForm').serialize();
+
+            document.pPostgraduate.submit();
+        }
+    </script>
+
+
+    <script src="{% static 'dashboard/students/assets/assets/js/script.js' %}" type="text/javascript"></script>
+
+
+    <footer class="footer footer-static footer-light navbar-border navbar-shadow">
+        <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
+            <span class="float-md-left d-block d-md-inline-block">Copyright © 2024 <a class="text-bold-800 grey darken-2" href="https://www.afrifunduniversitylenders.com" target="_blank">AFU Lenders </a>, All rights reserved. </span>
+            <span class="float-md-right d-block d-md-inline-blockd-none d-lg-block">Powerd By: <a href="#">
+                    AFUL Developers
+                </a>
+            </span>
+        </p>
+    </footer>
+
+    {% include "dashboard/students/components/sections/scripts.html" %}
+</body>
+
+</html>

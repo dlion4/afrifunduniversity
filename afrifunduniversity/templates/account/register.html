@@ -1,125 +1,163 @@
 {% extends "account/layout.html" %}
 {% load static %}
-{% block content %}
 
-  <div class="row">
-    <div class="col-12 text-center">
-      <h2>Create Account</h2>
-    </div>
-  </div>
-
-  <div class="row justify-content-center">
-    <div class="row">
-      <div class="form-section">
-        <div id="response-card-container"></div>
-        <div class="form-content">
-          <form action="{% url 'users:register' %}" method="post" id="registerForm">
+{% block main %}
+<main class="_widget login">
+  <section class="c5ae326fd _prompt-box-outer c2a3d4513">
+    <div class="ce9e9339c cc85b8cab">
+      <div class="c1cde37b0">
+        <header class="" style="padding-bottom: 2rem;">
+          <div style="width: auto !important; height: 60px !important; position: static !important; margin: auto !important; padding: 0 !important; background-color: transparent !important; background-position: center !important; background-size: contain !important; background-repeat: no-repeat !important"></div>
+          <h1 class="c21b3189e cf06b5d73">Secure login</h1>
+          <div class="c15e7761c cf9539287">
+            <p class="c89b8d9a3 cf846ade6">Log in to Get Your Money Right®</p>
+          </div>
+        </header>
+        <div class="c133530c0 cca97f6fa">
+          <form method="POST" class="c07a87d47 cb4e4d015">
             {% csrf_token %}
-            <div class="form-group">
-              <div class="input-group">
-                {{form.dob}}
-                <label class="floating" for="{{form.dob.id_for_label}}">{{form.dob.label}}</label>
-              </div>
-              <span class="field-validation-error {{form.dob.id_for_label}}-error" data-id-for="{{form.dob.id_for_label}}"></span>
-            </div>
+            <div class="c97a03211 c4b23a084">
+              <div class="c30d2e9d9">
 
-            <div class="form-group">
-              <div class="input-group">
-                {{form.email}}
-                <label class="floating" for="{{form.email.id_for_label}}">{{form.email.label}}</label>
-              </div>
-              <span class="field-validation-error {{form.email.id_for_label}}-error" data-id-for="{{form.email.id_for_label}}"></span>
-            </div>
 
-            <div class="form-group inputOverLink">
-              <div class="input-group">
-                {{form.national_id_number}}
-                <label class="floating" for="{{form.national_id_number.id_for_label}}">{{form.national_id_number.label}}</label>
+                <div class="input-wrapper _input-wrapper">
+                  <div class="c40bfa4ec c43cb8eb6 text c2b619ed0 c081ba6b0">
+                    <label class="cb44d9d79 no-js cd6cf25de c9f5a109b" for="username">
+                      Email
+                    </label>
+                    <input class="input c4053936d caff7ffcc" inputmode="email" name="email" id="username" type="email" value="">
+                    <div class="cb44d9d79 js-required cd6cf25de c9f5a109b" aria-hidden="true">
+                      Email*
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="input-wrapper _input-wrapper">
+                  <div class="c40bfa4ec c43cb8eb6 password ce73e2fcd c081ba6b0">
+                    <label class="cb44d9d79 no-js cd6cf25de c98f02a3e" for="password">
+                      Password
+                    </label>
+                    <input class="input c4053936d cf01611a1" name="password" id="password" type="password">
+                    <div class="cb44d9d79 js-required cd6cf25de c98f02a3e" data-dynamic-label-for="password" aria-hidden="true">
+                      Password*
+                    </div>
+                    <button type="button" class="c23cc53f8 ulp-button-icon ca129283c _button-icon" data-action="toggle">
+                      <span aria-hidden="true" class="password-icon-tooltip show-password-tooltip">Show password</span>
+                      <span aria-hidden="true" class="password-icon-tooltip hide-password-tooltip hide">Hide password</span>
+                      <span class="screen-reader-only password-toggle-label" data-label="show-password">Show password</span>
+                      <span class="screen-reader-only password-toggle-label hide" data-label="hide-password">Hide password</span>
+                      <span class="c141197b0 password js-required" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
+
+
+                <div class="input-wrapper _input-wrapper">
+                  <div class="c40bfa4ec c43cb8eb6 password ce73e2fcd c081ba6b0">
+                    <label class="cb44d9d79 no-js cd6cf25de c98f02a3e" for="password">
+                      Confirm Password
+                    </label>
+                    <input class="input c4053936d cf01611a1" name="password" id="password" type="password">
+                    <div class="cb44d9d79 js-required cd6cf25de c98f02a3e" data-dynamic-label-for="password" aria-hidden="true">
+                      Confirm Password*
+                    </div>
+                    <button type="button" class="c23cc53f8 ulp-button-icon ca129283c _button-icon" data-action="toggle">
+                      <span aria-hidden="true" class="password-icon-tooltip show-password-tooltip">Show password</span>
+                      <span aria-hidden="true" class="password-icon-tooltip hide-password-tooltip hide">Hide password</span>
+                      <span class="screen-reader-only password-toggle-label" data-label="show-password">Show password</span>
+                      <span class="screen-reader-only password-toggle-label hide" data-label="hide-password">Hide password</span>
+                      <span class="c141197b0 password js-required" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
+
+
               </div>
-              <span class="field-validation-error {{form.national_id_number.id_for_label}}-error" data-id-for="{{form.national_id_number.id_for_label}}"></span>
             </div>
-            <div class="form-group">
-              <div class="embedded-link remember-me">
-                {{ form.terms_and_conditions }}
-                <label for="{{form.terms_and_conditions.id_for_label}}">{{ form.terms_and_conditions.label|safe|urlize }}</label>
-              </div>
-              <span class="field-validation-valid {{form.terms_and_conditions.id_for_label}}-error" data-id-for="{{form.terms_and_conditions.id_for_label}}"></span>
-            </div>
-            <div class="text-center">
-              <button id="btnSubmit" type="submit" tabindex="6" class="btn btn-primary">
-                Create Account
+            <div class="c2639060b">
+              <button type="submit" id="loginBtn" class="c23cc53f8 c918ac079 ca129283c c3c85e921 c1962c85f">
+                Log in
               </button>
+              <p class="server-response"></p>
             </div>
           </form>
-          <div class="text-center nav-link bottom-screen-nav-link">
-            <p>
-              <a class="anchorLink" href="{% url 'users:login' %}" tabindex="7">Log In</a>
-            </p>
-          </div>
         </div>
-
       </div>
     </div>
-  </div>
+  </section>
+</main>
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 
-  <div class="row text-center post-form-section">
-    <div class="col-12">
-      <p></p>
-    </div>
-    <div class="col-12">
-      <p>Questions? Call 844-803-0736</p>
-    </div>
-  </div>
+<div id="validationScripts"></div>
+{% endblock main %}
 
-  <div id="validationScripts"></div>
-{% endblock content %}
+{% block blockJs %}
 
-{% block formScript %}
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      loadBodyScripts("{% static 'js/validation.min.js' %}", function () {
-
-        validateDob();
-        validateEmailAddress();
-        validateNationIdNumber();
-        validateTermsAndConditions();
-
-      })
-
-      // Submit form via AJAX
-
-      $("#registerForm").on("submit", async (event) => {
-        event.preventDefault();
-
-        validateDob();
-        validateEmailAddress();
-        validateNationIdNumber();
-
-        showLoadingState("btnSubmit")
-
-        const response = await fetch("/account/create-account/", {
-          method: "POST",
-          // dob email national_id_number
-          body: JSON.stringify({dob: $("#dob").val(), email: $("#email").val(), national_id_number: $("#idno").val(), terms_and_conditions: $("#id_terms_and_conditions").val()}),
-          headers: {
-            "X-CSRFToken": $("input[name=csrfmiddlewaretoken]").val(),
-            "Content-Type": "application/json"
+<script>
+  $(document).ready(function () {
+    $(".c07a87d47").submit(function (event) {
+      event.preventDefault();
+      var form = $(this);
+      var url = form.attr('action');
+      $.ajax({
+        type: 'POST',
+        url: url,
+        headers: {
+          "X-CSRFToken": $("input[name=csrfmiddlewaretoken]").val(),
+        },
+        data: JSON.stringify({
+          "email": $(this).find("input[name='email']").val(),
+          "password": $(this).find("input[name='password']").val()
+        }),
+        success: function (response) {
+          let data = JSON.parse(response);
+          if (!data.access) {
+            console.log(data);
+            $(".server-response").text(data.detail);
+            return false
           }
-        });
+          handleUser(data.access)
 
-        if (!response.ok) {
-          let data = JSON.parse(await response.text());
-          console.log(data)
-          handleFailedResponse(data.error)
-          removeLoadingState("btnSubmit", "Create Account")
-          return false
+        },
+        error: function (xhr, status, error) {
+          console.error("Error: " + error);
         }
-        let data = await response.json()
-        handleSuccessResponse(data.message);
-        removeLoadingState("btnSubmit", "Create Account");
+      })
+    });
 
+    const handleUser = function (access_token) {
+      // window.location.href = "/dashboard?access_token=" + access_token;
+      $.ajax({
+        url: "http://127.0.0.1:8000/api/access/",
+        headers: {
+          "Authorization": "Bearer " + access_token
+        },
+        success: function (response) {
+          $.ajax({
+            type: 'POST',
+            url: "http://127.0.0.1:8000/api/update-session/",
+            headers: {
+              "X-CSRFToken": $("input[name=csrfmiddlewaretoken]").val(),
+              "Authorization": "Bearer " + access_token
+            },
+            data: JSON.stringify({ user_id: response.id }),
+            success: function (sessionResponse) {
+              console.log("Session updated: ", sessionResponse);
+              window.location.href = sessionResponse.url;
+            },
+            error: function (xhr, status, error) {
+              console.error("Error updating session: " + error);
+            }
+          });
+        },
+        error: function (xhr, status, error) {
+          console.error("Error: " + error);
+        }
       });
-    })
-  </script>
-{% endblock formScript %}
+
+    }
+  });
+</script>
+
+{% endblock blockJs %}

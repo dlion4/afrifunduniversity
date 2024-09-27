@@ -11,10 +11,6 @@
 {% include "loans/applications/apply/css/form.html" %}
 
 <style>
-    .select2-container--default {
-        width: 100%;
-    }
-
     .select2-container--default .select2-selection--single {
         min-height: 50px;
         /* Adjust as needed */
@@ -80,11 +76,7 @@
         }
     }
 
-    @media (max-width: 500px) {
-        .select2-container--default {
-            width: 50%;
-        }
-    }
+
 
     select,
     option {
@@ -132,12 +124,34 @@
     $(document).ready(function () {
         $("#uploadForm").submit(function (event) {
             event.preventDefault();
-            console.log(JSON.stringify($(this).serializeArray()))
+            // Get the URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchParams = {};
+
+            // Convert URL parameters to an object
+            for (const [key, value] of urlParams.entries()) {
+                searchParams[key] = value;
+            }
+
+            // Serialize the form data
+            const formData = $(this).serializeArray();
+
+            // Convert serialized form data to an object
+            const formDataObject = {};
+            formData.forEach(field => {
+                formDataObject[field.name] = field.value;
+            });
+
+            // Combine both objects
+            const combinedData = {
+                ...formDataObject,
+                ...searchParams
+            };
 
             $.ajax({
                 url: $(this).attr("action"),
                 type: 'POST',
-                data: JSON.stringify($(this).serialize()),
+                data: JSON.stringify(combinedData),
                 headers: {
                     "X-CSRFToken": $("input[name='csrfmiddlewaretoken']").val(), // Correct selector
                 },

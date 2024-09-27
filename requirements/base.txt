@@ -32,3 +32,7 @@ django-tenants==3.7.0 # https://django-tenants.readthedocs.io/en/latest/install.
 drf-spectacular[sidecar]
 ipinfo_django==2.0.0
 django-cotton==1.0.10
+djangorestframework-api-key==3.*
+pyjwt==2.9.0
+pyjwt[crypto]
+djangorestframework-simplejwt==5.3.1

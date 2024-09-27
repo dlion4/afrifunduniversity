@@ -2,12 +2,18 @@
 import base64
 import contextlib
 import json
+from datetime import datetime
 from typing import Any
+from urllib.parse import parse_qs
 
-from django.http import HttpRequest, JsonResponse
+from dateutil import parser
+from django.http import HttpRequest
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from urllib.parse import parse_qs
+
+from apps.loans.applications.models import LoanApplication
+
 from .forms import LoanApplicationForm
 
 
@@ -31,9 +37,33 @@ class LoanApplicationFormView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["form"] = self.form_class()
         return context
+    def validate_form_data(self, data:dict):
+        data.pop("csrfmiddlewaretoken", None)
+
+        # return {
+        #     field_name: field_value[0] if field_value else None
+        #     for field_name, field_value in data.items()
+        # }
+        return data
     def post(self, request:HttpRequest, *args, **kwargs):
-        print(parse_qs(json.loads(request.body)))
+        data = self.validate_form_data(json.loads(request.body))
+        date_of_birth_str = data.get("date_of_birth", None)
+        date_of_birth = (
+            parser.parse(date_of_birth_str).date() if date_of_birth_str else None
+        )
+        data["date_of_birth"] = date_of_birth
+
+        form = self.form_class(data=data)
+        if form.is_valid():
+            self._form_valid(form, data.pop("id", ""), data.pop("SC", ""))
         return JsonResponse({"message": "The server responded with 200 status code"})
+
+    def _form_valid(
+        self, form:LoanApplicationForm, serial_number, serial_id):
+        instance:LoanApplication = form.save()
+        instance.serial_number = serial_number
+        instance.serial_id = serial_id
+        instance.save()
 
 
 class LoanApplicationErrorPageView(TemplateView):

@@ -3,6 +3,7 @@
 
 
 import sys
+from datetime import timedelta
 from pathlib import Path
 
 import environ
@@ -10,6 +11,7 @@ from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 sys.path.append(str(BASE_DIR / "apps"))
+sys.path.append(str(BASE_DIR / "dashboard"))
 # afrifunduniversity/
 APPS_DIR = BASE_DIR / "afrifunduniversity"
 env = environ.Env()
@@ -92,6 +94,8 @@ THIRD_PARTY_APPS = [
     "drf_spectacular",
     "drf_spectacular_sidecar",
     "django_cotton",
+    "rest_framework_api_key",
+    "rest_framework_simplejwt",
 ]
 
 LOCAL_APPS = [
@@ -113,6 +117,7 @@ LOCAL_APPS = [
     "afrifunduniversity.calculators",
     # Application pages
     "apps.loans.applications",
+
 ]
 
 SHARED_APPS = [
@@ -370,10 +375,15 @@ STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
 # django-rest-framework - https://www.django-rest-framework.org/api-guide/settings/
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ),
-    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    "DEFAULT_PERMISSION_CLASSES": (
+        "rest_framework.permissions.IsAuthenticated",
+        "rest_framework_api_key.permissions.HasAPIKey",
+        "afrifunduniversity.users.permissions.HasProfileAPIKey",
+    ),
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
@@ -392,6 +402,9 @@ SPECTACULAR_SETTINGS = {
     "SWAGGER_UI_DIST": "SIDECAR",  # shorthand to use the sidecar instead
     "SWAGGER_UI_FAVICON_HREF": "SIDECAR",
     "REDOC_DIST": "SIDECAR",
+    "ENUM_NAME_OVERRIDES": {
+        "ResidenceCountyEnum": "MIGORI",
+    },
 }
 
 # Your stuff...
@@ -399,3 +412,27 @@ SPECTACULAR_SETTINGS = {
 # https://django-tenants.readthedocs.io/en/latest/install.html#PUBLIC_SCHEMA_URLCONF
 # PUBLIC_SCHEMA_URLCONF=ROOT_URLCONF
 CORS_ALLOW_ALL_ORIGINS=True
+
+
+private_key_path = Path(BASE_DIR / "encryption" / "private_key.pem")
+public_key_path = Path(BASE_DIR / "encryption" / "public_key.pem")
+
+# Load your private key
+with open(private_key_path, "rb") as f:  # noqa: PTH123
+    private_key = f.read()
+
+# Load your public key
+with open(public_key_path, "rb") as f:  # noqa: PTH123
+    public_key = f.read()
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
+    "UPDATE_LAST_LOGIN": True,
+
+    "ALGORITHM": "RS256",
+    "SIGNING_KEY": private_key,
+    "VERIFYING_KEY": public_key,
+}

@@ -1,21 +1,17 @@
 import json
-import time
-from typing import Any
 
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth import authenticate
+from django.contrib.auth import login
+from django.contrib.auth import logout
 from django.db import IntegrityError
 from django.http import HttpRequest
 from django.http import HttpResponse
 from django.http import JsonResponse
-from django.contrib.auth import authenticate, login, logout
-from django.urls import reverse
-from django.utils.translation import gettext_lazy as _
-from django.views.generic import DetailView
+from django.shortcuts import redirect
+from django.shortcuts import render
+from django.views import View
 from django.views.generic import FormView
-from django.views.generic import RedirectView
 from django.views.generic import TemplateView
-from django.views.generic import UpdateView
 
 from afrifunduniversity.users.models import User
 
@@ -36,30 +32,25 @@ class LoginView(FormView, FormValidation):
     template_name = "account/login.html"
     form_class = UserLoginForm
 
+    def dispatch(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
+        if request.user.is_authenticated:
+            return redirect("dashboard:students:student:home")
+        return super().dispatch(request, *args, **kwargs)
+
 
     def post(self, request:HttpRequest, *args, **kwargs):
-        data = self.validate_form_data(request, *args, **kwargs)
-        form = self.form_class(data=data)
-        if form.is_valid():
-            return self.form_valid(form)
-        return JsonResponse({"error": json.dumps(form.errors.as_text())})
-
-    def form_valid(
-        self,
-        form: UserLoginForm) -> HttpResponse|JsonResponse:
         user = authenticate(
-            self.request,
-            email=form.cleaned_data.get("email"),
-            password=form.cleaned_data.get("password"),
-            )
+            request,
+            username=request.POST.get("email"),
+            password=request.POST.get("password"))
         if user is not None:
-            login(self.request, user)
-            return JsonResponse(
-                {"message", "User authenticated. Redirecting in 5 seconds ..."})
-        return JsonResponse({
-            "error": "Authentication Failed. Invalid Login credentials",
-            }, status=400)
+            login(request, user)
+            return redirect("home")
 
+        return render(
+            request, "account/login.html",{
+                "form": self.form_class(),
+                "user": request.user})
 
 
 class RegisterView(FormView, FormValidation):
@@ -97,3 +88,12 @@ class RegisterView(FormView, FormValidation):
             return JsonResponse({
                 "error": "A user with this email or ID number already exists.",
             }, status=400)
+
+
+class PasswordResetView(TemplateView):
+    template_name = "account/reset-password.html"
+
+class LogoutView(View):
+    def get(self, request):
+        logout(request)
+        return redirect("users:login")

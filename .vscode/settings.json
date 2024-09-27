@@ -4,6 +4,7 @@
         "afrifund",
         "afrifundpress",
         "afrifunduniversity",
+        "AFUL",
         "allauth",
         "authtoken",
         "autodiscover",
@@ -15,6 +16,7 @@
         "filebeat",
         "filestream",
         "healthcheck",
+        "helb",
         "idno",
         "iframe",
         "IPINFO",
@@ -28,13 +30,16 @@
         "msvalidate",
         "Nemis",
         "oembed",
+        "Onetrust",
         "Onyango",
+        "optanongroupid",
         "precomposed",
         "Prequalify",
         "pressrelease",
         "REDOC",
         "rkwbhnkavj",
         "shortlink",
+        "simplejwt",
         "Studentloans",
         "Uvicorn",
         "viewbox",
@@ -42,5 +47,5 @@
         "viewsets",
         "xpack"
     ],
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5503
 }

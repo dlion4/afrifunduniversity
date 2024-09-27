@@ -29,5 +29,6 @@ if __name__ == "__main__":
     current_path = Path(__file__).parent.resolve()
     sys.path.append(str(current_path / "afrifunduniversity"))
     sys.path.append(str(current_path / "apps"))
+    sys.path.append(str(current_path / "dashboard"))
 
     execute_from_command_line(sys.argv)

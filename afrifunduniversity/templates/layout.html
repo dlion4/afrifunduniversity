@@ -870,9 +870,10 @@
                   </p>
                 </div>
 
-                <a href="https://www.collegeaveservicing.com/" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-247" data-link-name="Manage My Loan">
+                <a href="http://127.0.0.1:8100" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-247" data-link-name="Manage My Loan">
                   Manage My Loan
                 </a>
+
               </div>
               <div class="account-modal__download-container">
                 <div class="account-modal__download-desktop">
@@ -910,9 +911,10 @@
                   <p class="p-large">View, manage, transfer funds or make payments to your Ambition Card.</p>
                 </div>
 
-                <a href="https://ambition.collegeave.com/login" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-247" data-link-name="Manage My Ambition Card">
+                <a href="http://127.0.0.1:8100" target="_blank" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-247" data-link-name="Manage My Ambition Card">
                   Manage My Ambition Card
                 </a>
+
               </div>
               <div class="account-modal__download-container">
                 <div class="account-modal__download-desktop">
@@ -937,19 +939,19 @@
           </div>
         </div>
       </div>
-      <button class="modal-close-button" data-close-modal="account-modal">
+      <button type="button" class="modal-close-button" data-close-modal="account-modal">
         <svg width="20" height="20" viewbox="0 0 20 20" style="color: #00818A">
           <use href="{% static 'assets/images/icons/global/x_close.svg' %}#x_close"></use>
         </svg>
       </button>
     </dialog>
     <!--  -->
-
     {% include "components/modals/apply.html" %}
-
+    <!--  -->
     {% endblock modal %}
     <!--  -->
     <!-- Footer component section -->
+    {{request.user}}
     {% include "components/footer.html" %}
   </div>
   <!--  -->
@@ -959,7 +961,6 @@
   <!-- <script type="text/javascript" src="{% static 'assets/js/react-app/react-app.js' %}?ver=1726234432" id="survey-js" defer="defer"></script> -->
   {% block formScript %}{% endblock formScript %}
 </body>
-
 {% endblock body %}
 
 </html>

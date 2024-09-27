@@ -23,7 +23,7 @@ class LoanApplication(models.Model):
     status = models.CharField(max_length=50, default="pending")
     # BASIC INFORMATION BELOW
     first_name = models.CharField(max_length=100)
-    middle_name = models.CharField(max_length=100)
+    middle_name = models.CharField(max_length=100, blank=True)
     last_name = models.CharField(max_length=100)
     email_address = models.EmailField(max_length=100)
 
@@ -72,9 +72,12 @@ class LoanApplication(models.Model):
     )
 
     # LOAN DETAILS
-    loan_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    # loan_amount = models.DecimalField(max_digits=10, decimal_places=2)
     semester_fee = models.DecimalField(max_digits=10, decimal_places=2)
     annual_fee = models.DecimalField(max_digits=10, decimal_places=2)
+    government_support_fee = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    helb_applied_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+
 
     # VERIFICATION DOCUMENTATION
     national_id_scanned_copy = models.ImageField(
@@ -87,6 +90,9 @@ class LoanApplication(models.Model):
     # APPLICATION META DATA
     serial_number = models.CharField(max_length=1000, blank=True)
     serial_id = models.CharField(max_length=1000, blank=True)
+
+    # Commitment information
+    telephone_consumer_protection = models.BooleanField(default=False)
 
     def __str__(self):
         return (

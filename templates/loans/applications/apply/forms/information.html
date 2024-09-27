@@ -48,6 +48,7 @@
 
                             <!-- contact information -->
                             <h4 class="sc-hwcHae cpYbih">Student Contact Info</h4>
+
                             <c-input field={{form.phone}} type="tel">
                                 <c-tooltip description={{form.phone.help_text}}></c-tooltip>
                             </c-input>
@@ -62,6 +63,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <c-input field={{form.permanent_address}}>
                                 <c-tooltip description={{form.permanent_address.help_text}}></c-tooltip>
                             </c-input>
@@ -91,7 +93,7 @@
                             </div>
 
                             <!-- school and loan information -->
-                            <h4 class="sc-hwcHae cpYbih">School and Loan Info</h4>
+                            <h4 class="sc-hwcHae cpYbih">School and Education Info</h4>
 
 
                             <c-input field={{form.high_school_attended}}></c-input>
@@ -100,83 +102,86 @@
 
 
                             <div>
+
+
+                                <c-select field={{form.college_university_admitted}}>
+                                    <c-selectTooltip title="University placed" description={{form.college_university_admitted.help_text}}></c-selectTooltip>
+                                </c-select>
+
+                                <c-select field={{form.year_of_study}}>
+                                    <c-selectTooltip title="Estimated Cost of Attendance" description={{form.year_of_study.help_text}}></c-selectTooltip>
+                                </c-select>
+
+                                <c-select field={{form.course_admitted}}>
+                                    <c-selectTooltip title="Supported Course in Partnered Universities" description={{form.course_admitted.help_text}}></c-selectTooltip>
+                                </c-select>
+
+                            </div>
+
+                            <div>
+                                <h4 class="sc-hwcHae cpYbih">Loan and Financial Support Info</h4>
                                 <div>
 
+                                    <c-input field={{form.government_support_fee}} type="tel">
+                                        <c-tooltip description={{form.government_support_fee.help_text}}></c-tooltip>
+                                    </c-input>
 
-                                    <c-select field={{form.college_university_admitted}}>
-                                        <c-selectTooltip title="University placed" description={{form.college_university_admitted.help_text}}></c-selectTooltip>
-                                    </c-select>
+                                    <c-input field={{form.helb_applied_amount}} type="tel">
+                                        <c-tooltip description={{form.helb_applied_amount.help_text}}></c-tooltip>
+                                    </c-input>
 
-                                    <c-select field={{form.year_of_study}}>
-                                        <c-selectTooltip title="Estimated Cost of Attendance" description={{form.year_of_study.help_text}}></c-selectTooltip>
-                                    </c-select>
+                                    <c-input field={{form.semester_fee}} type="tel">
+                                        <c-tooltip description={{form.semester_fee.help_text}}></c-tooltip>
+                                    </c-input>
 
-                                    <c-select field={{form.course_admitted}}>
-                                        <c-selectTooltip title="Supported Course in Partnered Universities" description={{form.course_admitted.help_text}}></c-selectTooltip>
-                                    </c-select>
+                                    <c-input field={{form.annual_fee}} type="tel">
+                                        <c-tooltip description={{form.annual_fee.help_text}}></c-tooltip>
+                                    </c-input>
 
-                                </div>
-                                <div>
                                     <div>
-
-
-                                        <c-input field={{form.loan_amount}} type="tel">
-                                            <c-tooltip description={{form.loan_amount.help_text}}></c-tooltip>
-                                        </c-input>
-
-                                        <c-input field={{form.semester_fee}} type="tel">
-                                            <c-tooltip description={{form.semester_fee.help_text}}></c-tooltip>
-                                        </c-input>
-
-                                        <c-input field={{form.annual_fee}} type="tel">
-                                            <c-tooltip description={{form.annual_fee.help_text}}></c-tooltip>
-                                        </c-input>
-
-                                        <div>
-                                            <div class="sc-ibxdXY container eFXnum">
-                                                <div class="sc-RefOD row kzCQXs">
-                                                    <div class="sc-iQKALj col-sm-7 col-xs-12 iQIRBg">
+                                        <div class="sc-ibxdXY container eFXnum">
+                                            <div class="sc-RefOD row kzCQXs">
+                                                <div class="sc-iQKALj col-sm-7 col-xs-12 iQIRBg">
+                                                    <div>
                                                         <div>
-                                                            <div>
-                                                                <div class="sc-eXEjpC bjfZur"><span class="sc-kIPQKe bpMzSD"></span>
-                                                                    <h4 class="sc-kfGgVZ bMoTGd">Did you know?</h4>
-                                                                </div><span class="sc-esjQYD eKLaHG"></span>
-                                                            </div>
+                                                            <div class="sc-eXEjpC bjfZur"><span class="sc-kIPQKe bpMzSD"></span>
+                                                                <h4 class="sc-kfGgVZ bMoTGd">Did you know?</h4>
+                                                            </div><span class="sc-esjQYD eKLaHG"></span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="sc-bwCtUz cNhWva" data-popup="help-section"><span class="sc-hrWEMg dmSFqp"></span>
-                                                <div class="sc-eTuwsz iXSARm">
-                                                    <div>
-                                                        <div class="sc-eXEjpC cnTDlp"><span class="sc-kIPQKe dSrSHs"></span>
-                                                            <h4 class="sc-kfGgVZ hEHMUG">Did you know?</h4>
-                                                        </div><span class="sc-esjQYD bMSEgw"></span>
-                                                    </div>
+                                        </div>
+                                        <div class="sc-bwCtUz cNhWva" data-popup="help-section"><span class="sc-hrWEMg dmSFqp"></span>
+                                            <div class="sc-eTuwsz iXSARm">
+                                                <div>
+                                                    <div class="sc-eXEjpC cnTDlp"><span class="sc-kIPQKe dSrSHs"></span>
+                                                        <h4 class="sc-kfGgVZ hEHMUG">Did you know?</h4>
+                                                    </div><span class="sc-esjQYD bMSEgw"></span>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
 
 
-                                        <div class="sc-drKuOJ zZqIh" id="requested-loan-amount-expense-reminder">
-                                            <span class="sc-cmjSyW eIWjwA">
-                                                You can use your student loan to cover costs beyond tuition and room &amp; board.
-                                                This includes books, transportation, and other supplies which can really add up.
-                                                For reference, here are typical other expenses from the Afri Fund's Average
-                                                Estimated Undergraduate Budgets, 2024-25:
-                                                <br>
-                                                Although to apply for more of this you'll need to have a collateral.
-                                            </span>
-                                            <ul class="sc-gRnDUn jtBLhp">
-                                                <li>Books - KES 300,000</li>
-                                                <li>Transportation - KES 100,000</li>
-                                                <li>Laptop &amp; Other Supplies - KES 200,000</li>
-                                            </ul>
-                                        </div>
+                                    <div class="sc-drKuOJ zZqIh" id="requested-loan-amount-expense-reminder">
+                                        <span class="sc-cmjSyW eIWjwA">
+                                            You can use your student loan to cover costs beyond tuition and room &amp; board.
+                                            This includes books, transportation, and other supplies which can really add up.
+                                            For reference, here are typical other expenses from the Afri Fund's Average
+                                            Estimated Undergraduate Budgets, 2024-25:
+                                            <br>
+                                            Although to apply for more of this you'll need to have a collateral.
+                                        </span>
+                                        <ul class="sc-gRnDUn jtBLhp">
+                                            <li>Books - KES 300,000</li>
+                                            <li>Transportation - KES 100,000</li>
+                                            <li>Laptop &amp; Other Supplies - KES 200,000</li>
+                                        </ul>
                                     </div>
                                 </div>
-
                             </div>
+
 
                             <div>
                                 <h4 class="sc-hwcHae cpYbih">Disclosures and Consent</h4>

@@ -1,124 +1,140 @@
 {% extends "account/layout.html" %}
 {% load static %}
 
-{% block content %}
-
-  <div class="row">
-    <div class="col-12 text-center">
-      <h2>Log In</h2>
-    </div>
-  </div>
-
-  <div class="row justify-content-center">
-    <div class=" form-section">
-      <div id="response-card-container"></div>
-      <div class="form-content">
-        <form action="{% url 'users:login' %}" method="post" id="loginForm">
-          {% csrf_token %}
-          <div class="form-group">
-            <div class="input-group">
-              {{form.email}}
-              <label class="floating" for="{{form.email.id_for_label}}">{{form.email.label}}</label>
+{% block main %}
+<main class="_widget login">
+  <section class="c5ae326fd _prompt-box-outer c2a3d4513">
+    <div class="ce9e9339c cc85b8cab">
+      <div class="c1cde37b0">
+        <header class="" style="padding-bottom: 2rem;">
+          <div style="width: auto !important; height: 60px !important; position: static !important; margin: auto !important; padding: 0 !important; background-color: transparent !important; background-position: center !important; background-size: contain !important; background-repeat: no-repeat !important"></div>
+          <h1 class="c21b3189e cf06b5d73">Secure login</h1>
+          <div class="c15e7761c cf9539287">
+            <p class="c89b8d9a3 cf846ade6">Log in to Get Your Money Right®</p>
+          </div>
+        </header>
+        <div class="c133530c0 cca97f6fa">
+          <form method="POST" class="c07a87d47 cb4e4d015" action="{% url 'users:login' %}">
+            {% csrf_token %}
+            <div class="c97a03211 c4b23a084">
+              <div class="c30d2e9d9">
+                <div class="input-wrapper _input-wrapper">
+                  <div class="c40bfa4ec c43cb8eb6 text c2b619ed0 c081ba6b0">
+                    <label class="cb44d9d79 no-js cd6cf25de c9f5a109b" for="username">
+                      Email
+                    </label>
+                    <input class="input c4053936d caff7ffcc" inputmode="email" name="email" id="username" type="email" value="">
+                    <div class="cb44d9d79 js-required cd6cf25de c9f5a109b" aria-hidden="true">
+                      Email*
+                    </div>
+                  </div>
+                </div>
+                <div class="input-wrapper _input-wrapper">
+                  <div class="c40bfa4ec c43cb8eb6 password ce73e2fcd c081ba6b0">
+                    <label class="cb44d9d79 no-js cd6cf25de c98f02a3e" for="password">
+                      Password
+                    </label>
+                    <input class="input c4053936d cf01611a1" name="password" id="password" type="password">
+                    <div class="cb44d9d79 js-required cd6cf25de c98f02a3e" data-dynamic-label-for="password" aria-hidden="true">
+                      Password*
+                    </div>
+                    <button type="button" class="c23cc53f8 ulp-button-icon ca129283c _button-icon" data-action="toggle">
+                      <span aria-hidden="true" class="password-icon-tooltip show-password-tooltip">Show password</span>
+                      <span aria-hidden="true" class="password-icon-tooltip hide-password-tooltip hide">Hide password</span>
+                      <span class="screen-reader-only password-toggle-label" data-label="show-password">Show password</span>
+                      <span class="screen-reader-only password-toggle-label hide" data-label="hide-password">Hide password</span>
+                      <span class="c141197b0 password js-required" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <span class="field-validation-error {{form.email.id_for_label}}-error" data-id-for="{{form.email.id_for_label}}"></span>
-          </div>
-
-          <div class="form-group inputOverLink">
-            <div class="password-with-showHide input-group">
-              {{form.password}}
-              <label class="floating" for="{{form.password.id_for_label}}">{{form.password.label}}</label>
-              <a href="#" class="show-hide" tabindex="99">Show</a>
-            </div>
-            <span class="field-validation-valid {{form.password.id_for_label}}-error" style="color:crimson" data-id-for="{{form.password.id_for_label}}"></span>
-          </div>
-          <div class="form-group remember-me">
-            {{form.remember_me}}
-            <label class="rememberMeLabel" for="{{form.remember_me.id_for_label}}">
-              {{form.remember_me.label}}
-            </label>
-          </div>
-          <div class="text-center">
-            <button id="btnSubmit" type="submit" tabindex="6" class="btn btn-primary">
-              Login In
-            </button>
-          </div>
-        </form>
-        <div class="text-center nav-link  bottom-screen-nav-link">
-          <p>
-            <a class="anchorLink" href="{% url 'users:register' %}" tabindex="5">Create Account</a>
-          </p>
-        </div>
-
-        <div class="row text-center post-form-section" style="margin-top: 0px">
-          <div class="col-12">
-            <p>Forgot
-              <a class="anchorLink" href="">Username</a>
-              or
-              <a class="anchorLink" href="">Password</a>
+            <p class="cfa2f5043 ce2a3e093">
+              <a class="c9af0c479 c2aaeffca cfe901f30" href="{% url 'users:password_reset' %}">Forgot password?</a>
             </p>
-          </div>
+            <div class="c2639060b">
+              <button type="submit" id="loginBtn" class="c23cc53f8 c918ac079 ca129283c c3c85e921 c1962c85f">
+                Log in
+              </button>
+              <p class="server-response"></p>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+</main>
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 
-  <div class="row text-center post-form-section">
-    <div class="col-12">
-      <p></p>
-    </div>
-    <div class="col-12">
-      <p>Questions? Call 844-803-0736</p>
-    </div>
-  </div>
+<div id="validationScripts"></div>
+{% endblock main %}
 
-  <div id="validationScripts"></div>
-{% endblock content %}
+{% block blockJs %}
+<!-- 
+<script>
+  $(document).ready(function () {
+    $(".c07a87d47").submit(function (event) {
+      event.preventDefault();
+      var form = $(this);
+      var url = form.attr('action');
+      $.ajax({
+        type: 'POST',
+        url: url,
+        headers: {
+          "X-CSRFToken": $("input[name=csrfmiddlewaretoken]").val(),
+        },
+        data: JSON.stringify({
+          "email": $(this).find("input[name='email']").val(),
+          "password": $(this).find("input[name='password']").val()
+        }),
+        success: function (response) {
+          let data = JSON.parse(response);
+          if (!data.access) {
+            console.log(data);
+            $(".server-response").text(data.detail);
+            return false
+          }
+          handleUser(data.access)
 
-{% block formScript %}
+        },
+        error: function (xhr, status, error) {
+          console.error("Error: " + error);
+        }
+      })
+    });
 
-  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-
-  <script>
-    $(document).ready(function () {
-      loadBodyScripts("{% static 'js/validation.min.js' %}", function () {
-        console.log("file loaded");
-
-        validateEmailAddress();
-        validatePasswordField();
-        showLoadingState();
-        removeLoadingState();
-
+    const handleUser = function (access_token) {
+      // window.location.href = "/dashboard?access_token=" + access_token;
+      $.ajax({
+        url: "http://127.0.0.1:8000/api/access/",
+        headers: {
+          "Authorization": "Bearer " + access_token
+        },
+        success: function (response) {
+          $.ajax({
+            type: 'POST',
+            url: "http://127.0.0.1:8000/api/update-session/",
+            headers: {
+              "X-CSRFToken": $("input[name=csrfmiddlewaretoken]").val(),
+              "Authorization": "Bearer " + access_token
+            },
+            data: JSON.stringify({ user_id: response.id }),
+            success: function (sessionResponse) {
+              console.log("Session updated: ", sessionResponse);
+              window.location.href = sessionResponse.url;
+            },
+            error: function (xhr, status, error) {
+              console.error("Error updating session: " + error);
+            }
+          });
+        },
+        error: function (xhr, status, error) {
+          console.error("Error: " + error);
+        }
       });
 
-      $("#loginForm").submit(function (event) {
-        event.preventDefault();
-        showLoadingState("btnSubmit");
-        $.ajax({
-          url: $(this).attr("action"), // Get the form's action attribute
-          data: JSON.stringify({
-            "email": $("input[name=email]").val(), "password": $("input[name=password]").val(), "remember_me": $("input[name=remember_me]").is(":checked") // Handle checkbox properly
-          }),
-          type: $(this).attr("method"), // Should be "POST" for form submissions
-          contentType: "application/json", // Set the content type as JSON
-          headers: {
-            "X-CSRFToken": $("input[name=csrfmiddlewaretoken]").val() // Django CSRF protection
-          },
-          success: function (response) {
-            removeLoadingState("btnSubmit", "Log In");
-            handleSuccessResponse(response.message);
-            setTimeout(() => {
-              window.location.href = response.url
-            }, 5000)
+    }
+  });
+</script> -->
 
-          },
-          error: function (xhr, status, errorThrown) {
-            removeLoadingState("btnSubmit", "Log In")
-            handleFailedResponse(JSON.parse(xhr.responseText).error)
-          }
-        });
-
-      })
-
-    })
-  </script>
-{% endblock formScript %}
+{% endblock blockJs %}

@@ -18,8 +18,15 @@ from afrifunduniversity.help.apis.viewsets import QuestionModelViewSet
 # )  # noqa: ERA001, RUF100
 from afrifunduniversity.help.apis.viewsets import QuestionResponseArticleModelViewSet
 from afrifunduniversity.help.apis.viewsets import QuestionResponseModelViewSet
+from afrifunduniversity.users.access.urls import (
+    urlpatterns as external_website_user_authorization_urlpatterns,
+)
+from afrifunduniversity.users.api.views import RequestAPIKeyView
 from afrifunduniversity.users.api.views import UserViewSet
 from apps.loans.apis.viewsets import GlossaryModelViewset
+from apps.loans.applications.apis.viewsets import LoanApplicationViewSet
+from apps.loans.applications.apis.viewsets import LoanCategoryViewSet
+from apps.loans.applications.apis.viewsets import LoanRepaymentViewSet
 from apps.main_application.apis.viewsets import ReviewListViewSet
 from apps.main_application.apis.viewsets import SubscriptionRecordView
 from apps.main_application.apis.viewsets import SubscriptionView
@@ -54,6 +61,10 @@ router.register("calculators",LoanCalculatorModelViewSet, basename="calculators"
 # Loans apis part
 
 router.register("loans/glossary", GlossaryModelViewset, basename="Glossary")
+
+router.register("loans/category", LoanCategoryViewSet, basename="Category")
+router.register("loans/applications", LoanApplicationViewSet, basename="Application")
+router.register("loans/repayments", LoanRepaymentViewSet, basename="Repayment")
 
 # Nested router for the leadership
 leadership_router = NestedDefaultRouter(router, r"leadership", lookup="leadership")
@@ -106,10 +117,11 @@ urlpatterns = [
     path("subscription/record/",
          SubscriptionRecordView.as_view(), name="subscription_update_test"),
 
-
+    path("obtain-api-key", RequestAPIKeyView.as_view(), name="request_api_key_view"),
     *router.urls,
     *leadership_router.urls,
     *question_router.urls,
     *response_router.urls,
     # *article_title_router.urls,
+    *external_website_user_authorization_urlpatterns,
 ]

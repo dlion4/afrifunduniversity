@@ -1,8 +1,11 @@
 from typing import TYPE_CHECKING
 
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth.models import UserManager as DjangoUserManager
+from django.contrib.auth.models import BaseUserManager as DjangoUserManager
+from rest_framework_api_key.crypto import KeyGenerator
+from rest_framework_api_key.models import BaseAPIKeyManager
 
+# Import necessary models to avoid circular imports
 if TYPE_CHECKING:
     from .models import User  # noqa: F401
 
@@ -40,3 +43,12 @@ class UserManager(DjangoUserManager["User"]):
             raise ValueError(msg)
 
         return self._create_user(email, password, **extra_fields)
+
+
+class ProfileAPIKeyManager(BaseAPIKeyManager):
+    key_generator = KeyGenerator(
+        prefix_length=12,
+        secret_key_length=45,
+    )
+    def get_usable_keys(self):
+        return super().get_usable_keys().filter(profile__active=True)

@@ -62,17 +62,17 @@ class LoanApplicationForm(forms.ModelForm):
         ),
     )
     # LOAN DETAILS
-    loan_amount = forms.DecimalField(
-        decimal_places=2, max_digits=12,
-        widget=forms.NumberInput(attrs={
-            "placeholder": "Requested Loan Amount (min KES 5,000)",
-            "class": "form-control sc-eilVRo byoPMv",
-        }),
-        help_text=(
-            "Enter the amount you need this loan to cover. "
-            "You should also know that this amount will be sent directly to your school. ",
-        ),
-    )
+    # loan_amount = forms.DecimalField(
+    #     decimal_places=2, max_digits=12,
+    #     widget=forms.NumberInput(attrs={
+    #         "placeholder": "Requested Loan Amount (min KES 5,000)",
+    #         "class": "form-control sc-eilVRo byoPMv",
+    #     }),
+    #     help_text=(
+    #         "Enter the amount you need this loan to cover. "
+    #         "You should also know that this amount will be sent directly to your school. ",
+    #     ),
+    # )
     semester_fee = forms.DecimalField(
         decimal_places=2, max_digits=12,
         widget=forms.NumberInput(attrs={
@@ -92,6 +92,28 @@ class LoanApplicationForm(forms.ModelForm):
         help_text=(
             "This form will only be updated once unless there is fee hikes in school "
             "Also the fee will be paid per semester subject to maintained academic excellence",
+        ),
+    )
+    government_support_fee = forms.DecimalField(
+        decimal_places=2, max_digits=12,required=False, initial="0.00",
+        widget=forms.NumberInput(attrs={
+            "placeholder": "Annual fee for your course as in the fee structure",
+            "class": "form-control sc-eilVRo byoPMv",
+        }),
+        help_text=(
+            "This is the amount of money that the government is paying for you per semester as scholarship "
+            "This is based on the current model of funding to help us determine the amount you'll need "
+        ),
+    )
+    helb_applied_amount = forms.DecimalField(
+        decimal_places=2, max_digits=12,required=False, initial="0.00",
+        widget=forms.NumberInput(attrs={
+            "placeholder": "The total amount applied/Received from helb per year",
+            "class": "form-control sc-eilVRo byoPMv",
+        }),
+        help_text=(
+            "This is the amount of money that you've applied for from the HELB "
+            "Please ensure what you provide is the truth since any kind of liar will lead to automatic rejection of your application "
         ),
     )
 
@@ -124,6 +146,14 @@ class LoanApplicationForm(forms.ModelForm):
         This is  county or where your currently reside in home is
         The location however can charge based on where you are""",
     )
+    middle_name = forms.CharField(
+        widget=forms.TextInput(attrs={
+                    "class": "form-control sc-eilVRo byoPMv",
+                    "placeholder": "Middle Initial (Optional) ",
+                },
+            ),
+        required=False,
+    )
 
 
     class Meta:
@@ -140,8 +170,9 @@ class LoanApplicationForm(forms.ModelForm):
             # SCHOOL | LOAN INFORMATION,
             "high_school_attended","mean_grade_attained","college_university_admitted",
             "year_of_study", "course_admitted",
-            # LOAN DETAILS
-            "loan_amount","semester_fee","annual_fee",
+            # LOAN DETAILS "loan_amount",
+            "semester_fee","annual_fee", "government_support_fee",
+            "helb_applied_amount",
             # VERIFICATION DOCUMENTATION
             "national_id_scanned_copy","high_school_certificate_scanned_copy",
             "college_university_admitted_scanned_copy",
@@ -154,10 +185,6 @@ class LoanApplicationForm(forms.ModelForm):
                 attrs={
                     "class": "form-control sc-eilVRo byoPMv",
                     "placeholder": "First name",
-                }),
-            "middle_name": forms.TextInput(attrs={
-                    "class": "form-control sc-eilVRo byoPMv",
-                    "placeholder": "Middle Initial (Optional) ",
                 }),
             "last_name": forms.TextInput(attrs={
                     "class": "form-control sc-eilVRo byoPMv",

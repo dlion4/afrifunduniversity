@@ -11,6 +11,7 @@ from drf_spectacular.views import SpectacularAPIView
 from drf_spectacular.views import SpectacularSwaggerView
 from drf_spectacular.views import SpectacularRedocView
 from rest_framework.authtoken.views import obtain_auth_token
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from . import views
 
 urlpatterns = [
@@ -36,6 +37,7 @@ urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
     path("account/", include("afrifunduniversity.users.urls", namespace="users")),
+    path("portal/", include("dashboard.urls", namespace="dashboard")),
     # Your stuff: custom urls includes go here
     # ...
     # Media files
@@ -60,7 +62,8 @@ urlpatterns += [
         name="api-docs",
     ),
     path('api-redoc/', SpectacularRedocView.as_view(url_name='api-schema'), name='redoc'),
-
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
 
 if settings.DEBUG:

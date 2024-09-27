@@ -5,6 +5,14 @@
   "hints": {
     "disown-opener": "off",
     "no-inline-styles": "off",
-    "axe/text-alternatives": "off"
+    "axe/text-alternatives": "off",
+    "no-protocol-relative-urls": "off",
+    "axe/aria": [
+      "default",
+      {
+        "aria-toggle-field-name": "off"
+      }
+    ],
+    "button-type": "off"
   }
 }
