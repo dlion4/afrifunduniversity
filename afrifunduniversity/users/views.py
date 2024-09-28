@@ -1,6 +1,6 @@
 import json
-import time
-from django.shortcuts import get_object_or_404
+
+from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth import logout
@@ -8,22 +8,26 @@ from django.db import IntegrityError
 from django.http import HttpRequest
 from django.http import HttpResponse
 from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
-from django.shortcuts import render
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.utils.encoding import force_bytes, force_str
 from django.urls import reverse
-from django.views import View
 from django.utils.decorators import method_decorator
+from django.utils.encoding import force_str
+from django.utils.http import urlsafe_base64_decode
+from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import FormView
 from django.views.generic import TemplateView
-from django.contrib import messages
+
 from afrifunduniversity.users.models import User
 
-from .forms import FrontendUserSignupForm, PasswordResetRequestForm
-from .forms import UserLoginForm, PasswordResetForm
-from .utils import UserAuthFlowController, expiring_token_generator
+from .forms import FrontendUserSignupForm
+from .forms import PasswordResetForm
+from .forms import PasswordResetRequestForm
+from .forms import UserLoginForm
+from .utils import UserAuthFlowController
+from .utils import expiring_token_generator
+
 
 class FormValidation:
     def validate_form_data(self, request:HttpRequest, *args, **kwargs):
@@ -92,9 +96,13 @@ class PasswordResetView(
         try:
             user = User.objects.get(email=email)
             self.send_password_reset_email(email=user.email)
-            return JsonResponse({"message": "Email sent with password reset instructions."}, status=200)
+            return JsonResponse(
+                {"message": "Email sent with password reset instructions."},
+                status=200)
         except User.DoesNotExist:
-            return JsonResponse({"error": "We could not find an account with that email"}, status=400)
+            return JsonResponse(
+                {"error": "We could not find an account with that email"},
+                status=400)
 
 class AccountPasswordResetViewView(
     UserAuthenticationRedirectView, FormView, FormValidation):
@@ -182,6 +190,4 @@ class AccountEmailVerificationView(View):
             user.save()
             messages.success(request, "Email Verified successfully")
             return redirect("users:login")
-        # the token is expired show the expired page
-        # http://localhost:8000/users/login/Mjk/cazzis-d2df588655e11a203503afe323bf63a9-shg9us
         return redirect("users:token-expired")
