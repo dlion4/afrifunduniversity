@@ -19,68 +19,36 @@
             <div class="c97a03211 c4b23a084">
               <div class="c30d2e9d9">
 
-
                 <div class="input-wrapper _input-wrapper">
-                  <div class="c40bfa4ec c43cb8eb6 text c2b619ed0 c081ba6b0">
-                    <label class="cb44d9d79 no-js cd6cf25de c9f5a109b" for="username">
-                      Email
-                    </label>
-                    <input class="input c4053936d caff7ffcc" inputmode="email" name="email" id="username" type="email" value="">
-                    <div class="cb44d9d79 js-required cd6cf25de c9f5a109b" aria-hidden="true">
-                      Email*
-                    </div>
-                  </div>
+                  <c-auth label="{{form.dob.label}}" field="{{form.dob}}" field_error="{{form.dob.name}}"></c-auth>
                 </div>
 
-
                 <div class="input-wrapper _input-wrapper">
-                  <div class="c40bfa4ec c43cb8eb6 password ce73e2fcd c081ba6b0">
-                    <label class="cb44d9d79 no-js cd6cf25de c98f02a3e" for="password">
-                      Password
-                    </label>
-                    <input class="input c4053936d cf01611a1" name="password" id="password" type="password">
-                    <div class="cb44d9d79 js-required cd6cf25de c98f02a3e" data-dynamic-label-for="password" aria-hidden="true">
-                      Password*
-                    </div>
-                    <button type="button" class="c23cc53f8 ulp-button-icon ca129283c _button-icon" data-action="toggle">
-                      <span aria-hidden="true" class="password-icon-tooltip show-password-tooltip">Show password</span>
-                      <span aria-hidden="true" class="password-icon-tooltip hide-password-tooltip hide">Hide password</span>
-                      <span class="screen-reader-only password-toggle-label" data-label="show-password">Show password</span>
-                      <span class="screen-reader-only password-toggle-label hide" data-label="hide-password">Hide password</span>
-                      <span class="c141197b0 password js-required" aria-hidden="true"></span>
-                    </button>
-                  </div>
+                  <c-auth label="{{form.email.label}}" field="{{form.email}}" field_error="{{form.email.name}}"></c-auth>
                 </div>
 
-
                 <div class="input-wrapper _input-wrapper">
-                  <div class="c40bfa4ec c43cb8eb6 password ce73e2fcd c081ba6b0">
-                    <label class="cb44d9d79 no-js cd6cf25de c98f02a3e" for="password">
-                      Confirm Password
-                    </label>
-                    <input class="input c4053936d cf01611a1" name="password" id="password" type="password">
-                    <div class="cb44d9d79 js-required cd6cf25de c98f02a3e" data-dynamic-label-for="password" aria-hidden="true">
-                      Confirm Password*
-                    </div>
-                    <button type="button" class="c23cc53f8 ulp-button-icon ca129283c _button-icon" data-action="toggle">
-                      <span aria-hidden="true" class="password-icon-tooltip show-password-tooltip">Show password</span>
-                      <span aria-hidden="true" class="password-icon-tooltip hide-password-tooltip hide">Hide password</span>
-                      <span class="screen-reader-only password-toggle-label" data-label="show-password">Show password</span>
-                      <span class="screen-reader-only password-toggle-label hide" data-label="hide-password">Hide password</span>
-                      <span class="c141197b0 password js-required" aria-hidden="true"></span>
-                    </button>
-                  </div>
+                  <c-auth label="{{form.national_id_number.label}}" field="{{form.national_id_number}}" field_error="{{form.national_id_number.name}}"></c-auth>
                 </div>
 
+                <div class="input-wrapper _input-wrapper">
+                  <c-auth label="{{form.password.label}}" field="{{form.password}}" field_error="{{form.password.name}}"></c-auth>
+                </div>
 
+                <div class="input-wrapper _input-wrapper">
+                  <c-auth label="{{form.password2.label}}" field="{{form.password2}}" field_error="{{form.password2.name}}"></c-auth>
+                </div>
               </div>
             </div>
+
             <div class="c2639060b">
               <button type="submit" id="loginBtn" class="c23cc53f8 c918ac079 ca129283c c3c85e921 c1962c85f">
                 Log in
               </button>
-              <p class="server-response"></p>
+              <p class="server-response" style="display: flex;align-items:center; justify-content:center"></p>
             </div>
+
+
           </form>
         </div>
       </div>
@@ -96,6 +64,19 @@
 
 <script>
   $(document).ready(function () {
+    loadJSFile("{% static 'js/validation.min.js' %}", function () {
+      validateDob();
+      validateEmailAddress();
+      validateNationIdNumber();
+      validatePasswordField();
+    });
+
+
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
     $(".c07a87d47").submit(function (event) {
       event.preventDefault();
       var form = $(this);
@@ -107,57 +88,34 @@
           "X-CSRFToken": $("input[name=csrfmiddlewaretoken]").val(),
         },
         data: JSON.stringify({
+          "dob": $(this).find("input[name='dob']").val(),
           "email": $(this).find("input[name='email']").val(),
-          "password": $(this).find("input[name='password']").val()
+          "password": $(this).find("input[name='password']").val(),
+          "password2": $(this).find("input[name='password2']").val(),
+          "national_id_number": $(this).find("input[name='national_id_number']").val(),
         }),
         success: function (response) {
-          let data = JSON.parse(response);
-          if (!data.access) {
-            console.log(data);
-            $(".server-response").text(data.detail);
-            return false
-          }
-          handleUser(data.access)
+          let { message, url, email } = response;
+          $(".server-response").html(
+            `<small class='py-1' style='text-align: center'>${message}</small>`);
+          window.localStorage.setItem("AFUL_UNVERIFIED_EMAIL", email);
+          setTimeout(() => {
+            window.location.href = url;
+          }, 1000);
+
 
         },
         error: function (xhr, status, error) {
-          console.error("Error: " + error);
+          console.error("Error: " + xhr.responseText);
+          $(".server-response").html(
+            `<small class='py-1' style='text-align: center'>${JSON.parse(xhr.responseText).error}</small>`);
         }
       })
     });
 
-    const handleUser = function (access_token) {
-      // window.location.href = "/dashboard?access_token=" + access_token;
-      $.ajax({
-        url: "http://127.0.0.1:8000/api/access/",
-        headers: {
-          "Authorization": "Bearer " + access_token
-        },
-        success: function (response) {
-          $.ajax({
-            type: 'POST',
-            url: "http://127.0.0.1:8000/api/update-session/",
-            headers: {
-              "X-CSRFToken": $("input[name=csrfmiddlewaretoken]").val(),
-              "Authorization": "Bearer " + access_token
-            },
-            data: JSON.stringify({ user_id: response.id }),
-            success: function (sessionResponse) {
-              console.log("Session updated: ", sessionResponse);
-              window.location.href = sessionResponse.url;
-            },
-            error: function (xhr, status, error) {
-              console.error("Error updating session: " + error);
-            }
-          });
-        },
-        error: function (xhr, status, error) {
-          console.error("Error: " + error);
-        }
-      });
 
-    }
   });
+
 </script>
 
 {% endblock blockJs %}

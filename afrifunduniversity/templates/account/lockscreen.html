@@ -1,0 +1,144 @@
+{% extends "account/layout.html" %}
+{% load static %}
+
+{% block main %}
+
+<style>
+    .spinner {
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top: 2px solid white;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        animation: spin 0.8s linear infinite;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<main class="_widget login">
+    <section class="c5ae326fd _prompt-box-outer c2a3d4513">
+        <div class="ce9e9339c cc85b8cab">
+            <div class="c1cde37b0">
+                <header class="" style="padding-bottom: 2rem;">
+                    <div style="width: auto !important; height: 60px !important; position: static !important; margin: auto !important; padding: 0 !important; background-color: transparent !important; background-position: center !important; background-size: contain !important; background-repeat: no-repeat !important"></div>
+                    <h1 class="c21b3189e cf06b5d73">Recover Session</h1>
+                    <div class="c15e7761c cf9539287">
+                        <p class="c89b8d9a3 cf846ade6">Enter password to recover your session</p>
+                    </div>
+                </header>
+                <div class="c133530c0 cca97f6fa">
+                    <form method="POST" id="lockscreen-form" class="c07a87d47 cb4e4d015" action="{% url 'users:lockscreen' %}">
+                        {% csrf_token %}
+                        <div class="c97a03211 c4b23a084">
+                            <div class="c30d2e9d9">
+                                <div class="input-wrapper _input-wrapper">
+                                    <div class="c40bfa4ec c43cb8eb6 password ce73e2fcd c081ba6b0">
+                                        <label class="cb44d9d79 no-js cd6cf25de c98f02a3e" for="lockscreen-password">
+                                            Password
+                                        </label>
+                                        <input class="input c4053936d cf01611a1" name="password" id="lockscreen-password" type="password">
+                                        <div class="cb44d9d79 js-required cd6cf25de c98f02a3e" data-dynamic-label-for="password" aria-hidden="true">
+                                            Password*
+                                        </div>
+                                        <button type="button" class="c23cc53f8 ulp-button-icon ca129283c _button-icon" data-action="toggle">
+                                            <span aria-hidden="true" class="password-icon-tooltip show-password-tooltip">Show password</span>
+                                            <span aria-hidden="true" class="password-icon-tooltip hide-password-tooltip hide">Hide password</span>
+                                            <span class="screen-reader-only password-toggle-label" data-label="show-password">Show password</span>
+                                            <span class="screen-reader-only password-toggle-label hide" data-label="hide-password">Hide password</span>
+                                            <span class="c141197b0 password js-required" aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="cfa2f5043 ce2a3e093">
+                            <a class="c9af0c479 c2aaeffca cfe901f30" href="{% url 'users:password_reset' %}">Forgot password?</a>
+                        </p>
+                        <div class="c2639060b">
+                            <button type="submit" id="loginBtn" class="c23cc53f8 c918ac079 ca129283c c3c85e921 c1962c85f" style="position: relative;">
+                                Recover session
+                                <span class="spinner" id="spinner" style="display: none; position:absolute; top: 38%; right: 50px;"></span>
+                            </button>
+                            <p class="server-response"></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+{% endblock main %}
+
+
+
+
+
+{% block blockJs %}
+<script>
+
+    $(document).ready(function () {
+        function lockScreenMode() {
+            $("body").css("pointer-events", "none");
+            $("#lockscreen-password").css("pointer-events", "auto");
+            $("#loginBtn").css("pointer-events", "auto");
+            $("#lockscreen-form").on("submit", function (e) {
+                e.preventDefault();
+
+                var password = $("#lockscreen-password").val();
+
+                $("#loginBtn").prop('disabled', true);
+                // $("#loginBtn").text("Submitting ...");
+                $("#spinner").show();
+
+                $.ajax({
+                    type: "POST",
+                    url: $(this).attr("action"),
+                    data: JSON.stringify({ password }),
+                    headers: { "X-CSRFToken": $("input[name=csrfmiddlewaretoken]").val() },
+                    success: function (response) {
+                        unlockScreen();
+                    },
+                    error: function (xhr, status, error) {
+                        var errorResponse = JSON.parse(xhr.responseText);
+                        var errorMessage = errorResponse.error || "An error occurred";
+                        $("#lockscreen-password").val("").focus();
+                        $(".server-response").html(`<small style="text-align:center">${errorMessage}</small>`);
+                    },
+                    complete: function () {
+                        $("#loginBtn").prop('disabled', false);
+                        $("#spinner").hide();
+                    }
+                })
+            });
+        }
+
+        function unlockScreen() {
+            // Re-enable all interactions
+            $("body").css("pointer-events", "auto");
+
+            var previous_page = sessionStorage.getItem("previous_page");
+            if (previous_page) {
+                window.location.href = previous_page;
+            } else {
+                window.location.href = $("#base_url").val() + "home";
+            }
+        }
+
+        lockScreenMode();
+
+    })
+</script>
+{% endblock blockJs %}

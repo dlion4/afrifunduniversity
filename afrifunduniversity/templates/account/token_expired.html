@@ -1,0 +1,143 @@
+{% extends "account/layout.html" %}
+{% load static %}
+{% block customContainerCss %}
+<style>
+    body,
+    html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Light gray background */
+    }
+
+    .center-block {
+        background-color: white;
+        /* White background for the content */
+        border-radius: 15px;
+        /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* Light shadow for depth */
+        padding: 2rem;
+        text-align: center;
+        max-width: 500px;
+        /* Max width for responsiveness */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 1rem;
+        text-align: justify;
+        padding: 1rem;
+    }
+
+    p {
+        font-size: 16px;
+        color: #555;
+        text-align: justify;
+    }
+
+    .EmailDiv-sc-1va3tvg-0 svg {
+        margin-top: 1rem;
+    }
+
+
+    button {
+        background-color: #00A2C7;
+        color: white;
+        border: none;
+        padding: 1rem;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        width: 100%;
+        /* Cover full width of the parent */
+        margin-top: 2rem;
+        /* Add spacing above the button */
+    }
+
+    button:hover {
+        background-color: #0056b3;
+        /* Darker blue on hover */
+    }
+</style>
+{% endblock customContainerCss %}
+{% block bodyClass %}{% endblock bodyClass %}
+{% block outer %}
+
+<div class="center-block">
+    <h1 style="text-align: justify;">Sorry!, The link expired.</h1>
+    <p>
+        Don't worry though, you can request a new link by clicking the button
+    </p>
+    <div class="EmailDiv-sc-1va3tvg-0 geqkpd">
+        <svg class="" width="184px" height="184px" viewBox="0 0 184 184" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <title>Exclamation Mark Icon</title>
+            <desc>Modified Exclamation Mark Icon with Red Background and no envelope structure</desc>
+            <g id="2FA---mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="2FA-Setup-Email" transform="translate(-96.000000, -342.000000)">
+                    <g id="200/2FA_Pin_Email" transform="translate(88.000000, 334.000000)">
+                        <g id="Group" transform="translate(8.000000, 8.000000)">
+                            <!-- Outer Circle Background -->
+                            <path d="M92,184 C142.810197,184 184,142.810197 184,92 C184,41.189803 142.810197,0 92,0 C41.189803,0 0,41.189803 0,92 C0,142.810197 41.189803,184 92,184 Z" id="Oval" fill="#FF0000" fill-rule="nonzero"></path>
+
+                            <!-- Exclamation Mark -->
+                            <g id="exclamation-mark" transform="translate(70, 40)">
+                                <rect x="12" y="0" width="16" height="80" fill="#FFFFFF" />
+                                <circle cx="20" cy="100" r="12" fill="#FFFFFF" />
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
+
+    </div>
+    <div style="margin-top:4rem" class="FixedButtonWrapper-sc-aktdty-0 fAWGTP">
+        <button type="button" class="send-verification-email">
+            Ok send me Verification email
+        </button>
+    </div>
+</div>
+
+{% endblock outer %}
+{% block blockJs %}
+
+
+<script>
+    // Your JavaScript goes here
+    $(document).ready(function () {
+        // Your JavaScript code goes here
+        $('.send-verification-email').click(function () {
+            const url = "{% url 'users:send-token' %}";
+            const email = window.localStorage.getItem("AFUL_UNVERIFIED_EMAIL")
+            if (!email) {
+                console.log("No email address found!");
+                console.log(email);
+                return;
+            }
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: JSON.stringify({ email }),
+                success: function (response) {
+                    $(".send-verification-email").text("Verification email sent successfully!");
+                    $(".center-block").find("h1").text("Success! A verification email has been sent to your email!");
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error sending verification email: ', error);
+                    $(".send-verification-email").text("Error sending verification email");
+                    $(".center-block").find("h1").text("Error! " + JSON.parse(xhr.responseText).error);
+                }
+            })
+        });
+    });
+</script>
+
+
+{% endblock blockJs %}

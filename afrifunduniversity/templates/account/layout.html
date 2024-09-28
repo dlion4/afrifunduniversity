@@ -126,6 +126,10 @@
     border-color: #D00E17;
   }
 
+  .py-1 {
+    margin: 0.54rem 0 0.54rem 0;
+  }
+
   .error-cloud {
     background-color: #D00E17;
   }
@@ -171,6 +175,32 @@
   </style>
 </noscript>
 
+
+<style>
+  .spinner {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    animation: spin 0.8s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+
+
 {% include "account/components/styles/account_top.html" %}
 
 
@@ -204,107 +234,7 @@
       });
     }
   }
-
-
 </script>
-
-
-<script>
-  function isWebview() {
-    return (navigator.userAgent.toLowerCase().match('sofi_app_id=sofi-(ios|android)'));
-  }
-
-  window.addEventListener('DOMContentLoaded', function () {
-    if (!isWebview()) {
-      root = document.querySelector(':root');
-      root.style.setProperty('--header-post-login-display', 'block');
-      root.style.setProperty('--footer-post-login-height', '30px', 'important');
-    }
-  });
-</script>
-
-
-<script>
-  function limitPhoneNumberInput() {
-    const inputPhoneNumberField = document.getElementById('phone');
-    inputPhoneNumberField.maxLength = 10;
-  }
-
-
-</script>
-
-<script>
-  window.addEventListener('DOMContentLoaded', function () {
-    const username = document.getElementById('username');
-    username.setAttribute('type', 'email');
-  });
-</script>
-
-
-<script>
-  function disableButton() {
-    const countryCodeButton = document.querySelector('button[type="submit"][value="pick-country-code"]');
-    countryCodeButton.addEventListener('click', function (event) {
-      event.preventDefault();
-    });
-  }
-
-
-</script>
-
-<script>
-  function navigateToSignupPage() {
-    const landing64 = 'mzeemara@123';
-    window.location.href = "/signup/";
-  }
-
-  function navigateToLoginHelpPage() {
-    window.location.href = "";
-  }
-
-  function navigateToMemberHome() {
-    function getCookieValue(cname) {
-      const name = cname + '=';
-      const cookies = document.cookie.split(';');
-      for (let i = 0; i < cookies.length; i += 1) {
-        let cookie = cookies[i];
-        while (cookie.charAt(0) == ' ') {
-          cookie = cookie.substring(1);
-        }
-        if (cookie.indexOf(name) == 0) {
-          return cookie.substring(name.length, cookie.length);
-        }
-      }
-      return null;
-    }
-    const state = getCookieValue('_AUTH0_STATE');
-    const token = getCookieValue('_AUTH0_TOKEN');
-    const isPreLogin = state && token;
-
-    // Redirect to /continue to finish login process
-    if (isPreLogin) {
-      const form = document.getElementById("redirect-form");
-      form.action = '/' + state;
-      const input = document.getElementById("redirect-form-token");
-      input.value = encodeURIComponent(token);
-      form.submit();
-    } else {
-      window.location.href = '/';
-    }
-  }
-
-  function navigateToEnrollStatusPage() {
-    const isStatusPageEnabled = true === true;
-    if (isStatusPageEnabled) {
-      window.location.href = '/2fa/enroll/status/';
-    } else {
-      navigateToMemberHome()
-    }
-  }
-
-</script>
-
-
 
 <script>
   function uuid() {
@@ -313,118 +243,24 @@
     );
   }
 
-
-  function getCookieValue(cname) {
-    const name = cname + '=';
-    const cookies = document.cookie.split(';');
-    for (let i = 0; i < cookies.length; i += 1) {
-      let cookie = cookies[i];
-      while (cookie.charAt(0) == ' ') {
-        cookie = cookie.substring(1);
-      }
-      if (cookie.indexOf(name) == 0) {
-        return cookie.substring(name.length, cookie.length);
-      }
-    }
-    return '';
-  }
-  /*
-      (function () {
-        'use strict';
-  
-        function loadAndRun(scriptAddr, onload) {
-          let script = document.createElement('script');
-          script.src = scriptAddr;
-          script.onload = onload;
-          document.head.appendChild(script);
-        }
-  
-        function requestFp(cb) {
-          const fpOptions = {
-            publicKey: '43177cb9-bc0a-4190-9226-215ff795a132',
-            endpoint: 'https://fp.sofi.com/api/ingestion',
-            isConsenting: true,
-          };
-  
-          try {
-            window.devicer.run(
-              fpOptions,
-              (fpSessionResponse) => {
-                const nonce = uuid();
-                const fpSessionId = nonce + fpSessionResponse.sessionId;
-                cb(fpSessionId);
-              }
-            );
-          } catch (ex) {
-            console.error('Devicer threw an error', ex);
-          }
-        }
-  
-        let org_id = (window.location.hostname === 'login.sofi.com') ? 'oiwd0wpz' : '5ugj8dr8';
-        let txmSessionId = uuid();
-        loadAndRun(
-          'https://st10.sofi.com/fp/tags.js?org_id=' + org_id + '&session_id=' + txmSessionId + '&page_id=1&allow_reprofile=1',
-          () => setCrossSubdomainCookie('SOFI_TXM_SESSION_ID', txmSessionId)
-        );
-        loadAndRun(
-          "{% static 'auth/js/devicer.min.js' %}",
-          () => requestFp((fpSessionId) => setCrossSubdomainCookie('_FP_SESSION_ID', fpSessionId))
-        );
-  
-        if (navigator) {
-          setCrossSubdomainCookie('_USER_DNT', navigator.doNotTrack)
-        }
-  
-      })(); */
 </script>
 
 <script src="{% static 'auth/js/devicer.min.js' %}"></script>
 <title>
   {% block title %}Education Loans &amp; College Planning Resources | afrifunduniversity.com{% endblock title %}
 </title>
-<!-- <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" type="text/javascript" ></script> -->
-<script type="text/javascript">
-  function OptanonWrapper() {
-    /**
-     * When a user navigates to a new page, switches tabs, closes the tab, minimizes or closes the browser, or, on mobile, switches from the browser
-     * to a different app, opt the user into cookies if they haven't interacted with the cookie banner CTAs.
-     * See: https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilitychange_event#sending_end-of-session_analytics_on_transitioning_to_hidden
-     */
-    function optUserIntoCookiesIfCTAsNotClicked() {
-      if (document.visibilityState !== 'hidden') {
-        return;
-      }
 
-      // https://developer.onetrust.com/onetrust/docs/javascript-api#is-optanonalertboxclosed-cookie-set
-      const userClickedCTA = window.OneTrust.IsAlertBoxClosed();
-      // https://developer.mozilla.org/en-US/docs/Web/API/Navigator/doNotTrack
-      const isDNTEnabled = navigator.doNotTrack === "1";
-      // https://developer.mozilla.org/en-US/docs/Web/API/Navigator/globalPrivacyControl
-      const isGPCEnabled = navigator.globalPrivacyControl === true;
-
-      if (!userClickedCTA && !isDNTEnabled && !isGPCEnabled) {
-        // If the user didn't click either of the CTAs, and the user has not enabled GPC or DNT in their browser, opt the user into cookies
-        // See documentation for OneTrust.AllowAll: https://developer.onetrust.com/onetrust/docs/javascript-api#allow-all-consent
-        window.OneTrust.AllowAll();
-      } else if (isDNTEnabled || isGPCEnabled) {
-        // Respect the user's browser setting for GPC/DNT
-        // See documentation for OneTrust.RejectAll: https://developer.onetrust.com/onetrust/docs/javascript-api#reject-all-consent
-        window.OneTrust.RejectAll();
-      }
-      window.addEventListener('visibilitychange', optUserIntoCookiesIfCTAsNotClicked);
-
-      // Any logged out page in sofi.com/learn with the query parameter ?privacy_options=true should automatically open the OneTrust preference center
-      if (window.location.search.indexOf('privacy_options=true') !== -1) {
-        // See documentation for OneTrust.ToggleInfoDisplay: https://developer.onetrust.com/onetrust/docs/javascript-api#show-preference-center
-        window.OneTrust.ToggleInfoDisplay();
-      }
-    }
-  }
-</script>
 {% include "account/components/styles/account_main.html" %}
+
+
+{% block customContainerCss %}
+{% endblock customContainerCss %}
+
+
 </head>
 
-<body id="page" class="_widget-auto-layout _hide-prompt-logo">
+<body id="page" class="{% block bodyClass %}_widget-auto-layout _hide-prompt-logo{% endblock bodyClass %}">
+  {% block outer %}
   <div class="header">
     <span class="logo">
       <div class="logo-alignment">
@@ -440,6 +276,8 @@
 
   <div id="widget_block">
     <div class="center-block">
+
+
       <div class="left-column">
         <div class="main-box">
           <div class="left-widget-wrapper">
@@ -489,7 +327,13 @@
           <div class="right-widget-wrapper">
             {% block main %}
             {% endblock main %}
+
+
+            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+            <div id="validationScripts"></div>
           </div>
+          {% if not request.resolver_match.view_name == "users:lockscreen" %}
+          {% if not request.resolver_match.view_name == "users:send-token" %}
           {% if request.resolver_match.view_name == "users:login" %}
           <footer class="footer">
             <div class="sofi-links">
@@ -503,15 +347,19 @@
             </div>
           </footer>
           {% endif %}
+          {% endif %}
+          {% endif %}
 
         </div>
       </div>
 
 
+
+
     </div>
   </div>
 
-
+  {% if not request.resolver_match.view_name == "users:register" %}
   <div class="legal">
     <div class="legal_content">
       <ul>
@@ -521,7 +369,9 @@
       </ul>
     </div>
   </div>
+  {% endif %}
 
+  {% endblock outer %}
 
   {% include "account/components/consent/onetrust.html" %}
 

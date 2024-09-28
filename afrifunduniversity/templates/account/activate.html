@@ -1,0 +1,168 @@
+{% extends "account/layout.html" %}
+{% load static %}
+{% block customContainerCss %}
+<style>
+    body,
+    html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Light gray background */
+    }
+
+    .center-block {
+        background-color: white;
+        /* White background for the content */
+        border-radius: 15px;
+        /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* Light shadow for depth */
+        padding: 2rem;
+        text-align: center;
+        max-width: 500px;
+        /* Max width for responsiveness */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 1rem;
+        text-align: justify;
+        padding: 1rem;
+    }
+
+    p {
+        font-size: 16px;
+        color: #555;
+        text-align: justify;
+    }
+
+    .EmailDiv-sc-1va3tvg-0 svg {
+        margin-top: 1rem;
+    }
+
+
+    button {
+        background-color: #00A2C7;
+        color: white;
+        border: none;
+        padding: 1rem;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        width: 100%;
+        /* Cover full width of the parent */
+        margin-top: 2rem;
+        /* Add spacing above the button */
+    }
+
+    button:hover {
+        background-color: #0056b3;
+        /* Darker blue on hover */
+    }
+</style>
+{% endblock customContainerCss %}
+{% block bodyClass %}{% endblock bodyClass %}
+{% block outer %}
+
+<div class="center-block">
+    <h1 style="text-align: justify;">Okay, let's verify your email address.</h1>
+    <p>
+        We will send you a verification email to your email address to confirm your account.
+    </p>
+    <div class="EmailDiv-sc-1va3tvg-0 geqkpd">
+        <svg class="" width="184px" height="184px" viewBox="0 0 184 184" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <title>200/2FA_Pin_Email</title>
+            <desc>Created with Sketch.</desc>
+            <defs>
+                <path d="M83.9961119,0.377995767 L162.87,49.082 L163.3536,49.0828704 C164.75331,49.0828704 165.888,50.21756 165.888,51.6172705 L165.888,145.971796 C165.888006,147.35143 164.784471,148.477631 163.405123,148.505678 C137.137113,149.039806 110.581097,149.30687 83.7370748,149.30687 C56.862318,149.30687 29.7781882,149.039195 2.4846854,148.503843 C1.10461943,148.47676 8.54341702e-14,147.350262 8.52651283e-14,145.96993 L8.52651283e-14,51.6172705 C8.4649624e-14,50.21756 1.13468955,49.0828704 2.53440005,49.0828704 L4.13,49.082 L81.3122667,0.390907385 C82.1309986,-0.125606224 83.1724482,-0.130616497 83.9961119,0.377995767 Z" id="path-1"></path>
+                <path d="M120.96,87.7878074 L98.9893021,107.271344 C97.134751,108.915888 94.7419521,109.824 92.2632657,109.824 L26.785907,109.824 C24.2698679,109.824 21.8437301,108.888371 19.9791822,107.199018 L-1.98951966e-13,89.0968074 L0.00096,3.84 C0.00096,1.71922656 1.72018656,1.89127494e-13 3.84096,1.84741111e-13 L117.12096,1.84741111e-13 C119.241733,1.76817031e-13 120.96096,1.71922656 120.96096,3.84 L120.96,87.7878074 Z" id="path-3"></path>
+                <path d="M144.043177,85.44 L144.022,87.789 L122.029302,107.291335 C120.174751,108.935879 117.781952,109.843991 115.303266,109.843991 L49.825907,109.843991 C47.3098679,109.843991 44.8837301,108.908362 43.0191822,107.219009 L23.04,89.118 L23.04096,86.8039911 L45.0786588,103.716644 C46.849233,105.075456 49.0187365,105.811991 51.2506203,105.811991 L114.062569,105.811991 C116.294901,105.811991 118.464816,105.075161 120.23557,103.715846 L144.043177,85.44 Z" id="path-5"></path>
+            </defs>
+            <g id="2FA---mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="2FA-Setup-Email" transform="translate(-96.000000, -342.000000)">
+                    <g id="200/2FA_Pin_Email" transform="translate(88.000000, 334.000000)">
+                        <g id="Group" transform="translate(8.000000, 8.000000)">
+                            <path d="M92,184 C142.810197,184 184,142.810197 184,92 C184,41.189803 142.810197,0 92,0 C41.189803,0 0,41.189803 0,92 C0,142.810197 41.189803,184 92,184 Z" id="Oval" fill="#CAB1ED" fill-rule="nonzero"></path>
+                            <g id="email-grouped" transform="translate(9.000000, 6.000000)">
+                                <g id="envelope" transform="translate(0.000000, 22.341130)">
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#path-1"></use>
+                                    </mask>
+                                    <use id="Base" fill="#F2F2F2" xlink:href="#path-1"></use>
+                                    <polygon id="Rectangle" fill="#D9D9D9" points="42.048 79.6108704 45.504 81.9148704 0.576 147.57887"></polygon>
+                                    <polygon id="Rectangle-Copy" fill="#D9D9D9" transform="translate(142.752000, 113.306870) scale(-1, 1) translate(-142.752000, -113.306870) " points="161.664 79.0348704 165.12 81.9148704 120.384 147.57887"></polygon>
+                                    <path d="M8.064,53.1880018 L81.4682383,8.39330332 C81.8697705,8.14826958 82.3739948,8.14581815 82.7778906,8.38693607 L157.824,53.1880018 L157.824,53.1880018 L122.028342,84.9302141 C120.173791,86.5747586 117.780992,87.4828704 115.302306,87.4828704 L49.824947,87.4828704 C47.3089079,87.4828704 44.8827701,86.5472417 43.0182222,84.8578886 L8.064,53.1880018 L8.064,53.1880018 Z" id="Mask" fill="#330072"></path>
+                                    <path d="M122.539502,84.5660461 L165.085844,147.59793 C164.631781,148.186911 163.924173,148.570842 163.124769,148.585727 C137.305867,149.066489 110.980368,149.30687 84.1482729,149.30687 C57.2708543,149.30687 30.0548825,149.065677 2.50035752,148.583289 C1.71457022,148.569535 1.01772325,148.199312 0.562502494,147.628647 L43.2,85.1788704 L43.2715368,85.1764349 C45.0981185,86.7238999 47.4189908,87.5788704 49.8242759,87.5788704 L49.8242759,87.5788704 L115.27851,87.5788704 C117.705335,87.5788704 120.051641,86.708289 121.891112,85.1253077 L121.891112,85.1253077 L122.539502,84.5660461 Z" id="Combined-Shape" fill="#E6E6E6"></path>
+                                </g>
+                                <g id="email" transform="translate(23.040000, 0.000000)">
+                                    <mask id="mask-4" fill="white">
+                                        <use xlink:href="#path-3"></use>
+                                    </mask>
+                                    <use id="paper" fill="#00A9CE" xlink:href="#path-3"></use>
+                                    <g id="asterisks" transform="translate(15.360000, 32.640000)" fill="#FFFFFF">
+                                        <path d="M13.6145455,0 L13.614,5.652 L17.7273411,1.71032965 L20.9062173,4.75675262 L15.995,9.462 L23.04,9.46285714 L23.04,13.6685714 L17.092,13.668 L20.9062173,17.3232474 L17.7273411,20.3696703 L13.614,16.427 L13.6145455,22.08 L9.42545455,22.08 L9.425,15.759 L4.61447704,20.3696703 L1.4356009,17.3232474 L5.249,13.668 L1.77635684e-15,13.6685714 L2.03388257e-15,9.46285714 L6.346,9.462 L1.4356009,4.75675262 L4.61447704,1.71032965 L9.425,6.32 L9.42545455,0 L13.6145455,0 Z" id="Combined-Shape-Copy"></path>
+                                        <path d="M48.1745455,0 L48.174,5.652 L52.2873411,1.71032965 L55.4662173,4.75675262 L50.555,9.462 L57.6,9.46285714 L57.6,13.6685714 L51.652,13.668 L55.4662173,17.3232474 L52.2873411,20.3696703 L48.174,16.427 L48.1745455,22.08 L43.9854545,22.08 L43.985,15.759 L39.174477,20.3696703 L35.9956009,17.3232474 L39.809,13.668 L34.56,13.6685714 L34.56,9.46285714 L40.906,9.462 L35.9956009,4.75675262 L39.174477,1.71032965 L43.985,6.32 L43.9854545,0 L48.1745455,0 Z" id="Combined-Shape-Copy-2"></path>
+                                        <path d="M82.7345455,0 L82.734,5.652 L86.8473411,1.71032965 L90.0262173,4.75675262 L85.115,9.462 L92.16,9.46285714 L92.16,13.6685714 L86.212,13.668 L90.0262173,17.3232474 L86.8473411,20.3696703 L82.734,16.427 L82.7345455,22.08 L78.5454545,22.08 L78.545,15.759 L73.734477,20.3696703 L70.5556009,17.3232474 L74.369,13.668 L69.12,13.6685714 L69.12,9.46285714 L75.466,9.462 L70.5556009,4.75675262 L73.734477,1.71032965 L78.545,6.32 L78.5454545,0 L82.7345455,0 Z" id="Combined-Shape-Copy-3"></path>
+                                    </g>
+                                    <rect id="Rectangle" fill="#007290" fill-rule="nonzero" x="15.36" y="12.672" width="27.648" height="3.84" rx="1.92"></rect>
+                                    <rect id="Rectangle-Copy-2" fill="#007290" fill-rule="nonzero" x="14.976" y="69.12" width="92.16" height="3.84" rx="1.92"></rect>
+                                    <rect id="Rectangle-Copy-3" fill="#007290" fill-rule="nonzero" x="14.976" y="78.336" width="92.16" height="3.84" rx="1.92"></rect>
+                                </g>
+                                <mask id="mask-6" fill="white">
+                                    <use xlink:href="#path-5"></use>
+                                </mask>
+                                <use id="paper-shadow" fill="#007290" xlink:href="#path-5"></use>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
+    </div>
+    <div style="margin-top:4rem" class="FixedButtonWrapper-sc-aktdty-0 fAWGTP">
+        <button type="button" class="send-verification-email">
+            Ok send me Verification email
+        </button>
+    </div>
+</div>
+
+{% endblock outer %}
+{% block blockJs %}
+
+
+<script>
+    // Your JavaScript goes here
+    $(document).ready(function () {
+        // Your JavaScript code goes here
+        $('.send-verification-email').click(function () {
+            const url = "{% url 'users:send-token' %}";
+            const email = window.localStorage.getItem("AFUL_UNVERIFIED_EMAIL")
+            if (!email) {
+                return false;
+            }
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: JSON.stringify({ email }),
+                success: function (response) {
+                    $(".send-verification-email").text("Verification email sent successfully!");
+                    $(".center-block").find("h1").text("Success! A verification email has been sent to your email!");
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error sending verification email: ', error);
+                    $(".send-verification-email").text("Error sending verification email");
+                    $(".center-block").find("h1").text("Error! " + JSON.parse(xhr.responseText));
+                }
+            })
+        });
+    });
+</script>
+
+
+{% endblock blockJs %}

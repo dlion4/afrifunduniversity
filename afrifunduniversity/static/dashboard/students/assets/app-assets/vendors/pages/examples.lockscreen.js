@@ -1,31 +1,29 @@
-/*
-Name: 			Pages / Locked Screen - Examples
-Written by: 	Okler Themes - (http://www.okler.net)
-Theme Version: 	1.3.0
-*/
+(function ($) {
+  "use strict";
 
-(function($) {
+  var $document,
+    idleTime;
 
-	'use strict';
+  $document = $(document);
 
-	//alert('yo');
-	var $document,
-		idleTime;
+  $(function () {
+    // Set idle timer to 30 seconds (30000 ms)
+    $.idleTimer(1800000); // Lock session after 30 minutes
 
-	$document = $(document);
+    // On idle, redirect to lock screen
+    $document.on("idle.idleTimer", function () {
+      var base_url = $("#base_url").val();
+      window.location.href = base_url + "account/index/lockscreen"; // Redirect to lock screen
+    });
 
-	$(function() {
-		//$.idleTimer( 1200000 ); // ms
-		$.idleTimer( 600000 ); // Where 1 minutes = 60000 ms and 1000ms = 1 sec
+    // Prevent navigation using back button to escape the lock screen
+    window.onpopstate = function (event) {
+      var base_url = $("#base_url").val();
+      window.location.href = base_url + "account/index/lockscreen"; // Force redirect to lock screen
+    };
+  });
 
-		$document.on( 'idle.idleTimer', function() {
-			// if you don't want the modal
-			// you can make a redirect here
-			var base_url = $('#base_url').val();
-			//alert(base_url);
-			window.location.href = base_url + 'auth/index/lockscreen';
-			//LockScreen.show();
-		});
-	});
-
-}).apply( this, [ jQuery ]);
+  window.onbeforeunload = function () {
+    sessionStorage.setItem("previous_page", window.location.href);
+  };
+}.apply(this, [jQuery]));

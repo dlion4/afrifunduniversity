@@ -46,7 +46,7 @@ class FrontendUserSignupForm(forms.ModelForm):
                 "autocomplete":"off",
                 "name":"dob",
                 "id":"dob",
-                "class":"form-control dobMask",
+                "class":"input c4053936d caff7ffcc dobMask",
             },
         ),
         input_formats=["%m/%d/%Y"],  # Specify the input format expected
@@ -60,7 +60,7 @@ class FrontendUserSignupForm(forms.ModelForm):
                 "autocomplete":"off",
                 "name":"email_address",
                 "id":"email",
-                "class":"form-control zipcodeMask",
+                "class":"input c4053936d caff7ffcc",
             },
         ),
     )
@@ -73,7 +73,7 @@ class FrontendUserSignupForm(forms.ModelForm):
                 "autocomplete":"off",
                 "name":"id_number",
                 "id":"idno",
-                "class":"form-control ssnMask",
+                "class":"input c4053936d ssnMask",
             },
         ),
     )
@@ -90,6 +90,20 @@ class FrontendUserSignupForm(forms.ModelForm):
         error_messages={
             "required": "You must accept the privacy policy and terms and conditions.",
         },
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            "class": "input c4053936d",
+            "id": "password",
+        }),
+        label="Password",
+    )
+    password2 = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            "class": "input c4053936d",
+            "id": "password2"
+        }),
+        label="Confirm Password",
     )
 
     class Meta:
@@ -109,11 +123,9 @@ class UserLoginForm(forms.Form):
         label=_("Email Address"),
         widget=forms.TextInput(
             attrs={
-                "autocomplete":"off",
-                "name":"email_address",
+                "name":"email",
                 "id":"email",
-                "class":"form-control prevent-yellow-background input-validation-error",
-                "style":"border-color: rgb(114, 117, 121);",
+                "class":"input c4053936d",
             },
         ),
     )
@@ -123,10 +135,9 @@ class UserLoginForm(forms.Form):
         label=_("Password"),
         widget=forms.PasswordInput(
             attrs={
-                "autocomplete":"off",
                 "name":"password",
-                "id":"loginPasswordField",
-                "class":"form-control prevent-yellow-background",
+                "id":"password",
+                "class":"input c4053936d",
             },
         ),
     )
@@ -140,6 +151,43 @@ class UserLoginForm(forms.Form):
                 "class":"rememberMeCheckbox",
                 "id":"RememberLogin",
                 "name":"RememberLogin",
+            },
+        ),
+    )
+class PasswordResetRequestForm(forms.Form):
+    email = forms.CharField(
+        max_length=255,
+        required=True,
+        label=_("Email Address"),
+        widget=forms.TextInput(
+            attrs={
+                "name":"email",
+                "id":"email",
+                "class":"input c4053936d",
+            },
+        ),
+    )
+class PasswordResetForm(forms.Form):
+    password = forms.CharField(
+        max_length=255,
+        required=True,
+        label=_("New Password"),
+        widget=forms.PasswordInput(
+            attrs={
+                "name":"password",
+                "id":"password",
+                "class":"input c4053936d",
+            },
+        ),
+    )
+    password2 = forms.CharField(
+        max_length=255,
+        required=False,
+        label=_("Confirm New Password"),
+        widget=forms.PasswordInput(
+            attrs={
+                "id":"password2",
+                "class":"input c4053936d",
             },
         ),
     )

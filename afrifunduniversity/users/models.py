@@ -21,10 +21,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     check forms.SignupForm and forms.SocialSignupForms accordingly.
     """
 
-    # dob = models.DateField(_("Your date of birth"))
+    dob = models.DateField(_("Your date of birth"), blank=True, null=True)
     email = EmailField(_("Email Address"), unique=True)
-    # national_id_number = models.IntegerField(
-    #     _("Your National Identification Number"), unique=True)
+    national_id_number = models.PositiveBigIntegerField(
+        _("Your National Identification Number"), blank=True, null=True)
     terms_and_conditions = models.BooleanField(default=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)

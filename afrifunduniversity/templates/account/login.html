@@ -18,35 +18,15 @@
             {% csrf_token %}
             <div class="c97a03211 c4b23a084">
               <div class="c30d2e9d9">
+
                 <div class="input-wrapper _input-wrapper">
-                  <div class="c40bfa4ec c43cb8eb6 text c2b619ed0 c081ba6b0">
-                    <label class="cb44d9d79 no-js cd6cf25de c9f5a109b" for="username">
-                      Email
-                    </label>
-                    <input class="input c4053936d caff7ffcc" inputmode="email" name="email" id="username" type="email" value="">
-                    <div class="cb44d9d79 js-required cd6cf25de c9f5a109b" aria-hidden="true">
-                      Email*
-                    </div>
-                  </div>
+                  <c-auth label="{{form.email.label}}" field="{{form.email}}" field_error="{{form.email.name}}"></c-auth>
                 </div>
+
                 <div class="input-wrapper _input-wrapper">
-                  <div class="c40bfa4ec c43cb8eb6 password ce73e2fcd c081ba6b0">
-                    <label class="cb44d9d79 no-js cd6cf25de c98f02a3e" for="password">
-                      Password
-                    </label>
-                    <input class="input c4053936d cf01611a1" name="password" id="password" type="password">
-                    <div class="cb44d9d79 js-required cd6cf25de c98f02a3e" data-dynamic-label-for="password" aria-hidden="true">
-                      Password*
-                    </div>
-                    <button type="button" class="c23cc53f8 ulp-button-icon ca129283c _button-icon" data-action="toggle">
-                      <span aria-hidden="true" class="password-icon-tooltip show-password-tooltip">Show password</span>
-                      <span aria-hidden="true" class="password-icon-tooltip hide-password-tooltip hide">Hide password</span>
-                      <span class="screen-reader-only password-toggle-label" data-label="show-password">Show password</span>
-                      <span class="screen-reader-only password-toggle-label hide" data-label="hide-password">Hide password</span>
-                      <span class="c141197b0 password js-required" aria-hidden="true"></span>
-                    </button>
-                  </div>
+                  <c-auth label="{{form.password.label}}" field="{{form.password}}" field_error="{{form.password.name}}"></c-auth>
                 </div>
+
               </div>
             </div>
             <p class="cfa2f5043 ce2a3e093">
@@ -56,7 +36,7 @@
               <button type="submit" id="loginBtn" class="c23cc53f8 c918ac079 ca129283c c3c85e921 c1962c85f">
                 Log in
               </button>
-              <p class="server-response"></p>
+              <p class="server-response" style="text-align: center;"></p>
             </div>
           </form>
         </div>
@@ -64,77 +44,51 @@
     </div>
   </section>
 </main>
-<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 
-<div id="validationScripts"></div>
 {% endblock main %}
 
 {% block blockJs %}
-<!-- 
+
 <script>
+  // Add your custom JavaScript here
   $(document).ready(function () {
-    $(".c07a87d47").submit(function (event) {
+    try {
+      window.localStorage.removeItem("AFUL_UNVERIFIED_EMAIL")
+    } catch (error) { };
+
+    $(".cb4e4d015").submit(function (event) {
       event.preventDefault();
-      var form = $(this);
-      var url = form.attr('action');
-      $.ajax({
-        type: 'POST',
-        url: url,
-        headers: {
-          "X-CSRFToken": $("input[name=csrfmiddlewaretoken]").val(),
-        },
-        data: JSON.stringify({
-          "email": $(this).find("input[name='email']").val(),
-          "password": $(this).find("input[name='password']").val()
-        }),
-        success: function (response) {
-          let data = JSON.parse(response);
-          if (!data.access) {
-            console.log(data);
-            $(".server-response").text(data.detail);
-            return false
-          }
-          handleUser(data.access)
+      var email = $("#email").val();
+      var password = $("#password").val();
 
-        },
-        error: function (xhr, status, error) {
-          console.error("Error: " + error);
-        }
-      })
-    });
+      $("#loginBtn").prop("disabled", true);
+      $("#loginBtn").html(`<span class="spinner" id="spinner"></span>`)
 
-    const handleUser = function (access_token) {
-      // window.location.href = "/dashboard?access_token=" + access_token;
+
       $.ajax({
-        url: "http://127.0.0.1:8000/api/access/",
+        url: "{% url 'users:login' %}",
+        type: "POST",
+        data: JSON.stringify({ email, password, 'next': "{{ request.GET.next }}" }),
         headers: {
-          "Authorization": "Bearer " + access_token
+          "X-CSRFToken": $("input[name=csrfmiddlewaretoken]").val()
         },
         success: function (response) {
-          $.ajax({
-            type: 'POST',
-            url: "http://127.0.0.1:8000/api/update-session/",
-            headers: {
-              "X-CSRFToken": $("input[name=csrfmiddlewaretoken]").val(),
-              "Authorization": "Bearer " + access_token
-            },
-            data: JSON.stringify({ user_id: response.id }),
-            success: function (sessionResponse) {
-              console.log("Session updated: ", sessionResponse);
-              window.location.href = sessionResponse.url;
-            },
-            error: function (xhr, status, error) {
-              console.error("Error updating session: " + error);
-            }
-          });
+          const { message, redirect_to } = response;
+          $(".server-response").text(message);
+          setTimeout(function () {
+            window.location.href = redirect_to;
+          }, 1000)
         },
         error: function (xhr, status, error) {
-          console.error("Error: " + error);
+          $(".server-response").text(JSON.parse(xhr.responseText).error);
+        },
+        complete: function () {
+          $("#loginBtn").prop("disabled", false);
+          $("#loginBtn").html("Log in");
         }
       });
-
-    }
+    })
   });
-</script> -->
+</script>
 
 {% endblock blockJs %}
