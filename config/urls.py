@@ -28,7 +28,11 @@ urlpatterns = [
     path('load-gtm/', views.load_gtm, name='load_gtm'),
     path('decode-mails/', views.load_decode_mail_script, name='generate-decode-email-script'),
     path('site-inspection/', views.load_site_inspection_script, name='load-site-inspection-script'),
-    
+    path("obfuscation-token-view/", views.get_obfuscation_token_view, 
+         name="obfuscation_token_view"),
+    path(
+        "obfuscation-token-view/validation/",
+        views.validate_token, name="obfuscation_token_validation_view"),
     path("files-view/<file_name>", views.AfriFundLoadFileView.as_view(), name="view_file"),
     path("api/video-links/", views.AfriFundLoadYoutubeVideoLinkView.as_view(), name="load_yt_video_link"),
 

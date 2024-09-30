@@ -4,15 +4,18 @@ from rest_framework import permissions
 from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.exceptions import ValidationError
+from rest_framework.request import Request
 from rest_framework.response import Response
 
 from apps.press.apis.serializers import ArticleSerializer
 from apps.press.apis.serializers import CategorySerializer
+from apps.press.apis.serializers import FootNoteSerializer
 from apps.press.apis.serializers import LeadershipSerializer
 from apps.press.apis.serializers import ParagraphSerializer
 from apps.press.apis.serializers import PressReleaseSerializer
 from apps.press.models import Article
 from apps.press.models import Category
+from apps.press.models import FootNote
 from apps.press.models import Leadership
 from apps.press.models import Paragraph
 from apps.press.models import PressRelease
@@ -35,10 +38,6 @@ class ArticleViewSet(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer
     permission_classes = [permissions.AllowAny]
 
-
-# The `LeadershipViewSet` is a viewset class that handles API requests related to the
-# `Leadership` model in the application. It is set up as a ModelViewSet, which means it provides
-# CRUD (Create, Retrieve, Update, Delete) operations for the `Leadership` model.
 class LeadershipViewSet(viewsets.ModelViewSet):
     queryset = Leadership.objects.using("afrifundpress").all()
     serializer_class = LeadershipSerializer
@@ -67,12 +66,28 @@ class ParagraphViewSet(viewsets.ModelViewSet):
                 {"leadership": "No leader with the provided ID"},
             ) from e
 
-        # Extract leadership_id from kwargs
 
 
     def list(self, request, *args, **kwargs) -> Response:
         leadership_id = kwargs.get("leadership_pk")
         instance = self.queryset.filter(leadership__pk=leadership_id)
         serializer = self.serializer_class(instance, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+
+class FootNoteModelViewSet(viewsets.ModelViewSet):
+    permission_classes = [permissions.AllowAny]
+    serializer_class = FootNoteSerializer
+
+    def get_queryset(self):
+        return FootNote.objects.using("afrifundpress").all()
+    def create(self, request: Request, *args, **kwargs) -> Response:
+        instance = FootNote.objects.using("afrifundpress").create(**request.data)
+        serializer = self.serializer_class(instance)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    def list(self, request: Request, *args, **kwargs) -> Response:
+        queryset = self.get_queryset()
+        serializer = self.serializer_class(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 

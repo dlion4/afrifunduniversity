@@ -1,0 +1,40 @@
+{% load static %}
+
+
+
+<div class="two-column-scroll-lock-section__desktop-layout">
+
+    <div class="two-column-scroll-lock-section__left-column">
+        <div class="two-column-scroll-lock-section__sticky-container" data-nav-offset="top" data-additional-offset="70">
+            <img width="530" height="439" src="{{image}}" class="two-column-scroll-lock-section__lock-image" alt="person using a laptop with notebooks on the floor" data-lock-image="1" decoding="async" /><img width="530" height="439" src="https://cdn.collegeavestudentloans.com/ca2023/wp-content/uploads/2023/10/07145727/desktop.png" class="two-column-scroll-lock-section__lock-image" alt="person using a desktop computer" data-lock-image="2" decoding="async" /><img width="530" height="439" src="https://cdn.collegeavestudentloans.com/ca2023/wp-content/uploads/2023/10/07145727/autopay-laptop.png" class="two-column-scroll-lock-section__lock-image" alt="laptop with autopay chart displayed" data-lock-image="3" decoding="async" />
+        </div>
+    </div>
+
+    <div class="two-column-scroll-lock-section__right-column">
+        <div class="two-column-scroll-lock-section__item-content-container content-1" data-lock-image-show="1">
+            <div class="two-column-scroll-lock-section__content-indicator">
+                <p>{{step}}</p>
+            </div>
+            <div class="two-column-scroll-lock-section__item-content">
+                <p class="p-large">
+                    {{message}}
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="two-column-scroll-lock-section__mobile-layout">
+    <div class="two-column-scroll-lock-section__mobile-item">
+        <img width="530" height="439" src="{{image}}" class="attachment-full size-full" alt="person using a laptop with notebooks on the floor" decoding="async" />
+        <div class="two-column-scroll-lock-section__item-content-container">
+            <div class="two-column-scroll-lock-section__content-indicator">
+                <p>{{step}}</p>
+            </div>
+            <div class="two-column-scroll-lock-section__item-content">
+                <p class="p-large">{{message}}</p>
+            </div>
+        </div>
+    </div>
+</div>

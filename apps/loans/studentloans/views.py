@@ -9,7 +9,13 @@ def index(request):
 
 
 def undergrad(request):
-    
+
     return render(
         request,
         "loans/student/undergraduate/index.html")
+
+def refinance(request):
+
+    return render(
+        request,
+        "loans/student/undergraduate/refinance.html")

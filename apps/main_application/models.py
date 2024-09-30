@@ -3,6 +3,7 @@ from django.db.models import Q
 from django.urls import reverse
 from django.utils.text import slugify
 
+
 class Review(models.Model):
     review_title = models.CharField(max_length=255)
     review_content = models.TextField()

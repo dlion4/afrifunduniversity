@@ -1,0 +1,283 @@
+{% extends "loans/layout.html" %}
+{% load static humanize %}
+
+{% block title %}
+Career Student Loans | {{block.super}}
+{% endblock title %}
+
+{% block content %}
+<div data-app="PrequalifySection">
+    <main class="prequalify-screen" data-prequalify-container="parent" style="display: none;">
+        <div class="progress-bar background-color__light-gray">
+            <div class="progress-bar__complete background-color__teal" style="width: 75%;"></div>
+        </div>
+        <section class="prequalify-screen__section-container" data-section-name="Prequalify-parent-step-1">
+            <button class="arrow-button arrow-button__left">
+                <div class="arrow-button__arrow-container">
+                    <svg width="16" height="14" viewBox="0 0 16 14" fill="#01326B" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.47332 10.7722L3.21807 6.3278C2.92731 6.02398 2.92731 5.53155 3.21807 5.22786C3.50884 4.92405 3.98043 4.92405 4.27119 5.22786L8 9.12246L11.7288 5.22786C12.0196 4.92405 12.4912 4.92405 12.7819 5.22786C13.0727 5.53156 13.0727 6.02399 12.7819 6.3278L8.52668 10.7722C8.23591 11.0759 7.76408 11.0759 7.47332 10.7722Z" fill="#002769"></path>
+                    </svg>
+                </div>
+                <div class="arrow-button__label p-small font-weight-700">Go Back</div>
+            </button>
+            <div class="prequalify-screen__step-container background-color__white">
+                <div class="prequalify-screen__step-container--content">
+                    <div class="prequalify-screen__text-container">
+                        <h2 class="h2">I am a parent</h2>
+                        <div class="prequalify-screen__text-container--paragraphs">
+                            <p class="p-large">
+                                We'll tell you whether your credit pre-qualifies for a loan, and what
+                                interest rates you can personally expect before you apply, without impacting your credit score.
+                            </p>
+                        </div>
+                    </div>
+                    <form class="prequalify-form">
+                        <div class="prequalify-form__inputs-container">
+                            <p class="p-xsmall">
+                                Required fields
+                                <sup>*</sup>
+                            </p>
+                            <div class="prequalify-form__row">
+                                <div class="form-field form-field__text-input">
+                                    <label class="form-field__label-container">
+                                        <p class="form-field__label">First Name</p>
+                                        <div class="form-field__text-input-button-container">
+                                            <div class="form-field__text-input-container">
+                                                <input type="text" name="firstname" inputmode="text" class="form-field__input" aria-required="true" aria-describedby="" aria-labelledby="First Name" tabindex="0" value="">
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="prequalify-form__row">
+                                <div class="form-field form-field__text-input">
+                                    <label class="form-field__label-container">
+                                        <p class="form-field__label">Last Name*</p>
+                                        <div class="form-field__text-input-button-container">
+                                            <div class="form-field__text-input-container">
+                                                <input type="text" name="lastname" inputmode="text" class="form-field__input" aria-required="true" aria-describedby="" aria-labelledby="Last Name*" tabindex="0" value="">
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="prequalify-form__row">
+                                <div class="form-field form-field__text-input">
+                                    <label class="form-field__label-container">
+                                        <p class="form-field__label">MI</p>
+                                        <div class="form-field__text-input-button-container">
+                                            <div class="form-field__text-input-container">
+                                                <input type="text" name="middle" inputmode="text" maxlength="1" class="form-field__input" aria-describedby="" aria-labelledby="MI" tabindex="0" value="">
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="form-field form-field__text-input">
+                                    <label class="form-field__label-container">
+                                        <p class="form-field__label">DOB(mm/dd/yyyy)*</p>
+                                        <div class="form-field__text-input-button-container">
+                                            <div class="form-field__text-input-container">
+                                                <input type="tel" name="dob" inputmode="numeric" class="form-field__input" aria-required="true" aria-describedby="" aria-labelledby="DOB(mm/dd/yyyy)*" tabindex="0" value="">
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="prequalify-form__row">
+                                <div class="form-field form-field__text-input">
+                                    <label class="form-field__label-container">
+                                        <p class="form-field__label">Street Address*</p>
+                                        <div class="form-field__text-input-button-container">
+                                            <div class="form-field__text-input-container">
+                                                <input type="text" name="address" inputmode="text" class="form-field__input" aria-required="true" aria-describedby="" aria-labelledby="Street Address*" tabindex="0" value="">
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="prequalify-form__row">
+                                <div class="form-field form-field__text-input">
+                                    <label class="form-field__label-container">
+                                        <p class="form-field__label">Zip Code*</p>
+                                        <div class="form-field__text-input-button-container">
+                                            <div class="form-field__text-input-container">
+                                                <input type="tel" name="zip" inputmode="numeric" maxlength="5" class="form-field__input" aria-required="true" aria-describedby="" aria-labelledby="Zip Code*" tabindex="0" value="">
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="form-field form-field__text-input">
+                                    <label class="form-field__label-container">
+                                        <p class="form-field__label">Email Address*</p>
+                                        <div class="form-field__text-input-button-container">
+                                            <div class="form-field__text-input-container">
+                                                <input type="text" name="email" inputmode="email" class="form-field__input" aria-required="true" aria-describedby="" aria-labelledby="Email Address*" tabindex="0" value="">
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="prequalify-form__row">
+                                <label class="checkbox__container">
+                                    <input class="checkbox__checkmark-input" type="checkbox">
+                                    <div class="checkbox__checkmark-container"></div>
+                                    <div class="checkbox__label-container">
+                                        <div class="checkbox__label">
+                                            <p class="p-xsmall">*By checking here, I understand and agree that I am providing 'written instructions' to College Ave under the Fair Credit Reporting Act authorizing College Ave to obtain information from my personal credit profile or other information from Experian, solely to conduct a pre-qualification for credit, I know that this is not an application and will not impact my credit score.</p>
+                                            <p class="p-xsmall">By providing your email address, you agree to our Privacy Policy, and you give College Ave permission to contact you. College Ave respects your inbox and will only send periodic emails.</p>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <button data-id="parent-prequalify" class="button button__dark-teal button__width-203 dropshadow dropshadow__hover-off">Prequalify</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="prequalify-screen__section-container" data-section-name="Prequalify-parent-step-2" style="display: none;">
+            <button class="arrow-button arrow-button__left">
+                <div class="arrow-button__arrow-container">
+                    <svg width="16" height="14" viewBox="0 0 16 14" fill="#01326B" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.47332 10.7722L3.21807 6.3278C2.92731 6.02398 2.92731 5.53155 3.21807 5.22786C3.50884 4.92405 3.98043 4.92405 4.27119 5.22786L8 9.12246L11.7288 5.22786C12.0196 4.92405 12.4912 4.92405 12.7819 5.22786C13.0727 5.53156 13.0727 6.02399 12.7819 6.3278L8.52668 10.7722C8.23591 11.0759 7.76408 11.0759 7.47332 10.7722Z" fill="#002769"></path>
+                    </svg>
+                </div>
+                <div class="arrow-button__label p-small font-weight-700">Go Back</div>
+            </button>
+            <div class="prequalify-screen__step-container background-color__white">
+                <div class="prequalify-screen__step-container--content">
+                    <div class="prequalify-screen__results-view">
+                        <div class="prequalify-screen__text-container">
+                            <h2 class="h2">Sorry,</h2>
+                            <div class="prequalify-screen__text-container--paragraphs">
+                                <p class="p-large">Based on the information you entered, we couldn't find a match to pre-qualify you. You're still eligible to apply for this loan.</p>
+                            </div>
+                        </div>
+                        <div class="prequalify-screen__decline-buttons-container">
+                            <a data-link-name="Apply Now" href="/application/?ACT=US&amp;SC=CAPA01" class="button button__dark-teal button__width-205 button__mobile-full-width">Apply Now</a>
+                            <a href="/articles/private-student-loan-cosigner/" class="arrow-link">Learn About Getting A
+                                <span class="arrow-link__anchor">Cosigner
+                                    <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.47332 10.7722L3.21807 6.3278C2.92731 6.02398 2.92731 5.53155 3.21807 5.22786C3.50884 4.92405 3.98043 4.92405 4.27119 5.22786L8 9.12246L11.7288 5.22786C12.0196 4.92405 12.4912 4.92405 12.7819 5.22786C13.0727 5.53156 13.0727 6.02399 12.7819 6.3278L8.52668 10.7722C8.23591 11.0759 7.76408 11.0759 7.47332 10.7722Z" fill="#002769"></path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+<!-- FOR STUDENT -->
+<div data-app="PrequalifySection">
+    <main class="prequalify-screen" data-prequalify-container="career" style="display: none;">
+        <div class="progress-bar background-color__light-gray">
+            <div class="progress-bar__complete background-color__teal" style="width: 33%;"></div>
+        </div>
+        <section class="prequalify-screen__section-container" data-section-name="Prequalify-career-step-1">
+            <button class="arrow-button arrow-button__left">
+                <div class="arrow-button__arrow-container">
+                    <svg width="16" height="14" viewBox="0 0 16 14" fill="#01326B" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.47332 10.7722L3.21807 6.3278C2.92731 6.02398 2.92731 5.53155 3.21807 5.22786C3.50884 4.92405 3.98043 4.92405 4.27119 5.22786L8 9.12246L11.7288 5.22786C12.0196 4.92405 12.4912 4.92405 12.7819 5.22786C13.0727 5.53156 13.0727 6.02399 12.7819 6.3278L8.52668 10.7722C8.23591 11.0759 7.76408 11.0759 7.47332 10.7722Z" fill="#002769"></path>
+                    </svg>
+                </div>
+                <div class="arrow-button__label p-small font-weight-700">Go Back</div>
+            </button>
+            <div class="prequalify-screen__step-container background-color__white">
+                <div class="prequalify-screen__step-container--content">
+                    <div class="prequalify-screen__selection-view">
+                        <div class="prequalify-screen__text-container">
+                            <h2 class="h2">
+                                Tell Us About Yourself,
+                                <br>
+                                I am a...
+                            </h2>
+                        </div>
+                        <div class="prequalify-selection-group">
+                            <button class="product-selection-button dropshadow dropshadow__hover-on">
+                                <img src="{% static 'assets/images/icons/CAIS01.svg' %}" alt="Undergraduate Student" class="product-selection-button__icon">
+                                <h4 class="h4">Undergraduate Student</h4>
+                                <img src="{% static 'assets/images/icons/arrow.svg' %}" alt="arrow" class="product-selection-button__arrow">
+                            </button>
+                            <button class="product-selection-button dropshadow dropshadow__hover-on">
+                                <img src="{% static 'assets/images/icons/CAIS02.svg' %}" alt="Graduate Student" class="product-selection-button__icon">
+                                <h4 class="h4">Graduate Student</h4>
+                                <img src="{% static 'assets/images/icons/arrow.svg' %}" alt="arrow" class="product-selection-button__arrow">
+                            </button>
+                            <button class="product-selection-button dropshadow dropshadow__hover-on">
+                                <img src="{% static 'assets/images/icons/parchment.svg' %}" alt="Cosigner" class="product-selection-button__icon">
+                                <h4 class="h4">Cosigner</h4>
+                                <img src="{% static 'assets/images/icons/arrow.svg' %}" alt="arrow" class="product-selection-button__arrow">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="prequalify-screen__section-container" data-section-name="Prequalify-career-step-2" style="display: none;">
+            <button class="arrow-button arrow-button__left">
+                <div class="arrow-button__arrow-container">
+                    <svg width="16" height="14" viewBox="0 0 16 14" fill="#01326B" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.47332 10.7722L3.21807 6.3278C2.92731 6.02398 2.92731 5.53155 3.21807 5.22786C3.50884 4.92405 3.98043 4.92405 4.27119 5.22786L8 9.12246L11.7288 5.22786C12.0196 4.92405 12.4912 4.92405 12.7819 5.22786C13.0727 5.53156 13.0727 6.02399 12.7819 6.3278L8.52668 10.7722C8.23591 11.0759 7.76408 11.0759 7.47332 10.7722Z" fill="#002769"></path>
+                    </svg>
+                </div>
+                <div class="arrow-button__label p-small font-weight-700">Go Back</div>
+            </button>
+            <div class="prequalify-screen__step-container background-color__white">
+                <div class="prequalify-screen__step-container--content">
+                    <div class="prequalify-screen__text-container">
+                        <h2 class="h2">I am a student</h2>
+                        <div class="prequalify-screen__text-container--paragraphs">
+                            <p class="p-large">We'll tell you whether your credit pre-qualifies for a loan, and what interest rates you can personally expect before you apply, without impacting your credit score.</p>
+                        </div>
+                    </div>
+                    {% include "loans/components/prequalify-form.html" %}
+                </div>
+            </div>
+        </section>
+        <section class="prequalify-screen__section-container" data-section-name="Prequalify-career-step-3" style="display: none;">
+            <button class="arrow-button arrow-button__left">
+                <div class="arrow-button__arrow-container">
+                    <svg width="16" height="14" viewBox="0 0 16 14" fill="#01326B" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.47332 10.7722L3.21807 6.3278C2.92731 6.02398 2.92731 5.53155 3.21807 5.22786C3.50884 4.92405 3.98043 4.92405 4.27119 5.22786L8 9.12246L11.7288 5.22786C12.0196 4.92405 12.4912 4.92405 12.7819 5.22786C13.0727 5.53156 13.0727 6.02399 12.7819 6.3278L8.52668 10.7722C8.23591 11.0759 7.76408 11.0759 7.47332 10.7722Z" fill="#002769"></path>
+                    </svg>
+                </div>
+                <div class="arrow-button__label p-small font-weight-700">Go Back</div>
+            </button>
+            <div class="prequalify-screen__step-container background-color__white">
+                <div class="prequalify-screen__step-container--content">
+                    <div class="prequalify-screen__results-view">
+                        <div class="prequalify-screen__text-container">
+                            <h2 class="h2">Sorry,</h2>
+                            <div class="prequalify-screen__text-container--paragraphs">
+                                <p class="p-large">You're not pre-qualified for this loan on your own, but we recommend applying with a cosigner who has good credit. Don't worry - it's common for students with limited credit history to need a cosigner for a private student loan.</p>
+                                <p class="p-large">You can apply today, and we'll give you the option during the application to invite your cosigner. Your cosigner can finish applying now or whenever it's convenient; you don't have to be together.</p>
+                            </div>
+                        </div>
+                        <div class="prequalify-screen__decline-buttons-container">
+                            <a data-link-name="Apply Now" href="" class="button button__dark-teal button__width-205 button__mobile-full-width">Apply Now</a>
+                            <a href="" class="arrow-link">
+                                Learn About Getting A
+                                <span class="arrow-link__anchor">
+                                    Cosigner
+                                    <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.47332 10.7722L3.21807 6.3278C2.92731 6.02398 2.92731 5.53155 3.21807 5.22786C3.50884 4.92405 3.98043 4.92405 4.27119 5.22786L8 9.12246L11.7288 5.22786C12.0196 4.92405 12.4912 4.92405 12.7819 5.22786C13.0727 5.53156 13.0727 6.02399 12.7819 6.3278L8.52668 10.7722C8.23591 11.0759 7.76408 11.0759 7.47332 10.7722Z" fill="#002769"></path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+
+{% endblock content %}
+
+
+{% block componentScript %}
+<script src="{% static 'loans/js/monitor.js' %}"></script>
+{% endblock componentScript %}

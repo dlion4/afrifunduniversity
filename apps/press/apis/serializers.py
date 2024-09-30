@@ -6,7 +6,7 @@ from rest_framework import serializers
 from apps.press.models import Article
 from apps.press.models import Category
 from apps.press.models import Leadership
-from apps.press.models import Paragraph
+from apps.press.models import Paragraph, FootNote
 from apps.press.models import PressRelease
 
 
@@ -96,3 +96,9 @@ class LeadershipSerializer(serializers.ModelSerializer):
         fields = ["id", "image", "name", "job_title", "paragraphs"]
     def create(self, validated_data):
         return Leadership.objects.using("afrifundpress").create(**validated_data)
+
+
+class FootNoteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FootNote
+        fields = ["id", "category", "content"]

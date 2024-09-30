@@ -58,7 +58,7 @@
                             </p>
                           </div>
                         </a>
-                        <a href="/student-loans/parent/" class="sub-nav-link" data-link-name="Parent">
+                        <a href="{% url 'loans:studentloans:parentloans:parent-loans' %}" class="sub-nav-link" data-link-name="Parent">
                           <div class="sub-nav-link__icon">
                             <img src="{% static 'assets/images/icons/CAPA01.svg' %}" alt="CAPA01 icon">
                           </div>
@@ -68,7 +68,7 @@
                             </p>
                           </div>
                         </a>
-                        <a href="/student-loans/career/" class="sub-nav-link" data-link-name="Career Loans">
+                        <a href="{% url 'loans:studentloans:careerloans:career-loans' %}" class="sub-nav-link" data-link-name="Career Loans">
                           <div class="sub-nav-link__icon">
                             <img src="{% static 'assets/images/icons/CAIS03.svg' %}" alt="CAIS03 icon">
                           </div>
@@ -80,72 +80,12 @@
                         </a>
                       </div>
                     </div>
-                    <!-- <div class="sub-navigation-desktop__layout-column-one__row">
-                      <a href="/student-loans/graduate/" class="sub-nav-arrow-link" data-link-name="Graduate Loans">
-                        Graduate Loans
-                        <span class="sub-nav-arrow-link__arrow">
-                          <svg viewbox="0 0 25 15" style="color: #002769">
-                            <use href="{% static 'assets/images/icons/global/arrow.svg' %}#arrow"></use>
-                          </svg>
-                        </span>
-                      </a>
-                      <div class="sub-navigation-desktop__layout-column-one__grid-three">
 
-                        <a href="/student-loans/graduate/dental/" class="sub-nav-link" data-link-name="Dental">
-                          <div class="sub-nav-link__icon">
-                            <img src="{% static 'assets/images/icons/CAISDE.svg' %}" alt="CAISDE icon">
-                          </div>
-                          <div class="sub-nav-link__content">
-                            <p class="sub-nav-link__title">Dental</p>
-                            <p class="sub-nav-link__rate">3.74% - 14.47% APR<sup>&dagger;</sup>
-                            </p>
-                          </div>
-                        </a>
-                        <a href="/student-loans/graduate/mba/" class="sub-nav-link" data-link-name="MBA">
-                          <div class="sub-nav-link__icon">
-                            <img src="{% static 'assets/images/icons/CAISMB.svg' %}" alt="CAISMB icon">
-                          </div>
-                          <div class="sub-nav-link__content">
-                            <p class="sub-nav-link__title">MBA</p>
-                            <p class="sub-nav-link__rate">3.74% - 14.49% APR<sup>&dagger;</sup>
-                            </p>
-                          </div>
-                        </a>
-                        <a href="/student-loans/graduate/health-professions/" class="sub-nav-link" data-link-name="Health Professions">
-                          <div class="sub-nav-link__icon">
-                            <img src="{% static 'assets/images/icons/CAISGH.svg' %}" alt="CAISGH icon">
-                          </div>
-                          <div class="sub-nav-link__content">
-                            <p class="sub-nav-link__title">Health Professions</p>
-                            <p class="sub-nav-link__rate">3.74% - 14.47% APR<sup>&dagger;</sup>
-                            </p>
-                          </div>
-                        </a>
-                        <a href="/student-loans/graduate/law/" class="sub-nav-link" data-link-name="Law">
-                          <div class="sub-nav-link__icon">
-                            <img src="{% static 'assets/images/icons/CAISLW.svg' %}" alt="CAISLW icon">
-                          </div>
-                          <div class="sub-nav-link__content">
-                            <p class="sub-nav-link__title">Law</p>
-                            <p class="sub-nav-link__rate">3.74% - 14.47% APR<sup>&dagger;</sup>
-                            </p>
-                          </div>
-                        </a>
-                        <a href="/student-loans/graduate/medical/" class="sub-nav-link" data-link-name="Medical">
-                          <div class="sub-nav-link__icon">
-                            <img src="{% static 'assets/images/icons/CAISMD.svg' %}" alt="CAISMD icon">
-                          </div>
-                          <div class="sub-nav-link__content">
-                            <p class="sub-nav-link__title">Medical</p>
-                            <p class="sub-nav-link__rate">3.74% - 14.47% APR<sup>&dagger;</sup>
-                            </p>
-                          </div>
-                        </a>
-                      </div>
-                    </div> -->
+                    {% include "components/graduate-header.html" %}
+
                   </div>
                   <div class="sub-navigation-desktop__layout-column-two">
-                    <a href="/student-loans/refinance/" class="sub-nav-arrow-link sub-nav-arrow-link__refinance" data-link-name="Student Loan Refinance">
+                    <a href="{% url 'loans:studentloans:refinance' %}" class="sub-nav-arrow-link sub-nav-arrow-link__refinance" data-link-name="Student Loan Refinance">
                       Student Loan Refinance
                       <span class="sub-nav-arrow-link__arrow">
                         <svg viewbox="0 0 25 15" style="color: #002769">
@@ -174,7 +114,7 @@
           </div>
         </li>
         <li class="main-nav-link-item" data-nav-hover="target">
-          <a href="/credit/student-card/" class="main-nav-link" data-link-name="Student Card">
+          <a href="" class="main-nav-link" data-link-name="Student Card">
             <span class="main-nav-link__text">
               Student Card
             </span>
@@ -256,7 +196,7 @@
                         </div>
                       </div>
                       <div class="sub-nav-card__bottom">
-                        <h4 class="h4">$1000 Monthly Scholarship</h4>
+                        <h4 class="h4">$100 Monthly Scholarship</h4>
                         <p class="p-small">Enter for a chance to win</p>
                       </div>
                     </a>
@@ -337,7 +277,7 @@
               </svg>
             </button>
             <div class="site-search__column">
-              <form class="site-search__form" method="GET" action="/site-search" data-site-search="form">
+              <form class="site-search__form" method="GET" action="" data-site-search="form">
                 <input name="search" class="site-search__input" type="text" placeholder="Search">
               </form>
               <button data-site-search="closeSearch" class="site-search__button" title="close bnt" type="button">
@@ -377,7 +317,7 @@
               </svg>
             </button>
             <div class="site-search__column">
-              <form class="site-search__form" method="GET" action="/site-search" data-site-search="form">
+              <form class="site-search__form" method="GET" action="" data-site-search="form">
                 <input name="search" class="site-search__input" type="text" placeholder="Search">
               </form>
               <button data-site-search="closeSearch" class="site-search__button" type="button" title="close">
@@ -423,7 +363,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="/private-student-loans/" class="sub-nav-arrow-link" data-link-name="Private Student Loans">
+                    <a href="{% url 'loans:studentloans:private-student-loans' %}" class="sub-nav-arrow-link" data-link-name="Private Student Loans">
                       Private Student Loans
                       <span class="sub-nav-arrow-link__arrow">
                         <svg viewbox="0 0 25 15" style="color: #002769">
@@ -433,7 +373,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="/student-loans/undergraduate/" class="sub-nav-link" data-link-name="Undergraduate">
+                    <a href="{% url 'loans:studentloans:undergraduate-student-loans' %}" class="sub-nav-link" data-link-name="Undergraduate">
                       <div class="sub-nav-link__icon">
                         <img src="{% static 'assets/images/icons/CAIS01.svg' %}" alt="CAIS01 icon">
                       </div>
@@ -445,7 +385,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="/student-loans/parent/" class="sub-nav-link" data-link-name="Parent">
+                    <a href="{% url 'loans:studentloans:parentloans:parent-loans' %}" class="sub-nav-link" data-link-name="Parent">
                       <div class="sub-nav-link__icon">
                         <img src="{% static 'assets/images/icons/CAPA01.svg' %}" alt="CAPA01 icon">
                       </div>
@@ -457,7 +397,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="/student-loans/career/" class="sub-nav-link" data-link-name="Career Loans">
+                    <a href="{% url 'loans:studentloans:careerloans:career-loans' %}" class="sub-nav-link" data-link-name="Career Loans">
                       <div class="sub-nav-link__icon">
                         <img src="{% static 'assets/images/icons/CAIS03.svg' %}" alt="CAIS03 icon">
                       </div>
@@ -469,7 +409,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="/student-loans/refinance/" class="sub-nav-arrow-link sub-nav-arrow-link__refinance" data-link-name="Student Loan Refinance">
+                    <a href="{% url 'loans:studentloans:refinance' %}" class="sub-nav-arrow-link sub-nav-arrow-link__refinance" data-link-name="Student Loan Refinance">
                       Student Loan Refinance
                       <span class="sub-nav-arrow-link__arrow">
                         <svg viewbox="0 0 25 15" style="color: #002769">
@@ -483,7 +423,7 @@
             </div>
           </li>
           <li class="mobile-nav-link-item" data-target="mobile-nav-submenu">
-            <a class="main-nav-link" data-link-name="Student Card" href="/credit/student-card/">
+            <a class="main-nav-link" data-link-name="Student Card" href="">
               <span class="main-nav-link__text">
                 Student Card
               </span>
@@ -658,7 +598,8 @@
           </li>
         </ul>
         <div class="navigation-mobile-menu__top-nav-buttons">
-          <button type="button" aria-label="My Account" data-open-modal="account-modal" class="dropshadow dropshadow__hover-off button button__dark-blue button__width-264 button__mobile-full-width">
+          <button type="button" aria-label="My Account" data-open-modal="account-modal" 
+          class="dropshadow dropshadow__hover-off button button__dark-blue button__width-264 button__mobile-full-width">
             <svg viewbox="0 0 15 17" style="color: #fff">
               <use href="{% static 'assets/images/icons/global/person.svg' %}#person"></use>
             </svg>

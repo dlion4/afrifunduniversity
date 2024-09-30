@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% load static %}
+
+
+
+
+{% block loansComponentScripts %}
+
+
+<h1>Path Tracker</h1>
+<div id="current-path"></div>
+<div id="last-path"></div>
+
+<script>
+
+    loadJSFile("{% static 'loans/js/footnotes.js' %}", function () {
+        LoanTerm();
+        loadJSFile("{% static 'assets/js/scripts/scripts.js' %}", function () { })
+    }, document.body);
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var targetSegment = segments.includes('parent') ? 'parent' : segments.includes('career') ? 'career' : 'Not found';
+        const updateTargetSegment = function (segment) {
+            window.localStorage.setItem("__AFUL_PREQUALIFY_TARGET_SEGMENT", segment)
+        };
+        if (targetSegment !== "Not found") {
+            updateTargetSegment(targetSegment);
+        } else {
+            return;
+        };
+    })
+</script>
+
+<script>
+    loadJSFile("{% static 'loans/js/monitor.js' %}", function () {
+        console.log("Some data being saved");
+    })
+</script>
+
+
+
+<script>
+
+</script>
+
+{% endblock loansComponentScripts %}
+
+{% block templateScript %}
+
+{% endblock templateScript %}
+
+{% block componentScript %}
+{% endblock componentScript %}

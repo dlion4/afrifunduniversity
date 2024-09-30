@@ -1,0 +1,24 @@
+{% load static %}
+
+
+<div class="section-container">
+    <div class="compare-cards-section__container">
+        <div class="compare-cards-section__header-row">
+            <h2 class="h2" data-site-animation-order="0">Variable and Fixed Rates Explained</h2>
+            <div class="compare-cards-section__header-text">
+                <p class="p-large" data-site-animation-order="1">It’s important to understand the difference between variable and fixed interest rates<sup>2</sup> on undergraduate student loans. Learn the basics so you can pick the best one for you with confidence.</br><span style="font-size:14px">*all rates shown include auto-pay discount<sup>2</sup></span></p>
+            </div>
+        </div>
+        <div class="compare-cards-section__bottom-row">
+            <div class="compare-cards__row" data-equal-height="section" data-equal-height-breakpoint="768">
+                {% include "loans/components/inner/rates.html" %}
+            </div>
+        </div>
+
+        <a href="" class="arrow-link" target="_blank" data-link-name="Learn More About Interest Rates">
+            Learn More About Interest <span class="arrow-link__anchor">Rates<svg width="16" height="14" viewBox="0 0 16 14" style="color: #002769">
+                    <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
+                </svg></span>
+        </a>
+    </div>
+</div>

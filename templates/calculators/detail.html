@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+{% load static humanize %}
+
+{% block title %}
+{{calculator.title|title}} | {{block.super}}
+{% endblock title %}
+
+{% block content %}
+<section class="hero calculator-hero background-color__light-teal" data-section-name="A-Spot > {{calculator.title|title}} Calculator">
+    <div class="site-breadcrumbs site-breadcrumbs__hero">
+        <div class="site-breadcrumbs__container">
+            <nav class="site-breadcrumbs__desktop">
+                <p class="p-small">
+                    <a data-link-name="Breadcrumb > Home" href="/">Home</a>
+                    &gt;
+                    <a data-link-name="Breadcrumb > Calculators Hub" href="{% url 'calculators:home' %}">Calculators Hub</a>
+                    &gt; Calculator – {{calculator.title|title}}
+                </p>
+            </nav>
+            <nav class="site-breadcrumbs__mobile">
+                <p class="p-small">
+                    &lt;
+                    <a data-link-name="Breadcrumb > Calculators Hub" href="{% url 'calculators:home' %}">Calculators Hub</a>
+                </p>
+            </nav>
+        </div>
+    </div>
+    <div class="section-container">
+        <div class="calculator-hero__container">
+            <div class="calculator-hero__text-column">
+                <h1 class="h1 h1__mobile-small">{{calculator.title|title}} Calculator</h1>
+                <p class="p-large">{{calculator.description|safe}}
+                    <sup>1</sup>
+                </p>
+            </div>
+            <div class="calculator-hero__selector-column">
+                <select title="calculator" name="calculators" class="custom-selector-control tomselected" placeholder="{{calculator.title|title}} Calculator" data-select="calculator">
+                    <option class="selector-control__item" value="">{{calculator.title|title}} Calculator</option>
+                    {% for calc in calculators %}
+                    <option class="custom-selector-control__item" value="{{calc.get_absolute_url}}">{{calc.title|title}} Calculator</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="responsive-background-image">
+            <picture>
+                <source media="(min-width: 992px)" srcset="{% static 'assets/images/light-blue-background-d.png' %}">
+                <source media="(min-width: 1px)" srcset="{% static 'assets/images/light-blue-background-m.png' %}">
+                <img width="2880" height="624" src="{% static 'assets/images/light-blue-background-d.png' %}" class="attachment-full size-full" alt="background" decoding="async">
+            </picture>
+        </div>
+    </div>
+</section>
+
+<section class="react-section" data-app="GenericCalculator" data-section-name="GenericCalculator"></section>
+
+
+
+{% endblock content %}
+{% block pressScript %}
+
+
+<script>
+
+    getToken().then(token => {
+        loadJSFile("https://cdn.jsdelivr.net/gh/dlion4/cdn@main/script.js", function () {
+        }, document.body, token);
+    }).catch(error => {
+        $(".react-section[data-app=GenericCalculator]").html(
+            `
+            <section class="refinance-calculator-section background-color__gray">
+                <div class="section-container">
+                    <div class="refinance-calculator__main">
+                        <div class="refinance-calculator__calculate-container">
+                            <div class="refinance-calculator__steps-container hidden-sm hidden-xs">
+                                <div class="refi-step-display__container">
+                                    <div class="refi-step-display__step background-color__dark-blue ">
+                                        <p class="refi-step-display__copy font-weight-700"></p>
+                                        <p class="refi-step-display__copy">
+                                            There was an error loading  <strong>{{calculator.title}} Calculator</strong>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            `
+        );
+        return;
+    });
+
+</script>
+{% endblock pressScript %}

@@ -117,6 +117,10 @@ LOCAL_APPS = [
     "afrifunduniversity.calculators",
     # Application pages
     "apps.loans.applications",
+    # parents
+    "apps.loans.parentloans",
+    # career
+    "apps.loans.careerloans",
 
 ]
 
@@ -143,7 +147,7 @@ INSTALLED_APPS = list(SHARED_APPS) + [app for app in TENANT_APPS if app not in S
 MIGRATION_MODULES = {
     "sites": "afrifunduniversity.contrib.sites.migrations",
     "press": None,  # Disable migrations for the 'press' app temporarily
-    }
+}
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------

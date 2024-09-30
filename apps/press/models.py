@@ -107,4 +107,30 @@ class Paragraph(models.Model):
 
     def save(self, *args, **kwargs):
         using = kwargs.pop("using", None)
-        super().save(using=using, *args, **kwargs)
+        super().save(*args, using=using, **kwargs)
+
+
+class FootNote(models.Model):
+    category = models.CharField(
+        max_length=255,
+        choices=[
+            ("Refinance", "Refinance"),
+            ("StudentLoan", "Student Loan"),
+            ("ParentLoan", "Parent Loan"),
+            ("CareerLoan", "Career Loan"),
+            ("StudentCard", "Student Card"),
+        ],
+        default="StudentLoan",
+    )
+    content = models.TextField(max_length=800)
+    class Meta:
+        verbose_name_plural = "Footnotes"
+        ordering = ("-id",)
+        constraints = [
+            models.UniqueConstraint(
+                fields=["category", "content"],
+                name="unique_category_and_content",
+            ),
+        ]
+    def __str__(self):
+        return self.get_category_display()

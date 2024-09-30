@@ -49,7 +49,7 @@ Calculators | {{block.super}}
             </div>
             <div class="two-column-product-selectors__grid">
                 {% for calc in calculators %}
-                <div data-site-animation-order="1">
+                <div data-site-animation-order="{{forloop.counter}}">
                     <a data-link-name="Student Loan Calculator" href="{{calc.get_absolute_url}}" class="product-selection-button dropshadow dropshadow__hover-on">
                         <img src="{% static 'assets/images/icons/calculators.svg' %}" alt="{{calc.title|title}} Calculator" class="product-selection-button__icon">
                         <h4 class="h4">{{calc.title|title}} Calculator</h4>

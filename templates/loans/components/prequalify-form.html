@@ -1,0 +1,43 @@
+{% load static %}
+
+
+
+<form class="prequalify-form" action="{{request.path}}" method="post">
+    {% csrf_token %}
+    <div class="prequalify-form__inputs-container">
+        <p class="p-xsmall">Required fields<sup>*</sup></p>
+        <div class="prequalify-form__row">
+            <c-prequalifyFormField field_label="First Name*" field="{{form.f_name}}"></c-prequalifyFormField>
+        </div>
+        <div class="prequalify-form__row">
+            <c-prequalifyFormField field_label="Last Name*" field="{{form.l_name}}"></c-prequalifyFormField>
+        </div>
+
+        <div class="prequalify-form__row">
+            <c-prequalifyFormField field_label="{{form.employment_status.label}}*" field="{{form.employment_status}}"></c-prequalifyFormField>
+            <c-prequalifyFormField field_label="{{form.average_monthly_income.label}}*" field="{{form.average_monthly_income}}"></c-prequalifyFormField>
+        </div>
+
+        <div class="prequalify-form__row">
+            <c-prequalifyFormField field_label="{{form.street_address.label}}*" field="{{form.street_address}}"></c-prequalifyFormField>
+        </div>
+
+        <div class="prequalify-form__row">
+            <c-prequalifyFormField field_label="{{form.zip_code.label}}*" field="{{form.zip_code}}"></c-prequalifyFormField>
+            <c-prequalifyFormField field_label="{{form.email_address.label}}*" field="{{form.email_address}}"></c-prequalifyFormField>
+        </div>
+
+        <div class="prequalify-form__row">
+            <label class="checkbox__container">
+                <div class="checkbox__label-container">
+                    <div class="checkbox__label">
+                        <p class="p-xsmall">*By submitting this form, I understand and agree that I am providing 'written instructions' to Afri Fund lenders under the Fair Credit Reporting Act authorizing Afri Fund lenders to obtain information from my personal credit profile or other information from CRB Africa, solely to conduct a pre-qualification for credit, I know that this is not an application and will not impact my credit score.</p>
+                        <p class="p-xsmall">By providing your email address, you agree to our Privacy Policy, and you give Afri Fund lenders permission to contact you. Afri Fund lenders respects your inbox and will only send periodic emails.</p>
+                    </div>
+                </div>
+            </label>
+        </div>
+
+    </div>
+    <button class="button button__dark-teal button__width-203 dropshadow dropshadow__hover-off">Prequalify</button>
+</form>

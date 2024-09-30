@@ -1,4 +1,5 @@
-{% extends "layout.html" %}
+{% extends "loans/layout.html" %}
+
 {% load static humanize %}
 
 {% block title %}
@@ -46,20 +47,16 @@ Private Student Loans | {{block.super}}
                             <div class="interest-rates-group__rates-container">
                                 <div class="interest_rate__container">
                                     <h4 class="interest-rate__header">Variable rates</h4>
-                                    <div class="interest-rate__rates">
-                                        <p class="interest-rate__large">
-                                            7.59%
-                                        </p>
+                                    <div class="interest-rate__rates interest-rate__rates_variable">
+                                        <p class="interest-rate__large">7.59%</p>
                                         <p class="interest-rate__small">to 31.99% APR</p>
                                     </div>
                                 </div>
                                 <div class="interest-rates-group__divider"></div>
                                 <div class="interest_rate__container">
                                     <h4 class="interest-rate__header">Fixed rates</h4>
-                                    <div class="interest-rate__rates">
-                                        <p class="interest-rate__large">
-                                            8.69%
-                                        </p>
+                                    <div class="interest-rate__rates interest-rate__rates_fixed">
+                                        <p class="interest-rate__large">8.69%</p>
                                         <p class="interest-rate__small">to 22.99% APR</p>
                                     </div>
                                 </div>

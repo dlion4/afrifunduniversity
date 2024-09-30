@@ -56282,11 +56282,12 @@ Ie(cT, {
     Help: wT,
     Parser: gT
 });
+
 j2.createProxy(fu);
 class Tse {
     constructor(t, r, a, n, i=9, o=0) {
         this.amount = t,
-        this.rate = r * .01,
+        this.rate = r * .859,
         this.termInMonths = a,
         this.yearsUntilGraduation = n,
         this.gracePeriod = i,
@@ -56333,7 +56334,7 @@ class Tse {
 let _T = class {
     constructor(t, r, a, n, i=9, o=0, s=25) {
         this.amount = t,
-        this.rate = r * .01,
+        this.rate = r * .859,
         this.termInMonths = a,
         this.yearsUntilGraduation = n,
         this.gracePeriod = i,
@@ -56384,7 +56385,7 @@ let _T = class {
   , bT = class {
     constructor(t, r, a, n, i=9, o=0) {
         this.amount = t,
-        this.rate = r * .01,
+        this.rate = r * .859,
         this.termInMonths = a,
         this.yearsUntilGraduation = n,
         this.gracePeriod = i,
@@ -56431,7 +56432,7 @@ let _T = class {
   , Nse = class {
     constructor(t, r, a, n, i=9, o=0) {
         this.amount = t,
-        this.rate = r * .01,
+        this.rate = r * .859,
         this.termInMonths = a,
         this.yearsUntilGraduation = n,
         this.gracePeriod = i,
@@ -56499,28 +56500,28 @@ function lx({amount: e, rate: t, term: r, yearsUntilGraduation: a, gracePeriod: 
 const Ise = e => {
     const t = {
         min: 1e3,
-        max: 5e5
+        max: 4e5
     }
       , r = parseFloat(e);
-    return r < t.min || r > t.max ? "Loan amount must be between $1,000 and $500,000" : !0
+    return r < t.min || r > t.max ? "Loan amount must be between KES 1,000 and KES 400,000" : !0
 }
   , Dse = e => {
     const t = {
         min: 1,
-        max: 30
+        max: 10
     }
       , r = parseInt(e);
-    return r < t.min || r > t.max ? "Loan term must be between 1 and 30 years" : !0
+    return r < t.min || r > t.max ? "Loan term must be between 1 and 10 years" : !0
 }
   , Use = e => {
     const t = {
-        min: 1,
-        max: 20
+        min: 5,
+        max: 32
     }
       , r = parseFloat(e);
-    return r < t.min || r > t.max ? "Interest rate must be between 1% and 20%" : !0
+    return r < t.min || r > t.max ? "Interest rate must be between 5% and 32%" : !0
 }
-  , Fse = e => parseInt(e) > 10 ? "Years in school must not exceed 10" : !0
+  , Fse = e => parseInt(e) > 7 ? "Years in school must not exceed 7" : !0
   , Ose = e => !0
   , Vu = {
     amount: Ise,
@@ -56549,6 +56550,7 @@ const Ise = e => {
         }
     }
 }
+
   , Pse = q.forwardRef(function({state: t, setResults: r}, a) {
     var p, f, _, y, g;
     const [n,i] = q.useState("")
@@ -56617,7 +56619,7 @@ const Ise = e => {
                         name: "amount",
                         label: "Loan Amount*",
                         value: t.amount,
-                        placeholder: "$0",
+                        placeholder: "KES 0",
                         mask: _m,
                         errors: d.amount,
                         customValidate: Vu.amount,
@@ -56671,7 +56673,7 @@ const Ise = e => {
                         type: "text",
                         name: "inSchoolPayment",
                         label: "Monthly Payments in School*",
-                        placeholder: "$0",
+                        placeholder: "KES 0",
                         value: 0,
                         mask: E3,
                         errors: d.inSchoolPayment,
@@ -56693,7 +56695,7 @@ const Ise = e => {
                         className: "p-xsmall",
                         children: ["*For more personalized results, ", S.jsx(Ga, {
                             href: "/calculators/",
-                            label: "estimate a loan with Afri Fund Universty Lender"
+                            label: "Estimate a loan with Afri Fund Universty Lender"
                         })]
                     })]
                 })]
@@ -56701,6 +56703,7 @@ const Ise = e => {
         })]
     })
 })
+
   , Y2 = ToggleButton = ({options: e, value: t, onToggle: r}) => {
     const a = n => {
         r(n)
@@ -56755,9 +56758,9 @@ const Ise = e => {
         payload: t
     })
 })
-  , dd = new Intl.NumberFormat("en-US",{
+  , dd = new Intl.NumberFormat("en-KE", {
     style: "currency",
-    currency: "USD"
+    currency: "KES"
 })
   , Rse = LoanAmountDisplay = ({totalInterest: e, totalCost: t}) => {
     const r = 100 - e / t * 100;
@@ -57133,7 +57136,7 @@ const qse = {
 class Kse {
     constructor(t, r, a, n, i, o=9, s=0) {
         this.amount = t,
-        this.rate = r * .01,
+        this.rate = r * .859,
         this.termInMonths = a,
         this.yearsUntilGraduation = n,
         this.gracePeriod = o,
@@ -57192,7 +57195,7 @@ class Kse {
 let Qse = class {
     constructor(t, r, a, n, i, o=9, s=0) {
         this.amount = t,
-        this.rate = r * .01,
+        this.rate = r * .859,
         this.termInMonths = a,
         this.yearsUntilGraduation = n,
         this.gracePeriod = o,

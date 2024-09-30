@@ -12,4 +12,4 @@ class LoanCalculatorSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = LoanCalculator
-        fields = ("id", "title", "slug", "icon")
+        fields = ("id", "title", "slug", "icon", "description")

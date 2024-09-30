@@ -1,0 +1,213 @@
+{% extends "loans/layout.html" %}
+
+{% load static humanize %}
+
+{% block title %}
+Parent Student Loans | {{block.super}}
+{% endblock title %}
+
+{% block content %}
+
+<section class="hero hero-product background-color__light-teal" data-site-animation-breakpoint="992" data-section-name="A-Spot > Parent Loans for College">
+    <div class="site-breadcrumbs site-breadcrumbs__hero">
+        <div class="site-breadcrumbs__container">
+            <nav class="site-breadcrumbs__desktop">
+                <p class="p-small">
+                    <a data-link-name="Breadcrumb > Home" href="{% url 'home' %}">Home</a> &gt;
+                    <a data-link-name="Breadcrumb > Student Loans" href="{% url 'loans:studentloans:undergraduate-student-loans' %}">
+                        Student Loans
+                    </a> &gt; Parent Loans
+                </p>
+            </nav>
+
+            <nav class="site-breadcrumbs__mobile">
+                <p class="p-small">
+                    &lt; <a data-link-name="Breadcrumb > Student Loans" href="{% url 'loans:studentloans:undergraduate-student-loans' %}">
+                        Student Loans
+                    </a>
+                </p>
+            </nav>
+        </div>
+    </div>
+    <div class="section-container">
+        <div class="hero-product__grid">
+            <div class="hero-product__main-content">
+                <h1 class="h1">Parent Loans for College</h1>
+                <div class="hero-product__text-content">
+                    <ul class="checklist__list">
+                        <li class="checklist__list-item">
+                            <span class="checklist__marker">
+                                <svg viewBox="0 0 18 18" style="color: #002769">
+                                    <use href="{% static 'assets/images/icons/global/check_circle_dark.svg' %}#check_circle_dark"></use>
+                                </svg>
+                            </span>
+                            <span>Designed for parents who want to help pay for their child's education</span>
+                        </li>
+                        <li class="checklist__list-item">
+                            <span class="checklist__marker">
+                                <svg viewBox="0 0 18 18" style="color: #002769">
+                                    <use href="{% static 'assets/images/icons/global/check_circle_dark.svg' %}#check_circle_dark"></use>
+                                </svg>
+                            </span>
+                            <span>Flexible repayment options and no origination fees</span>
+                        </li>
+                        <li class="checklist__list-item">
+                            <span class="checklist__marker">
+                                <svg viewBox="0 0 18 18" style="color: #002769">
+                                    <use href="{% static 'assets/images/icons/global/check_circle_dark.svg' %}#check_circle_dark"></use>
+                                </svg>
+                            </span>
+                            <span>Takes only three minutes to apply and get an instant credit decision</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hero-product__image-content">
+
+                <picture>
+                    <source media="(min-width: 992px)" srcset="{% static 'assets/images/parent-loan-hero.png' %}">
+                    <img width="1024" height="964" src="{% static 'assets/images/parent-loan-hero.png' %}" class="attachment-full size-full" alt="parent loans" decoding="async">
+                </picture>
+            </div>
+            <div class="hero-product__bottom-content">
+                <div data-site-animation-order="2">
+                    <div class="interest-rates-group interest-rates__variable-fixed">
+                        <p class="p-small">Here’s our current parent loan interest rates:</p>
+                        <div>
+                            <div class="interest-rates-group__rates-container">
+                                <div class="interest_rate__container">
+                                    <h4 class="interest-rate__header">Variable rates</h4>
+                                    <div class="interest-rate__rates interest-rate__rates_variable">
+                                        <p class="interest-rate__large">5.59%</p>
+                                        <p class="interest-rate__small">to 17.99% APR</p>
+                                    </div>
+                                </div>
+                                <div class="interest-rates-group__divider"></div>
+                                <div class="interest_rate__container">
+                                    <h4 class="interest-rate__header">Fixed rates</h4>
+                                    <div class="interest-rate__rates interest-rate__rates_fixed">
+                                        <p class="interest-rate__large">3.74%</p>
+                                        <p class="interest-rate__small">to 17.99% APR</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="p-xsmall">(all rates shown include auto-pay discount)<sup>1</sup></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-product__button-container" data-site-animation-order="3">
+
+                    <a href="" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-205 button__mobile-full-width" data-link-name="Apply Now">
+                        Apply Now </a>
+
+                    <a href="{% url 'loans:prequalify' %}" class="dropshadow dropshadow__hover-off button button__dark-blue button__width-205 button__mobile-full-width" data-link-name="Prequalify">
+                        Prequalify </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="repayment-options-section background-color__gray" data-site-animation="animated" data-site-animation-breakpoint="992" data-section-name="Repayment Options">
+    <div class="section-container">
+        <div class="repayment-options-section__container">
+            <div class="repayment-options-section__top-content">
+                <h2 class="h2" data-site-animation-order="0" data-site-animation-element="animate">Repayment Options</h2>
+                <div class="repayment-options-section__top-paragraphs" data-site-animation-order="1" data-site-animation-element="animate">
+                    <p class="p-large">The way you repay your parent loan drives how much your parent loan will cost long-term. If you start making payments sooner, or pay more each month, you can lower the cost of the loan over time. But if your monthly budget requires an option that’s more flexible, we can guide you to a loan that works better for you.</p>
+                </div>
+            </div>
+
+            <div class="repayment-options-section__columns-container">
+                <div class="repayment-options-section__options-group flex-3" data-site-animation-order="2" data-site-animation-element="animate">
+                    <h3 class="repayment-options-section__options-group-header">Pay During School</h3>
+                    <div class="repayment-options-section__columns-outer-container">
+                        <div class="repayment-options-section__options-group-bar background-color__teal"></div>
+                        <div class="repayment-options-section__options-columns-container">
+                            <div class="repayment-options-section__option-container">
+                                <h4 class="h4 repayment-options-section__option-header">Interest Only Payment</h4>
+                                <p class="p-small">Pay just the interest charges each month while your student is in school to manage your monthly budget.</p>
+                            </div>
+                            <div class="repayment-options-section__divider-bar"></div>
+                            <div class="repayment-options-section__option-container">
+                                <h4 class="h4 repayment-options-section__option-header">Interest Plus Payment</h4>
+                                <p class="p-small">As long as you cover at least the interest charges each month, we’ll let you set your own monthly payment while your child is in school.<sup>2</sup></p>
+                            </div>
+                            <div class="repayment-options-section__divider-bar"></div>
+                            <div class="repayment-options-section__option-container">
+                                <h4 class="h4 repayment-options-section__option-header">Full Principal &amp; Interest Payment</h4>
+                                <p class="p-small">Start repaying your principal and interest right away to save the most money.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="compare-cards-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Variable and Fixed Rates Explained">
+    {% include "loans/components/ratescompare.html" %}
+</section>
+
+
+<section class="reviews-slider-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Reviews">
+    {% include "loans/components/loanReviews.html" %}
+</section>
+
+
+<section class="two-column-scroll-lock-section" data-section-name="Don’t worry, we’ve got a better student loan process">
+    <div class="section-container">
+        <div class="two-column-scroll-lock-section__container">
+            <div data-site-animation="container" data-site-animation-breakpoint="992">
+                <h2 class="h2 two-column-scroll-lock-section__headline" data-site-animation-order="0">
+                    Don’t worry, we’ve got a better student loan process
+                </h2>
+            </div>
+            <c-loanStep image="{% static 'assets/images/laptop.png' %}" step="1" message="Shop around for the right loan using our prequalification tool to see your estimated parent loan rates. Do this 60-90 days before school starts."></c-loanStep>
+
+            <c-loanStep image="{% static 'assets/images/desktop.png' %}" step="2" message="You and your student should have received a tuition bill about 30-45 days before school starts. Apply for a loan with Afri Fund University Lender in 3 minutes. When your loan is approved, we'll work with the school to certify the loan. All funds will be sent to the school on the date(s) they provide to Afri Fund University Lender"></c-loanStep>
+
+            <c-loanStep image="{% static 'assets/images/autopay-laptop.png' %}" step="3" message="About 10-14 days before school begins, make sure you’ve received confirmation that the money is scheduled to be sent to your child’s school."></c-loanStep>
+        </div>
+    </div>
+</section>
+
+
+<section data-scroll-id="faqs" class="faq-accordion-section" data-site-animation="animated" data-site-animation-breakpoint="992" data-section-name="FAQ's for Private Parent Loans">
+    <div class="section-container">
+        <div class="faq-accordion-section__header-container">
+            <h2 class="h2" data-site-animation-order="0" data-site-animation-element="animate">FAQ's for Private Parent Loans</h2>
+        </div>
+        {% include "loans/components/questions.html" %}
+    </div>
+</section>
+
+
+<section class="resources-slider-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Helpful Resources">
+    {% include "loans/student/components/resources.html" %}
+</section>
+
+
+<section class="footnotes accordion_small" data-target="footnotes-section" data-section-name="Footnotes">
+    {% include "loans/components/footnotes.html" %}
+</section>
+
+
+
+{% endblock content %}
+
+
+{% block componentScript %}
+
+
+<script>
+    loadJSFile("{% static 'loans/js/footnotes.js' %}", function () {
+        loadFootNote("ParentLoan");
+    }, document.body);
+</script>
+
+{% endblock componentScript %}

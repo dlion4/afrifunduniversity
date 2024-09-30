@@ -1,0 +1,394 @@
+{% extends "loans/layout.html" %}
+
+{% load static humanize %}
+
+{% block title %}
+Student Loans Refinancing | {{block.super}}
+{% endblock title %}
+
+{% block content %}
+
+
+<section class="hero hero-product background-color__light-coral" data-site-animation-breakpoint="992" data-section-name="A-Spot > Student Loan Refinancing">
+    <div class="site-breadcrumbs site-breadcrumbs__hero">
+        <div class="site-breadcrumbs__container">
+            <nav class="site-breadcrumbs__desktop">
+                <p class="p-small">
+                    <a data-link-name="Breadcrumb > Home" href="{% url 'home' %}">Home</a> &gt; <a data-link-name="Breadcrumb > Student Loans" href="{% url 'loans:studentloans:undergraduate-student-loans' %}">Student Loans</a> &gt; Refinancing
+                </p>
+            </nav>
+
+            <nav class="site-breadcrumbs__mobile">
+                <p class="p-small">
+                    &lt; <a data-link-name="Breadcrumb > Student Loans" href="{% url 'loans:studentloans:undergraduate-student-loans' %}">Student Loans</a>
+                </p>
+            </nav>
+        </div>
+    </div>
+    <div class="section-container">
+        <div class="hero-product__grid">
+            <div class="hero-product__main-content">
+                <h1 class="h1">Student Loan Refinancing</h1>
+                <div class="hero-product__text-content">
+                    <p class="p-small">Afri Fund University Lender offers student loan refinance options that can reduce your monthly payments and even the total cost of your loan. With fixed or variable interest rates, no application or origination fees, and lower interest rates when you sign up for auto-pay, we have student loan refinance options designed to reduce your costs and your stress level.</p>
+                </div>
+            </div>
+            <div class="hero-product__image-content">
+
+                <picture>
+                    <source media="(min-width: 992px)" srcset="{% static 'assets/images/refinancing.png' %}">
+                    <img width="992" height="1182" src="{% static 'assets/images/refinancing.png' %}" class="attachment-full size-full" alt="Student Loan Refinancing" decoding="async">
+                </picture>
+            </div>
+            <div class="hero-product__bottom-content">
+                <div data-site-animation-order="2">
+                    <div class="interest-rates-group interest-rates__variable-fixed">
+                        <p class="p-small">Here's our current refinancing interest rates:</p>
+                        <div>
+                            <div class="interest-rates-group__rates-container">
+                                <div class="interest_rate__container">
+                                    <h4 class="interest-rate__header">Variable rates</h4>
+                                    <div class="interest-rate__rates interest-rate__rates_variable">
+                                        <p class="interest-rate__large">6.99%</p>
+                                        <p class="interest-rate__small">to 13.99% APR</p>
+                                    </div>
+                                </div>
+                                <div class="interest-rates-group__divider"></div>
+                                <div class="interest_rate__container">
+                                    <h4 class="interest-rate__header">Fixed rates</h4>
+                                    <div class="interest-rate__rates interest-rate__rates_fixed">
+                                        <p class="interest-rate__large">6.99%</p>
+                                        <p class="interest-rate__small">to 13.99% APR</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="p-xsmall">(all rates shown include auto-pay discount)<sup>1</sup></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-product__button-container" data-site-animation-order="3">
+
+                    <a href="" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-293 button__mobile-full-width" data-link-name="Get My Rate In 1 Minute">
+                        Get My Rate In 1 Minute </a>
+                </div>
+                <p class="p-small" data-site-animation-order="4">
+                    <span style="display: flex; align-items: center; gap: 7px;">
+                        <img src="{% static 'assets/images/blue-circle-checkmark.png' %}">
+                        Checking your rate won’t affect your credit score.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="text-and-selector-carousel-section" data-section-name="Benefits of Student Loan Refinancing">
+    <div class="section-container">
+        <div class="text-and-selector-carousel-section__container">
+            <div class="text-and-selector-carousel-section__header">
+                <h2 class="h2">Benefits of Student Loan Refinancing</h2>
+            </div>
+            <div class="text-and-selector-carousel-section__carousel-container">
+                <div class="text-and-selector-carousel">
+                    <div class="text-and-selector-carousel__button-outer-container">
+                        <div class="text-and-selector-carousel__button-container background-color__light-gray">
+                            <button class="active-selector-card background-color__blue" data-slider-selector="text-and-selector-carousel" data-slider-selector-key="Lower Your Monthly Payment" data-slider-selector-index="0">
+                                Lower Your Monthly Payment </button>
+                            <button class="background-color__light-gray" data-slider-selector="text-and-selector-carousel" data-slider-selector-key="Simplify Your Payments" data-slider-selector-index="1">
+                                Simplify Your Payments </button>
+                            <button class="background-color__light-gray" data-slider-selector="text-and-selector-carousel" data-slider-selector-key="Save Money" data-slider-selector-index="2">
+                                Save Money </button>
+                            <button class="background-color__light-gray" data-slider-selector="text-and-selector-carousel" data-slider-selector-key="Pay Off Your Loans Faster" data-slider-selector-index="3">
+                                Pay Off Your Loans Faster </button>
+                        </div>
+                    </div>
+                    <div class="text-and-selector-carousel__container">
+
+                        <div class="keen-slider__navigation-wrapper">
+                            <div class="text-and-selector-carousel__slider keen-slider" data-slider="text-and-selector-carousel">
+                                <div class="text-and-selector-carousel__card keen-slider__slide" data-slider-selector-key="Lower Your Monthly Payment" style="min-width: 1080px; max-width: 1080px; transform: translate3d(0px, 0px, 0px);">
+                                    <div class="text-and-selector-carousel-card dropshadow background-color__white">
+                                        <div class="text-and-selector-carousel-card__container">
+                                            <h3 class="h3">Lower Your Monthly Payment</h3>
+                                            <div class="text-and-selector-carousel-card__text-container">
+                                                <p class="p-large">When you refinance your student loans with College Ave, you can choose a brand new loan term between 5 and 20 years. A longer loan term can help to lower your monthly payments, but it may increase the total amount of interest you'll pay on the loan overall. This can give you a little extra money each month to put toward other expenses.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-and-selector-carousel__card keen-slider__slide" data-slider-selector-key="Simplify Your Payments" style="min-width: 1080px; max-width: 1080px; transform: translate3d(20px, 0px, 0px);">
+                                    <div class="text-and-selector-carousel-card dropshadow background-color__white">
+                                        <div class="text-and-selector-carousel-card__container">
+                                            <h3 class="h3">Simplify Your Payments</h3>
+                                            <div class="text-and-selector-carousel-card__text-container">
+                                                <p class="p-large">If you have multiple loans from college, they are likely on different repayment schedules. Keeping track of multiple different loans, payment schedules, interest accruals, and due dates can be daunting. Refinancing your student loans allows you to combine all your loans into one new loan.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-and-selector-carousel__card keen-slider__slide" data-slider-selector-key="Save Money" style="min-width: 1080px; max-width: 1080px; transform: translate3d(40px, 0px, 0px);">
+                                    <div class="text-and-selector-carousel-card dropshadow background-color__white">
+                                        <div class="text-and-selector-carousel-card__container">
+                                            <h3 class="h3">Save Money</h3>
+                                            <div class="text-and-selector-carousel-card__text-container">
+                                                <p class="p-large">Depending on what loans you have, when you took them out, and what your interest rates are, you may have a high interest rate. If you have good credit and a stable income, you may qualify for a lower interest rate. A lower interest rate can help you save hundreds or even thousands of dollars over the duration of your loan repayment.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-and-selector-carousel__card keen-slider__slide" data-slider-selector-key="Pay Off Your Loans Faster" style="min-width: 1080px; max-width: 1080px; transform: translate3d(60px, 0px, 0px);">
+                                    <div class="text-and-selector-carousel-card dropshadow background-color__white">
+                                        <div class="text-and-selector-carousel-card__container">
+                                            <h3 class="h3">Pay Off Your Loans Faster</h3>
+                                            <div class="text-and-selector-carousel-card__text-container">
+                                                <p class="p-large">Refinancing your student loans gives you the option to choose a shorter loan term. This change can help you pay off your student loans earlier than your original repayment plan. Chipping away at your loans faster will allow you to be free from student loan debt faster.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button title="arrow" class="arrow arrow--left arrow--disabled" tabindex="0" data-link-name="left arrow"></button>
+                            <button title="arrow" class="arrow arrow--right" tabindex="0" data-link-name="right arrow"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-and-selector-carousel-section__accordian-container">
+                <section class="text-and-selector-accordion">
+                    <div class="text-and-selector-accordion__container">
+                        <ul class="text-and-selector-accordion__list">
+                            <li class="accordion text-and-selector-accordion__item" data-show-more="item">
+                                <a class="text-and-selector-accordion__question accordion-toggle" tabindex="0">
+                                    <span class="text-and-selector-accordion__question-text">Lower Your Monthly Payment</span>
+                                    <div class="text-and-selector-accordion__question-text__icon">
+
+                                        <svg viewBox="0 0 20 20" style="color: #002769">
+                                            <use href="{% static 'assets/images/icons/global/add.svg' %}#add"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <div class="accordion-content">
+                                    <div>
+                                        <div class="text-and-selector-accordion__answer">
+                                            <h3 class="h3">Lower Your Monthly Payment</h3>
+                                            <p class="p-large">When you refinance your student loans with College Ave, you can choose a brand new loan term between 5 and 20 years. A longer loan term can help to lower your monthly payments, but it may increase the total amount of interest you'll pay on the loan overall. This can give you a little extra money each month to put toward other expenses.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="accordion text-and-selector-accordion__item" data-show-more="item">
+                                <a class="text-and-selector-accordion__question accordion-toggle" tabindex="0">
+                                    <span class="text-and-selector-accordion__question-text">Simplify Your Payments</span>
+                                    <div class="text-and-selector-accordion__question-text__icon">
+
+                                        <svg viewBox="0 0 20 20" style="color: #002769">
+                                            <use href="{% static 'assets/images/icons/global/add.svg' %}#add"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <div class="accordion-content">
+                                    <div>
+                                        <div class="text-and-selector-accordion__answer">
+                                            <h3 class="h3">Simplify Your Payments</h3>
+                                            <p class="p-large">If you have multiple loans from college, they are likely on different repayment schedules. Keeping track of multiple different loans, payment schedules, interest accruals, and due dates can be daunting. Refinancing your student loans allows you to combine all your loans into one new loan.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="accordion text-and-selector-accordion__item" data-show-more="item">
+                                <a class="text-and-selector-accordion__question accordion-toggle" tabindex="0">
+                                    <span class="text-and-selector-accordion__question-text">Save Money</span>
+                                    <div class="text-and-selector-accordion__question-text__icon">
+
+                                        <svg viewBox="0 0 20 20" style="color: #002769">
+                                            <use href="{% static 'assets/images/icons/global/add.svg' %}#add"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <div class="accordion-content">
+                                    <div>
+                                        <div class="text-and-selector-accordion__answer">
+                                            <h3 class="h3">Save Money</h3>
+                                            <p class="p-large">Depending on what loans you have, when you took them out, and what your interest rates are, you may have a high interest rate. If you have good credit and a stable income, you may qualify for a lower interest rate. A lower interest rate can help you save hundreds or even thousands of dollars over the duration of your loan repayment.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="accordion text-and-selector-accordion__item" data-show-more="item">
+                                <a class="text-and-selector-accordion__question accordion-toggle" tabindex="0">
+                                    <span class="text-and-selector-accordion__question-text">Pay Off Your Loans Faster</span>
+                                    <div class="text-and-selector-accordion__question-text__icon">
+
+                                        <svg viewBox="0 0 20 20" style="color: #002769">
+                                            <use href="{% static 'assets/images/icons/global/add.svg' %}#add"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <div class="accordion-content">
+                                    <div>
+                                        <div class="text-and-selector-accordion__answer">
+                                            <h3 class="h3">Pay Off Your Loans Faster</h3>
+                                            <p class="p-large">Refinancing your student loans gives you the option to choose a shorter loan term. This change can help you pay off your student loans earlier than your original repayment plan. Chipping away at your loans faster will allow you to be free from student loan debt faster.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="rates-card-section background-color__gray" data-section-name="Make Your Payments Work for You">
+    <div class="section-container">
+        <div class="rates-card-section__outer-container">
+            <div class="rates-card-section__text-column">
+                <div class="rates-card-section__text-container">
+                    <h2 class="h2">Make Your Payments Work for You</h2>
+                    <p class="p-large">Is anyone ever happy with "one-size-fits-all"? We don't think so. Everyone has their own personal budget and goals. With us, you can explore our student loan refinance rates without impacting your credit score. Then, you choose the student loan refinancing term that works best for you. Refinance student loan amounts as low as $5,000.<sup>2</sup></p>
+                </div>
+
+                <a href="/application/?ACT=SS&amp;SC=CARF01" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-205" data-link-name="Apply Now">
+                    Apply Now </a>
+            </div>
+            <div class="rates-card-section__card-column">
+                <div class="rates-card-section__card-inner-container">
+                    <h4 class="rates-card-section__label">Rate Options</h4>
+                    <div class="rates-card-section__outer-cards-container">
+                        <div class="rates-card-section__cards-container">
+                            <div class="rates-card-section__card-container">
+                                <div class="compare-card dropshadow">
+                                    <div class="compare-card__container compare-rates-card background-color__white compare-rates-card--small">
+                                        <div class="compare-card__header background-color__light-teal" data-equal-height="target">
+                                            <h3 class="compare-card__header-title h3">Variable Rate</h3>
+                                        </div>
+                                        <div class="compare-card__content-container">
+                                            <div class="compare-card__content-inner-container">
+                                                <div class="compare-rates-card__top-container">
+                                                    <img src="{% static 'assets/images/icons/rates-variable-icon.svg' %}" alt="variable icon" class="compare-rates-card__rates-icon">
+                                                    <div class="compare-rates-card__rates-container">
+                                                        <p class="compare-rates-card__rate-large">
+                                                            <span>8.59</span>%
+                                                        </p>
+                                                        <p class="compare-rates-card__rate-small">
+                                                            to <span>32.99</span>% APR
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="compare-card__text-content">
+                                                    <p class="p-large">
+                                                        Interest rate changes based on changes to a market index (e.g., SOFR)</p>
+                                                </div>
+                                            </div>
+                                            <div class="compare-card__content-inner-container">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rates-card-section__card-container">
+                                <div class="compare-card dropshadow">
+                                    <div class="compare-card__container compare-rates-card background-color__white compare-rates-card--small">
+                                        <div class="compare-card__header background-color__light-orange" data-equal-height="target">
+                                            <h3 class="compare-card__header-title h3">Fixed Rate</h3>
+                                        </div>
+                                        <div class="compare-card__content-container">
+                                            <div class="compare-card__content-inner-container">
+                                                <div class="compare-rates-card__top-container">
+                                                    <img src="{% static 'assets/images/icons/rates-fixed-icon.svg' %}" alt="fixed icon" class="compare-rates-card__rates-icon">
+                                                    <div class="compare-rates-card__rates-container">
+                                                        <p class="compare-rates-card__rate-large">
+                                                            <span>12.69</span>%
+                                                        </p>
+                                                        <p class="compare-rates-card__rate-small">
+                                                            to <span>25.99</span>% APR
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="compare-card__text-content">
+                                                    <p class="p-large">Interest rate does not change for the life of the loan</p>
+                                                </div>
+                                            </div>
+                                            <div class="compare-card__content-inner-container">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="p-xsmall rates-card-section__disclaimer">*all rates shown include auto pay discount<sup>1</sup></p>
+                    </div>
+                </div>
+
+                <a href="" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-205" data-link-name="Apply Now">
+                    Apply Now </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section class="one-column-centered background-color__white" data-site-animation="animated" data-site-animation-breakpoint="992" data-section-name="Flexible Term Options">
+    <div class="section-container">
+        <div class="one-column-centered__outer-container background-color__light-teal">
+            <div class="one-column-centered__container">
+                <div class="one-column-centered__content_container">
+                    <div class="one-column-centered__headline-container" data-site-animation-order="1" data-site-animation-element="animate">
+                        <h2 class="h2">Flexible Term Options</h2>
+                    </div>
+                    <div class="one-column-centered__sub-text-container" data-site-animation-order="2" data-site-animation-element="animate">
+                        <p class="p-small">We’ll help you choose how many years you take to pay back your refi loan so you can be confident that your loan is working for you. We offer 5 year to 10 year repayment term options<sup>3</sup>. You can save more overall by choosing a shorter loan term (like the 5 year option), but you’ll be making bigger monthly payments. On the other hand, you can make smaller monthly payments by choosing the 10 year option, but may pay more in interest overall.</p>
+                    </div>
+                </div>
+                <div class="one-column-centered__button-container" data-site-animation-order="3" data-site-animation-element="animate">
+                    <a href="" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-293" data-link-name="Get My Rate In 1 Minute">
+                        Get My Rate In 1 Minute </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-scroll-id="faqs" class="faq-accordion-section" data-site-animation="animated" data-site-animation-breakpoint="992" data-section-name="FAQ's for Private Parent Loans">
+    <div class="section-container">
+        <div class="faq-accordion-section__header-container">
+            <h2 class="h2" data-site-animation-order="0" data-site-animation-element="animate">
+                Student Loan Refinancing FAQs
+            </h2>
+        </div>
+        {% include "loans/components/questions.html" %}
+    </div>
+</section>
+
+
+<section class="resources-slider-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Helpful Resources">
+    {% include "loans/student/components/resources.html" %}
+</section>
+
+
+
+<section class="footnotes accordion_small" data-target="footnotes-section" data-section-name="Footnotes">
+    {% include "loans/components/footnotes.html" %}
+</section>
+
+
+
+{% endblock content %}
+
+
+
+
+{% block componentScript %}
+
+
+<script>
+    loadJSFile("{% static 'loans/js/footnotes.js' %}", function () {
+        loadFootNote("Refinance");
+    }, document.body);
+</script>
+
+{% endblock componentScript %}

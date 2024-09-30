@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 import time
 
+from django.urls import reverse, reverse_lazy
 import ipinfo
 from django.conf import settings
 from django.http import FileResponse, HttpRequest
@@ -13,9 +14,10 @@ from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import View
 import requests
+import secrets
 
 
-def meta_links_view(request):
+def meta_links_view(request: HttpRequest):
     links_data = {
         "api_link": "https://www.afrifunduniversity.com/wp-json/",
         "json_alternate": "https://www.afrifunduniversity.com/wp-json/wp/v2/pages/8",
@@ -27,6 +29,7 @@ def meta_links_view(request):
         "msvalidate":"C8C5B8ECFBF9183D92D1DAE072C9DB47",
         "facebook_domain_verification":"c8ovm5djcvbx8rkwbhnkavj98vfo4g",
         "google_site_verification":"ihsEtifobkf1IQB1C5aDQ8B9FIV9ldl9H7wTNiP43-w",
+        "BASE_API_ENDPOINT": request.build_absolute_uri(reverse("home")) + "api",
     }
 
     return render(
@@ -271,3 +274,47 @@ def location(request:HttpRequest):
     return JsonResponse(json.dumps(ip_data), safe=False)
 
 
+from django.utils import timezone
+
+# Token expiration time in seconds (15 minutes)
+TOKEN_EXPIRATION_TIME = 15 * 60
+
+def generate_obfuscation_token(request:HttpRequest):
+    token = secrets.token_urlsafe(64)
+    expiry_time = timezone.now() + timezone.timedelta(minutes=TOKEN_EXPIRATION_TIME)
+    request.session["website_obfuscation_token"] = {
+        "token": token, "expires_at": expiry_time.isoformat()}
+    return JsonResponse({"token": token})
+
+def is_token_valid(request:HttpRequest):
+    if stored_token_info := request.session.get("website_obfuscation_token", None):
+        stored_token = stored_token_info["token"]
+        expires_at = stored_token_info["expires_at"]
+        expiry_datetime = timezone.datetime.fromisoformat(expires_at)
+        return stored_token == stored_token and timezone.now() < expiry_datetime  # noqa: PLR0124
+    return False
+
+
+def validate_token(request: HttpRequest):
+    token = request.GET.get("token", None)
+    if stored_token_info := request.session.get(
+        "website_obfuscation_token", None,
+    ):
+        stored_token = stored_token_info["token"]
+        expires_at = stored_token_info["expires_at"]
+        expiry_datetime = timezone.datetime.fromisoformat(expires_at)
+        if token == stored_token and timezone.now() < expiry_datetime:
+            return JsonResponse({"valid": True})
+    print(token)
+    print(stored_token_info)
+    return JsonResponse({"valid": False})
+
+
+def get_obfuscation_token_view(request: HttpRequest):
+    if not is_token_valid(request):
+        return generate_obfuscation_token(request)
+    current_token = request.session["website_obfuscation_token"]
+    token = current_token["token"]
+    print(token)
+    print(request.session.get("website_obfuscation_token"))
+    return JsonResponse({"token": token, "message": "Token is valid."})

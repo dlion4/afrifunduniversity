@@ -3232,7 +3232,7 @@
                     })(),
                     document.querySelector('[data-nav="container"]') &&
                     (_e(),
-                        (function () {
+                    (function () {
                             const e = document.querySelector("[data-nav='toggle']");
                             e && e.addEventListener("click", be);
                         })(),
@@ -3269,7 +3269,9 @@
                                 })(e)
                             );
                         })),
+
                     (function () {
+                         
                         const e = document.querySelectorAll("[data-range-slider]");
                         e &&
                             e.forEach((e) =>
@@ -3316,7 +3318,8 @@
                                         });
                                 })(e)
                             );
-                    })(),
+                    })()
+                    ,
                     (async function () {
                         if (!window.paramContentOptions || !window.location.search) return document.querySelector("body").classList.remove("parameter-driven-content");
                         const e = new URLSearchParams(window.location.search),
@@ -6083,21 +6086,21 @@
                 (o.hmrC = {}),
                 (o.hmrI = {});
         })(),
-        (() => {
-            var e;
-            o.g.importScripts && (e = o.g.location + "");
-            var t = o.g.document;
-            if (!e && t && (t.currentScript && (e = t.currentScript.src), !e)) {
-                var n = t.getElementsByTagName("script");
-                n.length && (e = n[n.length - 1].src);
-            }
-            if (!e) throw new Error("Automatic publicPath is not supported in this browser");
-            (e = e
-                .replace(/#.*$/, "")
-                .replace(/\?.*$/, "")
-                .replace(/\/[^\/]+$/, "/")),
-                (o.p = e);
-        })(),
+        // (() => {
+        //     var e;
+        //     o.g.importScripts && (e = o.g.location + "");
+        //     var t = o.g.document;
+        //     if (!e && t && (t.currentScript && (e = t.currentScript.src), !e)) {
+        //         var n = t.getElementsByTagName("script");
+        //         n.length && (e = n[n.length - 1].src);
+        //     }
+        //     if (!e) throw new Error("Automatic publicPath is not supported in this browser");
+        //     (e = e
+        //         .replace(/#.*$/, "")
+        //         .replace(/\?.*$/, "")
+        //         .replace(/\/[^\/]+$/, "/")),
+        //         (o.p = e);
+        // })(),
         (() => {
             if ("undefined" != typeof document) {
                 var e = [],

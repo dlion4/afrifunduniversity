@@ -1,4 +1,5 @@
-{% extends "layout.html" %}
+{% extends "loans/layout.html" %}
+
 {% load static humanize %}
 
 {% block title %}
@@ -70,20 +71,16 @@ Undergraduate Student Loans | {{block.super}}
                             <div class="interest-rates-group__rates-container">
                                 <div class="interest_rate__container">
                                     <h4 class="interest-rate__header">Variable rates</h4>
-                                    <div class="interest-rate__rates">
-                                        <p class="interest-rate__large">
-                                            8.59%
-                                        </p>
+                                    <div class="interest-rate__rates interest-rate__rates_variable">
+                                        <p class="interest-rate__large">8.59%</p>
                                         <p class="interest-rate__small">to 32.99% APR</p>
                                     </div>
                                 </div>
                                 <div class="interest-rates-group__divider"></div>
                                 <div class="interest_rate__container">
                                     <h4 class="interest-rate__header">Fixed rates</h4>
-                                    <div class="interest-rate__rates">
-                                        <p class="interest-rate__large">
-                                            12.69%
-                                        </p>
+                                    <div class="interest-rate__rates interest-rate__rates_fixed">
+                                        <p class="interest-rate__large">12.69%</p>
                                         <p class="interest-rate__small">to 25.99% APR</p>
                                     </div>
                                 </div>
@@ -200,87 +197,7 @@ Undergraduate Student Loans | {{block.super}}
 </section>
 
 <section class="compare-cards-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Variable and Fixed Rates Explained">
-    <div class="section-container">
-        <div class="compare-cards-section__container">
-            <div class="compare-cards-section__header-row">
-                <h2 class="h2" data-site-animation-order="0">Variable and Fixed Rates Explained</h2>
-                <div class="compare-cards-section__header-text">
-                    <p class="p-large" data-site-animation-order="1">It’s important to understand the difference between variable and fixed interest rates<sup>2</sup> on undergraduate student loans. Learn the basics so you can pick the best one for you with confidence.</br><span style="font-size:14px">*all rates shown include auto-pay discount<sup>2</sup></span></p>
-                </div>
-            </div>
-            <div class="compare-cards-section__bottom-row">
-                <div class="compare-cards__row" data-equal-height="section" data-equal-height-breakpoint="768">
-                    <div class="compare-cards__column site-animation__flex-container compare-cards-section__column" data-site-animation-order="3">
-                        <div class="compare-card dropshadow">
-                            <div class="compare-card__container compare-rates-card background-color__white">
-                                <div class="compare-card__header background-color__light-teal" data-equal-height="target">
-                                    <h3 class="compare-card__header-title h3">Variable Rate</h3>
-                                </div>
-                                <div class="compare-card__content-container">
-                                    <div class="compare-card__content-inner-container">
-                                        <div class="compare-rates-card__top-container">
-                                            <img src="{% static 'assets/images/icons/rates-variable-icon.svg' %}" alt="variable icon" class="compare-rates-card__rates-icon">
-                                            <div class="compare-rates-card__rates-container">
-                                                <p class="compare-rates-card__rate-large">
-                                                    <span>8.59</span>%
-                                                </p>
-                                                <p class="compare-rates-card__rate-small">
-                                                    to <span>32.99</span>% APR
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="compare-card__divider"></div>
-                                        <div class="compare-card__text-content">
-                                            <p class="p-large">Variable interest rates can change during the life of the loan. They are tied to a market index and will fluctuate - up or down - over time with the market.</p>
-                                            <p class="p-small">Changes to the rate are typically based on a publicly available interest rate index such as the prime rate or SOFR.</p>
-                                        </div>
-                                    </div>
-                                    <div class="compare-card__content-inner-container">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="compare-cards__column site-animation__flex-container compare-cards-section__column" data-site-animation-order="4">
-                        <div class="compare-card dropshadow">
-                            <div class="compare-card__container compare-rates-card background-color__white">
-                                <div class="compare-card__header background-color__light-orange" data-equal-height="target">
-                                    <h3 class="compare-card__header-title h3">Fixed Rate</h3>
-                                </div>
-                                <div class="compare-card__content-container">
-                                    <div class="compare-card__content-inner-container">
-                                        <div class="compare-rates-card__top-container">
-                                            <img src="{% static 'assets/images/icons/rates-fixed-icon.svg' %}" alt="fixed icon" class="compare-rates-card__rates-icon">
-                                            <div class="compare-rates-card__rates-container">
-                                                <p class="compare-rates-card__rate-large">
-                                                    <span>12.69</span>%
-                                                </p>
-                                                <p class="compare-rates-card__rate-small">
-                                                    to <span>25.99</span>% APR
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="compare-card__divider"></div>
-                                        <div class="compare-card__text-content">
-                                            <p class="p-large">Fixed interest rates stay the same for the entire repayment period. You will have the same monthly payment amount every month after entering full repayment.</p>
-                                        </div>
-                                    </div>
-                                    <div class="compare-card__content-inner-container">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <a href="" class="arrow-link" target="_blank" data-link-name="Learn More About Interest Rates">
-                Learn More About Interest <span class="arrow-link__anchor">Rates<svg width="16" height="14" viewBox="0 0 16 14" style="color: #002769">
-                        <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
-                    </svg></span>
-            </a>
-        </div>
-    </div>
+    {% include "loans/components/ratescompare.html" %}
 </section>
 
 
@@ -370,7 +287,7 @@ Undergraduate Student Loans | {{block.super}}
 
 
 <section class="reviews-slider-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Reviews">
-    {% include "loans/student/components/reviews.html" %}
+    {% include "loans/components/loanReviews.html" %}
 </section>
 
 
@@ -378,94 +295,15 @@ Undergraduate Student Loans | {{block.super}}
     <div class="section-container">
         <div class="two-column-scroll-lock-section__container">
             <div data-site-animation="container" data-site-animation-breakpoint="992">
-                <h2 class="h2 two-column-scroll-lock-section__headline" data-site-animation-order="0">Don’t worry, we’ve got a better student loan process</h2>
+                <h2 class="h2 two-column-scroll-lock-section__headline" data-site-animation-order="0">
+                    Don’t worry, we’ve got a better student loan process
+                </h2>
             </div>
-            <div class="two-column-scroll-lock-section__desktop-layout">
-                <div class="two-column-scroll-lock-section__left-column">
-                    <div class="two-column-scroll-lock-section__sticky-container" data-nav-offset="top" data-additional-offset="70">
-                        <img width="530" height="439" src="{% static 'assets/images/laptop.png' %}" class="two-column-scroll-lock-section__lock-image" alt="person using a laptop with notebooks on the floor" data-lock-image="1" decoding="async" /><img width="530" height="439" src="https://cdn.collegeavestudentloans.com/ca2023/wp-content/uploads/2023/10/07145727/desktop.png" class="two-column-scroll-lock-section__lock-image" alt="person using a desktop computer" data-lock-image="2" decoding="async" /><img width="530" height="439" src="https://cdn.collegeavestudentloans.com/ca2023/wp-content/uploads/2023/10/07145727/autopay-laptop.png" class="two-column-scroll-lock-section__lock-image" alt="laptop with autopay chart displayed" data-lock-image="3" decoding="async" />
-                    </div>
-                </div>
-                <div class="two-column-scroll-lock-section__right-column">
-                    <div class="two-column-scroll-lock-section__item-content-container content-1" data-lock-image-show="1">
-                        <div class="two-column-scroll-lock-section__content-indicator">
-                            <p>1</p>
-                        </div>
-                        <div class="two-column-scroll-lock-section__item-content">
-                            <p class="p-large">Before school starts, figure out how much you’ll need to borrow. A good estimate is to take your cost of attendance and subtract any scholarships, grants, federal loans in the student’s name, and savings you plan to use.</p>
-                        </div>
-                    </div>
-                    <div class="two-column-scroll-lock-section__item-content-container content-2" data-lock-image-show="2">
-                        <div class="two-column-scroll-lock-section__content-indicator">
-                            <p>2</p>
-                        </div>
-                        <div class="two-column-scroll-lock-section__item-content">
-                            <p class="p-large">Start shopping around for loans and apply for an undergraduate student loan about 30 days before classes start. Know who your cosigner is and choose your loan term and repayment options.</p>
-                        </div>
-                    </div>
-                    <div class="two-column-scroll-lock-section__item-content-container content-3" data-lock-image-show="3">
-                        <div class="two-column-scroll-lock-section__content-indicator">
-                            <p>3</p>
-                        </div>
-                        <div class="two-column-scroll-lock-section__item-content">
-                            <p class="p-large">Once approved, we’ll work directly with your school to certify the loan. After the money is sent to your school, be on the lookout for your first loan statement. If you selected an in-school repayment option, consider signing up for auto-pay.</p>
+            <c-loanStep image="{% static 'assets/images/laptop.png' %}" step="1" message="Before school starts, figure out how much you’ll need to borrow. A good estimate is to take your cost of attendance and subtract any scholarships, grants, federal loans in the student’s name, and savings you plan to use."></c-loanStep>
 
-                            <a href="" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-264" data-link-name="Apply Now for a Loan">
-                                Apply Now for a Loan </a>
+            <c-loanStep image="{% static 'assets/images/desktop.png' %}" step="2" message="Start shopping around for loans and apply for an undergraduate student loan about 30 days before classes start. Know who your cosigner is and choose your loan term and repayment options."></c-loanStep>
 
-                            <a href="" class="arrow-link" data-link-name="Check Application Status">
-                                Check Application <span class="arrow-link__anchor">Status<svg width="16" height="14" viewBox="0 0 16 14" style="color: #002769">
-                                        <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
-                                    </svg></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="two-column-scroll-lock-section__mobile-layout">
-                <div class="two-column-scroll-lock-section__mobile-item">
-                    <img width="530" height="439" src="{% static 'assets/images/laptop.png' %}" class="attachment-full size-full" alt="person using a laptop with notebooks on the floor" decoding="async" />
-                    <div class="two-column-scroll-lock-section__item-content-container">
-                        <div class="two-column-scroll-lock-section__content-indicator">
-                            <p>1</p>
-                        </div>
-                        <div class="two-column-scroll-lock-section__item-content">
-                            <p class="p-large">Before school starts, figure out how much you’ll need to borrow. A good estimate is to take your cost of attendance and subtract any scholarships, grants, federal loans in the student’s name, and savings you plan to use.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="two-column-scroll-lock-section__mobile-item">
-                    <img width="530" height="439" src="{% static 'assets/images/desktop.png' %}" class="attachment-full size-full" alt="person using a desktop computer" decoding="async" />
-                    <div class="two-column-scroll-lock-section__item-content-container">
-                        <div class="two-column-scroll-lock-section__content-indicator">
-                            <p>2</p>
-                        </div>
-                        <div class="two-column-scroll-lock-section__item-content">
-                            <p class="p-large">Start shopping around for loans and apply for an undergraduate student loan about 30 days before classes start. Know who your cosigner is and choose your loan term and repayment options.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="two-column-scroll-lock-section__mobile-item">
-                    <img width="530" height="439" src="{% static 'assets/images/autopay-laptop.png' %}" class="attachment-full size-full" alt="laptop with autopay chart displayed" decoding="async" />
-                    <div class="two-column-scroll-lock-section__item-content-container">
-                        <div class="two-column-scroll-lock-section__content-indicator">
-                            <p>3</p>
-                        </div>
-                        <div class="two-column-scroll-lock-section__item-content">
-                            <p class="p-large">Once approved, we’ll work directly with your school to certify the loan. After the money is sent to your school, be on the lookout for your first loan statement. If you selected an in-school repayment option, consider signing up for auto-pay.</p>
-
-                            <a href="" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-264" data-link-name="Apply Now for a Loan">
-                                Apply Now for a Loan </a>
-
-                            <a href="" class="arrow-link" data-link-name="Check Application Status">
-                                Check Application <span class="arrow-link__anchor">Status<svg width="16" height="14" viewBox="0 0 16 14" style="color: #002769">
-                                        <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
-                                    </svg></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <c-loanStep image="{% static 'assets/images/autopay-laptop.png' %}" step="3" message="Once approved, we’ll work directly with your school to certify the loan. After the money is sent to your school, be on the lookout for your first loan statement. If you selected an in-school repayment option, consider signing up for auto-pay."></c-loanStep>
         </div>
     </div>
 </section>
@@ -476,45 +314,22 @@ Undergraduate Student Loans | {{block.super}}
 </section>
 
 <section class="footnotes accordion_small" data-target="footnotes-section" data-section-name="Footnotes">
-    <a class="footnotes__toggle accordion-toggle">
-        <p class="footnotes__header">Footnotes</p>
-        <span class="footnotes__arrow">
-            <svg width="16" height="14" viewBox="0 0 16 14" style="color: #002769">
-                <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
-            </svg>
-        </span>
-    </a>
-    <div class="section-container">
-        <div class="accordion-content">
-            <div>
-                <div class="footnotes__content">
-                    <div class="footnote__item">
-                        <span class="footnote__id">1</span>
-                        <p class="p-xsmall">As certified by your school and less any other financial aid you might receive. Minimum $1,000.</p>
-                    </div>
-                    <div class="footnote__item">
-                        <span class="footnote__id">2</span>
-                        <p class="p-xsmall">Variable rates may increase after consummation. The 0.25% auto-pay interest rate reduction applies as long as a valid bank account is designated for required monthly payments. If a payment is returned, you will lose this benefit.</p>
-                    </div>
-                    <div class="footnote__item">
-                        <span class="footnote__id">3</span>
-                        <p class="p-xsmall">This informational repayment example uses typical loan terms for a freshman borrower who selects the Flat Repayment Option with an 8-year repayment term, has a $10,000 loan that is disbursed in one disbursement and a 7.78% fixed Annual Percentage Rate ("APR"): 54 monthly payments of $25 while in school, followed by 96 monthly payments of $176.21 while in the repayment period, for a total amount of payments of $18,266.38. Loans will never have a full principal and interest monthly payment of less than $50. Your actual rates and repayment terms may vary.</p>
-                    </div>
-                    <div class="footnote__item">
-                        <span class="footnote__id">4</span>
-                        <p class="p-xsmall">This informational repayment example uses typical loan terms for a freshman borrower who selects the Deferred Repayment Option with a 10-year repayment term, has a $10,000 loan that is disbursed in one disbursement and a 8.35% fixed Annual Percentage Rate ("APR"): 120 monthly payments of $179.18 while in the repayment period, for a total amount of payments of $21,501.54. Loans will never have a full principal and interest monthly payment of less than $50. Your actual rates and repayment terms may vary.</p>
-                    </div>
-                    <div class="footnote__item">
-                        <span class="footnote__id">5</span>
-                        <p class="p-xsmall">A new loan application is required each year. The 95% approval percentage is based on students with an existing College Ave Undergraduate Loan who applied with a cosigner for another College Ave Undergraduate Loan in academic year 2022.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% include "loans/components/footnotes.html" %}
 </section>
 
 
 {% endblock content %}
 {% block pressScript %}
 {% endblock pressScript %}
+
+
+{% block componentScript %}
+
+
+<script>
+    loadJSFile("{% static 'loans/js/footnotes.js' %}", function () {
+        loadFootNote("StudentLoan");
+    }, document.body);
+</script>
+
+{% endblock componentScript %}

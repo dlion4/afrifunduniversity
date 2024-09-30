@@ -24,6 +24,7 @@ from afrifunduniversity.users.access.urls import (
 from afrifunduniversity.users.api.views import RequestAPIKeyView
 from afrifunduniversity.users.api.views import UserViewSet
 from apps.loans.apis.viewsets import GlossaryModelViewset
+from apps.loans.apis.viewsets import LoanInterestRateModelViewSet
 from apps.loans.applications.apis.viewsets import LoanApplicationViewSet
 from apps.loans.applications.apis.viewsets import LoanCategoryViewSet
 from apps.loans.applications.apis.viewsets import LoanRepaymentViewSet
@@ -35,6 +36,7 @@ from apps.press.apis.views import ArticlesInfoListView
 from apps.press.apis.views import PressReleaseListView
 from apps.press.apis.viewsets import ArticleViewSet
 from apps.press.apis.viewsets import CategoryViewSet
+from apps.press.apis.viewsets import FootNoteModelViewSet
 from apps.press.apis.viewsets import LeadershipViewSet
 from apps.press.apis.viewsets import ParagraphViewSet
 from apps.press.apis.viewsets import PressReleaseViewSet
@@ -46,6 +48,8 @@ router = DefaultRouter() if settings.DEBUG else SimpleRouter()
 
 router.register("users", UserViewSet)
 router.register("press", PressReleaseViewSet, basename="press")
+router.register("footnotes", FootNoteModelViewSet, basename="footnotes")
+router.register("loansRate", LoanInterestRateModelViewSet, basename="loansRate")
 router.register("reviews", ReviewListViewSet, basename="reviews")
 router.register("subscriptions", SubscriptionViewSet, basename="subscription")
 router.register("categories", CategoryViewSet, basename="categories")

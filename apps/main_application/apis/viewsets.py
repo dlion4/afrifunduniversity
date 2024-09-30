@@ -1,17 +1,22 @@
 import json
 
 from django.shortcuts import get_object_or_404
+from drf_spectacular.utils import extend_schema
+from rest_framework import generics
 from rest_framework import permissions
 from rest_framework import status
 from rest_framework import views
 from rest_framework import viewsets
 from rest_framework.generics import GenericAPIView
+from rest_framework.request import Request
 from rest_framework.response import Response
-from drf_spectacular.utils import extend_schema
+
 from apps.main_application.models import Review
 from apps.main_application.models import Subscription
-from rest_framework import generics
-from .serializers import ReviewSerializer, SubscriptionRecordSerializer
+from apps.main_application.services import AIServicePipeline
+
+from .serializers import ReviewSerializer
+from .serializers import SubscriptionRecordSerializer
 from .serializers import SubscriptionSerializer
 
 
@@ -20,6 +25,15 @@ class ReviewListViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.AllowAny]
     queryset = Review.objects.all()
 
+    @extend_schema(
+        operation_id="create_review",
+        request=ReviewSerializer,
+        responses={201: ReviewSerializer},
+    )
+    def create(self, request:Request, *args, **kwargs) -> Response:
+        ai_service = AIServicePipeline()
+        review_rate = ai_service.process_review_request(request.data)
+        return super().create(request, *args, **kwargs)
 
 
 class SubscriptionViewSet(viewsets.ModelViewSet):

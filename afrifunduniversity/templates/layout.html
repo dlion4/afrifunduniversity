@@ -125,7 +125,7 @@
         <div class="product-cards-section__container">
           <div class="product-cards__container keen-slider" data-slider="product-cards">
             <div class="keen-slider__slide" data-site-animation-order="1">
-              <a data-link-name="Undergraduate Student Loans" href="https://www.collegeave.com/student-loans/undergraduate/" class="product-card background-color__light-orange">
+              <a data-link-name="Undergraduate Student Loans" href="{% url 'loans:studentloans:undergraduate-student-loans' %}" class="product-card background-color__light-orange">
                 <div class="product-card__container">
                   <div class="product-card__content-column">
                     <div class="product-card__content">
@@ -951,15 +951,94 @@
     {% endblock modal %}
     <!--  -->
     <!-- Footer component section -->
-    {{request.user}}
     {% include "components/footer.html" %}
   </div>
   <!--  -->
   <script src="{% static 'js/lib/js/jquery-3.6.3.min.js' %}"></script>
+
+
+  {% block loansComponentScripts %}
+  {% endblock loansComponentScripts %}
+
+  <div id="templateScript"></div>
+  {% block templateScript %}
   <script type="text/javascript" src="{% static 'assets/js/scripts/scripts.js' %}?ver=1726234421" id="scripts-js"></script>
+  {% endblock templateScript %}
   {% block pressScript %}{% endblock pressScript %}
   <!-- <script type="text/javascript" src="{% static 'assets/js/react-app/react-app.js' %}?ver=1726234432" id="survey-js" defer="defer"></script> -->
   {% block formScript %}{% endblock formScript %}
+  {% block componentScript %}{% endblock componentScript %}
+
+  <script>
+    $(document).ready(function () {
+      $.ajax({
+        url: `/api/loansRate/`,
+        success: function (response) {
+          response.forEach(function (element) {
+            const { interest_rate_type, min_rate, max_rate } = element;
+            if (interest_rate_type === 'V') {
+              $(".interest-rate__rates_variable").each(function () {
+                $(this).html(`
+                <p class="interest-rate__large">${min_rate}%</p>
+                <p class="interest-rate__small">to ${max_rate}% APR</p>
+                `)
+              });
+              $(".compare-rates-card__rates-variable").each(function () {
+                $(this).html(`
+                <p class="compare-rates-card__rate-large"><span>${min_rate}</span>%</p>
+                 <p class="compare-rates-card__rate-small">to <span>${max_rate}</span>% APR</p>
+                `)
+              })
+            };
+            if (interest_rate_type === 'F') {
+              $(".interest-rate__rates_fixed").each(function () {
+                $(this).html(`
+                <p class="interest-rate__large">${min_rate}%</p>
+                <p class="interest-rate__small">to ${max_rate}% APR</p>
+                `)
+              });
+              $(".compare-rates-card__rates-fixed").each(function () {
+                $(this).html(`
+                <p class="compare-rates-card__rate-large"><span>${min_rate}</span>%</p>
+                 <p class="compare-rates-card__rate-small">to <span>${max_rate}</span>% APR</p>
+                `)
+              });
+            };
+
+          })
+        },
+        error: function (xhr, status, error) {
+          return false;
+        }
+      });
+
+      // Save the current path when the page loads
+      // localStorage.setItem('AFUL_LATEST_WINDOWS_PATH', window.location.pathname);
+
+      window.onpopstate = function (event) {
+        // Retrieve the last saved path from localStorage
+        let lastPath = localStorage.getItem('AFUL_PREVIOUS_WINDOWS_PATH');
+
+        // Store the current path as the previous one before updating
+        localStorage.setItem('AFUL_PREVIOUS_WINDOWS_PATH', localStorage.getItem('AFUL_LATEST_WINDOWS_PATH'));
+
+        // Update the current path in localStorage
+        localStorage.setItem('AFUL_LATEST_WINDOWS_PATH', window.location.pathname);
+
+        console.log("Last Path:", lastPath);  // This will print the previous URL path
+        console.log("Current Path:", window.location.pathname);  // This will print the current path
+      };
+
+      // Save the path when the page initially loads
+      window.onload = function () {
+        localStorage.setItem('AFUL_LATEST_WINDOWS_PATH', window.location.pathname);
+      };
+
+
+    });
+  </script>
+
+
 </body>
 {% endblock body %}
 

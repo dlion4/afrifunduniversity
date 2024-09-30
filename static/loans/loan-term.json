@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "duration": 1,
+        "message": "Save on total interest, but make bigger monthly payments with a shorter repayment term."
+    },
+    {
+        "id": 2,
+        "duration": 2,
+        "message": "Make moderate monthly payments."
+    },
+    {
+        "id": 3,
+        "duration": 6,
+        "message": "Pay off the loan in full, but be prepared for higher interest rates."
+    },
+    {
+        "id": 4,
+        "duration": 10,
+        "message": "Make smaller monthly payments, but pay more in interest overall."
+    }
+]

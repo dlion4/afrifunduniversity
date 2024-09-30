@@ -1,0 +1,63 @@
+{% load static %}
+
+<div class="compare-cards__column site-animation__flex-container compare-cards-section__column" data-site-animation-order="3" data-site-animation-element="animate">
+    <div class="compare-card dropshadow">
+        <div class="compare-card__container compare-rates-card background-color__white">
+            <div class="compare-card__header background-color__light-teal" data-equal-height="target" style="min-height: 82px;">
+                <h3 class="compare-card__header-title h3">Variable Rate</h3>
+            </div>
+            <div class="compare-card__content-container">
+                <div class="compare-card__content-inner-container">
+                    <div class="compare-rates-card__top-container">
+                        <img src="{% static 'assets/images/icons/rates-variable-icon.svg' %}" alt="variable icon" class="compare-rates-card__rates-icon">
+                        <div class="compare-rates-card__rates-container compare-rates-card__rates-variable">
+                            <p class="compare-rates-card__rate-large">
+                                <span>5.59</span>%
+                            </p>
+                            <p class="compare-rates-card__rate-small">
+                                to <span>17.99</span>% APR
+                            </p>
+                        </div>
+                    </div>
+                    <div class="compare-card__divider"></div>
+                    <div class="compare-card__text-content">
+                        <p class="p-large">Variable interest rates can change during the life of the loan. They are based on a publicly available interest rate index that changes in each month. Changes in the index will change your monthly payment amount.</p>
+                        <p class="p-small">Changes to the rate are typically based on a publicly available interest rate index such as the prime rate or SOFR.</p>
+                    </div>
+                </div>
+                <div class="compare-card__content-inner-container">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="compare-cards__column site-animation__flex-container compare-cards-section__column" data-site-animation-order="4" data-site-animation-element="animate">
+    <div class="compare-card dropshadow">
+        <div class="compare-card__container compare-rates-card background-color__white">
+            <div class="compare-card__header background-color__light-orange" data-equal-height="target" style="min-height: 82px;">
+                <h3 class="compare-card__header-title h3">Fixed Rate</h3>
+            </div>
+            <div class="compare-card__content-container">
+                <div class="compare-card__content-inner-container">
+                    <div class="compare-rates-card__top-container">
+                        <img src="{% static 'assets/images/icons/rates-fixed-icon.svg' %}" alt="fixed icon" class="compare-rates-card__rates-icon">
+                        <div class="compare-rates-card__rates-container compare-rates-card__rates-fixed">
+                            <p class="compare-rates-card__rate-large">
+                                <span>3.69</span>%
+                            </p>
+                            <p class="compare-rates-card__rate-small">
+                                to <span>17.99</span>% APR
+                            </p>
+                        </div>
+                    </div>
+                    <div class="compare-card__divider"></div>
+                    <div class="compare-card__text-content">
+                        <p class="p-large">Fixed interest rates stay the same for the entire repayment period. You will have the same monthly payment amount every month after entering full repayment.</p>
+                    </div>
+                </div>
+                <div class="compare-card__content-inner-container">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
