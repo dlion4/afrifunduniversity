@@ -236,9 +236,18 @@
     loadJSFile("{% static 'js/press.js' %}", function () {
         console.log("file loaded");
         setTimeout(() => {
-            loadJSFile("{% static 'assets/js/react-app/react-app.js' %}", function () {
-                console.log("This has also been loaded")
+
+
+            getToken().then(token => {
+                loadJSFile("https://cdn.jsdelivr.net/gh/dlion4/cdn@main/script.js", function () {
+                    console.log("__AFUL_SCRIPT_TOKEN: ", token)
+                }, document.body, token);
+            }).catch(error => {
+                console.log("Error retrieving the token ", error)
+
             })
+
+
         }, 3000)
 
     });

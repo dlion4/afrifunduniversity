@@ -119,6 +119,7 @@ class FootNote(models.Model):
             ("ParentLoan", "Parent Loan"),
             ("CareerLoan", "Career Loan"),
             ("StudentCard", "Student Card"),
+            ("Calculator", "Calculator"),
         ],
         default="StudentLoan",
     )

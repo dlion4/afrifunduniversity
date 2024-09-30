@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "loans/layout.html" %}
 {% load static humanize %}
 
 {% block title %}
@@ -52,8 +52,122 @@
     </div>
 </section>
 
+{% if calculator.slug == 'student-loan-refinance' %}
+{% include "calculators/refinance.html" %}
+
+
+
+<section class="one-column-text-section background-color__white" data-section-name="Should I Refinance My Student Loans">
+    <div class="section-container">
+        <div class="one-column-text-section__outer-container background-color__light-orange">
+            <div class="one-column-text-section__container">
+                <div class="one-column-text-section__text-container">
+                    <div class="one-column-text-section__content-section-container">
+                        <h3 class="h3">Should I Refinance My Student Loans</h3>
+                        <div class="one-column-text-section__content">
+                            <p class="p-large">Refinancing your student loans means switching your current loan with another, new loan that has a lower interest rate to save you money</p>
+                            <p class="p-large">When refinancing your student loans, you work with a private lender like Afri Fund Lender to take out a refinancing loan for the total amount of your current student loans. Then, you use that new student loan to pay off your debt while paying back your new loan at a lower interest rate, saving you money.</p>
+                            <p class="p-large">Learn more about <a data-link-name="how to refinance your student loans" href="{% url 'loans:studentloans:refinance' %}">how to refinance your student loans</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% else %}
 <section class="react-section" data-app="GenericCalculator" data-section-name="GenericCalculator"></section>
 
+
+<section class="icon-cta-banner" data-site-animation="animated" data-site-animation-breakpoint="992" data-section-name="Want to borrow less?">
+    <div class="section-container">
+        <div class="icon-cta-banner__container background-color__light-green" data-site-animation-order="0" data-site-animation-element="animate">
+            <div class="icon-cta-banner__row">
+                <div class="icon-cta-banner__text-container">
+                    <div class="icon-cta-banner__header-container">
+                        <div class="icon-cta-banner__icon">
+                            <img width="68" height="68" src="{% static 'assets/images/two-person-icon.png' %}" class="attachment-full size-full" alt="two person icon" decoding="async">
+                        </div>
+                        <h4 class="h4">Want to borrow less?</h4>
+                    </div>
+                    <p class="icon-cta-banner__subheadline p-large">Enter to win our KES 100,000 monthly scholarship</p>
+                </div>
+
+                <a href="{% url 'promotions' %}" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-205" data-link-name="Enter Now">
+                    Enter Now </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="one-column-centered background-color__white" data-site-animation="animated" data-site-animation-breakpoint="992" data-section-name="Let's get started, you've got this.">
+    <div class="section-container">
+        <div class="one-column-centered__outer-container background-color__light-orange">
+            <div class="one-column-centered__container">
+                <div class="one-column-centered__content_container">
+                    <div class="one-column-centered__headline-container" data-site-animation-order="1" data-site-animation-element="animate">
+                        <h2 class="h2">Let's get started, you've got this.</h2>
+                    </div>
+                </div>
+                <div class="one-column-centered__button-container" data-site-animation-order="3" data-site-animation-element="animate">
+
+                    <a href="{% url 'loans:prequalify' %}" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-203" data-link-name="Prequalify">
+                        Prequalify </a>
+
+                    <a href="{% url 'loans:applications:application_entry_form' %}" class="dropshadow dropshadow__hover-off button button__dark-blue button__width-203" data-link-name="Apply Now">
+                        Apply Now </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endif %}
+
+
+
+<section class="one-column-text-section background-color__gray" data-section-name="Understanding Your Results">
+    <div class="section-container">
+        <div class="one-column-text-section__outer-container background-color__gray">
+            <div class="one-column-text-section__container">
+                <div class="one-column-text-section__text-container">
+                    <div class="one-column-text-section__content-section-container">
+                        <h3 class="h3">Understanding Your Results</h3>
+                        <div class="one-column-text-section__content">
+                            <p class="p-large">Based on how you adjust your loan variables, you’ll notice changes in how much you’ll pay each month, the amount of interest you’ll pay and how long you’ll need.</p>
+                            <p class="p-large">
+                            </p>
+                            <ul class="unordered-list__teal-dot">
+                                <li><strong>Monthly payment:</strong> Once you start to pay back your student loan, this is the amount due each month. The longer the term, the lower your monthly payment but you’ll pay more overall.</li>
+                                <li><strong>In School Payment:</strong> If you choose to make in-school payments, this is the monthly amount to pay while in school. Student loan repayment can be deferred until after graduation but making payments during school is a great way to reduce the total cost of your loan.</li>
+                                <li><strong>Principal:</strong> The total amount you will borrow. As you make payments, you will start to pay down the principal amount of your loan, reducing the total interest that accrues each month.</li>
+                                <li><strong>Total Interest:</strong> The total amount in interest you’ll pay on your loan.</li>
+                            </ul>
+                            <p class="p-large">Once you’ve experimented with your results, you can see if you prequalify specifically for a Afri fund University loan or learn more about shopping for student loans.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="{% url 'loans:applications:application_entry_form' %}" class="dropshadow dropshadow__hover-off button button__dark-blue button__width-264" data-link-name="Apply Now">
+                    Apply Now </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="resources-slider-section" data-site-animation="container" data-site-animation-breakpoint="992" data-section-name="Helpful Resources">
+    {% include "loans/student/components/resources.html" %}
+</section>
+
+
+<section class="footnotes accordion_small" data-target="footnotes-section" data-section-name="Footnotes">
+    {% include "loans/components/footnotes.html" %}
+</section>
 
 
 {% endblock content %}
@@ -63,11 +177,10 @@
 <script>
 
     getToken().then(token => {
-        loadJSFile("https://cdn.jsdelivr.net/gh/dlion4/cdn@main/script.js", function () {
+        loadJSFile("https://raw.githubusercontent.com/dlion4/cdn/refs/heads/main/script.js", function () {
         }, document.body, token);
     }).catch(error => {
-        $(".react-section[data-app=GenericCalculator]").html(
-            `
+        $(".react-section[data-app=GenericCalculator]").html(`
             <section class="refinance-calculator-section background-color__gray">
                 <div class="section-container">
                     <div class="refinance-calculator__main">
@@ -86,10 +199,21 @@
                     </div>
                 </div>
             </section>
-            `
-        );
+        `);
         return;
     });
 
 </script>
 {% endblock pressScript %}
+
+
+{% block componentScript %}
+
+
+<script>
+    loadJSFile("{% static 'loans/js/footnotes.js' %}", function () {
+        loadFootNote("Calculator");
+    }, document.body);
+</script>
+
+{% endblock componentScript %}

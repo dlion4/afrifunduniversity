@@ -10,7 +10,7 @@
                     <p class="apply-modal__subheader">Which product best suits you?</p>
                 </div>
                 <div class="apply-modal__grid">
-                    <a data-link-name="Undergraduate Loan" class="icon-link-card apply-loan-card background-color__white dropshadow dropshadow__hover-on" href="/loans/applications/?SC=CAIS01">
+                    <a data-link-name="Undergraduate Loan" class="icon-link-card apply-loan-card background-color__white dropshadow dropshadow__hover-on" href="{% url 'loans:studentloans:undergraduate-student-loans' %}">
                         <div class="icon-link-card__container">
                             <div class="icon-link-card__image-container">
                                 <div class="icon-link-card__image">
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     </a>
-                    <a data-link-name="Graduate Loan" class="icon-link-card apply-loan-card background-color__white dropshadow dropshadow__hover-on" href="/application/?SC=CAIS02">
+                    <a data-link-name="Graduate Loan" class="icon-link-card apply-loan-card background-color__white dropshadow dropshadow__hover-on" href="{% url 'loans:studentloans:undergraduate-student-loans' %}">
                         <div class="icon-link-card__container">
                             <div class="icon-link-card__image-container">
                                 <div class="icon-link-card__image">
@@ -58,7 +58,7 @@
                             </div>
                         </div>
                     </a>
-                    <a data-link-name="Career Loans" class="icon-link-card apply-loan-card background-color__white dropshadow dropshadow__hover-on" href="/application/?SC=CAIS03">
+                    <a data-link-name="Career Loans" class="icon-link-card apply-loan-card background-color__white dropshadow dropshadow__hover-on" href="{% url 'loans:studentloans:careerloans:career-loans' %}">
                         <div class="icon-link-card__container">
                             <div class="icon-link-card__image-container">
                                 <div class="icon-link-card__image">
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                     </a>
-                    <a data-link-name="Parent Loan" class="icon-link-card apply-loan-card background-color__white dropshadow dropshadow__hover-on" href="/application/?SC=CAPA01">
+                    <a data-link-name="Parent Loan" class="icon-link-card apply-loan-card background-color__white dropshadow dropshadow__hover-on" href="{% url 'loans:studentloans:parentloans:parent-loans' %}">
                         <div class="icon-link-card__container">
                             <div class="icon-link-card__image-container">
                                 <div class="icon-link-card__image">
@@ -100,7 +100,7 @@
                             </div>
                         </div>
                     </a>
-                    <a data-link-name="Student Loan Refinancing" class="icon-link-card apply-loan-card background-color__white dropshadow dropshadow__hover-on" href="/application/?SC=CARF01">
+                    <a data-link-name="Student Loan Refinancing" class="icon-link-card apply-loan-card background-color__white dropshadow dropshadow__hover-on" href="{% url 'loans:studentloans:refinance' %}">
                         <div class="icon-link-card__container">
                             <div class="icon-link-card__image-container">
                                 <div class="icon-link-card__image">
@@ -131,9 +131,9 @@
                             </p>
                         </div>
 
-                        <a href="/credit/student-card/" class="arrow-link" data-link-name="Ambition Card by College Ave">
-                            Ambition Card by College
-                            <span class="arrow-link__anchor">Ave<svg width="16" height="14" viewbox="0 0 16 14" style="color: #002769">
+                        <a href="" class="arrow-link" data-link-name="Ambition Card by College Ave">
+                            Ambition Card by Afri Fund Lender
+                            <span class="arrow-link__anchor">AFUL<svg width="16" height="14" viewbox="0 0 16 14" style="color: #002769">
                                     <use href="{% static 'assets/images/icons/global/small_arrow.svg' %}#small_arrow"></use>
                                 </svg>
                             </span>

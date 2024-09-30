@@ -1,0 +1,105 @@
+{% load static %}
+
+
+<section class="react-section" data-app="RefinanceCalculator" data-section-name="RefinanceCalculator">
+    <section class="refinance-calculator-section background-color__gray">
+        <div class="section-container">
+            <div class="refinance-calculator__main">
+                <div class="refinance-calculator__calculate-container">
+                    <div class="refinance-calculator__steps-container hidden-sm hidden-xs">
+                        <div class="refi-step-display__container">
+                            <div class="refi-step-display__step background-color__dark-blue ">
+                                <p class="refi-step-display__copy font-weight-700">Step 1</p>
+                                <p class="refi-step-display__copy">Your Current Loan</p>
+                            </div>
+                            <div class="refi-step-display__step  ">
+                                <p class="refi-step-display__copy font-weight-700">Step 2</p>
+                                <p class="refi-step-display__copy">Customize Your New Loan</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="refinance-calculator__container refinance-calculator__container--calculate background-color__white">
+                        <div class="refinance-calculator__steps-container hidden-md hidden-lg hidden-xl">
+                            <div class="refi-step-display__container">
+                                <div class="refi-step-display__step background-color__dark-blue ">
+                                    <p class="refi-step-display__copy font-weight-700">Step 1</p>
+                                    <p class="refi-step-display__copy">Your Current Loan</p>
+                                </div>
+                                <div class="refi-step-display__step  ">
+                                    <p class="refi-step-display__copy font-weight-700">Step 2</p>
+                                    <p class="refi-step-display__copy">Customize Your New Loan</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="refinance-calculator__calculate-inner-container">
+                            <div class="refinance-calculator__calculate-columns-container">
+                                <div class="refinance-calculator__calculate-left-column">
+                                    <div class="refinance-calculator__calculate-column">
+                                        <div class="form-field form-field__select form-field__error"><label class="form-field__label-container">
+                                                <p class="form-field__label">Refi Loan Type</p>
+                                                <div class="form-field-select__container css-b62m3t-container"><span id="react-select-Refi Loan Type-live-region" class="css-7pg0cj-a11yText"></span><span aria-live="polite" aria-atomic="false" aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
+                                                    <div class="form-field-select__control css-13cymwt-control">
+                                                        <div class="form-field-select__value-container form-field-select__value-container--has-value css-hlgwow">
+                                                            <div class="form-field-select__single-value css-1dimb5e-singleValue">Veterinary (DVM, VMD)</div><input id="react-select-Refi Loan Type-input" tabindex="0" inputmode="none" aria-autocomplete="list" aria-expanded="false" aria-haspopup="true" aria-invalid="true" aria-labelledby="Refi Loan Type" role="combobox" aria-readonly="true" class="css-1hac4vs-dummyInput" value="">
+                                                        </div>
+                                                        <div class="form-field-select__indicators css-1wy0on6"><span class="form-field-select__indicator-separator css-1u9des2-indicatorSeparator"></span><svg width="19" height="11" viewBox="0 0 19 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <g id="Vector">
+                                                                    <path id="Vector_2" d="M8.54679 10.124L0.960297 2.50498C0.4419 1.98415 0.4419 1.13998 0.960297 0.619382C1.47869 0.0985512 2.31947 0.0985512 2.83785 0.619383L9.48578 7.29583L16.1337 0.619383C16.6521 0.0985519 17.4929 0.0985519 18.0113 0.619383C18.5297 1.14 18.5297 1.98417 18.0113 2.50498L10.4248 10.124C9.90638 10.6446 9.06517 10.6446 8.54679 10.124Z" fill="#002769"></path>
+                                                                </g>
+                                                            </svg></div>
+                                                    </div>
+                                                </div>
+                                            </label></div>
+                                        <div class="refinance-calculator__slider-container background-color__white">
+                                            <div class="refinance-calculator__slider-inner-container">
+                                                <div class="calculator-section__slider-container"><label class="calculator-input-label">Loan Amount</label>
+                                                    <div class="calculator-slider calculator-slider--marks-adjust">
+                                                        <div class="rc-slider rc-slider-horizontal rc-slider-with-marks">
+                                                            <div class="rc-slider-rail"></div>
+                                                            <div class="rc-slider-track" style="left: 0%; width: 2.80561%;"></div>
+                                                            <div class="rc-slider-step"><span class="rc-slider-dot rc-slider-dot-active" style="left: 0%; transform: translateX(-50%);"></span><span class="rc-slider-dot" style="left: 100%; transform: translateX(-50%);"></span></div>
+                                                            <div class="rc-slider-handle" tabindex="0" role="slider" aria-valuemin="1" aria-valuemax="500" aria-valuenow="15" aria-disabled="false" aria-orientation="horizontal" style="left: 2.80561%; transform: translateX(-50%);"></div>
+                                                            <div class="rc-slider-mark"><span class="rc-slider-mark-text rc-slider-mark-text-active" style="left: 0%; transform: translateX(-50%);">$1k</span><span class="rc-slider-mark-text" style="left: 100%; transform: translateX(-50%);">$500k</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="calculator-section__slider-container">
+                                                    <div class="calculator-input-labels-container"><label class="calculator-input-label">Remaining Years</label></div>
+                                                    <div class="calculator-slider calculator-slider--marks-adjust">
+                                                        <div class="rc-slider rc-slider-horizontal rc-slider-with-marks">
+                                                            <div class="rc-slider-rail"></div>
+                                                            <div class="rc-slider-track" style="left: 0%; width: 20%;"></div>
+                                                            <div class="rc-slider-step"><span class="rc-slider-dot rc-slider-dot-active" style="left: 0%; transform: translateX(-50%);"></span><span class="rc-slider-dot" style="left: 100%; transform: translateX(-50%);"></span></div>
+                                                            <div class="rc-slider-handle" tabindex="0" role="slider" aria-valuemin="5" aria-valuemax="30" aria-valuenow="10" aria-disabled="false" aria-orientation="horizontal" style="left: 20%; transform: translateX(-50%);"></div>
+                                                            <div class="rc-slider-mark"><span class="rc-slider-mark-text rc-slider-mark-text-active" style="left: 0%; transform: translateX(-50%);">5 years</span><span class="rc-slider-mark-text" style="left: 100%; transform: translateX(-50%);">30 years</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="refinance-calculator__calculate-right-column">
+                                    <div class="refinance-calculator__calculate-column">
+                                        <div class="form-field form-field__text-input"><label class="form-field__label-container">
+                                                <p class="form-field__label">Current Monthly Payments</p>
+                                                <div class="form-field__text-input-button-container">
+                                                    <div class="form-field__text-input-container"><input type="tel" name="monthlyPayment" inputmode="numeric" placeholder="" class="form-field__input" aria-describedby="" aria-labelledby="Current Monthly Payments" tabindex="0" value="$250"></div>
+                                                </div>
+                                            </label></div>
+                                        <p class="refinance-calculator__multi-loan-label">*Need to factor in multiple loans? <button>Calculate multiple loans</button></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="refinance-calculator__bottom-buttons-container">
+                                <div class="refinance-calculator__bottom-buttons-middle"><button class="refinance-calculator__view-all-button">View All Inputs</button></div><button class="button button__dark-teal button__width-229 dropshadow dropshadow__hover-off">Next <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg" transform="scale(1 1)">
+                                        <path d="M5.77223 5.52668L1.3278 9.78193C1.02398 10.0727 0.531545 10.0727 0.227863 9.78193C-0.0759551 9.49116 -0.0759551 9.01957 0.227863 8.72881L4.12246 5L0.227864 1.27119C-0.0759546 0.980421 -0.0759546 0.50883 0.227864 0.218075C0.531558 -0.0726918 1.02399 -0.0726917 1.3278 0.218075L5.77223 4.47332C6.07592 4.76409 6.07592 5.23592 5.77223 5.52668Z" fill="#fff"></path>
+                                    </svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

