@@ -1,5 +1,6 @@
 import contextlib
 
+from django.shortcuts import get_object_or_404
 from rest_framework import permissions
 from rest_framework import status
 from rest_framework import viewsets
@@ -90,4 +91,12 @@ class FootNoteModelViewSet(viewsets.ModelViewSet):
         queryset = self.get_queryset()
         serializer = self.serializer_class(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-
+    def get_object(self):
+        return FootNote.objects.using("afrifundpress").get(pk=self.kwargs.get("pk"))
+    def partial_update(self, request: Request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.serializer_class(instance, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save(using="afrifundpress")
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

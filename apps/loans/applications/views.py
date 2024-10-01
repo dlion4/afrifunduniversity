@@ -74,6 +74,6 @@ class LoanApplicationErrorPageView(TemplateView):
         error_message = decode_message(encoded_msg)
         if error_message == "outside-country":
             context["country"] = True
-        elif error_message == "vpn-detected":
+        elif error_message == "ip-masking":
             context["vpn"] = True
         return render(request, self.template_name, context)

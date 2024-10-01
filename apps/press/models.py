@@ -120,8 +120,9 @@ class FootNote(models.Model):
             ("CareerLoan", "Career Loan"),
             ("StudentCard", "Student Card"),
             ("Calculator", "Calculator"),
+            ("Custom", "Custom"),
         ],
-        default="StudentLoan",
+        default="Custom",
     )
     content = models.TextField(max_length=800)
     class Meta:

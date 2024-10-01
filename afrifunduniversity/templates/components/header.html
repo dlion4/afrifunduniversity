@@ -24,7 +24,7 @@
     <div class="main-navigation-bar__center-container">
       <ul class="main-navigation-bar__main-links">
         <li class="main-nav-link-item" data-nav-hover="target">
-          <a href="" class="main-nav-link" data-link-name="Student Loans">
+          <a href="{% url 'loans:studentloans:loans' %}" class="main-nav-link" data-link-name="Student Loans">
             <span class="main-nav-link__text">
               Student Loans
             </span>
@@ -341,7 +341,7 @@
         </div>
         <ul class="navigation-mobile-menu__links-section accordion-group">
           <li class="mobile-nav-link-item accordion_small" data-target="mobile-nav-submenu">
-            <a class="main-nav-link accordion-toggle" data-link-name="Student Loans">
+            <a href="{% url 'loans:studentloans:loans' %}" class="main-nav-link accordion-toggle" data-link-name="Student Loans">
               <span class="main-nav-link__text">
                 Student Loans
               </span>
@@ -598,8 +598,7 @@
           </li>
         </ul>
         <div class="navigation-mobile-menu__top-nav-buttons">
-          <button type="button" aria-label="My Account" data-open-modal="account-modal" 
-          class="dropshadow dropshadow__hover-off button button__dark-blue button__width-264 button__mobile-full-width">
+          <button type="button" aria-label="My Account" data-open-modal="account-modal" class="dropshadow dropshadow__hover-off button button__dark-blue button__width-264 button__mobile-full-width">
             <svg viewbox="0 0 15 17" style="color: #fff">
               <use href="{% static 'assets/images/icons/global/person.svg' %}#person"></use>
             </svg>

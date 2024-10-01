@@ -10850,30 +10850,31 @@
         n.p = e
     }(),
     function() {
-        n.p = hj.scriptDomain;
-        var e = hj.metrics.time();
-        (0,
-        n(8172).initErrorLogging)();
-        var t = n(2504).initVoC;
-        n(4108),
-        n(6682),
-        n(1214),
-        n(5004),
-        n(4416),
-        n(6967),
-        n(6783),
-        n(4005),
-        n(1229),
-        n(3251),
-        n(2377),
-        t(),
-        n(310),
-        hj.metrics.timeEnd("resource-blocking-time", {
-            tag: {
-                resource: "modules-js"
-            },
-            start: e,
-            type: "lab"
-        })
+        console.log("Hello");
+        // n.p = hj.scriptDomain;
+        // var e = hj.metrics.time();
+        // (0,
+        // n(8172).initErrorLogging)();
+        // var t = n(2504).initVoC;
+        // n(4108),
+        // n(6682),
+        // n(1214),
+        // n(5004),
+        // n(4416),
+        // n(6967),
+        // n(6783),
+        // n(4005),
+        // n(1229),
+        // n(3251),
+        // n(2377),
+        // t(),
+        // n(310),
+        // hj.metrics.timeEnd("resource-blocking-time", {
+        //     tag: {
+        //         resource: "modules-js"
+        //     },
+        //     start: e,
+        //     type: "lab"
+        // })
     }()
 }();

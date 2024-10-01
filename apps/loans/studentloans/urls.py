@@ -12,6 +12,7 @@ urlpatterns = [
         "undergraduate-student-loans/",
         views.undergrad,
         name="undergraduate-student-loans"),
+    path("", views.StudentLoanView.as_view(), name="loans"),
     path("parent/",include("apps.loans.parentloans.urls", namespace="parentloans")),
     path("career/",include("apps.loans.careerloans.urls", namespace="careerloans")),
 ]

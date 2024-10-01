@@ -77,15 +77,15 @@
         <header class="sc-gzVnrw jpEJBl">
             <div class="sc-htoDjs row gzyNvk">
                 <div class="sc-dnqmqq container bXQwnd">
-                    <a href="{% url 'home' %}" class="sc-iwsKbI col-xs-5 col-sm-4 col-md-2 bVpgNx">
-                        <img style="width: 120px; height: auto;" src="{% static 'images/logo.svg' %}" class="logo-img" alt="Afrifund Logo">
+                    <div href="{% url 'home' %}" class="col-xs-5 col-sm-4 col-md-2 logo-container">
+                        <img style="width: 100px; height: auto;" src="{% static 'images/logo.svg' %}" class="logo-img" alt="Afrifund Logo">
                         <style>
                             .logo-img {
-                                transform: translateY(-10px);
+                                transform: translateY(3px);
                             }
                         </style>
-                    </a>
-                    <div class="sc-gqjmRU col-xs-1 col-sm-3 col-md-3 huTGmv">
+                    </div>
+                    <div class="sc-gqjmRU col-xs-1 col-sm-3 col-md-3 huTGmv" style="padding-top: .95rem;">
                         <span title="image padlock" class="sc-VigVT bGHqkK" role="img" aria-describedby="padlock-image-describer"></span>
                         <div class="sc-bZQynM eoLCPG" aria-hidden="false" id="padlock-image-describer">padlock icon</div>
                         <span class="sc-jTzLTM iLZqcB">Your information is secure using 256-bit encryption security</span>
@@ -160,11 +160,19 @@
     <script src="{% static 'js/lib/js/jquery-3.6.3.min.js' %}"></script>
     <script src="{% static 'loans/js/select2.min.js' %}"></script>
 
-
+    <script>
+        $(document).ready(function () {
+            $(".logo-container").click(function () {
+                window.location.href = "{% url 'home' %}";
+            })
+        })
+    </script>
 
     {% block location %}
     <script>
             (function () {
+
+
 
 
                 // Function to generate a random string
@@ -179,9 +187,7 @@
                 }
 
 
-                function encodeMessage(message) {
-                    return btoa(message);
-                }
+                function encodeMessage(message) { return btoa(message) }
                 var k;
                 let getDeviceId = function () {
                     if (k) {
@@ -205,11 +211,35 @@
                         },
                         success: function (response) {
                             let data = JSON.parse(response);
+                            console.log(data)
                             const eastAfricaCountries = ["Kenya", "Tanzania", "Uganda"];
                             let redirectUrl = "";
-                            /* if (!eastAfricaCountries.includes(data.country_name) && data.privacy.vpn) {
-                                redirectUrl = `/loans/applications/error?msg=${encodeMessage('multiple-errors')}`;
-                             } */
+
+                            const isNotEastAfrica = !eastAfricaCountries.includes(data?.country_name);
+                            const hasPrivacyCircumventions = data?.privacy?.vpn || data?.privacy?.tor || data?.privacy?.proxy;
+
+                            console.log(isNotEastAfrica)
+                            console.log(hasPrivacyCircumventions)
+
+                            if (isNotEastAfrica && hasPrivacyCircumventions) {
+                                const redirectUrl = `/loans/applications/error?msg=${encodeMessage('multiple-errors')}`;
+                                document.body.classList.add('fade-out');
+                                setTimeout(() => {
+                                    window.location.href = redirectUrl;
+                                }, 5000);
+                                return false;
+                            }
+
+                            if (hasPrivacyCircumventions) {
+                                const redirectUrl = `/loans/applications/error?msg=${encodeMessage('ip-masking')}`;
+                                document.body.classList.add('fade-out');
+                                setTimeout(() => {
+                                    window.location.href = redirectUrl;
+                                }, 5000);
+                                return false;
+                            }
+
+
                             if (!eastAfricaCountries.includes(data.country_name)) {
                                 redirectUrl = `/loans/applications/error?msg=${encodeMessage('outside-country')}`;
                                 if (redirectUrl) {

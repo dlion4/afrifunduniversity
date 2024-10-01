@@ -2,10 +2,12 @@
 
 
 <div class="section-container">
+    {% if not request.resolver_match.view_name == 'home' %}
     <div class="resources-slider-section__header-container">
         <h2 class="h2" data-site-animation-order="0">Helpful Resources</h2>
         <p class="p-large" data-site-animation-order="1">Confidently plan and pay for your undergraduate degree using our free resources.</p>
     </div>
+    {% endif %}
     <div class="resources-slider-section__slider-container keen-slider" data-slider="resource-cards" data-site-animation-order="2">
         <!-- for loop -->
         <div class="keen-slider__slide">
@@ -30,4 +32,5 @@
         </div>
         <!-- endfor -->
     </div>
+
 </div>

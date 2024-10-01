@@ -97,29 +97,29 @@ Sitemap | {{block.super}}
                         <ul class="sitemap-list">
                             <li class="column-one"><strong><a href="/student-loans/">Student Loans</a></strong>
                                 <ul>
-                                    <li><a href="/private-student-loans/">Private Student Loans</a>
+                                    <li><a href="{% url 'loans:studentloans:private-student-loans' %}">Private Student Loans</a>
                                         <ul>
-                                            <li><a href="/student-loans/undergraduate/">Undergraduate</a></li>
-                                            <li><a href="/student-loans/parent/">Parent</a></li>
-                                            <li><a href="/student-loans/career/">Career Loans</a></li>
+                                            <li><a href="{% url 'loans:studentloans:undergraduate-student-loans' %}">Undergraduate</a></li>
+                                            <li><a href="{% url 'loans:studentloans:parentloans:parent-loans' %}">Parent</a></li>
+                                            <li><a href="{% url 'loans:studentloans:careerloans:career-loans' %}">Career Loans</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/student-loans/graduate/">Graduate Loans</a>
+                                    <li><a href="">Graduate Loans</a>
                                         <ul>
-                                            <li><a href="/student-loans/graduate/dental/">Dental</a></li>
-                                            <li><a href="/student-loans/graduate/mba/">MBA</a></li>
-                                            <li><a href="/student-loans/graduate/health-professions/">Health Professions</a></li>
-                                            <li><a href="/student-loans/graduate/law/">Law</a></li>
-                                            <li><a href="/student-loans/graduate/medical/">Medical</a></li>
+                                            <li><a href="">Dental</a></li>
+                                            <li><a href="">MBA</a></li>
+                                            <li><a href="">Health Professions</a></li>
+                                            <li><a href="">Law</a></li>
+                                            <li><a href="">Medical</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/student-loans/refinance/">Student Loan Refinance</a></li>
+                                    <li><a href="{% url 'loans:studentloans:refinance' %}">Student Loan Refinance</a></li>
                                 </ul>
                             </li>
                             <li class="column-one"><strong><a href="{% url 'resources' %}">Resources &#038; Tools</a></strong>
                                 <ul>
                                     <li><a href="{% url 'press:article_list_view' %}">Guides &#038; Articles</a></li>
-                                    <li><a href="/calculators/">Calculators</a></li>
+                                    <li><a href="{% url 'calculators:home' %}">Calculators</a></li>
                                     <li><a href="{% url 'ss:help:help_home' %}">FAQs</a></li>
                                     <li><a href="{% url 'promotions' %}">Scholarships &#038; Sweepstakes</a></li>
                                 </ul>

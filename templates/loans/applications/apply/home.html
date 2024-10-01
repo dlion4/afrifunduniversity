@@ -7,8 +7,6 @@
 {{block.super}}
 
 {% include "loans/applications/apply/css/apply.html" %}
-
-
 <style>
     /* Basic styles for the spinner */
     .spinner {
@@ -66,8 +64,14 @@
     .fade-out {
         opacity: 0;
     }
-</style>
 
+    #main-container-step-1,
+    #main-container-step-2 {
+        min-height: 60vh;
+        transform: translateY(3rem);
+        margin-bottom: 6rem;
+    }
+</style>
 {% endblock headerCss %}
 
 {% block loader %}
@@ -75,11 +79,73 @@
 
 
 {% block content %}
-
-
 <div class="overlay" id="overlay"></div>
-
-<section class="sc-caSCKo bcmzeY" id="main-container" tabindex="-1">
+<!-- <section class="" id="main-container-step-1" tabindex="-1">
+    <div class="sc-bYSBpT jbbTLM">
+        <div class="sc-kvZOFW elSnyR">
+            <div class="sc-hqyNC container keRCOE">
+                <div class="sc-jbKcbu row cWSlbe">
+                    <div class="sc-dNLxif col-xs-10 bVdTGY">
+                        <h1 class="sc-uJMKN fVpAKT">Hello!</h1>
+                    </div>
+                    <div class="sc-jqCOkK col-xs-10 gdorVr">
+                        <h2 class="sc-bbmXgH cuBMeU">Let's get you to the right place.</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="sc-elJkPf fNiqzt">Please tell us who you are:</h2>
+        <div class="sc-hSdWYo gJFFhu">
+            <button class="sc-kEYyzF gRIcXi" tabindex="0" aria-label="Student Borrower" aria-describedby="button-describer">
+                Student Borrower<span class="sc-kkGfuU bmbkEI"></span>
+            </button>
+            <p class="sc-iAyFgw kPJnip" aria-hidden="false" id="button-describer"></p>
+        </div>
+        <div style="margin: 1rem 0;"></div>
+        <div class="sc-hSdWYo gJFFhu">
+            <button class="sc-kEYyzF gRIcXi" tabindex="0" aria-label="Cosigner" aria-describedby="button-describer">
+                Cosigner<span class="sc-kkGfuU bmbkEI"></span>
+            </button>
+            <p class="sc-iAyFgw kPJnip" aria-hidden="false" id="button-describer"></p>
+        </div>
+    </div>
+</section> -->
+<!-- <section class="sc-caSCKo bcmzeY" id="main-container-step-2" tabindex="-1">
+    <div class="sc-dqBHgY bdRrJu">
+        <div class="sc-kvZOFW elSnyR">
+            <div class="sc-hqyNC container keRCOE">
+                <div class="sc-jbKcbu row cWSlbe">
+                    <div class="sc-dNLxif col-xs-10 bVdTGY">
+                        <h1 class="sc-uJMKN fVpAKT">What would you like to do today?</h1>
+                    </div>
+                    <div class="sc-jqCOkK col-xs-10 gdorVr">
+                        <h2 class="sc-bbmXgH cuBMeU"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sc-gxMtzJ container kLFfvI">
+            <div class="sc-dfVpRl row iTthma">
+                <div class="sc-gzOgki col-md-5 col-sm-6 col-xs-12 brApOG">
+                    <div class="sc-hSdWYo gJFFhu">
+                        <button class="sc-kEYyzF hjPaXi" tabindex="0" aria-label="Start a New Application" aria-describedby="button-describer">
+                            Start a New Application<span class="sc-kkGfuU bmbkEI"></span>
+                        </button>
+                        <p class="sc-iAyFgw kPJnip" aria-hidden="false" id="button-describer"></p>
+                    </div>
+                    <div style="margin: 1.3rem 0;"></div>
+                    <div class="sc-hSdWYo gJFFhu">
+                        <button class="sc-kEYyzF hjPaXi" tabindex="0" aria-label="Return to an Existing Application" aria-describedby="button-describer">
+                            Return to an Existing Application<span class="sc-kkGfuU bmbkEI"></span>
+                        </button>
+                        <p class="sc-iAyFgw kPJnip" aria-hidden="false" id="button-describer"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<section class="sc-caSCKo bcmzeY" id="main-container-step-3" tabindex="-1">
     <div>
         <div class="sc-gojNiO eHAReN">
             <div class="sc-kvZOFW elSnyR">
@@ -95,7 +161,13 @@
                 </div>
             </div>
             <div class="sc-hSdWYo gJFFhu">
-                <button type="button" class="sc-kEYyzF bTpaUX get-started-btn" tabindex="0" aria-label="Get Started" aria-describedby="button-describer">
+                <button
+                    type="button"
+                    class="sc-kEYyzF bTpaUX get-started-btn"
+                    tabindex="0"
+                    aria-label="Get Started"
+                    aria-describedby="button-describer"
+                >
                     Get Started
                     <span class="sc-kkGfuU bmbkEI spinner" id="spinner"></span>
                 </button>
@@ -106,14 +178,24 @@
             <div class="sc-bXGyLb col-md-6 col-sm-9 col-xs-12 kTozof">
                 <h3>To complete your application, you’ll need:</h3>
                 <ul>
-                    <li><span>Your national identification number</span></li>
-                    <li><span>Your school name (must be one of our partnered universities)</span></li>
-                    <li><span>Your estimated annual fees</span></li>
-                    <li><span>The amount you’d like to borrow</span></li>
+                    <li>
+                        <span>Your national identification number</span>
+                    </li>
+                    <li>
+                        <span>Your school name (must be one of our partnered universities)</span>
+                    </li>
+                    <li>
+                        <span>Your estimated annual fees</span>
+                    </li>
+                    <li>
+                        <span>The amount you’d like to borrow</span>
+                    </li>
                 </ul>
                 <h3>Once approved, you’ll see your interest rates.</h3>
-                <p>Already started an application?
-                    <a class="continue-to-find-application" href="">Find it here</a>.
+                <p>
+                    Already started an application?
+                    <a class="continue-to-find-application" href="">Find it here</a>
+                    .
                 </p>
             </div>
         </div>
@@ -123,9 +205,11 @@
                     <div class="sc-iQKALj col-sm-7 col-xs-12 cKykSe">
                         <div>
                             <div>
-                                <div class="sc-eXEjpC cnTDlp"><span class="sc-kIPQKe dSrSHs"></span>
+                                <div class="sc-eXEjpC cnTDlp">
+                                    <span class="sc-kIPQKe dSrSHs"></span>
                                     <h4 class="sc-kfGgVZ bMoTGd">What if I'm applying with a cosigner?</h4>
-                                </div><span class="sc-esjQYD eKLaHG">
+                                </div>
+                                <span class="sc-esjQYD eKLaHG">
                                     <p>We’ll ask you during the application whether you have a cosigner and give you directions for them to apply. Your cosigner doesn’t have to be with you.</p>
                                     <p>While not required, applying with a cosigner who has good credit may help you qualify for a loan or receive a lower interest rate.</p>
                                 </span>
@@ -134,12 +218,15 @@
                     </div>
                 </div>
             </div>
-            <div class="sc-bwCtUz cNhWva" data-popup="help-section"><span class="sc-hrWEMg dmSFqp"></span>
+            <div class="sc-bwCtUz cNhWva" data-popup="help-section">
+                <span class="sc-hrWEMg dmSFqp"></span>
                 <div class="sc-eTuwsz iXSARm">
                     <div>
-                        <div class="sc-eXEjpC cnTDlp"><span class="sc-kIPQKe dSrSHs"></span>
+                        <div class="sc-eXEjpC cnTDlp">
+                            <span class="sc-kIPQKe dSrSHs"></span>
                             <h4 class="sc-kfGgVZ hEHMUG">What if I'm applying with a cosigner?</h4>
-                        </div><span class="sc-esjQYD bMSEgw">
+                        </div>
+                        <span class="sc-esjQYD bMSEgw">
                             <p>We’ll ask you during the application whether you have a cosigner and give you directions for them to apply. Your cosigner doesn’t have to be with you.</p>
                             <p>While not required, applying with a cosigner who has good credit may help you qualify for a loan or receive a lower interest rate.</p>
                         </span>
@@ -147,11 +234,853 @@
                 </div>
             </div>
         </div>
+        <div class="sc-gwVKww ghKjbn">
+            <section class="sc-hXRMBi container kiRnNm">
+                <div class="sc-epnACN row hsXqzQ">
+                    <div class="sc-iQNlJl col-xs-12 jAmdHl">
+                        <div class="sc-bsbRJL dUdrDe">
+                            <h2 class="sc-hZSUBg ktzvwM">Here's what our customers are saying about us:</h2>
+                            <div class="sc-cMhqgX cRvuJA">
+                                <span class="sc-iuJeZd gThFlb" aria-describedby="previous-arrow-description"></span>
+                                <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="previous-arrow-description">arrow for showing the previous group of content</span>
+                                <span class="sc-esOvli dqbhOO" aria-describedby="next-arrow-description"></span>
+                                <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="next-arrow-description">arrow for showing the next group of content</span>
+                            </div>
+                            <div class="slick-slider sc-cmthru gJVBSe slick-initialized" dir="ltr">
+                                <button
+                                    type="button"
+                                    data-role="none"
+                                    class="slick-arrow slick-prev"
+                                    style="display: block;"
+                                >Previous</button>
+                                <div class="slick-list">
+                                    <div class="slick-track" style="width: 13050px; opacity: 1; transform: translate3d(-870px, 0px, 0px);">
+                                        <div
+                                            data-index="-2"
+                                            tabindex="-1"
+                                            class="slick-slide slick-cloned"
+                                            aria-hidden="true"
+                                            style="width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/24/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Everything was easy to navigate.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Everything was easy to navigate Didn't take long at all</p>
+                                                        <span class="sc-exAgwC fsnDtB">Elizabeth</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="-1"
+                                            tabindex="-1"
+                                            class="slick-slide slick-cloned"
+                                            aria-hidden="true"
+                                            style="width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/19/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Very clear and fast service.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Very clear and fast service. Updates every week without requiring me to ask the status of my application.</p>
+                                                        <span class="sc-exAgwC fsnDtB">Diego</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="0"
+                                            class="slick-slide slick-active slick-current"
+                                            tabindex="-1"
+                                            aria-hidden="false"
+                                            style="outline: none; width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">5/20/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Quick and efficient</h3>
+                                                        <p class="sc-GMQeP fMjwHU">The process in filling everything out online was easy and quick to follow along.  Gives a break down of monthly payments that start after the money is sent to the school. Although, students not working will be required to get a co-signer.</p>
+                                                        <span class="sc-exAgwC fsnDtB">Johnathan</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="1"
+                                            class="slick-slide slick-active"
+                                            tabindex="-1"
+                                            aria-hidden="false"
+                                            style="outline: none; width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">5/17/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">It was a stress free experience</h3>
+                                                        <p class="sc-GMQeP fMjwHU">It was a stress free experience. Representatives were always available to help when needed. The process was very quick. Great customer service.</p>
+                                                        <span class="sc-exAgwC fsnDtB">Edward</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="2"
+                                            class="slick-slide"
+                                            tabindex="-1"
+                                            aria-hidden="true"
+                                            style="outline: none; width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">5/14/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Yes very good</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Yes is very  helpful</p>
+                                                        <span class="sc-exAgwC fsnDtB">Yvon</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="3"
+                                            class="slick-slide"
+                                            tabindex="-1"
+                                            aria-hidden="true"
+                                            style="outline: none; width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">5/12/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Excellent Services</h3>
+                                                        <p class="sc-GMQeP fMjwHU">I gave  this company 5 stars for their great services. Providing me with financial alternative for me continue my academics. The process was very simple and straight forward.</p>
+                                                        <span class="sc-exAgwC fsnDtB">Simeon</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="4"
+                                            class="slick-slide"
+                                            tabindex="-1"
+                                            aria-hidden="true"
+                                            style="outline: none; width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/31/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Quick responses and an array of loan options.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Quick responses and an array of loan options to choose from.</p>
+                                                        <span class="sc-exAgwC fsnDtB">Ryan</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="5"
+                                            class="slick-slide"
+                                            tabindex="-1"
+                                            aria-hidden="true"
+                                            style="outline: none; width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/31/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">This process was extremely simple.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">This process was extremely simple.  College Ave took care of everything including contact with the school.  Once approved College Ave took over and I cannot tell you how wonderful that was!</p>
+                                                        <span class="sc-exAgwC fsnDtB">Cindy</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="6"
+                                            class="slick-slide"
+                                            tabindex="-1"
+                                            aria-hidden="true"
+                                            style="outline: none; width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/31/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Easy to use mobile app.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Easy to use mobile app. You do what you say. Distributions happen on time.</p>
+                                                        <span class="sc-exAgwC fsnDtB">Peter</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="7"
+                                            class="slick-slide"
+                                            tabindex="-1"
+                                            aria-hidden="true"
+                                            style="outline: none; width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/29/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Super easy to apply.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Super easy to apply. Quick decisions and contacts college business office so we don't have to chase them down.</p>
+                                                        <span class="sc-exAgwC fsnDtB">Francis</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="8"
+                                            class="slick-slide"
+                                            tabindex="-1"
+                                            aria-hidden="true"
+                                            style="outline: none; width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/27/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Obtaining loan is an easy and quick.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Takes the stress out of college funding and provides reasonable rates and payment options</p>
+                                                        <span class="sc-exAgwC fsnDtB">Mary</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="9"
+                                            class="slick-slide"
+                                            tabindex="-1"
+                                            aria-hidden="true"
+                                            style="outline: none; width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/26/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Quick, throrough and kind.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Quick, thorough, good advice, kind and trustworthy</p>
+                                                        <span class="sc-exAgwC fsnDtB">Artakia</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="10"
+                                            class="slick-slide"
+                                            tabindex="-1"
+                                            aria-hidden="true"
+                                            style="outline: none; width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/25/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Straightforward and best interest rate.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Straightforward and best interest rate with good repayment options</p>
+                                                        <span class="sc-exAgwC fsnDtB">Dietmar</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="11"
+                                            class="slick-slide"
+                                            tabindex="-1"
+                                            aria-hidden="true"
+                                            style="outline: none; width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/24/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Quick and easy.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Quick and easy.  Weekly updates were great to let me know the status of loan.</p>
+                                                        <span class="sc-exAgwC fsnDtB">Tracy</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="12"
+                                            class="slick-slide"
+                                            tabindex="-1"
+                                            aria-hidden="true"
+                                            style="outline: none; width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/24/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Everything was easy to navigate.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Everything was easy to navigate Didn't take long at all</p>
+                                                        <span class="sc-exAgwC fsnDtB">Elizabeth</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="13"
+                                            class="slick-slide"
+                                            tabindex="-1"
+                                            aria-hidden="true"
+                                            style="outline: none; width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/19/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Very clear and fast service.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Very clear and fast service. Updates every week without requiring me to ask the status of my application.</p>
+                                                        <span class="sc-exAgwC fsnDtB">Diego</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="14"
+                                            tabindex="-1"
+                                            class="slick-slide slick-cloned"
+                                            aria-hidden="true"
+                                            style="width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">5/20/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Quick and efficient</h3>
+                                                        <p class="sc-GMQeP fMjwHU">The process in filling everything out online was easy and quick to follow along.  Gives a break down of monthly payments that start after the money is sent to the school. Although, students not working will be required to get a co-signer.</p>
+                                                        <span class="sc-exAgwC fsnDtB">Johnathan</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="15"
+                                            tabindex="-1"
+                                            class="slick-slide slick-cloned"
+                                            aria-hidden="true"
+                                            style="width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">5/17/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">It was a stress free experience</h3>
+                                                        <p class="sc-GMQeP fMjwHU">It was a stress free experience. Representatives were always available to help when needed. The process was very quick. Great customer service.</p>
+                                                        <span class="sc-exAgwC fsnDtB">Edward</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="16"
+                                            tabindex="-1"
+                                            class="slick-slide slick-cloned"
+                                            aria-hidden="true"
+                                            style="width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">5/14/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Yes very good</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Yes is very  helpful</p>
+                                                        <span class="sc-exAgwC fsnDtB">Yvon</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="17"
+                                            tabindex="-1"
+                                            class="slick-slide slick-cloned"
+                                            aria-hidden="true"
+                                            style="width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">5/12/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Excellent Services</h3>
+                                                        <p class="sc-GMQeP fMjwHU">I gave  this company 5 stars for their great services. Providing me with financial alternative for me continue my academics. The process was very simple and straight forward.</p>
+                                                        <span class="sc-exAgwC fsnDtB">Simeon</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="18"
+                                            tabindex="-1"
+                                            class="slick-slide slick-cloned"
+                                            aria-hidden="true"
+                                            style="width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/31/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Quick responses and an array of loan options.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Quick responses and an array of loan options to choose from.</p>
+                                                        <span class="sc-exAgwC fsnDtB">Ryan</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="19"
+                                            tabindex="-1"
+                                            class="slick-slide slick-cloned"
+                                            aria-hidden="true"
+                                            style="width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/31/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">This process was extremely simple.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">This process was extremely simple.  College Ave took care of everything including contact with the school.  Once approved College Ave took over and I cannot tell you how wonderful that was!</p>
+                                                        <span class="sc-exAgwC fsnDtB">Cindy</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="20"
+                                            tabindex="-1"
+                                            class="slick-slide slick-cloned"
+                                            aria-hidden="true"
+                                            style="width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/31/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Easy to use mobile app.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Easy to use mobile app. You do what you say. Distributions happen on time.</p>
+                                                        <span class="sc-exAgwC fsnDtB">Peter</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="21"
+                                            tabindex="-1"
+                                            class="slick-slide slick-cloned"
+                                            aria-hidden="true"
+                                            style="width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/29/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Super easy to apply.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Super easy to apply. Quick decisions and contacts college business office so we don't have to chase them down.</p>
+                                                        <span class="sc-exAgwC fsnDtB">Francis</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="22"
+                                            tabindex="-1"
+                                            class="slick-slide slick-cloned"
+                                            aria-hidden="true"
+                                            style="width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/27/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Obtaining loan is an easy and quick.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Takes the stress out of college funding and provides reasonable rates and payment options</p>
+                                                        <span class="sc-exAgwC fsnDtB">Mary</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="23"
+                                            tabindex="-1"
+                                            class="slick-slide slick-cloned"
+                                            aria-hidden="true"
+                                            style="width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/26/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Quick, throrough and kind.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Quick, thorough, good advice, kind and trustworthy</p>
+                                                        <span class="sc-exAgwC fsnDtB">Artakia</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="24"
+                                            tabindex="-1"
+                                            class="slick-slide slick-cloned"
+                                            aria-hidden="true"
+                                            style="width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/25/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Straightforward and best interest rate.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Straightforward and best interest rate with good repayment options</p>
+                                                        <span class="sc-exAgwC fsnDtB">Dietmar</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="25"
+                                            tabindex="-1"
+                                            class="slick-slide slick-cloned"
+                                            aria-hidden="true"
+                                            style="width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/24/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Quick and easy.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Quick and easy.  Weekly updates were great to let me know the status of loan.</p>
+                                                        <span class="sc-exAgwC fsnDtB">Tracy</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="26"
+                                            tabindex="-1"
+                                            class="slick-slide slick-cloned"
+                                            aria-hidden="true"
+                                            style="width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/24/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Everything was easy to navigate.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Everything was easy to navigate Didn't take long at all</p>
+                                                        <span class="sc-exAgwC fsnDtB">Elizabeth</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-index="27"
+                                            tabindex="-1"
+                                            class="slick-slide slick-cloned"
+                                            aria-hidden="true"
+                                            style="width: 435px;"
+                                        >
+                                            <div>
+                                                <div class="sc-hMFtBS hPQrSd" tabindex="-1" style="width: 100%; display: inline-block;">
+                                                    <span class="sc-cLQEGU emCwQY" aria-describedby="quote-image-description"></span>
+                                                    <span class="sc-cQFLBn iLpNOF" aria-hidden="false" id="quote-image-description">commone.accessibility.quote</span>
+                                                    <div class="sc-gqPbQI fmaxaY">
+                                                        <div class="sc-hORach kchhIa">
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                            <span class="sc-bMVAic knKiUQ"></span>
+                                                        </div>
+                                                        <span class="sc-bAeIUo lbDQxo">7/19/24</span>
+                                                        <h3 class="sc-iujRgT bklAwW">Very clear and fast service.</h3>
+                                                        <p class="sc-GMQeP fMjwHU">Very clear and fast service. Updates every week without requiring me to ask the status of my application.</p>
+                                                        <span class="sc-exAgwC fsnDtB">Diego</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button
+                                    type="button"
+                                    data-role="none"
+                                    class="slick-arrow slick-next"
+                                    style="display: block;"
+                                >Next</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
 </section>
-
-
-
 {% endblock content %}
 
 
@@ -161,7 +1090,6 @@
 
 
 {% block bundleJs %}
-
 <script>
     window.App = {
         csrfToken: "{{ csrf_token }}"
@@ -196,8 +1124,4 @@
         });
     });
 </script>
-
-
-
-
 {% endblock bundleJs %}

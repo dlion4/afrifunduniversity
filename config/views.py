@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 import time
-
+from config.settings.base import env
 from django.urls import reverse, reverse_lazy
 import ipinfo
 from django.conf import settings
@@ -244,34 +244,48 @@ def get_user_ip(request:HttpResponse):
 def get_public_ip(request:HttpRequest):
 
     time.sleep(3)
-    response = requests.get(
-        "https://api.ipify.org?format=json", timeout=5)
+    response = requests.get("https://api.ipify.org?format=json", timeout=5)
     response.raise_for_status()
     data = response.json()
+
     return data["ip"]
 
-def get_actual_user_location(
-    ip_address:str,
-    access_key="0ec66558b407a88da165787b6ae207f2"):
-    response = requests.get(
-        f"https://api.ipinfo.info/api/{ip_address}?access_key={access_key}",
-        timeout=5,
-    )
+def get_actual_user_location(ip_address:str,access_key="0ec66558b407a88da165787b6ae207f2",
+    base_url:str|None=None,
+    ):
+    response=None
+    if base_url is None:
+        response = requests.get(
+            f"https://api.ipinfo.info/api/{ip_address}?access_key={access_key}",
+            timeout=5,
+        )
+    else:
+        response = requests.get(f"{base_url}/{ip_address}?api-key={access_key}",timeout=5)
     response.raise_for_status()
     return response.json()
 def get_ip_details(ip_address=None):
-    ipinfo_token = getattr(settings, "IPINFO_TOKEN", None)
+    ipinfo_token = getattr(settings, "IPINFO_TOKEN", "d96b2e0fe777b3")
     ipinfo_settings = getattr(settings, "IPINFO_SETTINGS", {})
-    ip_data = ipinfo.getHandler(ipinfo_token, **ipinfo_settings)
-    return ip_data.getDetails(ip_address)
+    url = f"https://ipinfo.io/{ip_address}?token={ipinfo_token}"
+    handler = requests.get(url, timeout=5)
+    handler.raise_for_status()
+    return handler.json()
+
+
+import concurrent.futures
+
 
 def location(request:HttpRequest):
-    time.sleep(3)
-    print(get_public_ip(request))
-    ip_data = get_actual_user_location(ip_address=get_public_ip(request))
-    time.sleep(1)
-    print(ip_data)
-    return JsonResponse(json.dumps(ip_data), safe=False)
+    result = {}
+    ip_address=get_public_ip(request)
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        actual_location = executor.submit(get_actual_user_location, ip_address)
+        future_details = executor.submit(get_ip_details, ip_address)
+        location_data = actual_location.result()
+        details_data = future_details.result()
+        result.update(location_data)
+        result.update(details_data)
+    return JsonResponse(json.dumps(result), safe=False)
 
 
 from django.utils import timezone

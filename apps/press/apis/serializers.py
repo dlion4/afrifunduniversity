@@ -102,3 +102,4 @@ class FootNoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = FootNote
         fields = ["id", "category", "content"]
+

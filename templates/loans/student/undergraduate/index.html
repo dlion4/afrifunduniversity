@@ -89,15 +89,16 @@ Undergraduate Student Loans | {{block.super}}
                     </div>
                 </div>
                 <div class="hero-product__button-container" data-site-animation-order="3">
-
-                    <a href="" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-205 button__mobile-full-width" data-link-name="Apply Now">
+                    <a href="{% url 'loans:applications:application_entry' %}" class="dropshadow dropshadow__hover-off button button__dark-teal button__width-205 button__mobile-full-width" data-link-name="Apply Now">
                         Apply Now
                     </a>
-                    <a href="" class="dropshadow dropshadow__hover-off button button__dark-blue button__width-205 button__mobile-full-width" data-link-name="Prequalify">
+                    <a href="{% url 'loans:prequalify' %}" class="dropshadow dropshadow__hover-off button button__dark-blue button__width-205 button__mobile-full-width" data-link-name="Prequalify">
                         Prequalify
                     </a>
                 </div>
-                <p class="p-small" data-site-animation-order="4">(all rates shown include auto-pay discount)<sup>2</sup></p>
+                <p class="p-small" data-site-animation-order="4">
+                    (all rates shown include auto-pay discount)<sup>2</sup>
+                </p>
             </div>
         </div>
     </div>

@@ -10,19 +10,19 @@
             <div class="footer-links-list-container footer-links-list-container__mobile-border">
               <ul class="footer-links-section__link-list">
                 <li>
-                  <a data-link-name="Student Loans" class="footer-links-section__link" href="/student-loans/">Student Loans</a>
+                  <a data-link-name="Student Loans" class="footer-links-section__link" href="{% url 'loans:studentloans:loans' %}">Student Loans</a>
                 </li>
                 <li>
-                  <a data-link-name="Student Loan Refinance" class="footer-links-section__link" href="/student-loans/refinance/">Student Loan Refinance</a>
+                  <a data-link-name="Student Loan Refinance" class="footer-links-section__link" href="{% url 'loans:studentloans:refinance' %}">Student Loan Refinance</a>
                 </li>
                 <li>
-                  <a data-link-name="Undergraduate" class="footer-links-section__link" href="/student-loans/undergraduate/">Undergraduate</a>
+                  <a data-link-name="Undergraduate" class="footer-links-section__link" href="{% url 'loans:studentloans:undergraduate-student-loans' %}">Undergraduate</a>
                 </li>
                 <li>
-                  <a data-link-name="Graduate" class="footer-links-section__link" href="/student-loans/graduate/">Graduate</a>
+                  <a data-link-name="Graduate" class="footer-links-section__link" href="">Graduate</a>
                 </li>
                 <li>
-                  <a data-link-name="Private Student Loans" class="footer-links-section__link" href="/private-student-loans/">Private Student Loans</a>
+                  <a data-link-name="Private Student Loans" class="footer-links-section__link" href="{% url 'loans:studentloans:private-student-loans' %}">Private Student Loans</a>
                 </li>
               </ul>
             </div>
@@ -48,7 +48,7 @@
             <div class="footer-links-list-container footer-links-list-container__mobile-border">
               <ul class="footer-links-section__link-list">
                 <li>
-                  <a data-link-name="Student Card" class="footer-links-section__link" href="/credit/student-card/">Student Card</a>
+                  <a data-link-name="Student Card" class="footer-links-section__link" href="">Student Card</a>
                 </li>
                 <li>
                   <a data-link-name="Press" class="footer-links-section__link" href="{% url 'press:home' %}">Press</a>
@@ -186,7 +186,7 @@
                       <p class="p-xsmall">Download our Loan Repayment App</p>
                     </div>
                     <div class="footer-download-section__app-store-links">
-                      <a data-link-name="Google Play Store" target="_blank" rel="nofollow, noopener" href="https://play.google.com/store/apps/details?id=com.collegeavestudentloans" class="footer-download-section__app-store-link" aria-label="Google Play Store">
+                      <a data-link-name="Google Play Store" target="_blank" rel="nofollow, noopener" href="" class="footer-download-section__app-store-link" aria-label="Google Play Store">
                         <span>Google Play Store</span>
                         <img src="{% static 'assets/images/icons/google.svg' %}" class="attachment-full size-full" alt="Get it on Google Play" decoding="async" loading="lazy" />
                       </a>
@@ -365,22 +365,22 @@
         </div>
         <ul class="footer-bottom-section-links footer-bottom-section-links__mobile">
           <li class="footer-bottom-section-links__list-item">
-            <a data-link-name="Privacy Policy" href="/privacy/" class="footer-bottom-section-links__link">
+            <a data-link-name="Privacy Policy" href="{% url 'privacy' %}" class="footer-bottom-section-links__link">
               <p class="p-xsmall">Privacy Policy</p>
             </a>
           </li>
           <li class="footer-bottom-section-links__list-item">
-            <a data-link-name="Licenses" href="/licenses/" class="footer-bottom-section-links__link">
+            <a data-link-name="Licenses" href="{% url 'license' %}" class="footer-bottom-section-links__link">
               <p class="p-xsmall">Licenses</p>
             </a>
           </li>
           <li class="footer-bottom-section-links__list-item">
-            <a data-link-name="Terms of Use" href="/terms-of-use/" class="footer-bottom-section-links__link">
+            <a data-link-name="Terms of Use" href="{% url 'terms-of-use' %}" class="footer-bottom-section-links__link">
               <p class="p-xsmall">Terms of Use</p>
             </a>
           </li>
           <li class="footer-bottom-section-links__list-item">
-            <a data-link-name="Site Map" href="/sitemap/" class="footer-bottom-section-links__link">
+            <a data-link-name="Site Map" href="{% url 'sitemap' %}" class="footer-bottom-section-links__link">
               <p class="p-xsmall">Site Map</p>
             </a>
           </li>
