@@ -19,6 +19,7 @@
         "Eleuther",
         "filebeat",
         "filestream",
+        "findapplication",
         "healthcheck",
         "helb",
         "idno",

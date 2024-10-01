@@ -159,6 +159,7 @@
     </div>
     <script src="{% static 'js/lib/js/jquery-3.6.3.min.js' %}"></script>
     <script src="{% static 'loans/js/select2.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/slick/slick.min.js' %}"></script>
 
     <script>
         $(document).ready(function () {
@@ -171,10 +172,6 @@
     {% block location %}
     <script>
             (function () {
-
-
-
-
                 // Function to generate a random string
                 function generateRandomString(length) {
                     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -185,8 +182,6 @@
                     }
                     return result;
                 }
-
-
                 function encodeMessage(message) { return btoa(message) }
                 var k;
                 let getDeviceId = function () {

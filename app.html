@@ -635,7 +635,7 @@
 
         .bmbkEI {
             display: none;
-            background: url('/application/assets/images/spinner.png');
+            background: url("{% static 'assets/images/spinner.png' %}");
             background-repeat: no-repeat;
             background-size: 100%;
             position: absolute;
@@ -4419,7 +4419,7 @@
                                     if (c.hostname) {
                                         c = c.hostname; a = -1 != c.indexOf(_analytics.getTopLevelDomain()); if (!a) for (b = google_tag_manager["rm"]["8297021"](20) || [], d = 0; d < b.length; d++)if (-1 != c.indexOf(b[d].toLowerCase())) {
                                             a =
-                                            !0; break
+                                                !0; break
                                         } c = a
                                     } else c = !0; c || this.trackEvent("Global Links", "Outbound - click", e)
                                 }
@@ -4658,12 +4658,12 @@
                 }, 9); f(document).on("click", ".continue-to-personal-info", function (a) {
                     a.preventDefault(); var b = f(this).attr("href"); m(n("personal info")); setTimeout(function () {
                         location.href =
-                        b
+                            b
                     }, 250)
                 }); f(document).on("click", ".continue-to-apply-now", function (a) { a.preventDefault(); var b = f(this).attr("href"); m(n("apply now")); setTimeout(function () { location.href = b }, 250) }); f(document).on("click", ".continue-to-find-application", function (a) { a.preventDefault(); var b = f(this).attr("href"); m(n("find application")); setTimeout(function () { location.href = b }, 250) }); f(document).on("click", ".continue-to-visit-objective", function (a) {
                     a.preventDefault(); var b = f(this).attr("href"); m(n("visit objective")); setTimeout(function () {
                         location.href =
-                        b
+                            b
                     }, 250)
                 }); f(document).on("click", ".continue-to-invite-borrower", function (a) { a.preventDefault(); var b = f(this).attr("href"); m(n("invite borrower")); setTimeout(function () { location.href = b }, 250) }); f(document).on("click", ".continue-to-casl", function (a) { a.preventDefault(); var b = f(this).attr("href"), d = f(this).attr("target"); m(n("CASL.com"), f(this).attr("href")); setTimeout(function () { "_blank" == d ? window.open(b) : location.href = b }, 250) }); f(document).on("click", ".trouble-esigning", function (a) {
                     a.preventDefault();
@@ -4738,7 +4738,7 @@
                     b === "Refi" && (a = "refi"); b === "Parent" && (a = "parent"); a && c("borrower", "pre_app", a)
                 }); $("[data-section-name\x3d'Compare Lenders Table'] [data-toggle\x3d'tab'][data-tab-name]").click(function () { var b = $(this).data("tab-name"), a; /(undergraduate|graduate|mba|medical|dental|law)/i.test(b) && (a = "inschool"); /parent/i.test(b) && (a = "parent"); /refinance/i.test(b) && (a = "refi"); a && c("borrower", "pre_app", a) }); $(document).on("change", ".prequalify-check [name\x3d'applicant-type']", function () {
                     var b = window.digitalData && window.digitalData.product,
-                    a; /(undergraduate|graduate|career)/i.test(b) && (a = "inschool"); /refinance/i.test(b) && (a = "refi"); /parent/i.test(b) && (a = "parent"); a && $(this).val() === "Cosigner" && c("cosigner", "pre_app", a)
+                        a; /(undergraduate|graduate|career)/i.test(b) && (a = "inschool"); /refinance/i.test(b) && (a = "refi"); /parent/i.test(b) && (a = "parent"); a && $(this).val() === "Cosigner" && c("cosigner", "pre_app", a)
                 }); $(document).on("borPersonalInfoView", function () { c("borrower", "app_visited") }); $(document).on("cosPersonalInfoView", function () { c("cosigner", "app_visited") }); $(document).on("prequalResultsView", function () { c("borrower", "info_submitted") }); $(document).on("ASDView", function (b, a) {
                     a && /borrower/i.test(a.userSegment) && c("borrower",
                         "info_submitted"); a && /cosigner/i.test(a.userSegment) && c("cosigner", "info_submitted")

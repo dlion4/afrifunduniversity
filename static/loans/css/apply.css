@@ -620,7 +620,7 @@
 
         .bmbkEI {
             display: none;
-            background: url('/application/assets/images/spinner.png');
+            background: url("{% static 'assets/images/spinner.png' %}");
             background-repeat: no-repeat;
             background-size: 100%;
             position: absolute;
@@ -904,35 +904,27 @@
                 margin-top: 0rem;
                 margin-bottom: 33px;
                 margin-bottom: 2.0625rem;
-                20px 25px;
-                1.25rem 1.5625rem;
             }
 
-            .iPzxkQ padding:function(e) {
-                return: M[e.config].verticalPadding;
-            }
-
-            .iPzxkQ padding:function(e) {
-                return: M[e.config].verticalPadding;
-            }
+            
         }
 
-        /* sc-component-id: sc-RefOD */
 
-
-        /* sc-component-id: sc-iQKALj */
 
         .cKykSe {
             float: none !important;
             display: block;
             margin: 0 auto;
-            border: 1px solid #cbcbcb;
             padding: 15px 15px 12px 0;
             padding: 0.9375rem 0.9375rem 0.75rem 0;
             width: 460px;
             width: 28.75rem;
             margin-bottom: 15px;
             margin-bottom: 0.9375rem;
+        }
+
+        .cKykSe.bordered{
+            border: 1px solid #cbcbcb;
         }
 
         @media (max-width:48.0625em) {
@@ -1309,11 +1301,10 @@
             display: none;
         }
    
-        @charset 'UTF-8';
 
         /* Slider */
         .slick-loading .slick-list {
-            background: #fff url(/assets/images/ajax-loader.gif) center center no-repeat;
+            background: #fff url("{% static 'assets/images/ajax-loader.gif' %}") center center no-repeat;
         }
 
         /* Icons */

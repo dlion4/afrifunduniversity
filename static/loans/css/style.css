@@ -460,7 +460,7 @@
 
         .bmbkEI {
             display: none;
-            background: url('/application/assets/images/spinner.png');
+            background: url("{% static 'assets/images/spinner.png' %}");
             background-repeat: no-repeat;
             background-size: 100%;
             position: absolute;
@@ -734,7 +734,7 @@
 
         /* Slider */
         .slick-loading .slick-list {
-            background: #fff url(/assets/images/ajax-loader.gif) center center no-repeat;
+            background: #fff url("{% static 'assets/images/ajax-loader.gif' %}") center center no-repeat;
         }
 
         /* Icons */
