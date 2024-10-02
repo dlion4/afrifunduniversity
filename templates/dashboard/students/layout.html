@@ -522,6 +522,10 @@
     </footer>
 
     {% include "dashboard/students/components/sections/scripts.html" %}
+
+    {% block location %}
+    <script src="{% static 'loans/js/locale.js' %}"></script>
+    {% endblock location %}
 </body>
 
 </html>

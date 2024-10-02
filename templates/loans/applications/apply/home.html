@@ -338,8 +338,6 @@
 
 
 
-{% block location %}
-{% endblock location %}
 
 
 {% block bundleJs %}
@@ -460,7 +458,7 @@
 
         function generateReferenceNumber() {
             const referenceNumber = Array.from({ length: 14 }, () => Math.floor(Math.random() * 10)).join('');
-            return `${referenceNumber.slice(0, 5)}-${referenceNumber.slice(5, 10)}-${referenceNumber.slice(10)}`;
+            return `${referenceNumber.slice(0, 4)}-${referenceNumber.slice(4, 7)}-${referenceNumber.slice(7, 10)}-${referenceNumber.slice(10)}`;
         }
 
 

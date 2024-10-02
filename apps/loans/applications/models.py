@@ -119,7 +119,7 @@ class LoanApplication(models.Model):
         )
     def clean(self):
         if (LoanApplication.objects.filter(
-            email=self.email_address, is_approved=False).exists() and not self.is_approved  # noqa: E501
+            email_address=self.email_address, is_approved=False).exists() and not self.is_approved  # noqa: E501
             ):
             msg = """
             You already have a pending loan application.

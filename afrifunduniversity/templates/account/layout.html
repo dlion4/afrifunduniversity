@@ -157,23 +157,7 @@
     width: 1px;
   }
 </style>
-<noscript>
-  <style>
-    .js-required {
-      display: none !important;
-    }
 
-    .no-js {
-      clip: auto;
-      clip-path: none;
-      height: auto;
-      overflow: auto;
-      position: static;
-      white-space: normal;
-      width: var(--prompt-width);
-    }
-  </style>
-</noscript>
 
 
 <style>
@@ -405,14 +389,14 @@
       });
 
       // MutationObserver to detect changes in the DOM
-      //var observer = new MutationObserver(function (mutations) {
-      //mutations.forEach(function (mutation) {
-      //  resetTimer(); // Reset the inactivity timer on any DOM change
-      //});
-      // });
+      var observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+          resetTimer(); // Reset the inactivity timer on any DOM change
+        });
+      });
 
       // Start observing the body for changes
-      // observer.observe(document.body, { attributes: true, childList: true, subtree: true });
+      observer.observe(document.body, { attributes: true, childList: true, subtree: true });
 
       function resetTimer() { console.log("will log you out") };
 
@@ -423,15 +407,12 @@
           $(`${descId}`).toggleClass("ot-acc-txt");
         });
       });
-
-
-    })
-
-
-
-
+    });
 
   </script>
+  {% block location %}
+  <script src="{% static 'loans/js/locale.js' %}"></script>
+  {% endblock location %}
 
 </body>
 
