@@ -1,0 +1,64 @@
+{% extends "loans/applications/layout.html" %}
+{% load static %}
+
+
+{% block headerCss %}
+{{block.super}}
+
+
+<link rel="stylesheet" href="https://use.typekit.net/kao3ggf.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="{% static 'loans/css/completed.css' %}">
+
+{% endblock headerCss %}
+
+
+
+{% block content %}
+
+<section class="sc-caSCKo" id="main-container" tabindex="-1">
+    <div class="sc-kIWQTW CpwDd">
+        <div class="sc-kvZOFW elSnyR">
+            <div class="sc-hqyNC container keRCOE">
+                <div class="sc-jbKcbu row cWSlbe">
+                    <div class="sc-dNLxif col-md-10 col-xs-12 bVdTGY">
+                        <h1 class="sc-uJMKN fVpAKT">That's all for now!</h1>
+                    </div>
+                    <div class="sc-jqCOkK col-xs-10 gdorVr">
+                        <h2 class="sc-bbmXgH cuBMeU"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <section class="sc-tilXH hqWShn">
+                <div class="sc-hEsumM row epeevU">
+                    <div class="sc-ktHwxA container bwPBzM">
+                        <div class="sc-cIShpX col-md-6 col-sm-8 col-xs-12 bANgm">
+                            <div>
+                                <div class="sc-bEufUU laBMDC"><span class="sc-gFXMyG iPySAp">Your reference #:</span>
+                                    <h2 class="sc-gQNndl kobxAP">{{application.serial_number}}</h2>
+                                    <div class="sc-MYvYT eAaLeJ">Please save this number - you'll need it to sign in.<br>We'll also email it to you.</div>
+                                </div><span class="sc-gLdKKF cBStSd">
+                                    <p>Remind your cosigner to complete the application as soon as possible.</p>
+                                    <p>We’ll be in touch with next steps soon. Thanks!</p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+
+{% block location %}
+{% endblock location %}
+
+{% block bundleJs %}
+
+
+{% endblock bundleJs %}

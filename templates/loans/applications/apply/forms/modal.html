@@ -1,24 +1,114 @@
 {% load static %}
 
 
-<div class="sc-jdeSqf cESBuS" data-section-name="Loan Amount Modal">
-    <div class="sc-cBrjTV kzuKrb">
+<style>
+    /* Modal backdrop */
+    .modal-container {
+        /*display: none;*/
+        position: fixed;
+        /* Ensure the modal is fixed on the page */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        /* Semi-transparent backdrop */
+        z-index: 1000;
+        /* Make sure the modal is above other content */
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Modal content */
+    .modal-content {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+
+    /* Modal header */
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .modal-header h3 {
+        margin: 0;
+    }
+
+    /* Close button */
+    .close-modal {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    /* Modal body */
+    .modal-body {
+        margin-top: 15px;
+    }
+
+    /* Modal footer */
+    .modal-footer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    /* Buttons */
+    .modal-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .modal-button.change-amount {
+        background-color: #dc3545;
+        /* Example of different button color */
+    }
+
+    .modal-button:hover {
+        opacity: 0.9;
+    }
+</style>
+
+
+<div class="modal-container" data-modal="loanAmount" style="display: none;">
+    <div class="sc-cBrjTV kzuKrb modal-content-1">
         <div class="sc-jUpvKA iIFZTP">
-            <div class="sc-jdfcpN ksAfWO"><span class="sc-iCwjlJ hRcaWV"></span>
-                <h3 class="sc-jRuhRL kGRNjD">Confirm Amount</h3>
+            <div class="sc-jdfcpN ksAfWO"><span class="sc-iCwjlJ hRcaWV" style="transform: translate(10px 20px 0 -10px)"></span>
+                <h3 class="sc-jRuhRL kGRNjD" style="padding: 0 0 0 20px;">Confirm Amount</h3>
             </div>
             <div class="sc-fkyLDJ gQugIC">
                 <p class="sc-kNBZmU jUmNze">Be sure you requested enough to cover additional expenses beyond tuition and housing.</p>
-                <p class="sc-kNBZmU jUmNze">Amount Requested:<span class="sc-eopZyb eRhIWI">$0</span></p>
+                <p class="sc-kNBZmU jUmNze">
+                    Amount Requested:
+                    <strong>
+                        <span class="sc-eopZyb requestedValue" style="padding-left: 10px;">KES 0</span>
+                    </strong>
+                </p>
                 <p class="sc-kNBZmU jUmNze">A higher loan amount won't impact the rate you receive and there's no pre-payment penalty.</p>
-                <div class="sc-eNNmBn cPTBI"><button class="arrow-link sc-eEieub gibiUE" type="Button" data-dismiss="modal" aria-label="close" data-link-name="Change Amount">Change Amount</button><button class="arrow-link sc-eEieub gNEyLx" type="Button" data-dismiss="modal" aria-label="close" data-link-name="cancel">Continue</button></div>
+                <div class="sc-eNNmBn cPTBI">
+                    <button class="arrow-link sc-eEieub gibiUE" type="Button" name="Change Amount">
+                        Change Amount
+                    </button>
+                    <button class="arrow-link sc-eEieub gNEyLx" type="Button">
+                        Continue
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="sc-cJOK cwLKHg" tabindex="0">
-    <div class="sc-ccSCjj cVCRuM">
+<div class="modal-container" tabindex="0" data-modal="scholarshipBanner" style="display: none;">
+    <div class="sc-ccSCjj cVCRuM modal-content-1">
         <div class="sc-jKmXuR hiPMaW">
             <div>
                 <div class="sc-elNKlv gwuWjS">
@@ -29,64 +119,46 @@
                         <h1 class="sc-ecaExY cXCLhs">Before You Go</h1>
                     </div>
                     <h1 class="sc-ecaExY cXCLhs">Enter For a Chance to Win $1,000 For School</h1>
-                    <div class="sc-jqIZGH lYxAQ"><a class="sc-jMMfwr kFncay">Enter Now</a></div>
+                    <div class="sc-jqIZGH lYxAQ"><a class="sc-jMMfwr kFncay" role="button">Enter Now</a></div>
                 </div>
             </div>
-            <div class="sc-jGxEUC gMucQl" id="pop-up-promo-form">
-                <div class="sc-cjHlYL iOrMfo">
-                    <div class="sc-dRaagA eMyMTq">
-                        <div class="sc-kUaPvJ cldneS">
-                            <div class="sc-fOKMvo iZCjJA">
-                                <div class="sc-dUjcNx dXjDpY" type="select">
-                                    <div>
-                                        <div class="Select sc-cqCuEk cwehDU Select--single is-searchable">
-                                            <div class="Select-control"><span class="Select-multi-value-wrapper" id="react-select-4--value">
-                                                    <div class="Select-placeholder">Select...</div>
-                                                    <div class="Select-input" style="display: inline-block;">
-                                                        <style>
-                                                            input#undefined::-ms-clear {
-                                                                display: none;
-                                                            }
-                                                        </style><input autocomplete="disabled" role="combobox" aria-expanded="false" aria-owns="" aria-haspopup="false" aria-activedescendant="react-select-4--value" aria-describedby="" aria-label="I am a ..." tabindex="0" value="" style="width: 5px; box-sizing: content-box;">
-                                                        <div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: europa, sans-serif; font-weight: 300; font-style: normal; letter-spacing: normal; text-transform: none;"></div>
-                                                    </div>
-                                                </span><span class="Select-arrow-zone"><span class="Select-arrow"></span></span></div>
-                                        </div>
-                                    </div><label class="sc-lkqHmb bnFJId" for="borrower-status" type="select"><span>I am a ...</span></label><span class="sc-fYiAbW eRawbo" type="select" data-error="error"></span>
-                                </div>
-                            </div>
-                            <div class="sc-dliRfk jXFruW" display="false"><span class="sc-kLIISr iMLJPJ"></span></div>
-                        </div>
-                        <div class="sc-fOKMvo iZCjJA">
-                            <div class="sc-dUjcNx dXjDpY" type="text"><input type="text" class="sc-eilVRo byoPMv" id="first-name" aria-invalid="true" aria-required="true" aria-describedby="" maxlength="24" data-field-name="Promo Modal First Name" required=""><label class="sc-lkqHmb uAnUc" for="first-name" type="text"><span>First Name</span></label><!-- react-text: 925 --><!-- /react-text --><span class="sc-fYiAbW eRawbo" type="text" data-error="error"></span></div>
-                        </div>
-                        <div class="sc-fOKMvo iZCjJA">
-                            <div class="sc-dUjcNx dXjDpY" type="text"><input type="text" class="sc-eilVRo byoPMv" id="last-name" aria-invalid="true" aria-required="true" aria-describedby="" maxlength="24" data-field-name="Promo Modal Last Name" required=""><label class="sc-lkqHmb uAnUc" for="last-name" type="text"><span>Last Name</span></label><span class="sc-fYiAbW eRawbo" type="text" data-error="error"></span></div>
-                        </div>
-                        <div class="sc-fOKMvo iZCjJA">
-                            <div class="sc-dUjcNx dXjDpY" type="email"><input type="email" class="sc-eilVRo byoPMv" id="email-address" aria-invalid="true" aria-required="true" aria-describedby="" maxlength="50" data-field-name="Promo Modal Email" required="" data-hj-suppress="true"><label class="sc-lkqHmb uAnUc" for="email-address" type="email"><span>Email Address</span></label><span class="sc-fYiAbW eRawbo" type="email" data-error="error"></span></div>
-                        </div>
-                        <div class="sc-fOKMvo iZCjJA">
-                            <div class="sc-dUjcNx dXjDpY" type="tel"><input type="tel" class="sc-gHboQg cygsUF" id="phone-number" aria-invalid="true" aria-required="true" aria-describedby="" maxlength="16" data-field-name="Promo Modal Phone" required="" data-hj-suppress="true"><label class="sc-lkqHmb uAnUc" for="phone-number" type="tel"><span>Phone Number</span></label><span class="sc-fYiAbW eRawbo" type="tel" data-error="error"></span></div>
-                        </div>
-                        <div class="sc-dREXXX ghrfBf">
-                            <div>
-                                <div class="sc-fOKMvo iZCjJA">
-                                    <div class="sc-dUjcNx dXjDpY" type="checkbox"><input type="checkbox" class="electronic_communication sc-iGPElx dXAXJT" id="promo consent" placeholder="" required="" aria-required="true" value="on"><label class="sc-kasBVs fOJLOe" for="promo consent" placeholder="I certify that I have read and agree to the <a href=&quot;/promotions/monthly-scholarship-award/rules/&quot; target=&quot;_blank&quot; data-link-name=&quot;Rules and Regulations&quot;>Rules and Regulations</a> of this contest and <a href=&quot;/privacy/&quot; data-link-name=&quot;Privacy Policy&quot; target=&quot;_blank&quot;>Privacy Policy</a>. I also grant Afri Fund Student Loans permission to contact me via email.">
-                                            <div class="sc-chbbiW iuDHHO"><span>I certify that I have read and agree to the <a href="" target="_blank" data-link-name="Rules and Regulations">Rules and Regulations</a> of this contest and <a href="/privacy/" data-link-name="Privacy Policy" target="_blank">Privacy Policy</a>. I also grant Afri Fund Student Loans permission to contact me via email.</span></div>
-                                        </label><label class="sc-lkqHmb fEIWWB" for="promo consent" type="checkbox"><span></span></label><span class="sc-fYiAbW esFYfm" type="checkbox" data-error="error"></span></div>
-                                </div>
-                            </div>
-                            <p class="sc-hcmgZB dlscCL">No Purchase Necessary</p>
-                            <div class="sc-hSdWYo gJFFhu">
-                                <button class="sc-kEYyzF bTpaUX" disabled="" tabindex="0" aria-label="Submit Entry" aria-describedby="button-describer">
-                                    Submit Entry
-                                    <span class="sc-kkGfuU bmbkEI"></span></button>
-                                <p class="sc-iAyFgw kPJnip" aria-hidden="false" id="button-describer">submit</p>
-                            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal-container" data-modal="scholarshipEntryForm" style="display: none;">
+    <div class="sc-cBrjTV kzuKrb modal-content-1">
+        <div class="sc-jUpvKA iIFZTP">
+            <div class="sc-jdfcpN ksAfWO">
+                <span class="sc-iCwjlJ hRcaWV" style="transform: translate(10px 20px 0 -10px)"></span>
+                <h3 class="sc-jRuhRL kGRNjD" style="padding: 0 0 0 20px;">Submit Details to enter</h3>
+            </div>
+            <div class="sc-dRaagA" style="padding: 20px 30px 50px 30px">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <c-input field={{scholarship_form.participant_identity}} type="text" field_name="{{scholarship_form.participant_identity.name}}" field_label_id="{{scholarship_form.participant_identity.id_for_label}}" field_label="{{scholarship_form.participant_identity.label}}"></c-input>
+
+                    <c-input field={{scholarship_form.first_name}} type="text" field_name="{{scholarship_form.first_name.name}}" field_label_id="{{scholarship_form.first_name.id_for_label}}" field_label="{{scholarship_form.first_name.label}}"></c-input>
+
+                    <c-input field={{scholarship_form.last_name}} type="text" field_name="{{scholarship_form.last_name.name}}" field_label_id="{{scholarship_form.last_name.id_for_label}}" field_label="{{scholarship_form.last_name.label}}"></c-input>
+
+                    <c-input field={{scholarship_form.email_address}} type="text" field_name="{{scholarship_form.email_address.name}}" field_label_id="{{scholarship_form.email_address.id_for_label}}" field_label="{{scholarship_form.email_address.label}}"></c-input>
+
+                    <c-input field={{scholarship_form.phone}} type="text" field_name="{{scholarship_form.phone.name}}" field_label_id="{{scholarship_form.phone.id_for_label}}" field_label="{{scholarship_form.phone.label}}"></c-input>
+
+                    <div class="sc-dREXXX">
+                        <p class="sc-hcmgZB dlscCL">No Purchase Necessary</p>
+                        <div class="sc-hSdWYo gJFFhu">
+                            <button class="sc-kEYyzF bTpaUX" type="submit">Submit Entry
+                                <span class="sc-kkGfuU bmbkEI"></span>
+                            </button>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

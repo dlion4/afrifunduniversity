@@ -1,0 +1,99 @@
+<style>
+    /* Hide the default checkbox */
+    .custom-checkbox input[type="checkbox"] {
+        display: none;
+    }
+
+    /* Create a custom checkbox */
+    .custom-checkbox label {
+        position: relative;
+        padding-left: 30px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .custom-checkbox label:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        /* Width of the custom checkbox */
+        height: 20px;
+        /* Height of the custom checkbox */
+        border: 2px solid #00a4b3;
+        /* Border color */
+        border-radius: 3px;
+        /* Rounded corners */
+        background-color: #fff;
+        /* Background color */
+        transition: background 0.3s, border-color 0.3s;
+        /* Transition for the background and border color */
+    }
+
+    /* Checked state */
+    .custom-checkbox input[type="checkbox"]:checked+label:before {
+        background-color: #00a4b3;
+        /* Background color when checked */
+        border-color: #00a4b3;
+        /* Border color when checked */
+    }
+
+    /* Checkmark */
+    .custom-checkbox input[type="checkbox"]:checked+label:after {
+        content: "";
+        position: absolute;
+        left: 8px;
+        /* Adjust left position for centering */
+        top: 6px;
+        /* Adjust top position for centering */
+        width: 5px;
+        /* Width of the checkmark */
+        height: 10px;
+        /* Height of the checkmark */
+        border: solid white;
+        /* Color of the checkmark */
+        border-width: 0 2px 2px 0;
+        /* Checkmark styling */
+        transform: rotate(45deg);
+        /* Rotate the checkmark */
+    }
+</style>
+
+<section class="form-section" id="form-section-2" style="display: none;">
+    <h4 class="sc-hwcHae cpYbih">Student Contact Info</h4>
+
+    <c-input field={{form.phone}} type="tel" field_name="{{form.phone.name}}">
+        <c-tooltip description={{form.phone.help_text}}></c-tooltip>
+    </c-input>
+
+    <div class="sc-fOKMvo iZCjJA">
+        <div class="sc-dUjcNx dXjDpY" type="checkbox" style="display: flex;">
+            <div class="custom-checkbox">
+                {{form.telephone_consumer_protection}}
+                <label for="{{form.telephone_consumer_protection.id_for_label}}">{{form.telephone_consumer_protection.label}}</label>
+            </div>
+        </div>
+    </div>
+
+    <c-input field={{form.permanent_address}} field_name="{{form.permanent_address.name}}">
+        <c-tooltip description={{form.permanent_address.help_text}}></c-tooltip>
+    </c-input>
+
+    <c-input field={{form.address_2}}></c-input>
+
+
+    <c-input field={{form.city_town}} field_name="{{form.city_town.name}}"><c-tooltip description={{form.city_town.help_text}}></c-tooltip></c-input>
+    <c-input field={{form.home_county}} field_name="{{form.home_county.name}}"><c-tooltip description={{form.home_county.help_text}}></c-tooltip></c-input>
+    <c-input field={{form.residence_county}} field_name="{{form.residence_county.name}}"><c-tooltip description={{form.residence_county.help_text}}></c-tooltip></c-input>
+
+    <c-input field={{form.zip_code}} field_name="{{form.zip_code.name}}"><c-tooltip description={{form.zip_code.help_text}}></c-tooltip></c-input>
+
+
+
+
+
+
+</section>

@@ -10,77 +10,19 @@
 <link href="{% static 'loans/css/main.css' %}" rel="stylesheet">
 {% include "loans/applications/apply/css/form.html" %}
 
+
 <style>
-    .select2-container--default .select2-selection--single {
-        min-height: 50px;
-        /* Adjust as needed */
-        display: flex;
-        /* Use flexbox for alignment */
-        align-items: center;
-        /* Center vertically */
-        padding: 0 10px;
-        /* Horizontal padding for better touch targets */
-        border: 1px solid #ccc;
-        /* Optional: add a border for visibility */
-        border-radius: 4px;
-        /* Optional: add rounded corners */
+    .next-button {
+        position: relative;
     }
 
-    .select2-container--default .select2-selection--single .select2-selection__rendered {
-        line-height: 50px;
-        /* Align text with the height */
-        overflow: hidden;
-        /* Prevent text overflow */
-        white-space: nowrap;
-        /* Prevent text wrapping */
-        text-overflow: ellipsis;
-        /* Show ellipsis for overflowed text */
-    }
-
-    .select2-container--default .select2-selection--single .select2-selection__arrow {
-        height: 50px;
-        /* Ensure the arrow aligns with the height */
+    .spinner img {
+        position: absolute;
+        right: 10px;
         top: 50%;
-        /* Center vertically */
         transform: translateY(-50%);
-        /* Adjust for perfect centering */
-    }
-
-    /* Keep the options text consistent with the page */
-    .select2-container--default .select2-results__option {
-        font-family: inherit;
-        /* Inherit font from parent */
-        font-size: inherit;
-        /* Inherit font size from parent */
-        padding: 10px;
-        /* Add padding to options for better touch targets */
-    }
-
-    /* Responsive styles */
-    @media (max-width: 768px) {
-        .select2-container--default .select2-selection--single {
-            min-height: 40px;
-            /* Reduce height for smaller screens */
-            font-size: 14px;
-            /* Adjust font size if necessary */
-        }
-
-        .select2-container--default .select2-selection--single .select2-selection__rendered {
-            line-height: 40px;
-            /* Align text with the new height */
-        }
-
-        .select2-container--default .select2-selection--single .select2-selection__arrow {
-            height: 40px;
-            /* Adjust arrow height */
-        }
-    }
-
-
-
-    select,
-    option {
-        cursor: pointer;
+        width: 20px;
+        height: 20px;
     }
 </style>
 
@@ -96,77 +38,28 @@
 {% include "loans/applications/apply/forms/information.html" %}
 
 
+{% include "loans/applications/apply/forms/modal.html" %}
+
+
 {% endblock content %}
 
 
 
 {% block location %}
-{{block.super}}
 {% endblock location %}
 
 
 {% block bundleJs %}
 
 <script>
-    $(document).ready(function () {
-        $('.js-basic-single').select2();
-    });
+    $(document).ready(function () { $('.js-basic-single').select2(); });
 </script>
 
 
 
 <script>
-    $(document).ready(function () {
-        loadJSFile("{% static 'loans/js/validation.js' %}", function () { }, document.body);
-    })
+    $(document).ready(function () { loadJSFile("{% static 'loans/js/validation.js' %}", function () { }, document.body); })
 </script>
 
-<script>
-    $(document).ready(function () {
-        $("#uploadForm").submit(function (event) {
-            event.preventDefault();
-            // Get the URL parameters
-            const urlParams = new URLSearchParams(window.location.search);
-            const searchParams = {};
-
-            // Convert URL parameters to an object
-            for (const [key, value] of urlParams.entries()) {
-                searchParams[key] = value;
-            }
-
-            // Serialize the form data
-            const formData = $(this).serializeArray();
-
-            // Convert serialized form data to an object
-            const formDataObject = {};
-            formData.forEach(field => {
-                formDataObject[field.name] = field.value;
-            });
-
-            // Combine both objects
-            const combinedData = {
-                ...formDataObject,
-                ...searchParams
-            };
-
-            $.ajax({
-                url: $(this).attr("action"),
-                type: 'POST',
-                data: JSON.stringify(combinedData),
-                headers: {
-                    "X-CSRFToken": $("input[name='csrfmiddlewaretoken']").val(), // Correct selector
-                },
-                processData: false,
-                contentType: false,
-                success: function (response) {
-                    console.log(response);
-                },
-                error: function (xhr, status, error) {
-                    console.log(xhr.responseText);
-                }
-            })
-        });
-    })
-</script>
 
 {% endblock bundleJs %}

@@ -1,3 +1,5 @@
+{% load static %}
+
 <style type="text/css" data-styled-components="" data-styled-components-is-local="false">
     .icon-alert:before {
         content: "\62";
@@ -7231,4 +7233,54 @@
         background-image: url('https://cdn.cookielaw.org/logos/static/ot_persistent_cookie_icon.png')
     }
 </style>
-<!-- <link href="https://files1.cybba.solutions/_assets/vtmarketing.min.css" type="text/css" rel="stylesheet"> -->
+<style>
+    .select2-container--default .select2-selection--single {
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        line-height: 50px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        height: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .select2-container--default .select2-results__option {
+        font-family: inherit;
+        font-size: inherit;
+        padding: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .select2-container--default .select2-selection--single {
+            min-height: 40px;
+            font-size: 14px;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 40px;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 40px;
+        }
+    }
+
+
+
+    select,
+    option {
+        cursor: pointer;
+    }
+</style>

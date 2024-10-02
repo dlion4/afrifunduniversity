@@ -120,6 +120,8 @@ class LoanApplicationForm(forms.ModelForm):
     # META ACCEPT
     telephone_consumer_protection = forms.BooleanField(
         required=True,
+        initial=True,
+        label="I agree to the telephone consumer protection policy",
         widget=forms.CheckboxInput(attrs={"class": "form-check-input"}),
     )
 
@@ -274,3 +276,37 @@ class LoanApplicationForm(forms.ModelForm):
     def get_security_protection_mechanism_text(self):
         return "We use SSL security and 256-bit encryption to keep your information safe."  # noqa: E501
 
+
+
+class ScholarShipEntryForm(forms.Form):
+    participant_identity = forms.ChoiceField(
+        widget=forms.Select(
+            attrs={
+                "class": "sc-eilVRo byoPMv js-basic-single",
+            },
+        ),
+        choices=(
+            ("UNDERGRADUATE", "UNDERGRADUATE STUDENT"),
+            ("GRADUATE", "GRADUATE STUDENT"),
+            ("PARENT", "PARENT"),
+            ),
+        help_text="""""",
+    )
+    first_name = forms.CharField(max_length=300,widget=forms.TextInput(
+        attrs={
+            "class": "form-control sc-eilVRo byoPMv",
+            "placeholder": "First name",
+    }))
+    last_name = forms.CharField(max_length=300,widget=forms.TextInput(attrs={
+            "class": "form-control sc-eilVRo byoPMv",
+            "placeholder": "Last name",
+    }))
+    email_address = forms.CharField(max_length=300,widget=forms.EmailInput(attrs={
+            "class": "form-control sc-eilVRo byoPMv",
+            "placeholder": "Email Address",
+    }))
+    phone = forms.CharField(widget=forms.TextInput(attrs={
+        "class": "form-control sc-eilVRo byoPMv",
+        "id": "phoneInput",
+        "placeholder":"07xxxxxxxxxx",
+    }))

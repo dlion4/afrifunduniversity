@@ -61,7 +61,6 @@
     }
 
     #main-container-step-1,
-
     #main-container-step-2 {
         min-height: 55vh;
         transform: translateY(2.8rem);
@@ -134,14 +133,14 @@
                 <div class="sc-gzOgki col-md-5 col-sm-6 col-xs-12 brApOG">
                     <div class="sc-hSdWYo gJFFhu">
                         <button class="sc-kEYyzF hjPaXi" data-action="new" tabindex="0" aria-label="Start a New Application" aria-describedby="button-describer">
-                            Start a New Application<span class="sc-kkGfuU bmbkEI"></span>
+                            Start a New Application<span class="spinner"></span>
                         </button>
                         <p class="sc-iAyFgw kPJnip" aria-hidden="false" id="button-describer"></p>
                     </div>
                     <div style="margin: 1.3rem 0;"></div>
                     <div class="sc-hSdWYo gJFFhu">
                         <button class="sc-kEYyzF hjPaXi" data-action="existing" tabindex="0" aria-label="Return to an Existing Application" aria-describedby="button-describer">
-                            Return to an Existing Application<span class="sc-kkGfuU bmbkEI"></span>
+                            Return to an Existing Application<span class="spinner"></span>
                         </button>
                         <p class="sc-iAyFgw kPJnip" aria-hidden="false" id="button-describer"></p>
                     </div>
@@ -169,7 +168,7 @@
             <div class="sc-hSdWYo gJFFhu">
                 <button type="button" class="sc-kEYyzF bTpaUX get-started-btn" tabindex="0" aria-label="Get Started" aria-describedby="button-describer">
                     Get Started
-                    <span class="sc-kkGfuU bmbkEI spinner" id="spinner"></span>
+                    <span class="spinner"></span>
                 </button>
                 <p class="sc-iAyFgw kPJnip" aria-hidden="false" id="button-describer"></p>
             </div>
@@ -178,25 +177,14 @@
             <div class="sc-bXGyLb col-md-6 col-sm-9 col-xs-12 kTozof">
                 <h3>To complete your application, you’ll need:</h3>
                 <ul>
-                    <li>
-                        <span>Your national identification number</span>
-                    </li>
-                    <li>
-                        <span>Your school name (must be one of our partnered universities)</span>
-                    </li>
-                    <li>
-                        <span>Your estimated annual fees</span>
-                    </li>
-                    <li>
-                        <span>The amount you’d like to borrow</span>
-                    </li>
+                    <li><span>Your national identification number</span></li>
+                    <li><span>University and the university calling letter</span></li>
+                    <li><span>Your estimated annual fees</span></li>
+                    <li><span>The amount you’d like to borrow</span></li>
+                    <li><span>KUCCPS placement code (verification)</span></li>
                 </ul>
                 <h3>Once approved, you’ll see your interest rates.</h3>
-                <p>
-                    Already started an application?
-                    <a class="continue-to-find-application" href="">Find it here</a>
-                    .
-                </p>
+                <p>Already started an application?<a class="continue-to-find-application" role="button">Find it here</a>.</p>
             </div>
         </div>
         <div>
@@ -371,7 +359,9 @@
 
     $(document).ready(function () {
         const currentUrl = new URL(window.location.href);
+        let previousPageTracker = { currentPage: '' }
         $("#main-container-step-1").find("button.sc-kEYyzF").each(function () {
+
             $(this).click(function () {
                 let encodedPerson = btoa(encodeURIComponent($(this).text().trim()));
                 console.log(encodedPerson);
@@ -383,7 +373,8 @@
                     currentUrl.searchParams.set("SC", encodedPerson);
                     window.history.replaceState(null, "", currentUrl);
                     $("#main-container-step-1").fadeOut(500, function () {
-                        $("#main-container-step-2").fadeIn(500);
+                        $("#main-container-step-2").fadeIn(500, function () {
+                        });
                     });
                 }, 1000);
             })
@@ -407,27 +398,41 @@
                     $("#overlay").hide();
 
                     $("#main-container-step-2").fadeOut(500, function () {
-                        $(nextScreen).fadeIn(500);
+                        $(nextScreen).fadeIn(500, function () {
+                            // to find application
+                            $(nextScreen).find("a.continue-to-find-application").click(function (event) {
+                                event.preventDefault();
+                                $(nextScreen).fadeOut(500, function () {
+                                    $("#main-container-step-4").fadeIn(500, function () {
+                                        console.log(applicationNumber);
+                                    });
+                                });
+                            });
+
+                            $(nextScreen).find("button.get-started-btn").click(function () {
+                                currentUrl.searchParams.set("application_reference_number", btoa(generateReferenceNumber()));
+                                const applyUrl = "{% url 'loans:applications:application_entry_form' %}";
+                                let applyFullUrl = new URL(applyUrl, window.location.origin);
+                                currentUrl.searchParams.forEach(function (value, key) {
+                                    applyFullUrl.searchParams.set(key, value);
+                                });
+
+                                $("#spinner").show();
+                                $("#overlay").show();
+
+                                setTimeout(function () {
+                                    window.location.href = applyFullUrl.href;
+                                }, 2000);
+                            });
+
+                        });
                     });
                 }, 1000);
 
             })
         })
 
-        $(".get-started-btn").click(function () {
-            const urlParams = new URLSearchParams(window.location.search);
 
-            const paramsString = urlParams.toString();
-            const applyUrl = "{% url 'loans:applications:application_entry_form' %}";
-            const newUrl = paramsString ? `${applyUrl}?${paramsString}` : applyUrl;
-
-            $("#spinner").show();
-            $("#overlay").show();
-
-            setTimeout(function () {
-                window.location.href = newUrl;
-            }, 2000); // Adjust delay as needed
-        });
 
 
         $(".findApplicationForm").submit(function (event) {
@@ -445,9 +450,18 @@
 
         $(".findApplicationForm").find("button[type=button]").click(function () {
             $("#main-container-step-4").fadeOut(500, function () {
-                $("#main-container-step-2").fadeIn(500);
+                $("#main-container-step-2").fadeIn(500, function () {
+                });
             });
         })
+
+
+
+
+        function generateReferenceNumber() {
+            const referenceNumber = Array.from({ length: 14 }, () => Math.floor(Math.random() * 10)).join('');
+            return `${referenceNumber.slice(0, 5)}-${referenceNumber.slice(5, 10)}-${referenceNumber.slice(10)}`;
+        }
 
 
     });

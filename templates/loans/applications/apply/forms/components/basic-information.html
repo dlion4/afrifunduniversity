@@ -1,0 +1,9 @@
+<section class="form-section" id="form-section-1" style="display: none;">
+    <h4 class="sc-hwcHae cpYbih">Student Basic Info</h4>
+    <c-input field={{form.first_name}} type="text" field_name="{{form.first_name.name}}"></c-input>
+    <c-input field={{form.middle_name}} type="text" field_name="{{form.middle_name.name}}"></c-input>
+    <c-input field={{form.last_name}} type="text" field_name="{{form.last_name.name}}"></c-input>
+    <c-input field={{form.email_address}} type="email" field_name="{{form.email_address.name}}">
+        <c-tooltip description={{form.email_address.help_text}}></c-tooltip>
+    </c-input>
+</section>

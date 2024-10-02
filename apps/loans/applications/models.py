@@ -1,5 +1,12 @@
 from django.db import models
-from .choices import PartneredUniversity, SupportedCourse, Counties, MEAN_GRADE_CHOICES, YEAR_OF_STUDY
+from django.urls import reverse
+
+from .choices import MEAN_GRADE_CHOICES
+from .choices import YEAR_OF_STUDY
+from .choices import Counties
+from .choices import PartneredUniversity
+from .choices import SupportedCourse
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 class LoanCategory(models.Model):
@@ -34,11 +41,11 @@ class LoanApplication(models.Model):
     city_town = models.CharField(max_length=100)
     home_county = models.CharField(
         max_length=100,
-        choices=Counties.choices
+        choices=Counties.choices,
     )
     residence_county = models.CharField(
         max_length=100,
-        choices=Counties.choices
+        choices=Counties.choices,
     )
     zip_code = models.CharField(max_length=100)
 
@@ -75,8 +82,10 @@ class LoanApplication(models.Model):
     # loan_amount = models.DecimalField(max_digits=10, decimal_places=2)
     semester_fee = models.DecimalField(max_digits=10, decimal_places=2)
     annual_fee = models.DecimalField(max_digits=10, decimal_places=2)
-    government_support_fee = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
-    helb_applied_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    government_support_fee = models.DecimalField(
+        max_digits=10, decimal_places=2, default=0.00)
+    helb_applied_amount = models.DecimalField(
+        max_digits=10, decimal_places=2, default=0.00)
 
 
     # VERIFICATION DOCUMENTATION
@@ -93,11 +102,38 @@ class LoanApplication(models.Model):
 
     # Commitment information
     telephone_consumer_protection = models.BooleanField(default=False)
+    is_approved = models.BooleanField(default=False)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["email_address"],
+                condition=models.Q(is_approved=False),
+                name="unique_email_pending_application",
+            ),
+        ]
 
     def __str__(self):
         return (
             f"{self.first_name} {self.last_name} Application"
         )
+    def clean(self):
+        if (LoanApplication.objects.filter(
+            email=self.email_address, is_approved=False).exists() and not self.is_approved  # noqa: E501
+            ):
+            msg = """
+            You already have a pending loan application.
+            You cannot submit another until it's approved."""
+            raise ValidationError(msg)
+
+    def get_completed_url(self):
+        return reverse(
+            "loans:applications:application_completed_view",
+            kwargs={
+                "serial_number_slug": self.serial_number,
+                "application_pk": self.pk,
+            },
+     )
 
 class LoanRepayment(models.Model):
     loan_application = models.ForeignKey(

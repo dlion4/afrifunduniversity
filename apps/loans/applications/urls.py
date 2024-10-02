@@ -25,4 +25,9 @@ urlpatterns = [
         views.LoanApplicationFormView.as_view(),
         name="application_entry_form",
     ),
+    path(
+        "apply<application_pk>/_#/<serial_number_slug>/completed",
+        views.LoanApplicationCompletedView.as_view(),
+        name="application_completed_view",
+    ),
 ]

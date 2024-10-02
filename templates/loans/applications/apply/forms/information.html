@@ -1,5 +1,8 @@
 {% load static %}
 
+
+<link rel="stylesheet" href='{% static "loans/css/findapplication.css" %}'>
+
 <style>
     .error {
         color: red;
@@ -13,224 +16,76 @@
     <div class="sc-fjhmcy kTHGXN">
         {% include "loans/applications/apply/forms/modal.html" %}
 
-        <form action="{% url 'loans:applications:application_entry_form' %}" method="post" id="uploadForm">
-            {% csrf_token %}
-            <div class="sc-kvZOFW elSnyR">
-                <div class="sc-hqyNC container keRCOE">
-                    <div class="sc-jbKcbu row cWSlbe">
-                        <div class="sc-dNLxif col-xs-10 bVdTGY">
-                            <h1 class="sc-uJMKN fVpAKT">Here's the Borrower Application</h1>
-                        </div>
-                        <div class="sc-jqCOkK col-xs-10 gdorVr">
-                            <h2 class="sc-bbmXgH cuBMeU">
-                                <a class="continue-to-find-application" href="">
-                                    Or, find your existing application
-                                </a>
-                            </h2>
-                        </div>
+        <div class="sc-kvZOFW elSnyR">
+            <div class="sc-hqyNC container keRCOE">
+                <div class="sc-jbKcbu row cWSlbe">
+                    <div class="sc-dNLxif col-xs-10 bVdTGY">
+                        <h1 class="sc-uJMKN fVpAKT">Here's the Borrower Application</h1>
+                    </div>
+                    <div class="sc-jqCOkK col-xs-10 gdorVr">
+                        <h2 class="sc-bbmXgH cuBMeU">
+                            <a class="continue-to-find-application" href="">
+                                Or, find your existing application
+                            </a>
+                        </h2>
                     </div>
                 </div>
             </div>
-
+        </div>
+        <form action="{% url 'loans:applications:application_entry_form' %}" method="post" id="uploadForm">
+            {% csrf_token %}
             <section class="sc-tilXH hqWShn">
                 <div class="sc-hEsumM row epeevU">
                     <div class="sc-ktHwxA container bwPBzM">
                         <div class="sc-cIShpX col-md-9 col-sm-8 col-xs-12 bANgm">
                             <!-- basic information -->
-                            <h4 class="sc-hwcHae cpYbih">Student Basic Info</h4>
-
-                            <c-input field={{form.first_name}} type="text"></c-input>
-                            <c-input field={{form.middle_name}} type="text"></c-input>
-                            <c-input field={{form.last_name}} type="text"></c-input>
-                            <c-input field={{form.email_address}} type="email">
-                                <c-tooltip description={{form.email_address.help_text}}></c-tooltip>
-                            </c-input>
+                            {% include "loans/applications/apply/forms/components/basic-information.html" %}
 
                             <!-- contact information -->
-                            <h4 class="sc-hwcHae cpYbih">Student Contact Info</h4>
-
-                            <c-input field={{form.phone}} type="tel">
-                                <c-tooltip description={{form.phone.help_text}}></c-tooltip>
-                            </c-input>
-
-                            <div class="sc-fOKMvo iZCjJA">
-                                <div class="sc-dUjcNx dXjDpY" type="checkbox" style="display: flex;">
-                                    <div>
-                                        {{form.telephone_consumer_protection}}
-                                    </div>
-                                    <div style="margin-left: 2rem;">
-                                        {{form.get_consent_text}}
-                                    </div>
-                                </div>
-                            </div>
-
-                            <c-input field={{form.permanent_address}}>
-                                <c-tooltip description={{form.permanent_address.help_text}}></c-tooltip>
-                            </c-input>
-
-                            <c-input field={{form.address_2}}></c-input>
-
-
-                            <c-input field={{form.city_town}}><c-tooltip description={{form.city_town.help_text}}></c-tooltip></c-input>
-                            <c-input field={{form.home_county}}><c-tooltip description={{form.home_county.help_text}}></c-tooltip></c-input>
-                            <c-input field={{form.residence_county}}><c-tooltip description={{form.residence_county.help_text}}></c-tooltip></c-input>
-
-                            <c-input field={{form.zip_code}}><c-tooltip description={{form.zip_code.help_text}}></c-tooltip></c-input>
-
+                            {% include "loans/applications/apply/forms/components/contact-information.html" %}
 
                             <!-- personal information -->
-                            <h4 class="sc-hwcHae cpYbih">Student Personal Info</h4>
 
-                            <c-input field={{form.date_of_birth}} type="tel"></c-input>
-
-                            <div>
-                                <c-input field={{form.national_id}} type="tel">
-                                    <c-tooltip description={{form.get_security_protection_mechanism_text}}></c-tooltip>
-                                </c-input>
-                                <c-input field={{form.national_id_confirmation}}>
-                                    <c-tooltip description={{form.get_security_protection_mechanism_text}}></c-tooltip>
-                                </c-input>
-                            </div>
+                            {% include "loans/applications/apply/forms/components/personal-information.html" %}
 
                             <!-- school and loan information -->
-                            <h4 class="sc-hwcHae cpYbih">School and Education Info</h4>
+                            {% include "loans/applications/apply/forms/components/school-information.html" %}
 
 
-                            <c-input field={{form.high_school_attended}}></c-input>
+                            <!-- Loan and Financial support -->
+                            {% include "loans/applications/apply/forms/components/loan-information.html" %}
 
-                            <c-input field={{form.mean_grade_attained}} type="tel"><c-tooltip description={{form.mean_grade_attained.help_text}}></c-tooltip></c-input>
-
-
-                            <div>
-
-
-                                <c-select field={{form.college_university_admitted}}>
-                                    <c-selectTooltip title="University placed" description={{form.college_university_admitted.help_text}}></c-selectTooltip>
-                                </c-select>
-
-                                <c-select field={{form.year_of_study}}>
-                                    <c-selectTooltip title="Estimated Cost of Attendance" description={{form.year_of_study.help_text}}></c-selectTooltip>
-                                </c-select>
-
-                                <c-select field={{form.course_admitted}}>
-                                    <c-selectTooltip title="Supported Course in Partnered Universities" description={{form.course_admitted.help_text}}></c-selectTooltip>
-                                </c-select>
-
-                            </div>
-
-                            <div>
-                                <h4 class="sc-hwcHae cpYbih">Loan and Financial Support Info</h4>
-                                <div>
-
-                                    <c-input field={{form.government_support_fee}} type="tel">
-                                        <c-tooltip description={{form.government_support_fee.help_text}}></c-tooltip>
-                                    </c-input>
-
-                                    <c-input field={{form.helb_applied_amount}} type="tel">
-                                        <c-tooltip description={{form.helb_applied_amount.help_text}}></c-tooltip>
-                                    </c-input>
-
-                                    <c-input field={{form.semester_fee}} type="tel">
-                                        <c-tooltip description={{form.semester_fee.help_text}}></c-tooltip>
-                                    </c-input>
-
-                                    <c-input field={{form.annual_fee}} type="tel">
-                                        <c-tooltip description={{form.annual_fee.help_text}}></c-tooltip>
-                                    </c-input>
-
-                                    <div>
-                                        <div class="sc-ibxdXY container eFXnum">
-                                            <div class="sc-RefOD row kzCQXs">
-                                                <div class="sc-iQKALj col-sm-7 col-xs-12 iQIRBg">
-                                                    <div>
-                                                        <div>
-                                                            <div class="sc-eXEjpC bjfZur"><span class="sc-kIPQKe bpMzSD"></span>
-                                                                <h4 class="sc-kfGgVZ bMoTGd">Did you know?</h4>
-                                                            </div><span class="sc-esjQYD eKLaHG"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="sc-bwCtUz cNhWva" data-popup="help-section"><span class="sc-hrWEMg dmSFqp"></span>
-                                            <div class="sc-eTuwsz iXSARm">
-                                                <div>
-                                                    <div class="sc-eXEjpC cnTDlp"><span class="sc-kIPQKe dSrSHs"></span>
-                                                        <h4 class="sc-kfGgVZ hEHMUG">Did you know?</h4>
-                                                    </div><span class="sc-esjQYD bMSEgw"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="sc-drKuOJ zZqIh" id="requested-loan-amount-expense-reminder">
-                                        <span class="sc-cmjSyW eIWjwA">
-                                            You can use your student loan to cover costs beyond tuition and room &amp; board.
-                                            This includes books, transportation, and other supplies which can really add up.
-                                            For reference, here are typical other expenses from the Afri Fund's Average
-                                            Estimated Undergraduate Budgets, 2024-25:
-                                            <br>
-                                            Although to apply for more of this you'll need to have a collateral.
-                                        </span>
-                                        <ul class="sc-gRnDUn jtBLhp">
-                                            <li>Books - KES 300,000</li>
-                                            <li>Transportation - KES 100,000</li>
-                                            <li>Laptop &amp; Other Supplies - KES 200,000</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div>
-                                <h4 class="sc-hwcHae cpYbih">Disclosures and Consent</h4>
-                                <div>
-                                    <div class="sc-fOKMvo iZCjJA">
-                                        <div class="sc-dUjcNx dXjDpY" style="display: flex;">
-                                            <div>
-                                                <input title="electronic_communication" type="checkbox" class="electronic_communication">
-                                            </div>
-                                            <div class="sc-kasBVs" style="margin-left: 2rem;">
-                                                <div class="sc-chbbiW iuDHHO">
-                                                    <span>
-                                                        I have received and agree to Afri Fund’s Consent to
-                                                        <a href="javascript:void(0)" class="popup-trigger" data-popup-trigger="">
-                                                            Electronic Receipt of Consumer Disclosures</a>,
-                                                        <a href="/privacy/" target="_blank">Privacy Policy</a> and
-                                                        <a href="/terms-of-use/" target="_blank">Terms of Use</a>.
-                                                        By agreeing to receive my account opening disclosures and servicing communications,
-                                                        including monthly billing statements, electronically,
-                                                        I am confirming I have access to at least one device with internet access,
-                                                        an internet browser with modern 256-bit encryption security, and software that allows me to receive and access
-                                                        Portable Document Format (PDF) files, such as Adobe Acrobat Reader (available for download at
-                                                        <a href="http://get.adobe.com/reader/" target="_blank" aria-label="adobe reader opens in a new window">
-                                                            http://get.adobe.com/reader/</a>).
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-
-
-            <div class="sc-rBLzX col-md-8 col-sm-10 col-xs-12 cGffaf">
-                <ul class="sc-bMvGRv klFfLY">
-                    <li class="sc-CtfFt ddYKQP">
-                        <div class="sc-hSdWYo gJFFhu">
-                            <button type="submit" class="sc-kEYyzF bTpaUX" tabindex="0">
-                                Review Terms <span class="sc-kkGfuU bmbkEI spinner-btn"></span>
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
         </form>
+
+        <div class="sc-rBLzX col-md-8 col-sm-10 col-xs-12 cGffaf" style="margin-top: 2rem;"></div>
+
+        <div class="container dUVJZU">
+            <div class="row">
+                <div class="sc-laTMn col-md-8 col-sm-10 col-xs-12 eTTYbN-not-bordered">
+                    <ul class="sc-hGoxap bkBOEe">
+                        <li class="sc-fjmCvl egXtrJ">
+                            <div class="sc-hSdWYo gJFFhu">
+                                <button type="submit" class="sc-kEYyzF bTpaUX next-button" tabindex="0" style="position: relative;">
+                                    Proceed Next <span class="spinner" style="position: absolute;"></span>
+                                </button>
+                            </div>
+                        </li>
+                        <li class="sc-fjmCvl loERAN">
+                            <div class="sc-hSdWYo gJFFhu">
+                                <button type="button" class="sc-kEYyzF gQqeTy prev-button" style="display: none;">
+                                    Back
+                                    <span class="sc-kkGfuU bmbkEI"></span>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
 
     </div>

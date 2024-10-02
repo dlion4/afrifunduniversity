@@ -1,0 +1,73 @@
+<section class="form-section" id="form-section-5" style="display: none;">
+    <div>
+        <h4 class="sc-hwcHae cpYbih">Loan and Financial Support Info</h4>
+        <div>
+
+            <c-input field={{form.government_support_fee}} type="tel" field_name="{{form.government_support_fee.name}}">
+                <c-tooltip description={{form.government_support_fee.help_text}}></c-tooltip>
+            </c-input>
+
+            <c-input field={{form.helb_applied_amount}} type="tel" field_name="{{form.helb_applied_amount.name}}">
+                <c-tooltip description={{form.helb_applied_amount.help_text}}></c-tooltip>
+            </c-input>
+
+            <c-input field={{form.semester_fee}} type="tel" field_name="{{form.semester_fee.name}}">
+                <c-tooltip description={{form.semester_fee.help_text}}></c-tooltip>
+            </c-input>
+
+            <c-input field={{form.annual_fee}} type="tel" field_name="{{form.annual_fee.name}}">
+                <c-tooltip description={{form.annual_fee.help_text}}></c-tooltip>
+            </c-input>
+
+            <div>
+                <div class="sc-ibxdXY container eFXnum">
+                    <div class="sc-RefOD row kzCQXs">
+                        <div class="sc-iQKALj col-sm-7 col-xs-12 iQIRBg">
+                            <div>
+                                <div>
+                                    <div class="sc-eXEjpC bjfZur"><span class="sc-kIPQKe bpMzSD"></span>
+                                        <h4 class="sc-kfGgVZ bMoTGd">Did you know?</h4>
+                                    </div><span class="sc-esjQYD eKLaHG"></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <style>
+                            .bjfZur {
+                                transform: translateX(-130px);
+                                transition: transform 0.5s ease;
+                            }
+
+                            @media screen and (max-width: 980px) {
+                                .bjfZur {
+                                    transform: translateX(0);
+                                }
+                            }
+                        </style>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="sc-drKuOJ zZqIh" id="requested-loan-amount-expense-reminder">
+                <span class="sc-cmjSyW eIWjwA">
+                    You can use your student loan to cover costs beyond tuition and room &amp; board.
+                    This includes books, transportation, and other supplies which can really add up.
+                    For reference, here are typical other expenses from the Afri Fund's Average
+                    Estimated Undergraduate Budgets, 2024-25:
+                    <br>
+                    Although to apply for more of this you'll need to have a collateral.
+                </span>
+                <ul class="sc-gRnDUn jtBLhp">
+                    <li>Books - KES 300,000</li>
+                    <li>Transportation - KES 100,000</li>
+                    <li>Laptop &amp; Other Supplies - KES 200,000</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    {% include "loans/applications/apply/forms/components/consent.html" %}
+</section>

@@ -1,6 +1,11 @@
 <div class="sc-fOKMvo iZCjJA">
     <div class="sc-dUjcNx dXjDpY" type="text">
+        <!-- <input type="text" class="sc-fOKMvo iZCjJA-input" :value="value" @input="updateValue($event.target.value)" /> -->
+        <!-- <label for="{{field_label_id}}">{{field_label}}</label> -->
         {{field}}
+    </div>
+    <div class="error">
+        <span class="{{field_name}}-is-invalid"></span>
     </div>
     {{slot}}
 </div>

@@ -1,0 +1,14 @@
+<section class="form-section" id="form-section-3" style="display: none;">
+    <h4 class="sc-hwcHae cpYbih">Student Personal Info</h4>
+
+    <c-input field={{form.date_of_birth}} type="tel"></c-input>
+
+    <div>
+        <c-input field={{form.national_id}} type="tel">
+            <c-tooltip description={{form.get_security_protection_mechanism_text}}></c-tooltip>
+        </c-input>
+        <c-input field={{form.national_id_confirmation}}>
+            <c-tooltip description={{form.get_security_protection_mechanism_text}}></c-tooltip>
+        </c-input>
+    </div>
+</section>

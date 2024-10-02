@@ -17,6 +17,7 @@ class LoanRepaymentSerializer(serializers.ModelSerializer):
 
 class LoanApplicationSerializer(serializers.ModelSerializer):
     repayments = LoanRepaymentSerializer(many=True, read_only=True)
+    completed_url = serializers.SerializerMethodField()
     class Meta:
         model = LoanApplication
         fields = (
@@ -45,7 +46,10 @@ class LoanApplicationSerializer(serializers.ModelSerializer):
             "serial_id",
             "serial_number",
             "category",
+            "completed_url",
         )
+    def get_completed_url(self, obj:LoanApplication):
+        return obj.get_completed_url()
 
 class LoanCategorySerializer(serializers.ModelSerializer):
     applications = LoanApplicationSerializer(many=True, read_only=True)

@@ -1,0 +1,24 @@
+<section class="form-section" id="form-section-4" style="display: none;">
+    <h4 class="sc-hwcHae cpYbih">School and Education Info</h4>
+
+
+    <c-input field={{form.high_school_attended}}></c-input>
+
+    <c-input field={{form.mean_grade_attained}} type="tel"><c-tooltip description={{form.mean_grade_attained.help_text}}></c-tooltip></c-input>
+
+
+    <div>
+        <c-select field={{form.college_university_admitted}}>
+            <c-selectTooltip title="University placed" description={{form.college_university_admitted.help_text}}></c-selectTooltip>
+        </c-select>
+
+        <c-select field={{form.year_of_study}}>
+            <c-selectTooltip title="Estimated Cost of Attendance" description={{form.year_of_study.help_text}}></c-selectTooltip>
+        </c-select>
+
+        <c-select field={{form.course_admitted}}>
+            <c-selectTooltip title="Supported Course in Partnered Universities" description={{form.course_admitted.help_text}}></c-selectTooltip>
+        </c-select>
+
+    </div>
+</section>
